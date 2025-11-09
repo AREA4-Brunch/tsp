@@ -1,0 +1,54 @@
+Solving TSP
+
+
+Execution #1/1
+
+Seed: 1
+Estimated max possible cost 92.000000
+for path: 
+0 1 2 3 4 5 6 0
+Memory needed for path: 120 locs, for costs: 120 locs.
+Desired precision: 1e+12
+Mem constraint for cost_t: 8 bits
+Rounded to pow of 2 bytes mem constraint (capped at 64bits) for cost_t: 8 bits
+Bits needed for an int to preserve precision: 47
+Warning: cannot preserve precision.
+Warning: Using an integer; there is not enough memory for decimals.
+Bits used per cost_t: 8
+Selected cost_t = (u)int8_t
+Solving with cost_t = h
+Memory [GB] needed: 2.23517e-07
+Requested precision is too high;managed to differentiate costs by: 0.219902
+Distances:
+9999, 3, 5, 48, 48, 8, 8, 
+3, 9999, 3, 48, 48, 8, 8, 
+5, 3, 9999, 72, 72, 48, 48, 
+48, 48, 74, 9999, 0, 6, 6, 
+48, 48, 74, 0, 9999, 6, 6, 
+8, 8, 50, 6, 6, 9999, 0, 
+8, 8, 50, 6, 6, 0, 9999, 
+Scaled Distances:
+255, 8, 13, 123, 123, 21, 21, 
+8, 255, 8, 123, 123, 21, 21, 
+13, 8, 255, 185, 185, 123, 123, 
+123, 123, 190, 255, 0, 15, 15, 
+123, 123, 190, 0, 255, 15, 15, 
+21, 21, 129, 15, 15, 255, 0, 
+21, 21, 129, 15, 15, 0, 255, 
+Optimal total distance (scaled) for 7 points: 93
+Optimal total distance for 7 points: 36.000000
+Corresponding path (0-indexed):
+Point #6
+Point #1
+Point #2
+Point #0
+Point #5
+Point #3
+Point #4
+Point #6
+Execution time: 0 ms
+
+Elapsed time: 0 ms
+Executed runs: 1/1
+Total execution time: 0 s
+Avg execution time: 0 ms

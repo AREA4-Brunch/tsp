@@ -1,0 +1,36 @@
+Solving TSP
+
+
+Execution #1/1
+
+Seed: 1
+Estimated max possible cost 9999.000000
+for path: 
+0 0
+Memory needed for path: 1 locs, for costs: 1 locs.
+Desired precision: 1e+12
+Mem constraint for cost_t: 8 bits
+Rounded to pow of 2 bytes mem constraint (capped at 64bits) for cost_t: 8 bits
+Bits needed for an int to preserve precision: 54
+Warning: cannot preserve precision.
+Warning: Using an integer; there is not enough memory for decimals.
+Bits used per cost_t: 8
+Selected cost_t = (u)int8_t
+Solving with cost_t = h
+Memory [GB] needed: 1.86265e-09
+Requested precision is too high;managed to differentiate costs by: 70.368744
+Distances:
+9999, 
+Scaled Distances:
+253, 
+Optimal total distance (scaled) for 1 points: 253
+Optimal total distance for 1 points: 9999.000000
+Corresponding path (0-indexed):
+Point #0
+Point #0
+Execution time: 0 ms
+
+Elapsed time: 0 ms
+Executed runs: 1/1
+Total execution time: 0 s
+Avg execution time: 0 ms

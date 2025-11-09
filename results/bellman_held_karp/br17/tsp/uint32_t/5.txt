@@ -1,0 +1,45 @@
+Solving TSP
+
+
+Execution #1/1
+
+Seed: 1
+Estimated max possible cost 104.000000
+for path: 
+3 4 1 2 0 3
+Memory needed for path: 0 locs, for costs: 24 locs.
+Desired precision: 10000
+Mem constraint for cost_t: 32 bits
+Rounded to pow of 2 bytes mem constraint (capped at 64bits) for cost_t: 32 bits
+Bits needed for an int to preserve precision: 20
+Bits used per cost_t: 20
+Selected cost_t = (u)int32_t
+Solving with cost_t = j
+Memory [GB] needed: 8.9407e-08
+Distances:
+9999, 3, 5, 48, 48, 
+3, 9999, 3, 48, 48, 
+5, 3, 9999, 72, 72, 
+48, 48, 74, 9999, 0, 
+48, 48, 74, 0, 9999, 
+Scaled Distances:
+4.29497e+09, 1.1821e+08, 1.97017e+08, 1.89136e+09, 1.89136e+09, 
+1.1821e+08, 4.29497e+09, 1.1821e+08, 1.89136e+09, 1.89136e+09, 
+1.97017e+08, 1.1821e+08, 4.29497e+09, 2.83704e+09, 2.83704e+09, 
+1.89136e+09, 1.89136e+09, 2.91585e+09, 4.29497e+09, 0, 
+1.89136e+09, 1.89136e+09, 2.91585e+09, 0, 4.29497e+09, 
+Optimal total distance (scaled) for 5 points: 4.09795e+09
+Optimal total distance for 5 points: 104.000000
+Corresponding path (0-indexed):
+Point #4
+Point #1
+Point #2
+Point #0
+Point #3
+Point #4
+Execution time: 0 ms
+
+Elapsed time: 0 ms
+Executed runs: 1/1
+Total execution time: 0 s
+Avg execution time: 0 ms

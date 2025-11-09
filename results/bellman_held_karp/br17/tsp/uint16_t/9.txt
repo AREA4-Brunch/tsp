@@ -1,0 +1,60 @@
+Solving TSP
+
+
+Execution #1/1
+
+Seed: 1
+Estimated max possible cost 90.000000
+for path: 
+8 7 3 4 6 1 2 5 0 8
+Memory needed for path: 896 locs, for costs: 560 locs.
+Desired precision: 1e+12
+Mem constraint for cost_t: 16 bits
+Rounded to pow of 2 bytes mem constraint (capped at 64bits) for cost_t: 16 bits
+Bits needed for an int to preserve precision: 47
+Warning: cannot preserve precision.
+Warning: Using an integer; there is not enough memory for decimals.
+Bits used per cost_t: 16
+Selected cost_t = (u)int16_t
+Solving with cost_t = t
+Memory [GB] needed: 1.87755e-06
+Requested precision is too high;managed to differentiate costs by: 0.001284
+Distances:
+9999, 3, 5, 48, 48, 8, 8, 5, 5, 
+3, 9999, 3, 48, 48, 8, 8, 5, 5, 
+5, 3, 9999, 72, 72, 48, 48, 24, 24, 
+48, 48, 74, 9999, 0, 6, 6, 12, 12, 
+48, 48, 74, 0, 9999, 6, 6, 12, 12, 
+8, 8, 50, 6, 6, 9999, 0, 8, 8, 
+8, 8, 50, 6, 6, 0, 9999, 8, 8, 
+5, 5, 26, 12, 12, 8, 8, 9999, 0, 
+5, 5, 26, 12, 12, 8, 8, 0, 9999, 
+Scaled Distances:
+65535, 1986, 3310, 31774, 31774, 5296, 5296, 3310, 3310, 
+1986, 65535, 1986, 31774, 31774, 5296, 5296, 3310, 3310, 
+3310, 1986, 65535, 47661, 47661, 31774, 31774, 15887, 15887, 
+31774, 31774, 48985, 65535, 0, 3972, 3972, 7944, 7944, 
+31774, 31774, 48985, 0, 65535, 3972, 3972, 7944, 7944, 
+5296, 5296, 33098, 3972, 3972, 65535, 0, 5296, 5296, 
+5296, 5296, 33098, 3972, 3972, 0, 65535, 5296, 5296, 
+3310, 3310, 17211, 7944, 7944, 5296, 5296, 65535, 0, 
+3310, 3310, 17211, 7944, 7944, 5296, 5296, 0, 65535, 
+Optimal total distance (scaled) for 9 points: 25818
+Optimal total distance for 9 points: 39.000000
+Corresponding path (0-indexed):
+Point #8
+Point #4
+Point #3
+Point #6
+Point #5
+Point #1
+Point #2
+Point #0
+Point #7
+Point #8
+Execution time: 0 ms
+
+Elapsed time: 0 ms
+Executed runs: 1/1
+Total execution time: 0 s
+Avg execution time: 0 ms

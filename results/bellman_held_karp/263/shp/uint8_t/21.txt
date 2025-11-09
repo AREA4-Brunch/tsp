@@ -1,0 +1,8998 @@
+Solving SHP
+
+
+Execution #1/10000
+
+Seed: 1
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Memory needed for path: 5542509 locs, for costs: 6172530 locs.
+Desired precision: 1e+12
+Mem constraint for cost_t: 8 bits
+Rounded to pow of 2 bytes mem constraint (capped at 64bits) for cost_t: 8 bits
+Bits needed for an int to preserve precision: 48
+Warning: cannot preserve precision.
+Warning: Using an integer; there is not enough memory for decimals.
+Bits used per cost_t: 8
+Selected cost_t = (u)int8_t
+Solving with cost_t = h
+Memory [GB] needed: 0.0109105
+Requested precision is too high;managed to differentiate costs by: 4.398047
+Distances:
+0, 5.08, 242.54, 232.423, 228.124, 218.013, 212.172, 212.044, 211.947, 211.88, 211.843, 211.837, 211.862, 211.917, 212.002, 212.117, 212.263, 212.44, 212.646, 212.882, 213.149, 
+5.08, 0, 247.599, 237.481, 233.181, 223.068, 217.244, 217.119, 217.024, 216.959, 216.923, 216.917, 216.941, 216.995, 217.078, 217.191, 217.333, 217.505, 217.707, 217.938, 218.198, 
+242.54, 247.599, 0, 10.16, 14.478, 24.638, 31.3255, 32.219, 33.2827, 34.501, 35.8581, 37.3389, 38.9292, 40.6162, 42.3883, 44.2354, 46.1484, 48.1194, 50.1417, 52.2092, 54.3168, 
+232.423, 237.481, 10.16, 0, 4.318, 14.478, 21.9236, 23.1823, 24.6393, 26.2617, 28.0207, 29.8922, 31.8565, 33.8973, 36.0018, 38.1592, 40.3612, 42.6009, 44.8725, 47.1716, 49.4942, 
+228.124, 233.181, 14.478, 4.318, 0, 10.16, 18.1765, 19.6764, 21.3738, 23.2254, 25.1973, 27.2633, 29.4037, 31.6034, 33.8507, 36.1368, 38.4548, 40.7992, 43.1658, 45.5511, 47.9522, 
+218.013, 223.068, 24.638, 14.478, 10.16, 0, 11.1326, 13.4428, 15.8236, 18.2474, 20.6991, 23.1698, 25.654, 28.1482, 30.6499, 33.1575, 35.6696, 38.1854, 40.7042, 43.2255, 45.7489, 
+212.172, 217.244, 31.3255, 21.9236, 18.1765, 11.1326, 0, 2.54, 5.08, 7.62, 10.16, 12.7, 15.24, 17.78, 20.32, 22.86, 25.4, 27.94, 30.48, 33.02, 35.56, 
+212.044, 217.119, 32.219, 23.1823, 19.6764, 13.4428, 2.54, 0, 2.54, 5.08, 7.62, 10.16, 12.7, 15.24, 17.78, 20.32, 22.86, 25.4, 27.94, 30.48, 33.02, 
+211.947, 217.024, 33.2827, 24.6393, 21.3738, 15.8236, 5.08, 2.54, 0, 2.54, 5.08, 7.62, 10.16, 12.7, 15.24, 17.78, 20.32, 22.86, 25.4, 27.94, 30.48, 
+211.88, 216.959, 34.501, 26.2617, 23.2254, 18.2474, 7.62, 5.08, 2.54, 0, 2.54, 5.08, 7.62, 10.16, 12.7, 15.24, 17.78, 20.32, 22.86, 25.4, 27.94, 
+211.843, 216.923, 35.8581, 28.0207, 25.1973, 20.6991, 10.16, 7.62, 5.08, 2.54, 0, 2.54, 5.08, 7.62, 10.16, 12.7, 15.24, 17.78, 20.32, 22.86, 25.4, 
+211.837, 216.917, 37.3389, 29.8922, 27.2633, 23.1698, 12.7, 10.16, 7.62, 5.08, 2.54, 0, 2.54, 5.08, 7.62, 10.16, 12.7, 15.24, 17.78, 20.32, 22.86, 
+211.862, 216.941, 38.9292, 31.8565, 29.4037, 25.654, 15.24, 12.7, 10.16, 7.62, 5.08, 2.54, 0, 2.54, 5.08, 7.62, 10.16, 12.7, 15.24, 17.78, 20.32, 
+211.917, 216.995, 40.6162, 33.8973, 31.6034, 28.1482, 17.78, 15.24, 12.7, 10.16, 7.62, 5.08, 2.54, 0, 2.54, 5.08, 7.62, 10.16, 12.7, 15.24, 17.78, 
+212.002, 217.078, 42.3883, 36.0018, 33.8507, 30.6499, 20.32, 17.78, 15.24, 12.7, 10.16, 7.62, 5.08, 2.54, 0, 2.54, 5.08, 7.62, 10.16, 12.7, 15.24, 
+212.117, 217.191, 44.2354, 38.1592, 36.1368, 33.1575, 22.86, 20.32, 17.78, 15.24, 12.7, 10.16, 7.62, 5.08, 2.54, 0, 2.54, 5.08, 7.62, 10.16, 12.7, 
+212.263, 217.333, 46.1484, 40.3612, 38.4548, 35.6696, 25.4, 22.86, 20.32, 17.78, 15.24, 12.7, 10.16, 7.62, 5.08, 2.54, 0, 2.54, 5.08, 7.62, 10.16, 
+212.44, 217.505, 48.1194, 42.6009, 40.7992, 38.1854, 27.94, 25.4, 22.86, 20.32, 17.78, 15.24, 12.7, 10.16, 7.62, 5.08, 2.54, 0, 2.54, 5.08, 7.62, 
+212.646, 217.707, 50.1417, 44.8725, 43.1658, 40.7042, 30.48, 27.94, 25.4, 22.86, 20.32, 17.78, 15.24, 12.7, 10.16, 7.62, 5.08, 2.54, 0, 2.54, 5.08, 
+212.882, 217.938, 52.2092, 47.1716, 45.5511, 43.2255, 33.02, 30.48, 27.94, 25.4, 22.86, 20.32, 17.78, 15.24, 12.7, 10.16, 7.62, 5.08, 2.54, 0, 2.54, 
+213.149, 218.198, 54.3168, 49.4942, 47.9522, 45.7489, 35.56, 33.02, 30.48, 27.94, 25.4, 22.86, 20.32, 17.78, 15.24, 12.7, 10.16, 7.62, 5.08, 2.54, 0, 
+Scaled Distances:
+0, 2, 205, 196, 193, 184, 179, 179, 179, 179, 179, 179, 179, 179, 179, 179, 179, 179, 179, 180, 180, 
+2, 0, 209, 201, 197, 188, 183, 183, 183, 183, 183, 183, 183, 183, 183, 183, 183, 184, 184, 184, 184, 
+205, 209, 0, 7, 10, 19, 25, 25, 26, 27, 28, 30, 31, 33, 34, 36, 37, 39, 41, 42, 44, 
+196, 201, 7, 0, 2, 10, 17, 18, 19, 20, 22, 23, 25, 27, 29, 30, 32, 34, 36, 38, 40, 
+193, 197, 10, 2, 0, 7, 13, 15, 16, 18, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 
+184, 188, 19, 10, 7, 0, 7, 9, 11, 13, 16, 18, 20, 22, 24, 26, 28, 30, 33, 35, 37, 
+179, 183, 25, 17, 13, 7, 0, 0, 2, 4, 7, 9, 11, 13, 15, 17, 20, 22, 24, 26, 28, 
+179, 183, 25, 18, 15, 9, 0, 0, 0, 2, 4, 7, 9, 11, 13, 15, 17, 20, 22, 24, 26, 
+179, 183, 26, 19, 16, 11, 2, 0, 0, 0, 2, 4, 7, 9, 11, 13, 15, 17, 20, 22, 24, 
+179, 183, 27, 20, 18, 13, 4, 2, 0, 0, 0, 2, 4, 7, 9, 11, 13, 15, 17, 20, 22, 
+179, 183, 28, 22, 19, 16, 7, 4, 2, 0, 0, 0, 2, 4, 7, 9, 11, 13, 15, 17, 20, 
+179, 183, 30, 23, 21, 18, 9, 7, 4, 2, 0, 0, 0, 2, 4, 7, 9, 11, 13, 15, 17, 
+179, 183, 31, 25, 23, 20, 11, 9, 7, 4, 2, 0, 0, 0, 2, 4, 7, 9, 11, 13, 15, 
+179, 183, 33, 27, 25, 22, 13, 11, 9, 7, 4, 2, 0, 0, 0, 2, 4, 7, 9, 11, 13, 
+179, 183, 34, 29, 27, 24, 15, 13, 11, 9, 7, 4, 2, 0, 0, 0, 2, 4, 7, 9, 11, 
+179, 183, 36, 30, 29, 26, 17, 15, 13, 11, 9, 7, 4, 2, 0, 0, 0, 2, 4, 7, 9, 
+179, 183, 37, 32, 31, 28, 20, 17, 15, 13, 11, 9, 7, 4, 2, 0, 0, 0, 2, 4, 7, 
+179, 184, 39, 34, 33, 30, 22, 20, 17, 15, 13, 11, 9, 7, 4, 2, 0, 0, 0, 2, 4, 
+179, 184, 41, 36, 35, 33, 24, 22, 20, 17, 15, 13, 11, 9, 7, 4, 2, 0, 0, 0, 2, 
+180, 184, 42, 38, 37, 35, 26, 24, 22, 20, 17, 15, 13, 11, 9, 7, 4, 2, 0, 0, 0, 
+180, 184, 44, 40, 39, 37, 28, 26, 24, 22, 20, 17, 15, 13, 11, 9, 7, 4, 2, 0, 0, 
+Optimal total distance (scaled) for 21 points: 205
+Optimal total distance for 21 points: 289.559605
+Corresponding path (0-indexed):
+Point #2
+Point #3
+Point #4
+Point #5
+Point #6
+Point #7
+Point #8
+Point #9
+Point #10
+Point #11
+Point #12
+Point #13
+Point #14
+Point #15
+Point #16
+Point #17
+Point #18
+Point #19
+Point #20
+Point #0
+Point #1
+Execution time: 377 ms
+
+Elapsed time: 377 ms
+
+
+Execution #2/10000
+
+Seed: 2
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 399 ms
+
+Elapsed time: 776 ms
+
+
+Execution #3/10000
+
+Seed: 3
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 253 ms
+
+Elapsed time: 1029 ms
+
+
+Execution #4/10000
+
+Seed: 4
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 350 ms
+
+Elapsed time: 1379 ms
+
+
+Execution #5/10000
+
+Seed: 5
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 1772 ms
+
+
+Execution #6/10000
+
+Seed: 6
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 2165 ms
+
+
+Execution #7/10000
+
+Seed: 7
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 2558 ms
+
+
+Execution #8/10000
+
+Seed: 8
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 2950 ms
+
+
+Execution #9/10000
+
+Seed: 9
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 397 ms
+
+Elapsed time: 3347 ms
+
+
+Execution #10/10000
+
+Seed: 10
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 354 ms
+
+Elapsed time: 3701 ms
+
+
+Execution #11/10000
+
+Seed: 11
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 236 ms
+
+Elapsed time: 3937 ms
+
+
+Execution #12/10000
+
+Seed: 12
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 238 ms
+
+Elapsed time: 4175 ms
+
+
+Execution #13/10000
+
+Seed: 13
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 400 ms
+
+Elapsed time: 4575 ms
+
+
+Execution #14/10000
+
+Seed: 14
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 4967 ms
+
+
+Execution #15/10000
+
+Seed: 15
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 394 ms
+
+Elapsed time: 5361 ms
+
+
+Execution #16/10000
+
+Seed: 16
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 268 ms
+
+Elapsed time: 5629 ms
+
+
+Execution #17/10000
+
+Seed: 17
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 230 ms
+
+Elapsed time: 5859 ms
+
+
+Execution #18/10000
+
+Seed: 18
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 232 ms
+
+Elapsed time: 6091 ms
+
+
+Execution #19/10000
+
+Seed: 19
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 230 ms
+
+Elapsed time: 6321 ms
+
+
+Execution #20/10000
+
+Seed: 20
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 292 ms
+
+Elapsed time: 6613 ms
+
+
+Execution #21/10000
+
+Seed: 21
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 394 ms
+
+Elapsed time: 7007 ms
+
+
+Execution #22/10000
+
+Seed: 22
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 394 ms
+
+Elapsed time: 7401 ms
+
+
+Execution #23/10000
+
+Seed: 23
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 7794 ms
+
+
+Execution #24/10000
+
+Seed: 24
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 398 ms
+
+Elapsed time: 8192 ms
+
+
+Execution #25/10000
+
+Seed: 25
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 8585 ms
+
+
+Execution #26/10000
+
+Seed: 26
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 400 ms
+
+Elapsed time: 8985 ms
+
+
+Execution #27/10000
+
+Seed: 27
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 9377 ms
+
+
+Execution #28/10000
+
+Seed: 28
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 9769 ms
+
+
+Execution #29/10000
+
+Seed: 29
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 10162 ms
+
+
+Execution #30/10000
+
+Seed: 30
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 394 ms
+
+Elapsed time: 10556 ms
+
+
+Execution #31/10000
+
+Seed: 31
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 10949 ms
+
+
+Execution #32/10000
+
+Seed: 32
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 11342 ms
+
+
+Execution #33/10000
+
+Seed: 33
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 11735 ms
+
+
+Execution #34/10000
+
+Seed: 34
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 12127 ms
+
+
+Execution #35/10000
+
+Seed: 35
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 12520 ms
+
+
+Execution #36/10000
+
+Seed: 36
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 359 ms
+
+Elapsed time: 12879 ms
+
+
+Execution #37/10000
+
+Seed: 37
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 400 ms
+
+Elapsed time: 13279 ms
+
+
+Execution #38/10000
+
+Seed: 38
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 13672 ms
+
+
+Execution #39/10000
+
+Seed: 39
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 399 ms
+
+Elapsed time: 14071 ms
+
+
+Execution #40/10000
+
+Seed: 40
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 14463 ms
+
+
+Execution #41/10000
+
+Seed: 41
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 14856 ms
+
+
+Execution #42/10000
+
+Seed: 42
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 15249 ms
+
+
+Execution #43/10000
+
+Seed: 43
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 15641 ms
+
+
+Execution #44/10000
+
+Seed: 44
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 16033 ms
+
+
+Execution #45/10000
+
+Seed: 45
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 16424 ms
+
+
+Execution #46/10000
+
+Seed: 46
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 394 ms
+
+Elapsed time: 16818 ms
+
+
+Execution #47/10000
+
+Seed: 47
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 17210 ms
+
+
+Execution #48/10000
+
+Seed: 48
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 394 ms
+
+Elapsed time: 17604 ms
+
+
+Execution #49/10000
+
+Seed: 49
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 17995 ms
+
+
+Execution #50/10000
+
+Seed: 50
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 400 ms
+
+Elapsed time: 18395 ms
+
+
+Execution #51/10000
+
+Seed: 51
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 18787 ms
+
+
+Execution #52/10000
+
+Seed: 52
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 397 ms
+
+Elapsed time: 19184 ms
+
+
+Execution #53/10000
+
+Seed: 53
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 19576 ms
+
+
+Execution #54/10000
+
+Seed: 54
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 395 ms
+
+Elapsed time: 19971 ms
+
+
+Execution #55/10000
+
+Seed: 55
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 20363 ms
+
+
+Execution #56/10000
+
+Seed: 56
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 344 ms
+
+Elapsed time: 20707 ms
+
+
+Execution #57/10000
+
+Seed: 57
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 304 ms
+
+Elapsed time: 21011 ms
+
+
+Execution #58/10000
+
+Seed: 58
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 21403 ms
+
+
+Execution #59/10000
+
+Seed: 59
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 21795 ms
+
+
+Execution #60/10000
+
+Seed: 60
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 22187 ms
+
+
+Execution #61/10000
+
+Seed: 61
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 396 ms
+
+Elapsed time: 22583 ms
+
+
+Execution #62/10000
+
+Seed: 62
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 307 ms
+
+Elapsed time: 22890 ms
+
+
+Execution #63/10000
+
+Seed: 63
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 400 ms
+
+Elapsed time: 23290 ms
+
+
+Execution #64/10000
+
+Seed: 64
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 395 ms
+
+Elapsed time: 23685 ms
+
+
+Execution #65/10000
+
+Seed: 65
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 395 ms
+
+Elapsed time: 24080 ms
+
+
+Execution #66/10000
+
+Seed: 66
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 24471 ms
+
+
+Execution #67/10000
+
+Seed: 67
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 24864 ms
+
+
+Execution #68/10000
+
+Seed: 68
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 25257 ms
+
+
+Execution #69/10000
+
+Seed: 69
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 25649 ms
+
+
+Execution #70/10000
+
+Seed: 70
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 26041 ms
+
+
+Execution #71/10000
+
+Seed: 71
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 297 ms
+
+Elapsed time: 26338 ms
+
+
+Execution #72/10000
+
+Seed: 72
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 315 ms
+
+Elapsed time: 26653 ms
+
+
+Execution #73/10000
+
+Seed: 73
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 352 ms
+
+Elapsed time: 27005 ms
+
+
+Execution #74/10000
+
+Seed: 74
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 395 ms
+
+Elapsed time: 27400 ms
+
+
+Execution #75/10000
+
+Seed: 75
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 395 ms
+
+Elapsed time: 27795 ms
+
+
+Execution #76/10000
+
+Seed: 76
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 401 ms
+
+Elapsed time: 28196 ms
+
+
+Execution #77/10000
+
+Seed: 77
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 28588 ms
+
+
+Execution #78/10000
+
+Seed: 78
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 397 ms
+
+Elapsed time: 28985 ms
+
+
+Execution #79/10000
+
+Seed: 79
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 331 ms
+
+Elapsed time: 29316 ms
+
+
+Execution #80/10000
+
+Seed: 80
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 365 ms
+
+Elapsed time: 29681 ms
+
+
+Execution #81/10000
+
+Seed: 81
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 30074 ms
+
+
+Execution #82/10000
+
+Seed: 82
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 30467 ms
+
+
+Execution #83/10000
+
+Seed: 83
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 30860 ms
+
+
+Execution #84/10000
+
+Seed: 84
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 31253 ms
+
+
+Execution #85/10000
+
+Seed: 85
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 31645 ms
+
+
+Execution #86/10000
+
+Seed: 86
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 397 ms
+
+Elapsed time: 32042 ms
+
+
+Execution #87/10000
+
+Seed: 87
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 396 ms
+
+Elapsed time: 32438 ms
+
+
+Execution #88/10000
+
+Seed: 88
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 395 ms
+
+Elapsed time: 32833 ms
+
+
+Execution #89/10000
+
+Seed: 89
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 402 ms
+
+Elapsed time: 33235 ms
+
+
+Execution #90/10000
+
+Seed: 90
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 33627 ms
+
+
+Execution #91/10000
+
+Seed: 91
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 401 ms
+
+Elapsed time: 34028 ms
+
+
+Execution #92/10000
+
+Seed: 92
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 34419 ms
+
+
+Execution #93/10000
+
+Seed: 93
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 34811 ms
+
+
+Execution #94/10000
+
+Seed: 94
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 350 ms
+
+Elapsed time: 35161 ms
+
+
+Execution #95/10000
+
+Seed: 95
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 359 ms
+
+Elapsed time: 35520 ms
+
+
+Execution #96/10000
+
+Seed: 96
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 293 ms
+
+Elapsed time: 35813 ms
+
+
+Execution #97/10000
+
+Seed: 97
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 394 ms
+
+Elapsed time: 36207 ms
+
+
+Execution #98/10000
+
+Seed: 98
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 36600 ms
+
+
+Execution #99/10000
+
+Seed: 99
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 36992 ms
+
+
+Execution #100/10000
+
+Seed: 100
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 396 ms
+
+Elapsed time: 37388 ms
+
+
+Execution #101/10000
+
+Seed: 101
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 37779 ms
+
+
+Execution #102/10000
+
+Seed: 102
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 400 ms
+
+Elapsed time: 38179 ms
+
+
+Execution #103/10000
+
+Seed: 103
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 390 ms
+
+Elapsed time: 38569 ms
+
+
+Execution #104/10000
+
+Seed: 104
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 38962 ms
+
+
+Execution #105/10000
+
+Seed: 105
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 39354 ms
+
+
+Execution #106/10000
+
+Seed: 106
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 39746 ms
+
+
+Execution #107/10000
+
+Seed: 107
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 40138 ms
+
+
+Execution #108/10000
+
+Seed: 108
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 40530 ms
+
+
+Execution #109/10000
+
+Seed: 109
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 291 ms
+
+Elapsed time: 40821 ms
+
+
+Execution #110/10000
+
+Seed: 110
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 41214 ms
+
+
+Execution #111/10000
+
+Seed: 111
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 394 ms
+
+Elapsed time: 41608 ms
+
+
+Execution #112/10000
+
+Seed: 112
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 42000 ms
+
+
+Execution #113/10000
+
+Seed: 113
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 300 ms
+
+Elapsed time: 42300 ms
+
+
+Execution #114/10000
+
+Seed: 114
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 264 ms
+
+Elapsed time: 42564 ms
+
+
+Execution #115/10000
+
+Seed: 115
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 332 ms
+
+Elapsed time: 42896 ms
+
+
+Execution #116/10000
+
+Seed: 116
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 43288 ms
+
+
+Execution #117/10000
+
+Seed: 117
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 43681 ms
+
+
+Execution #118/10000
+
+Seed: 118
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 44074 ms
+
+
+Execution #119/10000
+
+Seed: 119
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 44467 ms
+
+
+Execution #120/10000
+
+Seed: 120
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 44860 ms
+
+
+Execution #121/10000
+
+Seed: 121
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 45252 ms
+
+
+Execution #122/10000
+
+Seed: 122
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 45644 ms
+
+
+Execution #123/10000
+
+Seed: 123
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 46036 ms
+
+
+Execution #124/10000
+
+Seed: 124
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 394 ms
+
+Elapsed time: 46430 ms
+
+
+Execution #125/10000
+
+Seed: 125
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 46821 ms
+
+
+Execution #126/10000
+
+Seed: 126
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 400 ms
+
+Elapsed time: 47221 ms
+
+
+Execution #127/10000
+
+Seed: 127
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 47612 ms
+
+
+Execution #128/10000
+
+Seed: 128
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 395 ms
+
+Elapsed time: 48007 ms
+
+
+Execution #129/10000
+
+Seed: 129
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 48398 ms
+
+
+Execution #130/10000
+
+Seed: 130
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 48790 ms
+
+
+Execution #131/10000
+
+Seed: 131
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 337 ms
+
+Elapsed time: 49127 ms
+
+
+Execution #132/10000
+
+Seed: 132
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 233 ms
+
+Elapsed time: 49360 ms
+
+
+Execution #133/10000
+
+Seed: 133
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 390 ms
+
+Elapsed time: 49750 ms
+
+
+Execution #134/10000
+
+Seed: 134
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 398 ms
+
+Elapsed time: 50148 ms
+
+
+Execution #135/10000
+
+Seed: 135
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 50540 ms
+
+
+Execution #136/10000
+
+Seed: 136
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 372 ms
+
+Elapsed time: 50912 ms
+
+
+Execution #137/10000
+
+Seed: 137
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 231 ms
+
+Elapsed time: 51143 ms
+
+
+Execution #138/10000
+
+Seed: 138
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 231 ms
+
+Elapsed time: 51374 ms
+
+
+Execution #139/10000
+
+Seed: 139
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 368 ms
+
+Elapsed time: 51742 ms
+
+
+Execution #140/10000
+
+Seed: 140
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 52134 ms
+
+
+Execution #141/10000
+
+Seed: 141
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 401 ms
+
+Elapsed time: 52535 ms
+
+
+Execution #142/10000
+
+Seed: 142
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 343 ms
+
+Elapsed time: 52878 ms
+
+
+Execution #143/10000
+
+Seed: 143
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 329 ms
+
+Elapsed time: 53207 ms
+
+
+Execution #144/10000
+
+Seed: 144
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 53598 ms
+
+
+Execution #145/10000
+
+Seed: 145
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 394 ms
+
+Elapsed time: 53992 ms
+
+
+Execution #146/10000
+
+Seed: 146
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 54384 ms
+
+
+Execution #147/10000
+
+Seed: 147
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 54776 ms
+
+
+Execution #148/10000
+
+Seed: 148
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 396 ms
+
+Elapsed time: 55172 ms
+
+
+Execution #149/10000
+
+Seed: 149
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 55565 ms
+
+
+Execution #150/10000
+
+Seed: 150
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 55957 ms
+
+
+Execution #151/10000
+
+Seed: 151
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 363 ms
+
+Elapsed time: 56320 ms
+
+
+Execution #152/10000
+
+Seed: 152
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 232 ms
+
+Elapsed time: 56552 ms
+
+
+Execution #153/10000
+
+Seed: 153
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 233 ms
+
+Elapsed time: 56785 ms
+
+
+Execution #154/10000
+
+Seed: 154
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 397 ms
+
+Elapsed time: 57182 ms
+
+
+Execution #155/10000
+
+Seed: 155
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 57575 ms
+
+
+Execution #156/10000
+
+Seed: 156
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 396 ms
+
+Elapsed time: 57971 ms
+
+
+Execution #157/10000
+
+Seed: 157
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 290 ms
+
+Elapsed time: 58261 ms
+
+
+Execution #158/10000
+
+Seed: 158
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 263 ms
+
+Elapsed time: 58524 ms
+
+
+Execution #159/10000
+
+Seed: 159
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 230 ms
+
+Elapsed time: 58754 ms
+
+
+Execution #160/10000
+
+Seed: 160
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 231 ms
+
+Elapsed time: 58985 ms
+
+
+Execution #161/10000
+
+Seed: 161
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 242 ms
+
+Elapsed time: 59227 ms
+
+
+Execution #162/10000
+
+Seed: 162
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 351 ms
+
+Elapsed time: 59578 ms
+
+
+Execution #163/10000
+
+Seed: 163
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 335 ms
+
+Elapsed time: 59913 ms
+
+
+Execution #164/10000
+
+Seed: 164
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 399 ms
+
+Elapsed time: 60312 ms
+
+
+Execution #165/10000
+
+Seed: 165
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 394 ms
+
+Elapsed time: 60706 ms
+
+
+Execution #166/10000
+
+Seed: 166
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 61098 ms
+
+
+Execution #167/10000
+
+Seed: 167
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 402 ms
+
+Elapsed time: 61500 ms
+
+
+Execution #168/10000
+
+Seed: 168
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 61892 ms
+
+
+Execution #169/10000
+
+Seed: 169
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 399 ms
+
+Elapsed time: 62291 ms
+
+
+Execution #170/10000
+
+Seed: 170
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 62682 ms
+
+
+Execution #171/10000
+
+Seed: 171
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 63075 ms
+
+
+Execution #172/10000
+
+Seed: 172
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 397 ms
+
+Elapsed time: 63472 ms
+
+
+Execution #173/10000
+
+Seed: 173
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 63865 ms
+
+
+Execution #174/10000
+
+Seed: 174
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 64257 ms
+
+
+Execution #175/10000
+
+Seed: 175
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 64649 ms
+
+
+Execution #176/10000
+
+Seed: 176
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 65041 ms
+
+
+Execution #177/10000
+
+Seed: 177
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 65432 ms
+
+
+Execution #178/10000
+
+Seed: 178
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 394 ms
+
+Elapsed time: 65826 ms
+
+
+Execution #179/10000
+
+Seed: 179
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 66217 ms
+
+
+Execution #180/10000
+
+Seed: 180
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 400 ms
+
+Elapsed time: 66617 ms
+
+
+Execution #181/10000
+
+Seed: 181
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 67010 ms
+
+
+Execution #182/10000
+
+Seed: 182
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 395 ms
+
+Elapsed time: 67405 ms
+
+
+Execution #183/10000
+
+Seed: 183
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 359 ms
+
+Elapsed time: 67764 ms
+
+
+Execution #184/10000
+
+Seed: 184
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 321 ms
+
+Elapsed time: 68085 ms
+
+
+Execution #185/10000
+
+Seed: 185
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 68477 ms
+
+
+Execution #186/10000
+
+Seed: 186
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 381 ms
+
+Elapsed time: 68858 ms
+
+
+Execution #187/10000
+
+Seed: 187
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 229 ms
+
+Elapsed time: 69087 ms
+
+
+Execution #188/10000
+
+Seed: 188
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 345 ms
+
+Elapsed time: 69432 ms
+
+
+Execution #189/10000
+
+Seed: 189
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 69825 ms
+
+
+Execution #190/10000
+
+Seed: 190
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 70216 ms
+
+
+Execution #191/10000
+
+Seed: 191
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 396 ms
+
+Elapsed time: 70612 ms
+
+
+Execution #192/10000
+
+Seed: 192
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 71003 ms
+
+
+Execution #193/10000
+
+Seed: 193
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 408 ms
+
+Elapsed time: 71411 ms
+
+
+Execution #194/10000
+
+Seed: 194
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 71802 ms
+
+
+Execution #195/10000
+
+Seed: 195
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 376 ms
+
+Elapsed time: 72178 ms
+
+
+Execution #196/10000
+
+Seed: 196
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 237 ms
+
+Elapsed time: 72415 ms
+
+
+Execution #197/10000
+
+Seed: 197
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 263 ms
+
+Elapsed time: 72678 ms
+
+
+Execution #198/10000
+
+Seed: 198
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 230 ms
+
+Elapsed time: 72908 ms
+
+
+Execution #199/10000
+
+Seed: 199
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 231 ms
+
+Elapsed time: 73139 ms
+
+
+Execution #200/10000
+
+Seed: 200
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 232 ms
+
+Elapsed time: 73371 ms
+
+
+Execution #201/10000
+
+Seed: 201
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 233 ms
+
+Elapsed time: 73604 ms
+
+
+Execution #202/10000
+
+Seed: 202
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 334 ms
+
+Elapsed time: 73938 ms
+
+
+Execution #203/10000
+
+Seed: 203
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 74331 ms
+
+
+Execution #204/10000
+
+Seed: 204
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 395 ms
+
+Elapsed time: 74726 ms
+
+
+Execution #205/10000
+
+Seed: 205
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 75117 ms
+
+
+Execution #206/10000
+
+Seed: 206
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 400 ms
+
+Elapsed time: 75517 ms
+
+
+Execution #207/10000
+
+Seed: 207
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 75909 ms
+
+
+Execution #208/10000
+
+Seed: 208
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 298 ms
+
+Elapsed time: 76207 ms
+
+
+Execution #209/10000
+
+Seed: 209
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 76598 ms
+
+
+Execution #210/10000
+
+Seed: 210
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 76990 ms
+
+
+Execution #211/10000
+
+Seed: 211
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 336 ms
+
+Elapsed time: 77326 ms
+
+
+Execution #212/10000
+
+Seed: 212
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 77719 ms
+
+
+Execution #213/10000
+
+Seed: 213
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 394 ms
+
+Elapsed time: 78113 ms
+
+
+Execution #214/10000
+
+Seed: 214
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 78506 ms
+
+
+Execution #215/10000
+
+Seed: 215
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 78899 ms
+
+
+Execution #216/10000
+
+Seed: 216
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 79291 ms
+
+
+Execution #217/10000
+
+Seed: 217
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 396 ms
+
+Elapsed time: 79687 ms
+
+
+Execution #218/10000
+
+Seed: 218
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 80080 ms
+
+
+Execution #219/10000
+
+Seed: 219
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 400 ms
+
+Elapsed time: 80480 ms
+
+
+Execution #220/10000
+
+Seed: 220
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 80872 ms
+
+
+Execution #221/10000
+
+Seed: 221
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 396 ms
+
+Elapsed time: 81268 ms
+
+
+Execution #222/10000
+
+Seed: 222
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 399 ms
+
+Elapsed time: 81667 ms
+
+
+Execution #223/10000
+
+Seed: 223
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 82058 ms
+
+
+Execution #224/10000
+
+Seed: 224
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 82451 ms
+
+
+Execution #225/10000
+
+Seed: 225
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 237 ms
+
+Elapsed time: 82688 ms
+
+
+Execution #226/10000
+
+Seed: 226
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 83081 ms
+
+
+Execution #227/10000
+
+Seed: 227
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 340 ms
+
+Elapsed time: 83421 ms
+
+
+Execution #228/10000
+
+Seed: 228
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 298 ms
+
+Elapsed time: 83719 ms
+
+
+Execution #229/10000
+
+Seed: 229
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 394 ms
+
+Elapsed time: 84113 ms
+
+
+Execution #230/10000
+
+Seed: 230
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 396 ms
+
+Elapsed time: 84509 ms
+
+
+Execution #231/10000
+
+Seed: 231
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 84901 ms
+
+
+Execution #232/10000
+
+Seed: 232
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 403 ms
+
+Elapsed time: 85304 ms
+
+
+Execution #233/10000
+
+Seed: 233
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 85696 ms
+
+
+Execution #234/10000
+
+Seed: 234
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 395 ms
+
+Elapsed time: 86091 ms
+
+
+Execution #235/10000
+
+Seed: 235
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 86483 ms
+
+
+Execution #236/10000
+
+Seed: 236
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 86876 ms
+
+
+Execution #237/10000
+
+Seed: 237
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 87268 ms
+
+
+Execution #238/10000
+
+Seed: 238
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 87660 ms
+
+
+Execution #239/10000
+
+Seed: 239
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 88052 ms
+
+
+Execution #240/10000
+
+Seed: 240
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 88444 ms
+
+
+Execution #241/10000
+
+Seed: 241
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 88836 ms
+
+
+Execution #242/10000
+
+Seed: 242
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 89227 ms
+
+
+Execution #243/10000
+
+Seed: 243
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 397 ms
+
+Elapsed time: 89624 ms
+
+
+Execution #244/10000
+
+Seed: 244
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 90015 ms
+
+
+Execution #245/10000
+
+Seed: 245
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 400 ms
+
+Elapsed time: 90415 ms
+
+
+Execution #246/10000
+
+Seed: 246
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 267 ms
+
+Elapsed time: 90682 ms
+
+
+Execution #247/10000
+
+Seed: 247
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 91075 ms
+
+
+Execution #248/10000
+
+Seed: 248
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 91467 ms
+
+
+Execution #249/10000
+
+Seed: 249
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 397 ms
+
+Elapsed time: 91864 ms
+
+
+Execution #250/10000
+
+Seed: 250
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 92256 ms
+
+
+Execution #251/10000
+
+Seed: 251
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 398 ms
+
+Elapsed time: 92654 ms
+
+
+Execution #252/10000
+
+Seed: 252
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 93046 ms
+
+
+Execution #253/10000
+
+Seed: 253
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 93437 ms
+
+
+Execution #254/10000
+
+Seed: 254
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 380 ms
+
+Elapsed time: 93817 ms
+
+
+Execution #255/10000
+
+Seed: 255
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 334 ms
+
+Elapsed time: 94151 ms
+
+
+Execution #256/10000
+
+Seed: 256
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 328 ms
+
+Elapsed time: 94479 ms
+
+
+Execution #257/10000
+
+Seed: 257
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 377 ms
+
+Elapsed time: 94856 ms
+
+
+Execution #258/10000
+
+Seed: 258
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 254 ms
+
+Elapsed time: 95110 ms
+
+
+Execution #259/10000
+
+Seed: 259
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 231 ms
+
+Elapsed time: 95341 ms
+
+
+Execution #260/10000
+
+Seed: 260
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 330 ms
+
+Elapsed time: 95671 ms
+
+
+Execution #261/10000
+
+Seed: 261
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 394 ms
+
+Elapsed time: 96065 ms
+
+
+Execution #262/10000
+
+Seed: 262
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 96458 ms
+
+
+Execution #263/10000
+
+Seed: 263
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 396 ms
+
+Elapsed time: 96854 ms
+
+
+Execution #264/10000
+
+Seed: 264
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 97246 ms
+
+
+Execution #265/10000
+
+Seed: 265
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 400 ms
+
+Elapsed time: 97646 ms
+
+
+Execution #266/10000
+
+Seed: 266
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 344 ms
+
+Elapsed time: 97990 ms
+
+
+Execution #267/10000
+
+Seed: 267
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 247 ms
+
+Elapsed time: 98237 ms
+
+
+Execution #268/10000
+
+Seed: 268
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 98630 ms
+
+
+Execution #269/10000
+
+Seed: 269
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 394 ms
+
+Elapsed time: 99024 ms
+
+
+Execution #270/10000
+
+Seed: 270
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 99417 ms
+
+
+Execution #271/10000
+
+Seed: 271
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 394 ms
+
+Elapsed time: 99811 ms
+
+
+Execution #272/10000
+
+Seed: 272
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 100204 ms
+
+
+Execution #273/10000
+
+Seed: 273
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 100597 ms
+
+
+Execution #274/10000
+
+Seed: 274
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 303 ms
+
+Elapsed time: 100900 ms
+
+
+Execution #275/10000
+
+Seed: 275
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 293 ms
+
+Elapsed time: 101193 ms
+
+
+Execution #276/10000
+
+Seed: 276
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 289 ms
+
+Elapsed time: 101482 ms
+
+
+Execution #277/10000
+
+Seed: 277
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 101875 ms
+
+
+Execution #278/10000
+
+Seed: 278
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 402 ms
+
+Elapsed time: 102277 ms
+
+
+Execution #279/10000
+
+Seed: 279
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 102668 ms
+
+
+Execution #280/10000
+
+Seed: 280
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 302 ms
+
+Elapsed time: 102970 ms
+
+
+Execution #281/10000
+
+Seed: 281
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 234 ms
+
+Elapsed time: 103204 ms
+
+
+Execution #282/10000
+
+Seed: 282
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 313 ms
+
+Elapsed time: 103517 ms
+
+
+Execution #283/10000
+
+Seed: 283
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 395 ms
+
+Elapsed time: 103912 ms
+
+
+Execution #284/10000
+
+Seed: 284
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 395 ms
+
+Elapsed time: 104307 ms
+
+
+Execution #285/10000
+
+Seed: 285
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 394 ms
+
+Elapsed time: 104701 ms
+
+
+Execution #286/10000
+
+Seed: 286
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 396 ms
+
+Elapsed time: 105097 ms
+
+
+Execution #287/10000
+
+Seed: 287
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 105490 ms
+
+
+Execution #288/10000
+
+Seed: 288
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 105883 ms
+
+
+Execution #289/10000
+
+Seed: 289
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 397 ms
+
+Elapsed time: 106280 ms
+
+
+Execution #290/10000
+
+Seed: 290
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 106673 ms
+
+
+Execution #291/10000
+
+Seed: 291
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 405 ms
+
+Elapsed time: 107078 ms
+
+
+Execution #292/10000
+
+Seed: 292
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 107470 ms
+
+
+Execution #293/10000
+
+Seed: 293
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 397 ms
+
+Elapsed time: 107867 ms
+
+
+Execution #294/10000
+
+Seed: 294
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 108259 ms
+
+
+Execution #295/10000
+
+Seed: 295
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 108652 ms
+
+
+Execution #296/10000
+
+Seed: 296
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 109044 ms
+
+
+Execution #297/10000
+
+Seed: 297
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 109437 ms
+
+
+Execution #298/10000
+
+Seed: 298
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 109830 ms
+
+
+Execution #299/10000
+
+Seed: 299
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 345 ms
+
+Elapsed time: 110175 ms
+
+
+Execution #300/10000
+
+Seed: 300
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 234 ms
+
+Elapsed time: 110409 ms
+
+
+Execution #301/10000
+
+Seed: 301
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 319 ms
+
+Elapsed time: 110728 ms
+
+
+Execution #302/10000
+
+Seed: 302
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 255 ms
+
+Elapsed time: 110983 ms
+
+
+Execution #303/10000
+
+Seed: 303
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 378 ms
+
+Elapsed time: 111361 ms
+
+
+Execution #304/10000
+
+Seed: 304
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 401 ms
+
+Elapsed time: 111762 ms
+
+
+Execution #305/10000
+
+Seed: 305
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 112155 ms
+
+
+Execution #306/10000
+
+Seed: 306
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 398 ms
+
+Elapsed time: 112553 ms
+
+
+Execution #307/10000
+
+Seed: 307
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 314 ms
+
+Elapsed time: 112867 ms
+
+
+Execution #308/10000
+
+Seed: 308
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 230 ms
+
+Elapsed time: 113097 ms
+
+
+Execution #309/10000
+
+Seed: 309
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 269 ms
+
+Elapsed time: 113366 ms
+
+
+Execution #310/10000
+
+Seed: 310
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 394 ms
+
+Elapsed time: 113760 ms
+
+
+Execution #311/10000
+
+Seed: 311
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 395 ms
+
+Elapsed time: 114155 ms
+
+
+Execution #312/10000
+
+Seed: 312
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 394 ms
+
+Elapsed time: 114549 ms
+
+
+Execution #313/10000
+
+Seed: 313
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 394 ms
+
+Elapsed time: 114943 ms
+
+
+Execution #314/10000
+
+Seed: 314
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 394 ms
+
+Elapsed time: 115337 ms
+
+
+Execution #315/10000
+
+Seed: 315
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 395 ms
+
+Elapsed time: 115732 ms
+
+
+Execution #316/10000
+
+Seed: 316
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 116125 ms
+
+
+Execution #317/10000
+
+Seed: 317
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 245 ms
+
+Elapsed time: 116370 ms
+
+
+Execution #318/10000
+
+Seed: 318
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 236 ms
+
+Elapsed time: 116606 ms
+
+
+Execution #319/10000
+
+Seed: 319
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 255 ms
+
+Elapsed time: 116861 ms
+
+
+Execution #320/10000
+
+Seed: 320
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 117253 ms
+
+
+Execution #321/10000
+
+Seed: 321
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 395 ms
+
+Elapsed time: 117648 ms
+
+
+Execution #322/10000
+
+Seed: 322
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 118041 ms
+
+
+Execution #323/10000
+
+Seed: 323
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 380 ms
+
+Elapsed time: 118421 ms
+
+
+Execution #324/10000
+
+Seed: 324
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 118814 ms
+
+
+Execution #325/10000
+
+Seed: 325
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 397 ms
+
+Elapsed time: 119211 ms
+
+
+Execution #326/10000
+
+Seed: 326
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 119604 ms
+
+
+Execution #327/10000
+
+Seed: 327
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 345 ms
+
+Elapsed time: 119949 ms
+
+
+Execution #328/10000
+
+Seed: 328
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 240 ms
+
+Elapsed time: 120189 ms
+
+
+Execution #329/10000
+
+Seed: 329
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 338 ms
+
+Elapsed time: 120527 ms
+
+
+Execution #330/10000
+
+Seed: 330
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 398 ms
+
+Elapsed time: 120925 ms
+
+
+Execution #331/10000
+
+Seed: 331
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 121318 ms
+
+
+Execution #332/10000
+
+Seed: 332
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 401 ms
+
+Elapsed time: 121719 ms
+
+
+Execution #333/10000
+
+Seed: 333
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 122111 ms
+
+
+Execution #334/10000
+
+Seed: 334
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 394 ms
+
+Elapsed time: 122505 ms
+
+
+Execution #335/10000
+
+Seed: 335
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 122898 ms
+
+
+Execution #336/10000
+
+Seed: 336
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 123290 ms
+
+
+Execution #337/10000
+
+Seed: 337
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 123683 ms
+
+
+Execution #338/10000
+
+Seed: 338
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 394 ms
+
+Elapsed time: 124077 ms
+
+
+Execution #339/10000
+
+Seed: 339
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 124470 ms
+
+
+Execution #340/10000
+
+Seed: 340
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 124863 ms
+
+
+Execution #341/10000
+
+Seed: 341
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 394 ms
+
+Elapsed time: 125257 ms
+
+
+Execution #342/10000
+
+Seed: 342
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 125649 ms
+
+
+Execution #343/10000
+
+Seed: 343
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 399 ms
+
+Elapsed time: 126048 ms
+
+
+Execution #344/10000
+
+Seed: 344
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 126440 ms
+
+
+Execution #345/10000
+
+Seed: 345
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 397 ms
+
+Elapsed time: 126837 ms
+
+
+Execution #346/10000
+
+Seed: 346
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 127228 ms
+
+
+Execution #347/10000
+
+Seed: 347
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 127620 ms
+
+
+Execution #348/10000
+
+Seed: 348
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 128012 ms
+
+
+Execution #349/10000
+
+Seed: 349
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 128404 ms
+
+
+Execution #350/10000
+
+Seed: 350
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 128795 ms
+
+
+Execution #351/10000
+
+Seed: 351
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 129186 ms
+
+
+Execution #352/10000
+
+Seed: 352
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 129578 ms
+
+
+Execution #353/10000
+
+Seed: 353
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 129969 ms
+
+
+Execution #354/10000
+
+Seed: 354
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 395 ms
+
+Elapsed time: 130364 ms
+
+
+Execution #355/10000
+
+Seed: 355
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 130755 ms
+
+
+Execution #356/10000
+
+Seed: 356
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 399 ms
+
+Elapsed time: 131154 ms
+
+
+Execution #357/10000
+
+Seed: 357
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 131547 ms
+
+
+Execution #358/10000
+
+Seed: 358
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 395 ms
+
+Elapsed time: 131942 ms
+
+
+Execution #359/10000
+
+Seed: 359
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 390 ms
+
+Elapsed time: 132332 ms
+
+
+Execution #360/10000
+
+Seed: 360
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 327 ms
+
+Elapsed time: 132659 ms
+
+
+Execution #361/10000
+
+Seed: 361
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 380 ms
+
+Elapsed time: 133039 ms
+
+
+Execution #362/10000
+
+Seed: 362
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 133431 ms
+
+
+Execution #363/10000
+
+Seed: 363
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 133823 ms
+
+
+Execution #364/10000
+
+Seed: 364
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 386 ms
+
+Elapsed time: 134209 ms
+
+
+Execution #365/10000
+
+Seed: 365
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 134601 ms
+
+
+Execution #366/10000
+
+Seed: 366
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 134992 ms
+
+
+Execution #367/10000
+
+Seed: 367
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 394 ms
+
+Elapsed time: 135386 ms
+
+
+Execution #368/10000
+
+Seed: 368
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 135777 ms
+
+
+Execution #369/10000
+
+Seed: 369
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 399 ms
+
+Elapsed time: 136176 ms
+
+
+Execution #370/10000
+
+Seed: 370
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 136568 ms
+
+
+Execution #371/10000
+
+Seed: 371
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 397 ms
+
+Elapsed time: 136965 ms
+
+
+Execution #372/10000
+
+Seed: 372
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 312 ms
+
+Elapsed time: 137277 ms
+
+
+Execution #373/10000
+
+Seed: 373
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 384 ms
+
+Elapsed time: 137661 ms
+
+
+Execution #374/10000
+
+Seed: 374
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 138054 ms
+
+
+Execution #375/10000
+
+Seed: 375
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 138446 ms
+
+
+Execution #376/10000
+
+Seed: 376
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 372 ms
+
+Elapsed time: 138818 ms
+
+
+Execution #377/10000
+
+Seed: 377
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 346 ms
+
+Elapsed time: 139164 ms
+
+
+Execution #378/10000
+
+Seed: 378
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 139556 ms
+
+
+Execution #379/10000
+
+Seed: 379
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 139947 ms
+
+
+Execution #380/10000
+
+Seed: 380
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 394 ms
+
+Elapsed time: 140341 ms
+
+
+Execution #381/10000
+
+Seed: 381
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 140733 ms
+
+
+Execution #382/10000
+
+Seed: 382
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 399 ms
+
+Elapsed time: 141132 ms
+
+
+Execution #383/10000
+
+Seed: 383
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 141524 ms
+
+
+Execution #384/10000
+
+Seed: 384
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 383 ms
+
+Elapsed time: 141907 ms
+
+
+Execution #385/10000
+
+Seed: 385
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 231 ms
+
+Elapsed time: 142138 ms
+
+
+Execution #386/10000
+
+Seed: 386
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 232 ms
+
+Elapsed time: 142370 ms
+
+
+Execution #387/10000
+
+Seed: 387
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 349 ms
+
+Elapsed time: 142719 ms
+
+
+Execution #388/10000
+
+Seed: 388
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 143112 ms
+
+
+Execution #389/10000
+
+Seed: 389
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 297 ms
+
+Elapsed time: 143409 ms
+
+
+Execution #390/10000
+
+Seed: 390
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 236 ms
+
+Elapsed time: 143645 ms
+
+
+Execution #391/10000
+
+Seed: 391
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 235 ms
+
+Elapsed time: 143880 ms
+
+
+Execution #392/10000
+
+Seed: 392
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 355 ms
+
+Elapsed time: 144235 ms
+
+
+Execution #393/10000
+
+Seed: 393
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 398 ms
+
+Elapsed time: 144633 ms
+
+
+Execution #394/10000
+
+Seed: 394
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 145024 ms
+
+
+Execution #395/10000
+
+Seed: 395
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 400 ms
+
+Elapsed time: 145424 ms
+
+
+Execution #396/10000
+
+Seed: 396
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 145816 ms
+
+
+Execution #397/10000
+
+Seed: 397
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 396 ms
+
+Elapsed time: 146212 ms
+
+
+Execution #398/10000
+
+Seed: 398
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 146604 ms
+
+
+Execution #399/10000
+
+Seed: 399
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 146997 ms
+
+
+Execution #400/10000
+
+Seed: 400
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 147389 ms
+
+
+Execution #401/10000
+
+Seed: 401
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 147782 ms
+
+
+Execution #402/10000
+
+Seed: 402
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 148175 ms
+
+
+Execution #403/10000
+
+Seed: 403
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 148568 ms
+
+
+Execution #404/10000
+
+Seed: 404
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 148961 ms
+
+
+Execution #405/10000
+
+Seed: 405
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 149354 ms
+
+
+Execution #406/10000
+
+Seed: 406
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 396 ms
+
+Elapsed time: 149750 ms
+
+
+Execution #407/10000
+
+Seed: 407
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 150141 ms
+
+
+Execution #408/10000
+
+Seed: 408
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 404 ms
+
+Elapsed time: 150545 ms
+
+
+Execution #409/10000
+
+Seed: 409
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 150936 ms
+
+
+Execution #410/10000
+
+Seed: 410
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 395 ms
+
+Elapsed time: 151331 ms
+
+
+Execution #411/10000
+
+Seed: 411
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 377 ms
+
+Elapsed time: 151708 ms
+
+
+Execution #412/10000
+
+Seed: 412
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 271 ms
+
+Elapsed time: 151979 ms
+
+
+Execution #413/10000
+
+Seed: 413
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 152372 ms
+
+
+Execution #414/10000
+
+Seed: 414
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 371 ms
+
+Elapsed time: 152743 ms
+
+
+Execution #415/10000
+
+Seed: 415
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 153135 ms
+
+
+Execution #416/10000
+
+Seed: 416
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 153528 ms
+
+
+Execution #417/10000
+
+Seed: 417
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 153921 ms
+
+
+Execution #418/10000
+
+Seed: 418
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 154313 ms
+
+
+Execution #419/10000
+
+Seed: 419
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 396 ms
+
+Elapsed time: 154709 ms
+
+
+Execution #420/10000
+
+Seed: 420
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 155100 ms
+
+
+Execution #421/10000
+
+Seed: 421
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 401 ms
+
+Elapsed time: 155501 ms
+
+
+Execution #422/10000
+
+Seed: 422
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 390 ms
+
+Elapsed time: 155891 ms
+
+
+Execution #423/10000
+
+Seed: 423
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 394 ms
+
+Elapsed time: 156285 ms
+
+
+Execution #424/10000
+
+Seed: 424
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 390 ms
+
+Elapsed time: 156675 ms
+
+
+Execution #425/10000
+
+Seed: 425
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 157067 ms
+
+
+Execution #426/10000
+
+Seed: 426
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 157459 ms
+
+
+Execution #427/10000
+
+Seed: 427
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 157852 ms
+
+
+Execution #428/10000
+
+Seed: 428
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 158244 ms
+
+
+Execution #429/10000
+
+Seed: 429
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 158635 ms
+
+
+Execution #430/10000
+
+Seed: 430
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 159026 ms
+
+
+Execution #431/10000
+
+Seed: 431
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 159418 ms
+
+
+Execution #432/10000
+
+Seed: 432
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 397 ms
+
+Elapsed time: 159815 ms
+
+
+Execution #433/10000
+
+Seed: 433
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 160207 ms
+
+
+Execution #434/10000
+
+Seed: 434
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 278 ms
+
+Elapsed time: 160485 ms
+
+
+Execution #435/10000
+
+Seed: 435
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 347 ms
+
+Elapsed time: 160832 ms
+
+
+Execution #436/10000
+
+Seed: 436
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 381 ms
+
+Elapsed time: 161213 ms
+
+
+Execution #437/10000
+
+Seed: 437
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 229 ms
+
+Elapsed time: 161442 ms
+
+
+Execution #438/10000
+
+Seed: 438
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 230 ms
+
+Elapsed time: 161672 ms
+
+
+Execution #439/10000
+
+Seed: 439
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 230 ms
+
+Elapsed time: 161902 ms
+
+
+Execution #440/10000
+
+Seed: 440
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 230 ms
+
+Elapsed time: 162132 ms
+
+
+Execution #441/10000
+
+Seed: 441
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 342 ms
+
+Elapsed time: 162474 ms
+
+
+Execution #442/10000
+
+Seed: 442
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 249 ms
+
+Elapsed time: 162723 ms
+
+
+Execution #443/10000
+
+Seed: 443
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 234 ms
+
+Elapsed time: 162957 ms
+
+
+Execution #444/10000
+
+Seed: 444
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 233 ms
+
+Elapsed time: 163190 ms
+
+
+Execution #445/10000
+
+Seed: 445
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 328 ms
+
+Elapsed time: 163518 ms
+
+
+Execution #446/10000
+
+Seed: 446
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 394 ms
+
+Elapsed time: 163912 ms
+
+
+Execution #447/10000
+
+Seed: 447
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 401 ms
+
+Elapsed time: 164313 ms
+
+
+Execution #448/10000
+
+Seed: 448
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 164705 ms
+
+
+Execution #449/10000
+
+Seed: 449
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 399 ms
+
+Elapsed time: 165104 ms
+
+
+Execution #450/10000
+
+Seed: 450
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 165497 ms
+
+
+Execution #451/10000
+
+Seed: 451
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 165890 ms
+
+
+Execution #452/10000
+
+Seed: 452
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 394 ms
+
+Elapsed time: 166284 ms
+
+
+Execution #453/10000
+
+Seed: 453
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 166677 ms
+
+
+Execution #454/10000
+
+Seed: 454
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 167069 ms
+
+
+Execution #455/10000
+
+Seed: 455
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 167462 ms
+
+
+Execution #456/10000
+
+Seed: 456
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 167854 ms
+
+
+Execution #457/10000
+
+Seed: 457
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 168246 ms
+
+
+Execution #458/10000
+
+Seed: 458
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 395 ms
+
+Elapsed time: 168641 ms
+
+
+Execution #459/10000
+
+Seed: 459
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 169034 ms
+
+
+Execution #460/10000
+
+Seed: 460
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 400 ms
+
+Elapsed time: 169434 ms
+
+
+Execution #461/10000
+
+Seed: 461
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 169827 ms
+
+
+Execution #462/10000
+
+Seed: 462
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 316 ms
+
+Elapsed time: 170143 ms
+
+
+Execution #463/10000
+
+Seed: 463
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 248 ms
+
+Elapsed time: 170391 ms
+
+
+Execution #464/10000
+
+Seed: 464
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 242 ms
+
+Elapsed time: 170633 ms
+
+
+Execution #465/10000
+
+Seed: 465
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 379 ms
+
+Elapsed time: 171012 ms
+
+
+Execution #466/10000
+
+Seed: 466
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 171405 ms
+
+
+Execution #467/10000
+
+Seed: 467
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 399 ms
+
+Elapsed time: 171804 ms
+
+
+Execution #468/10000
+
+Seed: 468
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 172197 ms
+
+
+Execution #469/10000
+
+Seed: 469
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 394 ms
+
+Elapsed time: 172591 ms
+
+
+Execution #470/10000
+
+Seed: 470
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 361 ms
+
+Elapsed time: 172952 ms
+
+
+Execution #471/10000
+
+Seed: 471
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 229 ms
+
+Elapsed time: 173181 ms
+
+
+Execution #472/10000
+
+Seed: 472
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 229 ms
+
+Elapsed time: 173410 ms
+
+
+Execution #473/10000
+
+Seed: 473
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 253 ms
+
+Elapsed time: 173663 ms
+
+
+Execution #474/10000
+
+Seed: 474
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 369 ms
+
+Elapsed time: 174032 ms
+
+
+Execution #475/10000
+
+Seed: 475
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 398 ms
+
+Elapsed time: 174430 ms
+
+
+Execution #476/10000
+
+Seed: 476
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 372 ms
+
+Elapsed time: 174802 ms
+
+
+Execution #477/10000
+
+Seed: 477
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 229 ms
+
+Elapsed time: 175031 ms
+
+
+Execution #478/10000
+
+Seed: 478
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 231 ms
+
+Elapsed time: 175262 ms
+
+
+Execution #479/10000
+
+Seed: 479
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 351 ms
+
+Elapsed time: 175613 ms
+
+
+Execution #480/10000
+
+Seed: 480
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 176006 ms
+
+
+Execution #481/10000
+
+Seed: 481
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 388 ms
+
+Elapsed time: 176394 ms
+
+
+Execution #482/10000
+
+Seed: 482
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 394 ms
+
+Elapsed time: 176788 ms
+
+
+Execution #483/10000
+
+Seed: 483
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 394 ms
+
+Elapsed time: 177182 ms
+
+
+Execution #484/10000
+
+Seed: 484
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 177575 ms
+
+
+Execution #485/10000
+
+Seed: 485
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 281 ms
+
+Elapsed time: 177856 ms
+
+
+Execution #486/10000
+
+Seed: 486
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 229 ms
+
+Elapsed time: 178085 ms
+
+
+Execution #487/10000
+
+Seed: 487
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 246 ms
+
+Elapsed time: 178331 ms
+
+
+Execution #488/10000
+
+Seed: 488
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 365 ms
+
+Elapsed time: 178696 ms
+
+
+Execution #489/10000
+
+Seed: 489
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 179089 ms
+
+
+Execution #490/10000
+
+Seed: 490
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 398 ms
+
+Elapsed time: 179487 ms
+
+
+Execution #491/10000
+
+Seed: 491
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 179878 ms
+
+
+Execution #492/10000
+
+Seed: 492
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 376 ms
+
+Elapsed time: 180254 ms
+
+
+Execution #493/10000
+
+Seed: 493
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 180647 ms
+
+
+Execution #494/10000
+
+Seed: 494
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 399 ms
+
+Elapsed time: 181046 ms
+
+
+Execution #495/10000
+
+Seed: 495
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 181439 ms
+
+
+Execution #496/10000
+
+Seed: 496
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 397 ms
+
+Elapsed time: 181836 ms
+
+
+Execution #497/10000
+
+Seed: 497
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 182228 ms
+
+
+Execution #498/10000
+
+Seed: 498
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 182621 ms
+
+
+Execution #499/10000
+
+Seed: 499
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 397 ms
+
+Elapsed time: 183018 ms
+
+
+Execution #500/10000
+
+Seed: 500
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 183409 ms
+
+
+Execution #501/10000
+
+Seed: 501
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 401 ms
+
+Elapsed time: 183810 ms
+
+
+Execution #502/10000
+
+Seed: 502
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 184201 ms
+
+
+Execution #503/10000
+
+Seed: 503
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 395 ms
+
+Elapsed time: 184596 ms
+
+
+Execution #504/10000
+
+Seed: 504
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 184987 ms
+
+
+Execution #505/10000
+
+Seed: 505
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 185380 ms
+
+
+Execution #506/10000
+
+Seed: 506
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 185773 ms
+
+
+Execution #507/10000
+
+Seed: 507
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 186165 ms
+
+
+Execution #508/10000
+
+Seed: 508
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 186558 ms
+
+
+Execution #509/10000
+
+Seed: 509
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 326 ms
+
+Elapsed time: 186884 ms
+
+
+Execution #510/10000
+
+Seed: 510
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 319 ms
+
+Elapsed time: 187203 ms
+
+
+Execution #511/10000
+
+Seed: 511
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 187595 ms
+
+
+Execution #512/10000
+
+Seed: 512
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 284 ms
+
+Elapsed time: 187879 ms
+
+
+Execution #513/10000
+
+Seed: 513
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 279 ms
+
+Elapsed time: 188158 ms
+
+
+Execution #514/10000
+
+Seed: 514
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 402 ms
+
+Elapsed time: 188560 ms
+
+
+Execution #515/10000
+
+Seed: 515
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 399 ms
+
+Elapsed time: 188959 ms
+
+
+Execution #516/10000
+
+Seed: 516
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 381 ms
+
+Elapsed time: 189340 ms
+
+
+Execution #517/10000
+
+Seed: 517
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 230 ms
+
+Elapsed time: 189570 ms
+
+
+Execution #518/10000
+
+Seed: 518
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 255 ms
+
+Elapsed time: 189825 ms
+
+
+Execution #519/10000
+
+Seed: 519
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 394 ms
+
+Elapsed time: 190219 ms
+
+
+Execution #520/10000
+
+Seed: 520
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 190611 ms
+
+
+Execution #521/10000
+
+Seed: 521
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 394 ms
+
+Elapsed time: 191005 ms
+
+
+Execution #522/10000
+
+Seed: 522
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 394 ms
+
+Elapsed time: 191399 ms
+
+
+Execution #523/10000
+
+Seed: 523
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 191792 ms
+
+
+Execution #524/10000
+
+Seed: 524
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 395 ms
+
+Elapsed time: 192187 ms
+
+
+Execution #525/10000
+
+Seed: 525
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 345 ms
+
+Elapsed time: 192532 ms
+
+
+Execution #526/10000
+
+Seed: 526
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 388 ms
+
+Elapsed time: 192920 ms
+
+
+Execution #527/10000
+
+Seed: 527
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 407 ms
+
+Elapsed time: 193327 ms
+
+
+Execution #528/10000
+
+Seed: 528
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 193718 ms
+
+
+Execution #529/10000
+
+Seed: 529
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 395 ms
+
+Elapsed time: 194113 ms
+
+
+Execution #530/10000
+
+Seed: 530
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 327 ms
+
+Elapsed time: 194440 ms
+
+
+Execution #531/10000
+
+Seed: 531
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 394 ms
+
+Elapsed time: 194834 ms
+
+
+Execution #532/10000
+
+Seed: 532
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 195227 ms
+
+
+Execution #533/10000
+
+Seed: 533
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 195620 ms
+
+
+Execution #534/10000
+
+Seed: 534
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 196013 ms
+
+
+Execution #535/10000
+
+Seed: 535
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 196405 ms
+
+
+Execution #536/10000
+
+Seed: 536
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 196798 ms
+
+
+Execution #537/10000
+
+Seed: 537
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 335 ms
+
+Elapsed time: 197133 ms
+
+
+Execution #538/10000
+
+Seed: 538
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 367 ms
+
+Elapsed time: 197500 ms
+
+
+Execution #539/10000
+
+Seed: 539
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 197891 ms
+
+
+Execution #540/10000
+
+Seed: 540
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 400 ms
+
+Elapsed time: 198291 ms
+
+
+Execution #541/10000
+
+Seed: 541
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 198682 ms
+
+
+Execution #542/10000
+
+Seed: 542
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 395 ms
+
+Elapsed time: 199077 ms
+
+
+Execution #543/10000
+
+Seed: 543
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 199468 ms
+
+
+Execution #544/10000
+
+Seed: 544
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 199861 ms
+
+
+Execution #545/10000
+
+Seed: 545
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 200254 ms
+
+
+Execution #546/10000
+
+Seed: 546
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 200646 ms
+
+
+Execution #547/10000
+
+Seed: 547
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 397 ms
+
+Elapsed time: 201043 ms
+
+
+Execution #548/10000
+
+Seed: 548
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 201435 ms
+
+
+Execution #549/10000
+
+Seed: 549
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 201827 ms
+
+
+Execution #550/10000
+
+Seed: 550
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 202218 ms
+
+
+Execution #551/10000
+
+Seed: 551
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 399 ms
+
+Elapsed time: 202617 ms
+
+
+Execution #552/10000
+
+Seed: 552
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 203008 ms
+
+
+Execution #553/10000
+
+Seed: 553
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 402 ms
+
+Elapsed time: 203410 ms
+
+
+Execution #554/10000
+
+Seed: 554
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 203801 ms
+
+
+Execution #555/10000
+
+Seed: 555
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 266 ms
+
+Elapsed time: 204067 ms
+
+
+Execution #556/10000
+
+Seed: 556
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 344 ms
+
+Elapsed time: 204411 ms
+
+
+Execution #557/10000
+
+Seed: 557
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 204803 ms
+
+
+Execution #558/10000
+
+Seed: 558
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 395 ms
+
+Elapsed time: 205198 ms
+
+
+Execution #559/10000
+
+Seed: 559
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 205590 ms
+
+
+Execution #560/10000
+
+Seed: 560
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 205983 ms
+
+
+Execution #561/10000
+
+Seed: 561
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 286 ms
+
+Elapsed time: 206269 ms
+
+
+Execution #562/10000
+
+Seed: 562
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 264 ms
+
+Elapsed time: 206533 ms
+
+
+Execution #563/10000
+
+Seed: 563
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 206925 ms
+
+
+Execution #564/10000
+
+Seed: 564
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 399 ms
+
+Elapsed time: 207324 ms
+
+
+Execution #565/10000
+
+Seed: 565
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 207716 ms
+
+
+Execution #566/10000
+
+Seed: 566
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 398 ms
+
+Elapsed time: 208114 ms
+
+
+Execution #567/10000
+
+Seed: 567
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 397 ms
+
+Elapsed time: 208511 ms
+
+
+Execution #568/10000
+
+Seed: 568
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 208903 ms
+
+
+Execution #569/10000
+
+Seed: 569
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 395 ms
+
+Elapsed time: 209298 ms
+
+
+Execution #570/10000
+
+Seed: 570
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 209691 ms
+
+
+Execution #571/10000
+
+Seed: 571
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 210083 ms
+
+
+Execution #572/10000
+
+Seed: 572
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 382 ms
+
+Elapsed time: 210465 ms
+
+
+Execution #573/10000
+
+Seed: 573
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 210857 ms
+
+
+Execution #574/10000
+
+Seed: 574
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 211248 ms
+
+
+Execution #575/10000
+
+Seed: 575
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 211641 ms
+
+
+Execution #576/10000
+
+Seed: 576
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 212032 ms
+
+
+Execution #577/10000
+
+Seed: 577
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 400 ms
+
+Elapsed time: 212432 ms
+
+
+Execution #578/10000
+
+Seed: 578
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 370 ms
+
+Elapsed time: 212802 ms
+
+
+Execution #579/10000
+
+Seed: 579
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 396 ms
+
+Elapsed time: 213198 ms
+
+
+Execution #580/10000
+
+Seed: 580
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 396 ms
+
+Elapsed time: 213594 ms
+
+
+Execution #581/10000
+
+Seed: 581
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 213986 ms
+
+
+Execution #582/10000
+
+Seed: 582
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 357 ms
+
+Elapsed time: 214343 ms
+
+
+Execution #583/10000
+
+Seed: 583
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 214735 ms
+
+
+Execution #584/10000
+
+Seed: 584
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 215127 ms
+
+
+Execution #585/10000
+
+Seed: 585
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 215520 ms
+
+
+Execution #586/10000
+
+Seed: 586
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 215912 ms
+
+
+Execution #587/10000
+
+Seed: 587
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 397 ms
+
+Elapsed time: 216309 ms
+
+
+Execution #588/10000
+
+Seed: 588
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 396 ms
+
+Elapsed time: 216705 ms
+
+
+Execution #589/10000
+
+Seed: 589
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 217096 ms
+
+
+Execution #590/10000
+
+Seed: 590
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 403 ms
+
+Elapsed time: 217499 ms
+
+
+Execution #591/10000
+
+Seed: 591
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 390 ms
+
+Elapsed time: 217889 ms
+
+
+Execution #592/10000
+
+Seed: 592
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 394 ms
+
+Elapsed time: 218283 ms
+
+
+Execution #593/10000
+
+Seed: 593
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 309 ms
+
+Elapsed time: 218592 ms
+
+
+Execution #594/10000
+
+Seed: 594
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 356 ms
+
+Elapsed time: 218948 ms
+
+
+Execution #595/10000
+
+Seed: 595
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 219341 ms
+
+
+Execution #596/10000
+
+Seed: 596
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 219734 ms
+
+
+Execution #597/10000
+
+Seed: 597
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 220126 ms
+
+
+Execution #598/10000
+
+Seed: 598
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 220518 ms
+
+
+Execution #599/10000
+
+Seed: 599
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 220910 ms
+
+
+Execution #600/10000
+
+Seed: 600
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 221301 ms
+
+
+Execution #601/10000
+
+Seed: 601
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 396 ms
+
+Elapsed time: 221697 ms
+
+
+Execution #602/10000
+
+Seed: 602
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 390 ms
+
+Elapsed time: 222087 ms
+
+
+Execution #603/10000
+
+Seed: 603
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 379 ms
+
+Elapsed time: 222466 ms
+
+
+Execution #604/10000
+
+Seed: 604
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 233 ms
+
+Elapsed time: 222699 ms
+
+
+Execution #605/10000
+
+Seed: 605
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 241 ms
+
+Elapsed time: 222940 ms
+
+
+Execution #606/10000
+
+Seed: 606
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 264 ms
+
+Elapsed time: 223204 ms
+
+
+Execution #607/10000
+
+Seed: 607
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 223597 ms
+
+
+Execution #608/10000
+
+Seed: 608
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 223989 ms
+
+
+Execution #609/10000
+
+Seed: 609
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 224382 ms
+
+
+Execution #610/10000
+
+Seed: 610
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 224774 ms
+
+
+Execution #611/10000
+
+Seed: 611
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 225166 ms
+
+
+Execution #612/10000
+
+Seed: 612
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 397 ms
+
+Elapsed time: 225563 ms
+
+
+Execution #613/10000
+
+Seed: 613
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 225955 ms
+
+
+Execution #614/10000
+
+Seed: 614
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 396 ms
+
+Elapsed time: 226351 ms
+
+
+Execution #615/10000
+
+Seed: 615
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 390 ms
+
+Elapsed time: 226741 ms
+
+
+Execution #616/10000
+
+Seed: 616
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 400 ms
+
+Elapsed time: 227141 ms
+
+
+Execution #617/10000
+
+Seed: 617
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 394 ms
+
+Elapsed time: 227535 ms
+
+
+Execution #618/10000
+
+Seed: 618
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 227928 ms
+
+
+Execution #619/10000
+
+Seed: 619
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 228319 ms
+
+
+Execution #620/10000
+
+Seed: 620
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 228711 ms
+
+
+Execution #621/10000
+
+Seed: 621
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 229102 ms
+
+
+Execution #622/10000
+
+Seed: 622
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 398 ms
+
+Elapsed time: 229500 ms
+
+
+Execution #623/10000
+
+Seed: 623
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 229891 ms
+
+
+Execution #624/10000
+
+Seed: 624
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 230283 ms
+
+
+Execution #625/10000
+
+Seed: 625
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 370 ms
+
+Elapsed time: 230653 ms
+
+
+Execution #626/10000
+
+Seed: 626
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 396 ms
+
+Elapsed time: 231049 ms
+
+
+Execution #627/10000
+
+Seed: 627
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 397 ms
+
+Elapsed time: 231446 ms
+
+
+Execution #628/10000
+
+Seed: 628
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 231837 ms
+
+
+Execution #629/10000
+
+Seed: 629
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 400 ms
+
+Elapsed time: 232237 ms
+
+
+Execution #630/10000
+
+Seed: 630
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 310 ms
+
+Elapsed time: 232547 ms
+
+
+Execution #631/10000
+
+Seed: 631
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 230 ms
+
+Elapsed time: 232777 ms
+
+
+Execution #632/10000
+
+Seed: 632
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 380 ms
+
+Elapsed time: 233157 ms
+
+
+Execution #633/10000
+
+Seed: 633
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 233549 ms
+
+
+Execution #634/10000
+
+Seed: 634
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 233941 ms
+
+
+Execution #635/10000
+
+Seed: 635
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 234334 ms
+
+
+Execution #636/10000
+
+Seed: 636
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 234727 ms
+
+
+Execution #637/10000
+
+Seed: 637
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 235118 ms
+
+
+Execution #638/10000
+
+Seed: 638
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 235511 ms
+
+
+Execution #639/10000
+
+Seed: 639
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 235903 ms
+
+
+Execution #640/10000
+
+Seed: 640
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 396 ms
+
+Elapsed time: 236299 ms
+
+
+Execution #641/10000
+
+Seed: 641
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 236690 ms
+
+
+Execution #642/10000
+
+Seed: 642
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 399 ms
+
+Elapsed time: 237089 ms
+
+
+Execution #643/10000
+
+Seed: 643
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 390 ms
+
+Elapsed time: 237479 ms
+
+
+Execution #644/10000
+
+Seed: 644
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 394 ms
+
+Elapsed time: 237873 ms
+
+
+Execution #645/10000
+
+Seed: 645
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 238264 ms
+
+
+Execution #646/10000
+
+Seed: 646
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 238656 ms
+
+
+Execution #647/10000
+
+Seed: 647
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 239048 ms
+
+
+Execution #648/10000
+
+Seed: 648
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 239440 ms
+
+
+Execution #649/10000
+
+Seed: 649
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 239833 ms
+
+
+Execution #650/10000
+
+Seed: 650
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 240224 ms
+
+
+Execution #651/10000
+
+Seed: 651
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 240617 ms
+
+
+Execution #652/10000
+
+Seed: 652
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 241009 ms
+
+
+Execution #653/10000
+
+Seed: 653
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 398 ms
+
+Elapsed time: 241407 ms
+
+
+Execution #654/10000
+
+Seed: 654
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 370 ms
+
+Elapsed time: 241777 ms
+
+
+Execution #655/10000
+
+Seed: 655
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 229 ms
+
+Elapsed time: 242006 ms
+
+
+Execution #656/10000
+
+Seed: 656
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 230 ms
+
+Elapsed time: 242236 ms
+
+
+Execution #657/10000
+
+Seed: 657
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 358 ms
+
+Elapsed time: 242594 ms
+
+
+Execution #658/10000
+
+Seed: 658
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 316 ms
+
+Elapsed time: 242910 ms
+
+
+Execution #659/10000
+
+Seed: 659
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 382 ms
+
+Elapsed time: 243292 ms
+
+
+Execution #660/10000
+
+Seed: 660
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 333 ms
+
+Elapsed time: 243625 ms
+
+
+Execution #661/10000
+
+Seed: 661
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 230 ms
+
+Elapsed time: 243855 ms
+
+
+Execution #662/10000
+
+Seed: 662
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 230 ms
+
+Elapsed time: 244085 ms
+
+
+Execution #663/10000
+
+Seed: 663
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 239 ms
+
+Elapsed time: 244324 ms
+
+
+Execution #664/10000
+
+Seed: 664
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 401 ms
+
+Elapsed time: 244725 ms
+
+
+Execution #665/10000
+
+Seed: 665
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 245117 ms
+
+
+Execution #666/10000
+
+Seed: 666
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 395 ms
+
+Elapsed time: 245512 ms
+
+
+Execution #667/10000
+
+Seed: 667
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 396 ms
+
+Elapsed time: 245908 ms
+
+
+Execution #668/10000
+
+Seed: 668
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 399 ms
+
+Elapsed time: 246307 ms
+
+
+Execution #669/10000
+
+Seed: 669
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 239 ms
+
+Elapsed time: 246546 ms
+
+
+Execution #670/10000
+
+Seed: 670
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 389 ms
+
+Elapsed time: 246935 ms
+
+
+Execution #671/10000
+
+Seed: 671
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 247326 ms
+
+
+Execution #672/10000
+
+Seed: 672
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 394 ms
+
+Elapsed time: 247720 ms
+
+
+Execution #673/10000
+
+Seed: 673
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 248113 ms
+
+
+Execution #674/10000
+
+Seed: 674
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 394 ms
+
+Elapsed time: 248507 ms
+
+
+Execution #675/10000
+
+Seed: 675
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 314 ms
+
+Elapsed time: 248821 ms
+
+
+Execution #676/10000
+
+Seed: 676
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 249213 ms
+
+
+Execution #677/10000
+
+Seed: 677
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 249606 ms
+
+
+Execution #678/10000
+
+Seed: 678
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 396 ms
+
+Elapsed time: 250002 ms
+
+
+Execution #679/10000
+
+Seed: 679
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 395 ms
+
+Elapsed time: 250397 ms
+
+
+Execution #680/10000
+
+Seed: 680
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 250788 ms
+
+
+Execution #681/10000
+
+Seed: 681
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 400 ms
+
+Elapsed time: 251188 ms
+
+
+Execution #682/10000
+
+Seed: 682
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 251580 ms
+
+
+Execution #683/10000
+
+Seed: 683
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 328 ms
+
+Elapsed time: 251908 ms
+
+
+Execution #684/10000
+
+Seed: 684
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 348 ms
+
+Elapsed time: 252256 ms
+
+
+Execution #685/10000
+
+Seed: 685
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 334 ms
+
+Elapsed time: 252590 ms
+
+
+Execution #686/10000
+
+Seed: 686
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 339 ms
+
+Elapsed time: 252929 ms
+
+
+Execution #687/10000
+
+Seed: 687
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 253322 ms
+
+
+Execution #688/10000
+
+Seed: 688
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 253715 ms
+
+
+Execution #689/10000
+
+Seed: 689
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 254108 ms
+
+
+Execution #690/10000
+
+Seed: 690
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 254501 ms
+
+
+Execution #691/10000
+
+Seed: 691
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 254894 ms
+
+
+Execution #692/10000
+
+Seed: 692
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 396 ms
+
+Elapsed time: 255290 ms
+
+
+Execution #693/10000
+
+Seed: 693
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 255682 ms
+
+
+Execution #694/10000
+
+Seed: 694
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 400 ms
+
+Elapsed time: 256082 ms
+
+
+Execution #695/10000
+
+Seed: 695
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 390 ms
+
+Elapsed time: 256472 ms
+
+
+Execution #696/10000
+
+Seed: 696
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 395 ms
+
+Elapsed time: 256867 ms
+
+
+Execution #697/10000
+
+Seed: 697
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 257259 ms
+
+
+Execution #698/10000
+
+Seed: 698
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 257651 ms
+
+
+Execution #699/10000
+
+Seed: 699
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 258044 ms
+
+
+Execution #700/10000
+
+Seed: 700
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 258435 ms
+
+
+Execution #701/10000
+
+Seed: 701
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 258826 ms
+
+
+Execution #702/10000
+
+Seed: 702
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 259218 ms
+
+
+Execution #703/10000
+
+Seed: 703
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 259610 ms
+
+
+Execution #704/10000
+
+Seed: 704
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 323 ms
+
+Elapsed time: 259933 ms
+
+
+Execution #705/10000
+
+Seed: 705
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 229 ms
+
+Elapsed time: 260162 ms
+
+
+Execution #706/10000
+
+Seed: 706
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 334 ms
+
+Elapsed time: 260496 ms
+
+
+Execution #707/10000
+
+Seed: 707
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 369 ms
+
+Elapsed time: 260865 ms
+
+
+Execution #708/10000
+
+Seed: 708
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 390 ms
+
+Elapsed time: 261255 ms
+
+
+Execution #709/10000
+
+Seed: 709
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 261648 ms
+
+
+Execution #710/10000
+
+Seed: 710
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 347 ms
+
+Elapsed time: 261995 ms
+
+
+Execution #711/10000
+
+Seed: 711
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 262387 ms
+
+
+Execution #712/10000
+
+Seed: 712
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 262779 ms
+
+
+Execution #713/10000
+
+Seed: 713
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 263170 ms
+
+
+Execution #714/10000
+
+Seed: 714
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 263562 ms
+
+
+Execution #715/10000
+
+Seed: 715
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 263955 ms
+
+
+Execution #716/10000
+
+Seed: 716
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 264347 ms
+
+
+Execution #717/10000
+
+Seed: 717
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 264740 ms
+
+
+Execution #718/10000
+
+Seed: 718
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 399 ms
+
+Elapsed time: 265139 ms
+
+
+Execution #719/10000
+
+Seed: 719
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 265530 ms
+
+
+Execution #720/10000
+
+Seed: 720
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 399 ms
+
+Elapsed time: 265929 ms
+
+
+Execution #721/10000
+
+Seed: 721
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 266320 ms
+
+
+Execution #722/10000
+
+Seed: 722
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 266712 ms
+
+
+Execution #723/10000
+
+Seed: 723
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 267104 ms
+
+
+Execution #724/10000
+
+Seed: 724
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 267496 ms
+
+
+Execution #725/10000
+
+Seed: 725
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 267888 ms
+
+
+Execution #726/10000
+
+Seed: 726
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 268279 ms
+
+
+Execution #727/10000
+
+Seed: 727
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 380 ms
+
+Elapsed time: 268659 ms
+
+
+Execution #728/10000
+
+Seed: 728
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 269051 ms
+
+
+Execution #729/10000
+
+Seed: 729
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 269444 ms
+
+
+Execution #730/10000
+
+Seed: 730
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 269835 ms
+
+
+Execution #731/10000
+
+Seed: 731
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 399 ms
+
+Elapsed time: 270234 ms
+
+
+Execution #732/10000
+
+Seed: 732
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 270626 ms
+
+
+Execution #733/10000
+
+Seed: 733
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 396 ms
+
+Elapsed time: 271022 ms
+
+
+Execution #734/10000
+
+Seed: 734
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 390 ms
+
+Elapsed time: 271412 ms
+
+
+Execution #735/10000
+
+Seed: 735
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 271803 ms
+
+
+Execution #736/10000
+
+Seed: 736
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 272194 ms
+
+
+Execution #737/10000
+
+Seed: 737
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 362 ms
+
+Elapsed time: 272556 ms
+
+
+Execution #738/10000
+
+Seed: 738
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 335 ms
+
+Elapsed time: 272891 ms
+
+
+Execution #739/10000
+
+Seed: 739
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 273283 ms
+
+
+Execution #740/10000
+
+Seed: 740
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 273675 ms
+
+
+Execution #741/10000
+
+Seed: 741
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 274066 ms
+
+
+Execution #742/10000
+
+Seed: 742
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 395 ms
+
+Elapsed time: 274461 ms
+
+
+Execution #743/10000
+
+Seed: 743
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 358 ms
+
+Elapsed time: 274819 ms
+
+
+Execution #744/10000
+
+Seed: 744
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 402 ms
+
+Elapsed time: 275221 ms
+
+
+Execution #745/10000
+
+Seed: 745
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 275612 ms
+
+
+Execution #746/10000
+
+Seed: 746
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 395 ms
+
+Elapsed time: 276007 ms
+
+
+Execution #747/10000
+
+Seed: 747
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 390 ms
+
+Elapsed time: 276397 ms
+
+
+Execution #748/10000
+
+Seed: 748
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 381 ms
+
+Elapsed time: 276778 ms
+
+
+Execution #749/10000
+
+Seed: 749
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 368 ms
+
+Elapsed time: 277146 ms
+
+
+Execution #750/10000
+
+Seed: 750
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 277537 ms
+
+
+Execution #751/10000
+
+Seed: 751
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 277929 ms
+
+
+Execution #752/10000
+
+Seed: 752
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 278320 ms
+
+
+Execution #753/10000
+
+Seed: 753
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 278711 ms
+
+
+Execution #754/10000
+
+Seed: 754
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 279102 ms
+
+
+Execution #755/10000
+
+Seed: 755
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 396 ms
+
+Elapsed time: 279498 ms
+
+
+Execution #756/10000
+
+Seed: 756
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 279889 ms
+
+
+Execution #757/10000
+
+Seed: 757
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 400 ms
+
+Elapsed time: 280289 ms
+
+
+Execution #758/10000
+
+Seed: 758
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 390 ms
+
+Elapsed time: 280679 ms
+
+
+Execution #759/10000
+
+Seed: 759
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 281072 ms
+
+
+Execution #760/10000
+
+Seed: 760
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 281463 ms
+
+
+Execution #761/10000
+
+Seed: 761
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 281854 ms
+
+
+Execution #762/10000
+
+Seed: 762
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 282246 ms
+
+
+Execution #763/10000
+
+Seed: 763
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 282637 ms
+
+
+Execution #764/10000
+
+Seed: 764
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 283030 ms
+
+
+Execution #765/10000
+
+Seed: 765
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 283422 ms
+
+
+Execution #766/10000
+
+Seed: 766
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 283814 ms
+
+
+Execution #767/10000
+
+Seed: 767
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 344 ms
+
+Elapsed time: 284158 ms
+
+
+Execution #768/10000
+
+Seed: 768
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 231 ms
+
+Elapsed time: 284389 ms
+
+
+Execution #769/10000
+
+Seed: 769
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 383 ms
+
+Elapsed time: 284772 ms
+
+
+Execution #770/10000
+
+Seed: 770
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 398 ms
+
+Elapsed time: 285170 ms
+
+
+Execution #771/10000
+
+Seed: 771
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 390 ms
+
+Elapsed time: 285560 ms
+
+
+Execution #772/10000
+
+Seed: 772
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 285952 ms
+
+
+Execution #773/10000
+
+Seed: 773
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 286344 ms
+
+
+Execution #774/10000
+
+Seed: 774
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 286736 ms
+
+
+Execution #775/10000
+
+Seed: 775
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 287128 ms
+
+
+Execution #776/10000
+
+Seed: 776
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 287520 ms
+
+
+Execution #777/10000
+
+Seed: 777
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 287912 ms
+
+
+Execution #778/10000
+
+Seed: 778
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 288304 ms
+
+
+Execution #779/10000
+
+Seed: 779
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 288697 ms
+
+
+Execution #780/10000
+
+Seed: 780
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 289088 ms
+
+
+Execution #781/10000
+
+Seed: 781
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 397 ms
+
+Elapsed time: 289485 ms
+
+
+Execution #782/10000
+
+Seed: 782
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 289876 ms
+
+
+Execution #783/10000
+
+Seed: 783
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 397 ms
+
+Elapsed time: 290273 ms
+
+
+Execution #784/10000
+
+Seed: 784
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 351 ms
+
+Elapsed time: 290624 ms
+
+
+Execution #785/10000
+
+Seed: 785
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 396 ms
+
+Elapsed time: 291020 ms
+
+
+Execution #786/10000
+
+Seed: 786
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 394 ms
+
+Elapsed time: 291414 ms
+
+
+Execution #787/10000
+
+Seed: 787
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 393 ms
+
+Elapsed time: 291807 ms
+
+
+Execution #788/10000
+
+Seed: 788
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 391 ms
+
+Elapsed time: 292198 ms
+
+
+Execution #789/10000
+
+Seed: 789
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 305 ms
+
+Elapsed time: 292503 ms
+
+
+Execution #790/10000
+
+Seed: 790
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 231 ms
+
+Elapsed time: 292734 ms
+
+
+Execution #791/10000
+
+Seed: 791
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 230 ms
+
+Elapsed time: 292964 ms
+
+
+Execution #792/10000
+
+Seed: 792
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 230 ms
+
+Elapsed time: 293194 ms
+
+
+Execution #793/10000
+
+Seed: 793
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 372 ms
+
+Elapsed time: 293566 ms
+
+
+Execution #794/10000
+
+Seed: 794
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 375 ms
+
+Elapsed time: 293941 ms
+
+
+Execution #795/10000
+
+Seed: 795
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 392 ms
+
+Elapsed time: 294333 ms
+
+
+Execution #796/10000
+
+Seed: 796
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 370 ms
+
+Elapsed time: 294703 ms
+
+
+Execution #797/10000
+
+Seed: 797
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 397 ms
+
+Elapsed time: 295100 ms
+
+
+Execution #798/10000
+
+Seed: 798
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 400 ms
+
+Elapsed time: 295500 ms
+
+
+Execution #799/10000
+
+Seed: 799
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 399 ms
+
+Elapsed time: 295899 ms
+
+
+Execution #800/10000
+
+Seed: 800
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 399 ms
+
+Elapsed time: 296298 ms
+
+
+Execution #801/10000
+
+Seed: 801
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 323 ms
+
+Elapsed time: 296621 ms
+
+
+Execution #802/10000
+
+Seed: 802
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 337 ms
+
+Elapsed time: 296958 ms
+
+
+Execution #803/10000
+
+Seed: 803
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 398 ms
+
+Elapsed time: 297356 ms
+
+
+Execution #804/10000
+
+Seed: 804
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 397 ms
+
+Elapsed time: 297753 ms
+
+
+Execution #805/10000
+
+Seed: 805
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 401 ms
+
+Elapsed time: 298154 ms
+
+
+Execution #806/10000
+
+Seed: 806
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 397 ms
+
+Elapsed time: 298551 ms
+
+
+Execution #807/10000
+
+Seed: 807
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 405 ms
+
+Elapsed time: 298956 ms
+
+
+Execution #808/10000
+
+Seed: 808
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 397 ms
+
+Elapsed time: 299353 ms
+
+
+Execution #809/10000
+
+Seed: 809
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 399 ms
+
+Elapsed time: 299752 ms
+
+
+Execution #810/10000
+
+Seed: 810
+Estimated max possible cost 324.010076
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
+Execution time: 286 ms
+
+Elapsed time: 300038 ms
+
+
+Terminating due to timeout: 300038 ms >= 300000 ms
+
+Executed runs: 809/10000
+Total execution time: 300.038 s
+Avg execution time: 370.875 ms

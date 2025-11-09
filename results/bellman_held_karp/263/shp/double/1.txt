@@ -1,0 +1,28 @@
+Solving SHP
+
+
+Execution #1/1
+
+Seed: 1
+Estimated max possible cost 0.000000
+for path: 
+0 
+Memory needed for path: 1 locs, for costs: 1 locs.
+Desired precision: 1e+12
+Mem constraint for cost_t: 64 bits
+Rounded to pow of 2 bytes mem constraint (capped at 64bits) for cost_t: 64 bits
+Bits needed for an int to preserve precision: 1
+Warning: cannot preserve precision.
+Selected cost_t = double
+Solving with cost_t = d
+Memory [GB] needed: 8.3819e-09
+Optimal total distance (scaled) for 1 points: 0
+Optimal total distance for 1 points: 0.000000
+Corresponding path (0-indexed):
+Point #0
+Execution time: 5 ms
+
+Elapsed time: 5 ms
+Executed runs: 1/1
+Total execution time: 0.005 s
+Avg execution time: 5 ms

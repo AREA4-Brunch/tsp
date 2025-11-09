@@ -1,0 +1,69 @@
+Solving TSP
+
+
+Execution #1/1
+
+Seed: 1
+Estimated max possible cost 73.000000
+for path: 
+5 11 2 8 9 0 10 1 7 6 3 4 5
+Memory needed for path: 11022 locs, for costs: 5082 locs.
+Desired precision: 1e+12
+Mem constraint for cost_t: 8 bits
+Rounded to pow of 2 bytes mem constraint (capped at 64bits) for cost_t: 8 bits
+Bits needed for an int to preserve precision: 47
+Warning: cannot preserve precision.
+Warning: Using an integer; there is not enough memory for decimals.
+Bits used per cost_t: 8
+Selected cost_t = (u)int8_t
+Solving with cost_t = h
+Memory [GB] needed: 1.4998e-05
+Requested precision is too high;managed to differentiate costs by: 0.219902
+Distances:
+9999, 3, 5, 48, 48, 8, 8, 5, 5, 3, 3, 0, 
+3, 9999, 3, 48, 48, 8, 8, 5, 5, 0, 0, 3, 
+5, 3, 9999, 72, 72, 48, 48, 24, 24, 3, 3, 5, 
+48, 48, 74, 9999, 0, 6, 6, 12, 12, 48, 48, 48, 
+48, 48, 74, 0, 9999, 6, 6, 12, 12, 48, 48, 48, 
+8, 8, 50, 6, 6, 9999, 0, 8, 8, 8, 8, 8, 
+8, 8, 50, 6, 6, 0, 9999, 8, 8, 8, 8, 8, 
+5, 5, 26, 12, 12, 8, 8, 9999, 0, 5, 5, 5, 
+5, 5, 26, 12, 12, 8, 8, 0, 9999, 5, 5, 5, 
+3, 0, 3, 48, 48, 8, 8, 5, 5, 9999, 0, 3, 
+3, 0, 3, 48, 48, 8, 8, 5, 5, 0, 9999, 3, 
+0, 3, 5, 48, 48, 8, 8, 5, 5, 3, 3, 9999, 
+Scaled Distances:
+255, 9, 15, 144, 144, 24, 24, 15, 15, 9, 9, 0, 
+9, 255, 9, 144, 144, 24, 24, 15, 15, 0, 0, 9, 
+15, 9, 255, 215, 215, 144, 144, 72, 72, 9, 9, 15, 
+144, 144, 255, 255, 0, 18, 18, 36, 36, 144, 144, 144, 
+144, 144, 255, 0, 255, 18, 18, 36, 36, 144, 144, 144, 
+24, 24, 150, 18, 18, 255, 0, 24, 24, 24, 24, 24, 
+24, 24, 150, 18, 18, 0, 255, 24, 24, 24, 24, 24, 
+15, 15, 78, 36, 36, 24, 24, 255, 0, 15, 15, 15, 
+15, 15, 78, 36, 36, 24, 24, 0, 255, 15, 15, 15, 
+9, 0, 9, 144, 144, 24, 24, 15, 15, 255, 0, 9, 
+9, 0, 9, 144, 144, 24, 24, 15, 15, 0, 255, 9, 
+0, 9, 15, 144, 144, 24, 24, 15, 15, 9, 9, 255, 
+Optimal total distance (scaled) for 12 points: 117
+Optimal total distance for 12 points: 39.000000
+Corresponding path (0-indexed):
+Point #11
+Point #0
+Point #2
+Point #10
+Point #9
+Point #1
+Point #6
+Point #5
+Point #4
+Point #3
+Point #7
+Point #8
+Point #11
+Execution time: 0 ms
+
+Elapsed time: 0 ms
+Executed runs: 1/1
+Total execution time: 0 s
+Avg execution time: 0 ms

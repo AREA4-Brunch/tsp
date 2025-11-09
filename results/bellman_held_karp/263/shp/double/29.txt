@@ -1,0 +1,71 @@
+Solving SHP
+
+
+Execution #1/10000
+
+Seed: 1
+Estimated max possible cost 380.478203
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 
+Memory needed for path: 2224799931 locs, for costs: 1968053535 locs.
+Desired precision: 1e+06
+Mem constraint for cost_t: 64 bits
+Rounded to pow of 2 bytes mem constraint (capped at 64bits) for cost_t: 64 bits
+Bits needed for an int to preserve precision: 29
+Warning: cannot preserve precision.
+Selected cost_t = double
+Solving with cost_t = d
+Memory [GB] needed: 16.7351
+Optimal total distance (scaled) for 29 points: 314.566
+Optimal total distance for 29 points: 314.566388
+Corresponding path (0-indexed):
+Point #2
+Point #3
+Point #4
+Point #5
+Point #6
+Point #7
+Point #8
+Point #9
+Point #10
+Point #11
+Point #12
+Point #13
+Point #14
+Point #15
+Point #16
+Point #17
+Point #18
+Point #19
+Point #20
+Point #28
+Point #27
+Point #26
+Point #25
+Point #24
+Point #23
+Point #22
+Point #21
+Point #0
+Point #1
+Execution time: 153547 ms
+
+Elapsed time: 153547 ms
+
+
+Execution #2/10000
+
+Seed: 2
+Estimated max possible cost 380.478203
+for path: 
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 
+Execution time: 156603 ms
+
+Elapsed time: 310150 ms
+
+
+Terminating due to timeout: 310150 ms >= 300000 ms
+
+Executed runs: 1/10000
+Total execution time: 310.15 s
+Avg execution time: 310150 ms

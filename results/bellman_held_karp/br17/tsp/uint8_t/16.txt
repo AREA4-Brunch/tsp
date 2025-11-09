@@ -1,0 +1,81 @@
+Solving TSP
+
+
+Execution #1/1
+
+Seed: 1
+Estimated max possible cost 132.000000
+for path: 
+14 9 6 15 11 10 13 2 12 1 4 7 5 0 8 3 14
+Memory needed for path: 245310 locs, for costs: 96525 locs.
+Desired precision: 1e+12
+Mem constraint for cost_t: 8 bits
+Rounded to pow of 2 bytes mem constraint (capped at 64bits) for cost_t: 8 bits
+Bits needed for an int to preserve precision: 47
+Warning: cannot preserve precision.
+Warning: Using an integer; there is not enough memory for decimals.
+Bits used per cost_t: 8
+Selected cost_t = (u)int8_t
+Solving with cost_t = h
+Memory [GB] needed: 0.000318359
+Requested precision is too high;managed to differentiate costs by: 0.366504
+Distances:
+9999, 3, 5, 48, 48, 8, 8, 5, 5, 3, 3, 0, 3, 5, 8, 8, 
+3, 9999, 3, 48, 48, 8, 8, 5, 5, 0, 0, 3, 0, 3, 8, 8, 
+5, 3, 9999, 72, 72, 48, 48, 24, 24, 3, 3, 5, 3, 0, 48, 48, 
+48, 48, 74, 9999, 0, 6, 6, 12, 12, 48, 48, 48, 48, 74, 6, 6, 
+48, 48, 74, 0, 9999, 6, 6, 12, 12, 48, 48, 48, 48, 74, 6, 6, 
+8, 8, 50, 6, 6, 9999, 0, 8, 8, 8, 8, 8, 8, 50, 0, 0, 
+8, 8, 50, 6, 6, 0, 9999, 8, 8, 8, 8, 8, 8, 50, 0, 0, 
+5, 5, 26, 12, 12, 8, 8, 9999, 0, 5, 5, 5, 5, 26, 8, 8, 
+5, 5, 26, 12, 12, 8, 8, 0, 9999, 5, 5, 5, 5, 26, 8, 8, 
+3, 0, 3, 48, 48, 8, 8, 5, 5, 9999, 0, 3, 0, 3, 8, 8, 
+3, 0, 3, 48, 48, 8, 8, 5, 5, 0, 9999, 3, 0, 3, 8, 8, 
+0, 3, 5, 48, 48, 8, 8, 5, 5, 3, 3, 9999, 3, 5, 8, 8, 
+3, 0, 3, 48, 48, 8, 8, 5, 5, 0, 0, 3, 9999, 3, 8, 8, 
+5, 3, 0, 72, 72, 48, 48, 24, 24, 3, 3, 5, 3, 9999, 48, 48, 
+8, 8, 50, 6, 6, 0, 0, 8, 8, 8, 8, 8, 8, 50, 9999, 0, 
+8, 8, 50, 6, 6, 0, 0, 8, 8, 8, 8, 8, 8, 50, 0, 9999, 
+Scaled Distances:
+255, 5, 9, 82, 82, 14, 14, 9, 9, 5, 5, 0, 5, 9, 14, 14, 
+5, 255, 5, 82, 82, 14, 14, 9, 9, 0, 0, 5, 0, 5, 14, 14, 
+9, 5, 255, 124, 124, 82, 82, 41, 41, 5, 5, 9, 5, 0, 82, 82, 
+82, 82, 127, 255, 0, 10, 10, 21, 21, 82, 82, 82, 82, 127, 10, 10, 
+82, 82, 127, 0, 255, 10, 10, 21, 21, 82, 82, 82, 82, 127, 10, 10, 
+14, 14, 86, 10, 10, 255, 0, 14, 14, 14, 14, 14, 14, 86, 0, 0, 
+14, 14, 86, 10, 10, 0, 255, 14, 14, 14, 14, 14, 14, 86, 0, 0, 
+9, 9, 45, 21, 21, 14, 14, 255, 0, 9, 9, 9, 9, 45, 14, 14, 
+9, 9, 45, 21, 21, 14, 14, 0, 255, 9, 9, 9, 9, 45, 14, 14, 
+5, 0, 5, 82, 82, 14, 14, 9, 9, 255, 0, 5, 0, 5, 14, 14, 
+5, 0, 5, 82, 82, 14, 14, 9, 9, 0, 255, 5, 0, 5, 14, 14, 
+0, 5, 9, 82, 82, 14, 14, 9, 9, 5, 5, 255, 5, 9, 14, 14, 
+5, 0, 5, 82, 82, 14, 14, 9, 9, 0, 0, 5, 255, 5, 14, 14, 
+9, 5, 0, 124, 124, 82, 82, 41, 41, 5, 5, 9, 5, 255, 82, 82, 
+14, 14, 86, 10, 10, 0, 0, 14, 14, 14, 14, 14, 14, 86, 255, 0, 
+14, 14, 86, 10, 10, 0, 0, 14, 14, 14, 14, 14, 14, 86, 0, 255, 
+Optimal total distance (scaled) for 16 points: 68
+Optimal total distance for 16 points: 39.000000
+Corresponding path (0-indexed):
+Point #15
+Point #6
+Point #5
+Point #4
+Point #3
+Point #8
+Point #7
+Point #12
+Point #10
+Point #9
+Point #1
+Point #13
+Point #2
+Point #11
+Point #0
+Point #14
+Point #15
+Execution time: 4 ms
+
+Elapsed time: 4 ms
+Executed runs: 1/1
+Total execution time: 0.004 s
+Avg execution time: 4 ms

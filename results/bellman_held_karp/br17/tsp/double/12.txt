@@ -1,0 +1,40 @@
+Solving TSP
+
+
+Execution #1/1
+
+Seed: 1
+Estimated max possible cost 73.000000
+for path: 
+5 11 2 8 9 0 10 1 7 6 3 4 5
+Memory needed for path: 11022 locs, for costs: 5082 locs.
+Desired precision: 1e+12
+Mem constraint for cost_t: 64 bits
+Rounded to pow of 2 bytes mem constraint (capped at 64bits) for cost_t: 64 bits
+Bits needed for an int to preserve precision: 47
+Warning: cannot preserve precision.
+Selected cost_t = double
+Solving with cost_t = d
+Memory [GB] needed: 4.81289e-05
+Optimal total distance (scaled) for 12 points: 39
+Optimal total distance for 12 points: 39.000000
+Corresponding path (0-indexed):
+Point #11
+Point #0
+Point #2
+Point #10
+Point #9
+Point #1
+Point #6
+Point #5
+Point #4
+Point #3
+Point #7
+Point #8
+Point #11
+Execution time: 0 ms
+
+Elapsed time: 0 ms
+Executed runs: 1/1
+Total execution time: 0 s
+Avg execution time: 0 ms
