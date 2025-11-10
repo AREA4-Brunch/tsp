@@ -29,10 +29,11 @@ std::vector<std::vector<cost_t>> scaleAndNormalize(
     const distance_t max_cost_norm,
     double precision,
     const bool do_round,
+    double &scaling_factor,
     const int verbose = 0
 ) {
     const cost_t inf = std::numeric_limits<cost_t>::max();
-    double scaling_factor = 1.;
+    scaling_factor = 1.;
     int rescale_try = 1, max_tries = 100;
 
     const double rounding_err = do_round ? 1. * weights.size() : 0.;

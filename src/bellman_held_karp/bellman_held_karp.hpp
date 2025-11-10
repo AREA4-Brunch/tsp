@@ -57,6 +57,7 @@ template<
     bool is_symmetric,
     bool is_n_odd,
     bool has_no_neg_weights=true,
+    bool find_path=true,
     typename vertex_t=uint8_t,
     typename set_t=uint64_t
 >
@@ -170,9 +171,12 @@ T bellmanHeldKarp(
     std::vector<T> costs_big(bin_coef[n][big_cost_card] * big_cost_card);
     std::vector<T> costs_small(bin_coef[n][small_cost_card] * small_cost_card);
     // prev_starts[cardinality_without_ending] = costs_prev segment start
-    const std::vector<ull> prev_starts
-        = detail::prevVertexStarts(n, max_card, bin_coef);
-    std::vector<vertex_t> best_previous_vertices(prev_starts.back());
+    std::vector<ull> prev_starts;
+    std::vector<vertex_t> best_previous_vertices;
+    if constexpr (find_path) {
+        prev_starts = detail::prevVertexStarts(n, max_card, bin_coef);
+        best_previous_vertices.resize(prev_starts.back());
+    }
 
     const auto get_cost_start = [&bin_coef] (const set_t set) -> ull {
         ull prev_rank = 0ULL;
@@ -183,7 +187,6 @@ T bellmanHeldKarp(
         return prev_rank * v_idx;  // rank * cardinality
     };
 
-    // init paths with 
     bool is_next_big = big_cost_card & 1;
     auto &first_row_costs = is_next_big ? costs_big : costs_small;
     for (int dst = 0; dst < n; ++dst) {
@@ -229,8 +232,10 @@ T bellmanHeldKarp(
                 ) {
                     const vertex_t src = (vertex_t) __builtin_ctzll(src_bits);
                     const T weight = get_weight(src, dst);
-                    if (store_sum_iflt(*cost_prev, weight, left_best_cost)) {
-                        left_prev = src;
+                    const bool is_lt = store_sum_iflt(*cost_prev, weight,
+                                                      left_best_cost);
+                    if constexpr (find_path) {
+                        if (is_lt) left_prev = src;
                     }
                     if (did_not_add && dst < src) {
                         next_rank += bin_coef[dst][++v_idx];
@@ -246,7 +251,9 @@ T bellmanHeldKarp(
                 );
                 *(costs_next + next_rank * (cardinality + 1) + next_dst_rank)
                         = left_best_cost;
-                if (do_store_prev) *(best_previous_vertex++) = left_prev;
+                if constexpr (find_path) {
+                    if (do_store_prev) *(best_previous_vertex++) = left_prev;
+                }
             }
 
             // Gosper's hack:
@@ -288,8 +295,10 @@ T bellmanHeldKarp(
                 ) {
                     const vertex_t src = (vertex_t) __builtin_ctzll(src_bits);
                     const T weight = get_weight(src, dst);
-                    if (store_sum_iflt(*cost_prev, weight, left_best_cost)) {
-                        left_prev = src;
+                    const bool is_better = store_sum_iflt(*cost_prev, weight,
+                                                          left_best_cost);
+                    if constexpr (find_path) {
+                        if (is_better) left_prev = src;
                     }
                 }
                 cost_prev -= cardinality;
@@ -323,16 +332,26 @@ T bellmanHeldKarp(
                         other_half_cost = *(costs_prev_end - prev_rank + prev_dst_rank);
                     }
 
-                    if (store_sum_iflt(other_half_cost, left_best_cost, best_cost)) {
-                        best_set = added_dst_to_set;
-                        best_left_end = dst;
-                        best_left_prev = left_prev;
-                        best_right_prev = right_prev; // 0 iff n is even
+                    const bool is_new_best = store_sum_iflt(
+                        other_half_cost, left_best_cost, best_cost
+                    );
+                    if constexpr (find_path) {
+                        if (is_new_best) {
+                            best_set = added_dst_to_set;
+                            best_left_end = dst;
+                            best_left_prev = left_prev;
+                            if constexpr (is_n_odd) best_right_prev = right_prev;
+                        }
                     }
                 } else {  // asymmetric
-                    if (store_sum_iflt(weights[dst][n], left_best_cost, best_cost)) {
-                        best_left_end = dst;
-                        best_left_prev = left_prev;
+                    const bool is_new_best = store_sum_iflt(
+                        weights[dst][n], left_best_cost, best_cost
+                    );
+                    if constexpr (find_path) {
+                        if (is_new_best) {
+                            best_left_end = dst;
+                            best_left_prev = left_prev;
+                        }
                     }
                 }
             }
@@ -342,6 +361,10 @@ T bellmanHeldKarp(
             const set_t r = set + c;
             set = (((r ^ set) >> 2) / c) | r;
         }
+    }
+
+    if constexpr (!find_path) {
+        return best_cost;
     }
 
     const auto get_set_ordinal = [&bin_coef] (const set_t set) -> ull {
@@ -425,6 +448,23 @@ T bellmanHeldKarp(
     return best_cost;
 }
 
+template<typename T, typename vertex_t, typename set_t>
+struct BHKDispatcher {
+    template<bool is_symmetric, bool is_n_odd,
+             bool has_no_neg_weights, bool find_path>
+    static T call(
+        std::vector<vertex_t> &solution,
+        const std::vector<std::vector<T>> &weights,
+        const bool end_in_starting_point,
+        T best_cost
+    ) {
+        return bellmanHeldKarp<
+            T, is_symmetric, is_n_odd, has_no_neg_weights,
+            find_path, vertex_t, set_t
+        >(solution, weights, end_in_starting_point, best_cost);
+    }
+};
+
 }  // detail namesspace
 
 
@@ -432,18 +472,20 @@ T bellmanHeldKarp(
 std::pair<uint64_t, uint64_t> calcSpaceNeeded(
     int n,
     const bool search_cycle,
-    const bool is_symmetric
+    const bool is_symmetric,
+    const bool cost_only=true
 ) {
     if (search_cycle) n--;
     if (n <= 1) return { 1ULL, 1ULL };
     const int max_card = is_symmetric ? std::max(1, n / 2) : n - 1;
     const auto binomials = detail::binomialsMatr(n, max_card);
-    const uint64_t path
-        = detail::prevVertexStarts(n, max_card, binomials).back();
     const int big_cost_card = n / 2;
     const int small_cost_card = n <= 2 ? 0 : n / 2 + (is_symmetric ? -1 : 1);
     const uint64_t costs = binomials[n][small_cost_card] * small_cost_card
                          + binomials[n][big_cost_card] * big_cost_card;
+    if (cost_only) return { 0ULL, costs };
+    const uint64_t path
+        = detail::prevVertexStarts(n, max_card, binomials).back();
     return { path, costs };
 }
 
@@ -455,57 +497,41 @@ T bellmanHeldKarp(
     const bool end_in_starting_point,
     const bool is_symmetric,
     T best_cost = std::numeric_limits<T>::max(),
-    bool has_no_neg_weights=true
+    bool has_no_neg_weights=true,
+    bool find_path=true
 ) {
     const int n = end_in_starting_point ? weights.size() - 1
                                         : weights.size();
     const bool is_n_odd = n & 1;
 
-    if (is_symmetric) {
-        if (is_n_odd) {
-            if (has_no_neg_weights) {
-                return detail::bellmanHeldKarp<T, true, true, true, vertex_t, set_t>(
-                    solution, weights, end_in_starting_point, best_cost
-                );
-            } else {
-                return detail::bellmanHeldKarp<T, true, true, false, vertex_t, set_t>(
-                    solution, weights, end_in_starting_point, best_cost
-                );
-            }
-        } else {
-            if (has_no_neg_weights) {
-                return detail::bellmanHeldKarp<T, true, false, true, vertex_t, set_t>(
-                    solution, weights, end_in_starting_point, best_cost
-                );
-            } else {
-                return detail::bellmanHeldKarp<T, true, false, false, vertex_t, set_t>(
-                    solution, weights, end_in_starting_point, best_cost
-                );
-            }
+    using Dispatcher = detail::BHKDispatcher<T, vertex_t, set_t>;
+    #define BHK_CALL(sym, odd, noneg, path) \
+        if ( is_symmetric == sym && is_n_odd == odd \
+          && has_no_neg_weights == noneg && find_path == path) { \
+            return Dispatcher::template call<sym, odd, noneg, path>( \
+                solution, weights, end_in_starting_point, best_cost ); \
         }
-    } else {
-        if (is_n_odd) {
-            if (has_no_neg_weights) {
-                return detail::bellmanHeldKarp<T, false, true, true, vertex_t, set_t>(
-                    solution, weights, end_in_starting_point, best_cost
-                );
-            } else {
-                return detail::bellmanHeldKarp<T, false, true, false, vertex_t, set_t>(
-                    solution, weights, end_in_starting_point, best_cost
-                );
-            }
-        } else {
-            if (has_no_neg_weights) {
-                return detail::bellmanHeldKarp<T, false, false, true, vertex_t, set_t>(
-                    solution, weights, end_in_starting_point, best_cost
-                );
-            } else {
-                return detail::bellmanHeldKarp<T, false, false, false, vertex_t, set_t>(
-                    solution, weights, end_in_starting_point, best_cost
-                );
-            }
-        }
-    }
+
+    BHK_CALL(true, true, true, true);
+    BHK_CALL(true, true, true, false);
+    BHK_CALL(true, true, false, true);
+    BHK_CALL(true, true, false, false);
+    BHK_CALL(true, false, true, true);
+    BHK_CALL(true, false, true, false);
+    BHK_CALL(true, false, false, true);
+    BHK_CALL(true, false, false, false);
+    BHK_CALL(false, true, true, true);
+    BHK_CALL(false, true, true, false);
+    BHK_CALL(false, true, false, true);
+    BHK_CALL(false, true, false, false);
+    BHK_CALL(false, false, true, true);
+    BHK_CALL(false, false, true, false);
+    BHK_CALL(false, false, false, true);
+    BHK_CALL(false, false, false, false);
+
+    #undef BHK_CALL
+
+    return (T) 0;  // should never happen
 }
 
 

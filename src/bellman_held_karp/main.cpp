@@ -33,21 +33,36 @@ void Solve(
     const unsigned long long max_num_bytes,
     const double precision,
     const bool do_not_prefer_cost_t_int,
-    const int verbose,
     const bool is_symmetric,
+    const bool cost_only,
+    const int verbose,
     const unsigned int seed
 );
 
 template <typename distance_t, typename cost_t, typename vertex_t>
-void logFoundSolution(
+void logFoundSolutionWithPath(
     const cost_t scaled_solution,
     const std::vector<vertex_t> &path,
     const int num_points,
     const std::vector<std::vector<distance_t>> &distances
 );
 
+template <typename distance_t, typename cost_t>
+void logFoundSolutionCostOnly(
+    const cost_t scaled_solution,
+    const double scaling_factor,
+    const distance_t min_dist,
+    const int num_points,
+    const int num_edges
+);
+
 template<typename cost_t, typename vertex_t>
-void logMemoryUsage(const int n, const bool cycle, const bool is_symmetric);
+void logMemoryUsage(
+    const int n,
+    const bool cycle,
+    const bool is_symmetric,
+    const bool cost_only
+);
 
 
 int main(const int argc, const char **argv)
@@ -77,6 +92,7 @@ int main(const int argc, const char **argv)
     const bool is_problem_in_pts_format = argc < 10
                                         ? true  // not TSPLIB format by default
                                         : std::atoi(argv[9]);
+    const bool cost_only = false;  // iff cost only then no optimal path returned
 
     std::cout << "Solving "
               << (is_searching_for_cycle ? "TSP" : "SHP")
@@ -110,8 +126,9 @@ int main(const int argc, const char **argv)
                     memory_constraint_bytes,
                     desired_precision,
                     do_not_prefer_cost_t_int,
-                    run_idx == 1 ? 1 : 0,  // verbose only for first run
                     is_symmetric,
+                    cost_only,
+                    run_idx == 1 ? 1 : 0,  // verbose only for first run
                     run_idx
                 );
                 ++run_idx;
@@ -191,8 +208,9 @@ void Solve(
     const unsigned long long max_num_bytes,
     const double precision,
     const bool do_not_prefer_cost_t_int,
-    const int verbose,
     const bool is_symmetric,
+    const bool cost_only,
+    const int verbose,
     const unsigned int seed
 ) {
     std::mt19937 psrng = detail::initPSRNG(seed);
@@ -208,7 +226,7 @@ void Solve(
     const auto cost_t_variant = chooseCostType<distance_t>(
         precision, max_cost_norm, num_points, max_num_bytes,
         do_not_prefer_cost_t_int, is_finding_cycle, is_symmetric,
-        verbose, false
+        cost_only, verbose, false
     );
 
     std::visit([&] (auto &&cost_t_variant) {
@@ -217,17 +235,19 @@ void Solve(
         const int num_points = distances.size();
         if (verbose > 0) {
             logMemoryUsage<cost_t, vertex_t>(
-                num_points, is_finding_cycle, is_symmetric
+                num_points, is_finding_cycle, is_symmetric, cost_only
             );
         }
+        double scaling_factor = 1.;
         const std::vector<std::vector<cost_t>> scaled_distances
-            =  ( std::is_floating_point_v<cost_t>
-              || max_cost_norm <= (distance_t) 0 )
+            = ( std::is_floating_point_v<cost_t>
+             || max_cost_norm <= (distance_t) 0 )
             ? recastMatrix<cost_t, distance_t>(distances)
             : scaleAndNormalize<cost_t, distance_t>(
                 distances, min_dist,
                 max_cost_norm, precision,
                 true,  // do round
+                scaling_factor,
                 verbose
             );
         std::vector<vertex_t> path;
@@ -237,19 +257,27 @@ void Solve(
             is_finding_cycle,
             is_symmetric,
             std::numeric_limits<cost_t>::max(),
-            true  // always true since normalized
+            true,  // always true since normalized
+            !cost_only
         );
 
         if (verbose > 0) {
-            logFoundSolution<distance_t>(
-                cost, path, num_points, distances
-            );
+            if (cost_only) {
+                logFoundSolutionCostOnly<distance_t>(
+                    cost, scaling_factor, min_dist,
+                    num_points, num_edges
+                );
+            } else {
+                logFoundSolutionWithPath<distance_t>(
+                    cost, path, num_points, distances
+                );
+            }
         }
     }, cost_t_variant);
 }
 
 template <typename distance_t, typename cost_t, typename vertex_t>
-void logFoundSolution(
+void logFoundSolutionWithPath(
     const cost_t scaled_solution,
     const std::vector<vertex_t> &path,
     const int num_points,
@@ -260,7 +288,7 @@ void logFoundSolution(
               << std::endl;
 
     // recalculate exact distance of the found path and log it
-    distance_t exact_min_distance_found = (distance_t)0;
+    distance_t exact_min_distance_found = (distance_t) 0;
     for (int i = 1, n = path.size(); i < n; ++i) {
         exact_min_distance_found += distances[path[i - 1]][path[i]];
     }
@@ -275,11 +303,37 @@ void logFoundSolution(
 }
 
 template<typename cost_t, typename vertex_t>
-void logMemoryUsage(const int n, const bool cycle, const bool is_symmetric) {
-    const auto space = calcSpaceNeeded(n, cycle, is_symmetric);
+void logMemoryUsage(
+    const int n,
+    const bool cycle,
+    const bool is_symmetric,
+    const bool cost_only
+) {
+    const auto space = calcSpaceNeeded(n, cycle, is_symmetric, cost_only);
     const uint64_t bytes_to_use = sizeof(vertex_t) * space.first
                                 + sizeof(cost_t) * space.second;
     std::cout << "Solving with cost_t = " << typeid(cost_t).name()
               << std::endl << "Memory [GB] needed: "
               << (1. * bytes_to_use / (1 << 30)) << std::endl;
+}
+
+template <typename distance_t, typename cost_t>
+void logFoundSolutionCostOnly(
+    const cost_t scaled_solution,
+    const double scaling_factor,
+    const distance_t min_dist,
+    const int num_points,
+    const int num_edges
+) {
+    std::cout << "Optimal total distance (scaled) for " << num_points
+              << " points: " << static_cast<double> (scaled_solution)
+              << std::endl;
+
+    const double rescaled_estimate = static_cast<double> (scaled_solution)
+                                   / scaling_factor
+                                   + min_dist * num_edges;
+    std::cout << "Rescaled and renormalized:" << std::endl
+              << "Optimal total distance for " << num_points
+              << " points: " << static_cast<double> (rescaled_estimate)
+              << std::endl;
 }

@@ -101,6 +101,7 @@ detail::cost_t_variant chooseCostType(
     const bool do_not_prefer_int,
     const bool search_cycle,
     const bool is_symmetric,
+    const bool cost_only,
     const int verbose = 1,
     const bool forbid_unsigned = false
 ) {
@@ -118,7 +119,8 @@ detail::cost_t_variant chooseCostType(
     }
 
     // maxB = 1B * path + xB * costs => x = (max - 1B * path) / costs
-    const auto space = calcSpaceNeeded(num_points, search_cycle, is_symmetric);
+    const auto space = calcSpaceNeeded(num_points, search_cycle,
+                                       is_symmetric, cost_only);
     if (verbose > 0) {
         std::cout << "Memory needed for path: " << space.first << " locs, for costs: "
                   << space.second << " locs." << std::endl;
