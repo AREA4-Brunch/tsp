@@ -1,7 +1,9 @@
-#ifndef UTILS_HPP
-#define UTILS_HPP
+#ifndef LOGGING_HPP
+#define LOGGING_HPP
 
-namespace utils {
+#include <iostream>
+
+namespace logging {
 
 template<typename CONT>
 void displayContainer(const CONT &cont) {
@@ -18,6 +20,6 @@ void displayMatrix(const CONT &cont) {
     }
 }
 
-} // detail namesspace
+} // logging namesspace
 
 #endif

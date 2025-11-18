@@ -5,7 +5,7 @@
 #include <iostream>
 #include <algorithm>
 #include <limits>
-#include "utils.hpp"
+#include "../common/logging.hpp"
 
 
 template<typename dst_t, typename src_t>
@@ -104,9 +104,9 @@ std::vector<std::vector<cost_t>> scaleAndNormalize(
     }
     if (verbose > 0) {
         std::cout << "Distances:" << std::endl;
-        utils::displayMatrix(weights);
+        logging::displayMatrix(weights);
         std::cout << "Scaled Distances:" << std::endl;
-        utils::displayMatrix(recastMatrix<double>(scaled_weights));
+        logging::displayMatrix(recastMatrix<double>(scaled_weights));
     }
     return scaled_weights;
 }

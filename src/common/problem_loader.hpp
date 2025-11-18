@@ -4,7 +4,7 @@
 #include <vector>
 #include <complex>
 #include <fstream>
-#include "utils.hpp"
+#include "../common/logging.hpp"
 
 namespace detail {
 
@@ -144,6 +144,8 @@ std::vector<std::vector<distance_t>> loadWeightsMatrix(
 } // detail namespace
 
 
+namespace prloader {
+
 template<typename point_t, typename distance_t>
 std::vector<std::vector<distance_t>> loadDistances(
     const std::string &path_in_file,
@@ -178,5 +180,7 @@ std::vector<std::vector<distance_t>> loadDistances(
         is_symmetric
     );
 }
+
+}  // prloader namespace
 
 #endif
