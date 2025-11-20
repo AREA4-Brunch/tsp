@@ -20,6 +20,7 @@ class LocalSearch3OptRand : public LocalSearch3Opt<cost_t, vertex_t> {
         std::vector<vertex_t> &solution,
         cost_t cur_cost,
         History<cost_t> &history,
+        const std::vector<std::vector<cost_t>> &weights,
         const int verbose = 0
     ) const override;
 
@@ -34,6 +35,7 @@ cost_t LocalSearch3OptRand<cost_t, vertex_t>::run(
     std::vector<vertex_t> &path,
     cost_t cur_cost,
     History<cost_t> &history,
+    const std::vector<std::vector<cost_t>> &weights,
     const int verbose
 ) const {
     const int n = path.size();
@@ -66,7 +68,7 @@ cost_t LocalSearch3OptRand<cost_t, vertex_t>::run(
         int i = 0, j = 0, k = 0;
         const auto process_cut = [&] () {
             const int patch_ordinal = this->selectCut(
-                i, j, k, cur_cost_change, path
+                i, j, k, cur_cost_change, path, weights
             );
             // add slight amount to negative side when comparing
             // the change to avoid swaps of the same element when

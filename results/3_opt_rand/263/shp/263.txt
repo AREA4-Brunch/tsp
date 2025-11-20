@@ -1,133 +1,3835 @@
 Solving SHP
 
 
-Execution #1/1
+Execution #1/10
 
-Run(s) folder: C:/Users/mrade/Documents/tsp_v5/commands/3_opt/../../results/3_opt_rand/histories/263/shp/263/runs_1_500
+Run(s) folder: C:/Users/mrade/Documents/tsp_v6/commands/3_opt/../../results/3_opt_rand/histories/263/shp/263/runs_1_500
+Deleted already existing run folder: C:/Users/mrade/Documents/tsp_v6/commands/3_opt/../../results/3_opt_rand/histories/263/shp/263/runs_1_500
 
 Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v5/commands/3_opt/../../results/3_opt_rand/histories/263/shp/263/runs_1_500/0.flush.bin
+C:/Users/mrade/Documents/tsp_v6/commands/3_opt/../../results/3_opt_rand/histories/263/shp/263/runs_1_500/0.flush.bin
 
 Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v5/commands/3_opt/../../results/3_opt_rand/histories/263/shp/263/runs_1_500/0.flush.bin
-ITERATION 1: 21304.6
-ITERATION 2: 21235
-ITERATION 3: 20978.4
-ITERATION 4: 20977.4
-ITERATION 5: 20960.6
-ITERATION 6: 20783.1
-ITERATION 7: 20738.9
-ITERATION 8: 20695.9
-ITERATION 9: 20527.3
-ITERATION 10: 20304
-ITERATION 20: 19554.1
-ITERATION 30: 18784.2
-ITERATION 40: 18155.3
-ITERATION 50: 17606.3
-ITERATION 60: 17108.4
-ITERATION 70: 16074.3
-ITERATION 80: 15344.3
-ITERATION 90: 14750.5
-ITERATION 100: 14180.5
-ITERATION 110: 13972.4
-ITERATION 120: 13399.3
-ITERATION 130: 12801.2
-ITERATION 140: 12418.2
-ITERATION 150: 12112.6
-ITERATION 160: 11745.4
-ITERATION 170: 11424.7
-ITERATION 180: 10960.4
-ITERATION 190: 10693.5
-ITERATION 200: 10399.7
-ITERATION 210: 10213.2
-ITERATION 220: 9964.12
-ITERATION 230: 9740.57
-ITERATION 240: 9436.66
-ITERATION 250: 9100.54
-ITERATION 260: 8910.25
-ITERATION 270: 8656.68
-ITERATION 280: 8448.46
-ITERATION 290: 8300.89
-ITERATION 300: 8008.31
-ITERATION 310: 7873.95
-ITERATION 320: 7608.58
-ITERATION 330: 7329.69
-ITERATION 340: 7084.27
-ITERATION 350: 6928.66
-ITERATION 360: 6691.91
-ITERATION 370: 6483.2
-ITERATION 380: 6317.12
-ITERATION 390: 6117.3
-ITERATION 400: 5957.1
-ITERATION 410: 5724.43
-ITERATION 420: 5593.13
-ITERATION 430: 5429.92
-ITERATION 440: 5320.42
-ITERATION 450: 5155.57
-ITERATION 460: 5049.88
-ITERATION 470: 4927.51
-ITERATION 480: 4789.95
-ITERATION 490: 4686.22
-ITERATION 500: 4562.31
-ITERATION 510: 4382.37
-ITERATION 520: 4304.65
-ITERATION 530: 4213.1
-ITERATION 540: 4118.44
-ITERATION 550: 4034.42
-ITERATION 560: 3966.94
-ITERATION 570: 3890.69
-ITERATION 580: 3817.29
-ITERATION 590: 3754.26
-ITERATION 600: 3704.73
-ITERATION 610: 3625.27
-ITERATION 620: 3546.72
-ITERATION 630: 3493.01
-ITERATION 640: 3436.09
-ITERATION 650: 3378.88
-ITERATION 660: 3271.42
-ITERATION 670: 3208.51
-ITERATION 680: 3116.48
-ITERATION 690: 3070.94
-ITERATION 700: 3020.76
-ITERATION 710: 2977.16
-ITERATION 720: 2906.52
-ITERATION 730: 2871.16
-ITERATION 740: 2810.38
-ITERATION 750: 2698.34
-ITERATION 760: 2645.4
-ITERATION 770: 2614.32
-ITERATION 780: 2561.31
-ITERATION 790: 2527.77
-ITERATION 800: 2457.05
-ITERATION 810: 2403.82
-ITERATION 820: 2369.93
-ITERATION 830: 2300.4
-ITERATION 840: 2276.67
-ITERATION 850: 2240.77
-ITERATION 860: 2172.88
-ITERATION 870: 2127.12
-ITERATION 880: 2094.57
-ITERATION 890: 2032.83
-ITERATION 900: 1984.19
-ITERATION 910: 1945.77
-ITERATION 920: 1901.76
-ITERATION 930: 1890.03
-ITERATION 940: 1860.35
-ITERATION 950: 1808.61
-ITERATION 960: 1754.71
-ITERATION 970: 1728.73
-ITERATION 980: 1698.06
-ITERATION 990: 1674.24
+C:/Users/mrade/Documents/tsp_v6/commands/3_opt/../../results/3_opt_rand/histories/263/shp/263/runs_1_500/0.flush.bin
+ITERATION 1: 22209.8
+ITERATION 2: 22148.3
+ITERATION 3: 22032.8
+ITERATION 4: 21992.1
+ITERATION 5: 21983.8
+ITERATION 6: 21790.3
+ITERATION 7: 21684.1
+ITERATION 8: 21598.1
+ITERATION 9: 21585.2
+ITERATION 10: 21372.4
+ITERATION 20: 20190.5
+ITERATION 30: 19664.2
+ITERATION 40: 18581.6
+ITERATION 50: 17693.6
+ITERATION 60: 16909.1
+ITERATION 70: 16576.1
+ITERATION 80: 15867.7
+ITERATION 90: 15224.1
+ITERATION 100: 14819.9
+ITERATION 110: 14417.3
+ITERATION 120: 13794.1
+ITERATION 130: 13256.2
+ITERATION 140: 12691.6
+ITERATION 150: 12264.2
+ITERATION 160: 11654.8
+ITERATION 170: 11121.4
+ITERATION 180: 10708.3
+ITERATION 190: 10260.2
+ITERATION 200: 9799.01
+ITERATION 210: 9274.75
+ITERATION 220: 8807.83
+ITERATION 230: 8427.15
+ITERATION 240: 7993.17
+ITERATION 250: 7760.38
+ITERATION 260: 7557.92
+ITERATION 270: 7311.67
+ITERATION 280: 7066.88
+ITERATION 290: 6971.58
+ITERATION 300: 6781.3
+ITERATION 310: 6659.78
+ITERATION 320: 6518.51
+ITERATION 330: 6341.91
+ITERATION 340: 6137.96
+ITERATION 350: 6028.78
+ITERATION 360: 5966.41
+ITERATION 370: 5840.2
+ITERATION 380: 5744.66
+ITERATION 390: 5657.01
+ITERATION 400: 5472.18
+ITERATION 410: 5333.46
+ITERATION 420: 5210.35
+ITERATION 430: 5088.72
+ITERATION 440: 4919.69
+ITERATION 450: 4761.55
+ITERATION 460: 4642.27
+ITERATION 470: 4556.19
+ITERATION 480: 4459.39
+ITERATION 490: 4398.5
+ITERATION 500: 4267.04
+ITERATION 510: 4202.15
+ITERATION 520: 4046.16
+ITERATION 530: 4004.55
+ITERATION 540: 3900.59
+ITERATION 550: 3846.94
+ITERATION 560: 3755.23
+ITERATION 570: 3706.33
+ITERATION 580: 3642.08
+ITERATION 590: 3574.88
+ITERATION 600: 3471.91
+ITERATION 610: 3389.96
+ITERATION 620: 3319.74
+ITERATION 630: 3259.24
+ITERATION 640: 3182.51
+ITERATION 650: 3078
+ITERATION 660: 3041.65
+ITERATION 670: 2917.14
+ITERATION 680: 2861.04
+ITERATION 690: 2813.57
+ITERATION 700: 2748.25
+ITERATION 710: 2701.89
+ITERATION 720: 2629.07
+ITERATION 730: 2592.66
+ITERATION 740: 2568.5
+ITERATION 750: 2530.47
+ITERATION 760: 2496.87
+ITERATION 770: 2454.14
+ITERATION 780: 2390.71
+ITERATION 790: 2325.4
+ITERATION 800: 2268.18
+ITERATION 810: 2226.71
+ITERATION 820: 2166.33
+ITERATION 830: 2102.81
+ITERATION 840: 2058.49
+ITERATION 850: 2024.43
+ITERATION 860: 1965.12
+ITERATION 870: 1931.44
+ITERATION 880: 1900.8
+ITERATION 890: 1853.25
+ITERATION 900: 1801.22
+ITERATION 910: 1737.7
+ITERATION 920: 1724.74
+ITERATION 930: 1680.49
 
 Storing histories into the file:
-C:/Users/mrade/Documents/tsp_v5/commands/3_opt/../../results/3_opt_rand/histories/263/shp/263/runs_1_500/0.flush.bin
+C:/Users/mrade/Documents/tsp_v6/commands/3_opt/../../results/3_opt_rand/histories/263/shp/263/runs_1_500/0.flush.bin
 
 Done storing histories into the file:
-C:/Users/mrade/Documents/tsp_v5/commands/3_opt/../../results/3_opt_rand/histories/263/shp/263/runs_1_500/0.flush.bin
+C:/Users/mrade/Documents/tsp_v6/commands/3_opt/../../results/3_opt_rand/histories/263/shp/263/runs_1_500/0.flush.bin
 
-Last ITERATION 995: 1659.74
-Best found total distance for 263 points: 1659.74
+Last ITERATION 937: 1653.9
+Best found total distance for 263 points: 1653.9
 Corresponding path (0-indexed):
+Point #42
+Point #38
+Point #39
+Point #118
+Point #122
+Point #43
+Point #126
+Point #130
+Point #47
+Point #46
+Point #50
+Point #54
+Point #58
+Point #62
+Point #66
+Point #70
+Point #74
+Point #78
+Point #82
+Point #86
+Point #90
+Point #94
+Point #95
+Point #233
+Point #230
+Point #226
+Point #222
+Point #218
+Point #91
+Point #214
+Point #87
+Point #210
+Point #206
+Point #83
+Point #202
+Point #198
+Point #203
+Point #207
+Point #211
+Point #215
+Point #219
+Point #223
+Point #224
+Point #220
+Point #216
+Point #212
+Point #213
+Point #88
+Point #217
+Point #221
+Point #225
+Point #92
+Point #229
+Point #228
+Point #227
+Point #231
+Point #232
+Point #234
+Point #235
+Point #1
+Point #0
+Point #98
+Point #99
+Point #96
+Point #97
+Point #237
+Point #93
+Point #89
+Point #85
+Point #81
+Point #77
+Point #76
+Point #193
+Point #197
+Point #201
+Point #80
+Point #205
+Point #84
+Point #209
+Point #208
+Point #204
+Point #200
+Point #199
+Point #195
+Point #196
+Point #192
+Point #188
+Point #189
+Point #72
+Point #185
+Point #181
+Point #177
+Point #173
+Point #169
+Point #64
+Point #68
+Point #73
+Point #69
+Point #65
+Point #61
+Point #57
+Point #56
+Point #153
+Point #157
+Point #60
+Point #161
+Point #165
+Point #160
+Point #159
+Point #163
+Point #164
+Point #168
+Point #167
+Point #171
+Point #172
+Point #176
+Point #175
+Point #179
+Point #180
+Point #184
+Point #183
+Point #187
+Point #191
+Point #194
+Point #79
+Point #190
+Point #75
+Point #186
+Point #182
+Point #178
+Point #71
+Point #174
+Point #170
+Point #67
+Point #166
+Point #63
+Point #162
+Point #158
+Point #59
+Point #154
+Point #150
+Point #146
+Point #55
+Point #142
+Point #51
+Point #138
+Point #134
+Point #135
+Point #139
+Point #143
+Point #147
+Point #151
+Point #155
+Point #156
+Point #152
+Point #148
+Point #144
+Point #140
+Point #136
+Point #132
+Point #131
+Point #127
+Point #128
+Point #124
+Point #123
+Point #119
+Point #120
+Point #121
+Point #40
+Point #125
+Point #44
+Point #129
+Point #133
+Point #137
+Point #48
+Point #141
+Point #145
+Point #149
+Point #52
+Point #53
+Point #49
+Point #45
+Point #41
+Point #236
+Point #259
+Point #258
+Point #257
+Point #256
+Point #255
+Point #254
+Point #253
+Point #252
+Point #251
+Point #250
+Point #240
+Point #116
+Point #108
+Point #109
+Point #110
+Point #117
+Point #241
+Point #242
+Point #243
+Point #244
+Point #239
+Point #21
+Point #22
+Point #23
+Point #24
+Point #25
+Point #26
+Point #27
+Point #28
+Point #29
+Point #30
+Point #245
+Point #246
+Point #247
+Point #248
+Point #249
+Point #37
+Point #113
+Point #112
+Point #111
+Point #31
+Point #32
+Point #33
+Point #34
+Point #35
+Point #36
+Point #20
+Point #19
+Point #18
+Point #17
+Point #16
+Point #15
+Point #14
+Point #13
+Point #12
+Point #11
+Point #10
+Point #9
+Point #8
+Point #7
+Point #6
+Point #238
+Point #5
+Point #262
+Point #261
+Point #260
+Point #115
+Point #114
+Point #4
+Point #3
+Point #2
+Point #102
+Point #100
+Point #101
+Point #103
+Point #104
+Point #105
+Point #106
+Point #107
+Execution time: 1404 ms
+
+Elapsed time: 1404 ms
+
+
+Execution #2/10
+
+
+Appending markers to the file:
+C:/Users/mrade/Documents/tsp_v6/commands/3_opt/../../results/3_opt_rand/histories/263/shp/263/runs_1_500/0.flush.bin
+
+Done appending markers to the file:
+C:/Users/mrade/Documents/tsp_v6/commands/3_opt/../../results/3_opt_rand/histories/263/shp/263/runs_1_500/0.flush.bin
+ITERATION 1: 22996.7
+ITERATION 2: 22973.4
+ITERATION 3: 22845.5
+ITERATION 4: 22794.2
+ITERATION 5: 22711.2
+ITERATION 6: 22526
+ITERATION 7: 22517
+ITERATION 8: 22385.2
+ITERATION 9: 21995.8
+ITERATION 10: 21637.7
+ITERATION 20: 20947.3
+ITERATION 30: 19975.8
+ITERATION 40: 19100.8
+ITERATION 50: 18232.1
+ITERATION 60: 17440.4
+ITERATION 70: 16612.2
+ITERATION 80: 15721.3
+ITERATION 90: 15381.1
+ITERATION 100: 14424.7
+ITERATION 110: 13532
+ITERATION 120: 13333.4
+ITERATION 130: 13059
+ITERATION 140: 12650.5
+ITERATION 150: 12202
+ITERATION 160: 11510.7
+ITERATION 170: 11152.2
+ITERATION 180: 10839
+ITERATION 190: 10515.9
+ITERATION 200: 9962.1
+ITERATION 210: 9712.54
+ITERATION 220: 9594.15
+ITERATION 230: 9388.72
+ITERATION 240: 8984.37
+ITERATION 250: 8873.08
+ITERATION 260: 8794.5
+ITERATION 270: 8495.77
+ITERATION 280: 8207.26
+ITERATION 290: 7974.69
+ITERATION 300: 7647.43
+ITERATION 310: 7470.23
+ITERATION 320: 7345.45
+ITERATION 330: 7199.18
+ITERATION 340: 6931.02
+ITERATION 350: 6841.79
+ITERATION 360: 6597.99
+ITERATION 370: 6385.29
+ITERATION 380: 6308.4
+ITERATION 390: 6165.29
+ITERATION 400: 6021.87
+ITERATION 410: 5752.31
+ITERATION 420: 5616.08
+ITERATION 430: 5500.84
+ITERATION 440: 5298.16
+ITERATION 450: 5196.9
+ITERATION 460: 5105.41
+ITERATION 470: 4849.5
+ITERATION 480: 4719.24
+ITERATION 490: 4620.48
+ITERATION 500: 4455.6
+ITERATION 510: 4367.06
+ITERATION 520: 4214.42
+ITERATION 530: 4146.18
+ITERATION 540: 4041.07
+ITERATION 550: 3934.1
+ITERATION 560: 3892.47
+ITERATION 570: 3776.22
+ITERATION 580: 3715.75
+ITERATION 590: 3656.8
+ITERATION 600: 3575.11
+ITERATION 610: 3523.07
+ITERATION 620: 3459.88
+ITERATION 630: 3386.8
+ITERATION 640: 3311.44
+ITERATION 650: 3266.28
+ITERATION 660: 3227.02
+ITERATION 670: 3171.75
+ITERATION 680: 3051.47
+ITERATION 690: 2988.08
+ITERATION 700: 2955.36
+ITERATION 710: 2880.37
+ITERATION 720: 2820.45
+ITERATION 730: 2723.73
+ITERATION 740: 2667.96
+ITERATION 750: 2616.15
+ITERATION 760: 2563.35
+ITERATION 770: 2504.77
+ITERATION 780: 2468.41
+ITERATION 790: 2422.87
+ITERATION 800: 2343.99
+ITERATION 810: 2318.15
+ITERATION 820: 2236.01
+ITERATION 830: 2183.81
+ITERATION 840: 2148.86
+ITERATION 850: 2112.67
+ITERATION 860: 2076.4
+ITERATION 870: 2007.79
+ITERATION 880: 1962.12
+ITERATION 890: 1934.22
+ITERATION 900: 1870.53
+ITERATION 910: 1838.44
+ITERATION 920: 1806.08
+ITERATION 930: 1763.71
+ITERATION 940: 1726.17
+ITERATION 950: 1676
+ITERATION 960: 1653.79
+ITERATION 970: 1630.16
+
+Storing histories into the file:
+C:/Users/mrade/Documents/tsp_v6/commands/3_opt/../../results/3_opt_rand/histories/263/shp/263/runs_1_500/0.flush.bin
+
+Done storing histories into the file:
+C:/Users/mrade/Documents/tsp_v6/commands/3_opt/../../results/3_opt_rand/histories/263/shp/263/runs_1_500/0.flush.bin
+
+Last ITERATION 976: 1624.38
+Best found total distance for 263 points: 1624.38
+Corresponding path (0-indexed):
+Point #237
+Point #97
+Point #96
+Point #99
+Point #93
+Point #89
+Point #85
+Point #81
+Point #77
+Point #73
+Point #69
+Point #68
+Point #177
+Point #181
+Point #72
+Point #185
+Point #189
+Point #76
+Point #193
+Point #197
+Point #201
+Point #80
+Point #205
+Point #84
+Point #209
+Point #213
+Point #217
+Point #88
+Point #221
+Point #92
+Point #225
+Point #229
+Point #98
+Point #0
+Point #1
+Point #235
+Point #234
+Point #231
+Point #232
+Point #228
+Point #227
+Point #224
+Point #223
+Point #222
+Point #226
+Point #230
+Point #233
+Point #95
+Point #94
+Point #90
+Point #91
+Point #218
+Point #214
+Point #219
+Point #220
+Point #216
+Point #215
+Point #211
+Point #212
+Point #207
+Point #208
+Point #204
+Point #203
+Point #199
+Point #200
+Point #196
+Point #195
+Point #194
+Point #79
+Point #198
+Point #83
+Point #202
+Point #206
+Point #210
+Point #87
+Point #86
+Point #82
+Point #78
+Point #74
+Point #70
+Point #66
+Point #62
+Point #58
+Point #59
+Point #154
+Point #158
+Point #63
+Point #162
+Point #166
+Point #170
+Point #67
+Point #174
+Point #71
+Point #178
+Point #182
+Point #75
+Point #186
+Point #190
+Point #191
+Point #192
+Point #188
+Point #187
+Point #184
+Point #183
+Point #179
+Point #180
+Point #176
+Point #175
+Point #171
+Point #172
+Point #173
+Point #169
+Point #64
+Point #65
+Point #61
+Point #57
+Point #53
+Point #52
+Point #145
+Point #149
+Point #153
+Point #56
+Point #157
+Point #60
+Point #161
+Point #165
+Point #164
+Point #168
+Point #167
+Point #163
+Point #159
+Point #160
+Point #156
+Point #155
+Point #152
+Point #151
+Point #147
+Point #148
+Point #144
+Point #143
+Point #140
+Point #139
+Point #135
+Point #136
+Point #132
+Point #131
+Point #127
+Point #128
+Point #124
+Point #120
+Point #119
+Point #123
+Point #126
+Point #47
+Point #130
+Point #134
+Point #138
+Point #51
+Point #142
+Point #146
+Point #150
+Point #55
+Point #54
+Point #50
+Point #46
+Point #42
+Point #43
+Point #122
+Point #118
+Point #39
+Point #38
+Point #250
+Point #251
+Point #252
+Point #253
+Point #254
+Point #244
+Point #243
+Point #242
+Point #117
+Point #241
+Point #240
+Point #116
+Point #108
+Point #109
+Point #110
+Point #261
+Point #262
+Point #260
+Point #115
+Point #114
+Point #4
+Point #3
+Point #2
+Point #102
+Point #100
+Point #101
+Point #103
+Point #104
+Point #105
+Point #106
+Point #107
+Point #20
+Point #19
+Point #18
+Point #17
+Point #16
+Point #15
+Point #14
+Point #13
+Point #12
+Point #11
+Point #10
+Point #9
+Point #8
+Point #7
+Point #6
+Point #5
+Point #238
+Point #239
+Point #21
+Point #22
+Point #23
+Point #24
+Point #25
+Point #26
+Point #27
+Point #28
+Point #29
+Point #30
+Point #31
+Point #32
+Point #33
+Point #34
+Point #35
+Point #36
+Point #111
+Point #112
+Point #113
+Point #37
+Point #249
+Point #248
+Point #247
+Point #246
+Point #245
+Point #255
+Point #256
+Point #257
+Point #258
+Point #259
+Point #236
+Point #41
+Point #40
+Point #121
+Point #125
+Point #129
+Point #44
+Point #133
+Point #137
+Point #141
+Point #48
+Point #49
+Point #45
+Execution time: 1106 ms
+
+Elapsed time: 2510 ms
+
+
+Execution #3/10
+
+
+Appending markers to the file:
+C:/Users/mrade/Documents/tsp_v6/commands/3_opt/../../results/3_opt_rand/histories/263/shp/263/runs_1_500/0.flush.bin
+
+Done appending markers to the file:
+C:/Users/mrade/Documents/tsp_v6/commands/3_opt/../../results/3_opt_rand/histories/263/shp/263/runs_1_500/0.flush.bin
+ITERATION 1: 21375.1
+ITERATION 2: 21341.4
+ITERATION 3: 21321.5
+ITERATION 4: 21231.6
+ITERATION 5: 21230
+ITERATION 6: 21013
+ITERATION 7: 20931.3
+ITERATION 8: 20608.5
+ITERATION 9: 20593.5
+ITERATION 10: 20555.4
+ITERATION 20: 19456.7
+ITERATION 30: 18442.7
+ITERATION 40: 17771.4
+ITERATION 50: 16865.2
+ITERATION 60: 16186.2
+ITERATION 70: 15777.6
+ITERATION 80: 15162.7
+ITERATION 90: 14411.2
+ITERATION 100: 13761.2
+ITERATION 110: 13149.9
+ITERATION 120: 12490.9
+ITERATION 130: 12124.3
+ITERATION 140: 11826.1
+ITERATION 150: 11252
+ITERATION 160: 11071.8
+ITERATION 170: 10854.5
+ITERATION 180: 10368.9
+ITERATION 190: 10160.1
+ITERATION 200: 9800.19
+ITERATION 210: 9468.38
+ITERATION 220: 9241.28
+ITERATION 230: 9061
+ITERATION 240: 8770.27
+ITERATION 250: 8532.9
+ITERATION 260: 8311.21
+ITERATION 270: 8116.54
+ITERATION 280: 7760.06
+ITERATION 290: 7577.92
+ITERATION 300: 7402.22
+ITERATION 310: 7180.94
+ITERATION 320: 6934.11
+ITERATION 330: 6805.42
+ITERATION 340: 6633.07
+ITERATION 350: 6531.05
+ITERATION 360: 6256.38
+ITERATION 370: 6079.74
+ITERATION 380: 6002.06
+ITERATION 390: 5865.64
+ITERATION 400: 5715.84
+ITERATION 410: 5642.38
+ITERATION 420: 5469
+ITERATION 430: 5319.24
+ITERATION 440: 5227.19
+ITERATION 450: 5055.19
+ITERATION 460: 4911.43
+ITERATION 470: 4834.84
+ITERATION 480: 4745.79
+ITERATION 490: 4638.46
+ITERATION 500: 4518.36
+ITERATION 510: 4357.9
+ITERATION 520: 4264.32
+ITERATION 530: 4221.86
+ITERATION 540: 4161.18
+ITERATION 550: 4094.47
+ITERATION 560: 4007.21
+ITERATION 570: 3941.7
+ITERATION 580: 3869.94
+ITERATION 590: 3834.64
+ITERATION 600: 3750.42
+ITERATION 610: 3689.24
+ITERATION 620: 3615.04
+ITERATION 630: 3557.3
+ITERATION 640: 3505.59
+ITERATION 650: 3428.96
+ITERATION 660: 3363.42
+ITERATION 670: 3289.94
+ITERATION 680: 3212.11
+ITERATION 690: 3121.2
+ITERATION 700: 3100.17
+ITERATION 710: 2996.03
+ITERATION 720: 2938.68
+ITERATION 730: 2845.84
+ITERATION 740: 2754.09
+ITERATION 750: 2723.28
+ITERATION 760: 2637.68
+ITERATION 770: 2613.64
+ITERATION 780: 2566.75
+ITERATION 790: 2503.85
+ITERATION 800: 2474.34
+ITERATION 810: 2403.37
+ITERATION 820: 2339.99
+ITERATION 830: 2288.01
+ITERATION 840: 2229.58
+ITERATION 850: 2171.51
+ITERATION 860: 2110.78
+ITERATION 870: 2066.44
+ITERATION 880: 1999.23
+ITERATION 890: 1937.01
+ITERATION 900: 1907.99
+ITERATION 910: 1883.93
+ITERATION 920: 1845.28
+ITERATION 930: 1824.33
+ITERATION 940: 1778.67
+ITERATION 950: 1760.53
+ITERATION 960: 1737.51
+ITERATION 970: 1674.05
+
+Storing histories into the file:
+C:/Users/mrade/Documents/tsp_v6/commands/3_opt/../../results/3_opt_rand/histories/263/shp/263/runs_1_500/0.flush.bin
+
+Done storing histories into the file:
+C:/Users/mrade/Documents/tsp_v6/commands/3_opt/../../results/3_opt_rand/histories/263/shp/263/runs_1_500/0.flush.bin
+
+Last ITERATION 979: 1661.32
+Best found total distance for 263 points: 1661.32
+Corresponding path (0-indexed):
+Point #74
+Point #70
+Point #71
+Point #178
+Point #182
+Point #186
+Point #75
+Point #190
+Point #194
+Point #79
+Point #78
+Point #82
+Point #83
+Point #198
+Point #202
+Point #206
+Point #207
+Point #211
+Point #212
+Point #208
+Point #204
+Point #203
+Point #199
+Point #200
+Point #196
+Point #195
+Point #191
+Point #192
+Point #193
+Point #76
+Point #197
+Point #201
+Point #80
+Point #205
+Point #209
+Point #84
+Point #213
+Point #88
+Point #217
+Point #221
+Point #92
+Point #225
+Point #229
+Point #228
+Point #227
+Point #223
+Point #224
+Point #220
+Point #219
+Point #216
+Point #215
+Point #214
+Point #210
+Point #87
+Point #86
+Point #90
+Point #94
+Point #91
+Point #218
+Point #222
+Point #226
+Point #95
+Point #230
+Point #233
+Point #234
+Point #231
+Point #232
+Point #235
+Point #1
+Point #0
+Point #98
+Point #99
+Point #96
+Point #97
+Point #237
+Point #93
+Point #89
+Point #85
+Point #81
+Point #77
+Point #73
+Point #69
+Point #68
+Point #173
+Point #177
+Point #181
+Point #72
+Point #185
+Point #189
+Point #188
+Point #187
+Point #184
+Point #183
+Point #179
+Point #180
+Point #176
+Point #172
+Point #171
+Point #175
+Point #174
+Point #170
+Point #67
+Point #66
+Point #62
+Point #58
+Point #59
+Point #154
+Point #158
+Point #63
+Point #162
+Point #166
+Point #167
+Point #168
+Point #164
+Point #163
+Point #159
+Point #160
+Point #156
+Point #155
+Point #151
+Point #152
+Point #157
+Point #161
+Point #60
+Point #165
+Point #169
+Point #64
+Point #65
+Point #61
+Point #57
+Point #56
+Point #153
+Point #149
+Point #148
+Point #147
+Point #143
+Point #144
+Point #140
+Point #139
+Point #135
+Point #136
+Point #132
+Point #131
+Point #127
+Point #128
+Point #129
+Point #44
+Point #133
+Point #137
+Point #48
+Point #141
+Point #145
+Point #52
+Point #53
+Point #49
+Point #45
+Point #41
+Point #40
+Point #121
+Point #125
+Point #124
+Point #123
+Point #120
+Point #119
+Point #118
+Point #122
+Point #43
+Point #126
+Point #130
+Point #47
+Point #134
+Point #138
+Point #51
+Point #142
+Point #146
+Point #150
+Point #55
+Point #54
+Point #50
+Point #46
+Point #42
+Point #38
+Point #39
+Point #250
+Point #251
+Point #252
+Point #253
+Point #254
+Point #255
+Point #256
+Point #257
+Point #258
+Point #236
+Point #259
+Point #245
+Point #246
+Point #247
+Point #248
+Point #249
+Point #37
+Point #113
+Point #112
+Point #111
+Point #36
+Point #35
+Point #34
+Point #33
+Point #32
+Point #31
+Point #30
+Point #29
+Point #28
+Point #27
+Point #26
+Point #25
+Point #24
+Point #23
+Point #22
+Point #21
+Point #239
+Point #244
+Point #243
+Point #242
+Point #117
+Point #241
+Point #240
+Point #116
+Point #108
+Point #109
+Point #110
+Point #261
+Point #262
+Point #260
+Point #115
+Point #114
+Point #100
+Point #102
+Point #2
+Point #3
+Point #4
+Point #5
+Point #238
+Point #6
+Point #7
+Point #8
+Point #9
+Point #10
+Point #11
+Point #12
+Point #13
+Point #14
+Point #15
+Point #16
+Point #17
+Point #18
+Point #19
+Point #20
+Point #107
+Point #106
+Point #105
+Point #104
+Point #103
+Point #101
+Execution time: 912 ms
+
+Elapsed time: 3422 ms
+
+
+Execution #4/10
+
+
+Appending markers to the file:
+C:/Users/mrade/Documents/tsp_v6/commands/3_opt/../../results/3_opt_rand/histories/263/shp/263/runs_1_500/0.flush.bin
+
+Done appending markers to the file:
+C:/Users/mrade/Documents/tsp_v6/commands/3_opt/../../results/3_opt_rand/histories/263/shp/263/runs_1_500/0.flush.bin
+ITERATION 1: 23195.4
+ITERATION 2: 23091.8
+ITERATION 3: 23058.7
+ITERATION 4: 22818.8
+ITERATION 5: 22499.8
+ITERATION 6: 22312.8
+ITERATION 7: 22064
+ITERATION 8: 22016.8
+ITERATION 9: 21829.6
+ITERATION 10: 21600.2
+ITERATION 20: 20716.6
+ITERATION 30: 19722.2
+ITERATION 40: 18717.6
+ITERATION 50: 18263.2
+ITERATION 60: 17498.2
+ITERATION 70: 16686.3
+ITERATION 80: 16074.4
+ITERATION 90: 15196.5
+ITERATION 100: 14644
+ITERATION 110: 13814.8
+ITERATION 120: 13368.5
+ITERATION 130: 12675.9
+ITERATION 140: 12319
+ITERATION 150: 11972
+ITERATION 160: 11712.3
+ITERATION 170: 11384.5
+ITERATION 180: 10879.2
+ITERATION 190: 10630.7
+ITERATION 200: 10235.2
+ITERATION 210: 9833.44
+ITERATION 220: 9605.03
+ITERATION 230: 9328.79
+ITERATION 240: 9035.33
+ITERATION 250: 8757.65
+ITERATION 260: 8414.41
+ITERATION 270: 8134.71
+ITERATION 280: 7879.91
+ITERATION 290: 7505.36
+ITERATION 300: 7258.64
+ITERATION 310: 7065.12
+ITERATION 320: 6926.72
+ITERATION 330: 6770.73
+ITERATION 340: 6688.78
+ITERATION 350: 6542.14
+ITERATION 360: 6332.55
+ITERATION 370: 6159.66
+ITERATION 380: 5985.98
+ITERATION 390: 5832.94
+ITERATION 400: 5632.69
+ITERATION 410: 5504.19
+ITERATION 420: 5418.98
+ITERATION 430: 5352.43
+ITERATION 440: 5176.03
+ITERATION 450: 5002.81
+ITERATION 460: 4850.9
+ITERATION 470: 4747.92
+ITERATION 480: 4616.26
+ITERATION 490: 4508.74
+ITERATION 500: 4364.45
+ITERATION 510: 4267.23
+ITERATION 520: 4211.14
+ITERATION 530: 4164.41
+ITERATION 540: 4090.41
+ITERATION 550: 4020.55
+ITERATION 560: 3926.91
+ITERATION 570: 3824.07
+ITERATION 580: 3744.92
+ITERATION 590: 3647
+ITERATION 600: 3595.03
+ITERATION 610: 3513.97
+ITERATION 620: 3451.71
+ITERATION 630: 3381.72
+ITERATION 640: 3323.73
+ITERATION 650: 3274.4
+ITERATION 660: 3197.64
+ITERATION 670: 3140.73
+ITERATION 680: 3062.57
+ITERATION 690: 3004.46
+ITERATION 700: 2958.9
+ITERATION 710: 2912.88
+ITERATION 720: 2872.71
+ITERATION 730: 2795.68
+ITERATION 740: 2771.06
+ITERATION 750: 2713.45
+ITERATION 760: 2633.34
+ITERATION 770: 2571.9
+ITERATION 780: 2549.81
+ITERATION 790: 2516.29
+ITERATION 800: 2454.8
+ITERATION 810: 2422.35
+ITERATION 820: 2361.89
+ITERATION 830: 2322.94
+ITERATION 840: 2286.79
+ITERATION 850: 2249.42
+ITERATION 860: 2217.58
+ITERATION 870: 2170.12
+ITERATION 880: 2136.08
+ITERATION 890: 2075.49
+ITERATION 900: 2035.29
+ITERATION 910: 1982.14
+ITERATION 920: 1930.94
+ITERATION 930: 1896.41
+ITERATION 940: 1866.87
+ITERATION 950: 1829.31
+ITERATION 960: 1797.8
+ITERATION 970: 1770.08
+ITERATION 980: 1705.9
+ITERATION 990: 1678.19
+ITERATION 1000: 1655.37
+
+Storing histories into the file:
+C:/Users/mrade/Documents/tsp_v6/commands/3_opt/../../results/3_opt_rand/histories/263/shp/263/runs_1_500/0.flush.bin
+
+Done storing histories into the file:
+C:/Users/mrade/Documents/tsp_v6/commands/3_opt/../../results/3_opt_rand/histories/263/shp/263/runs_1_500/0.flush.bin
+
+Last ITERATION 1005: 1638.85
+Best found total distance for 263 points: 1638.85
+Corresponding path (0-indexed):
+Point #101
+Point #103
+Point #104
+Point #105
+Point #106
+Point #107
+Point #20
+Point #19
+Point #18
+Point #17
+Point #16
+Point #15
+Point #14
+Point #13
+Point #12
+Point #11
+Point #10
+Point #9
+Point #8
+Point #7
+Point #6
+Point #238
+Point #5
+Point #4
+Point #3
+Point #2
+Point #102
+Point #100
+Point #114
+Point #115
+Point #260
+Point #262
+Point #261
+Point #110
+Point #109
+Point #108
+Point #116
+Point #117
+Point #239
+Point #21
+Point #22
+Point #23
+Point #24
+Point #25
+Point #26
+Point #27
+Point #28
+Point #29
+Point #30
+Point #31
+Point #32
+Point #33
+Point #34
+Point #35
+Point #36
+Point #111
+Point #112
+Point #113
+Point #37
+Point #249
+Point #248
+Point #247
+Point #246
+Point #245
+Point #244
+Point #243
+Point #242
+Point #241
+Point #240
+Point #250
+Point #251
+Point #252
+Point #253
+Point #254
+Point #255
+Point #256
+Point #257
+Point #258
+Point #259
+Point #236
+Point #41
+Point #40
+Point #121
+Point #125
+Point #120
+Point #119
+Point #123
+Point #124
+Point #128
+Point #127
+Point #131
+Point #132
+Point #135
+Point #136
+Point #140
+Point #139
+Point #143
+Point #144
+Point #148
+Point #147
+Point #151
+Point #152
+Point #156
+Point #155
+Point #150
+Point #146
+Point #55
+Point #142
+Point #138
+Point #51
+Point #134
+Point #130
+Point #47
+Point #126
+Point #122
+Point #43
+Point #118
+Point #39
+Point #38
+Point #42
+Point #46
+Point #50
+Point #54
+Point #58
+Point #59
+Point #154
+Point #158
+Point #162
+Point #63
+Point #62
+Point #66
+Point #67
+Point #170
+Point #166
+Point #167
+Point #163
+Point #159
+Point #160
+Point #164
+Point #168
+Point #172
+Point #171
+Point #176
+Point #175
+Point #174
+Point #178
+Point #71
+Point #70
+Point #74
+Point #78
+Point #82
+Point #86
+Point #90
+Point #94
+Point #95
+Point #226
+Point #230
+Point #233
+Point #234
+Point #235
+Point #1
+Point #0
+Point #229
+Point #98
+Point #99
+Point #96
+Point #97
+Point #237
+Point #93
+Point #89
+Point #85
+Point #84
+Point #209
+Point #205
+Point #201
+Point #196
+Point #195
+Point #199
+Point #200
+Point #204
+Point #203
+Point #207
+Point #208
+Point #211
+Point #212
+Point #213
+Point #217
+Point #88
+Point #92
+Point #225
+Point #221
+Point #216
+Point #215
+Point #219
+Point #220
+Point #224
+Point #228
+Point #232
+Point #231
+Point #227
+Point #223
+Point #222
+Point #91
+Point #218
+Point #214
+Point #210
+Point #87
+Point #206
+Point #83
+Point #202
+Point #198
+Point #194
+Point #79
+Point #190
+Point #75
+Point #186
+Point #182
+Point #187
+Point #191
+Point #192
+Point #188
+Point #184
+Point #183
+Point #179
+Point #180
+Point #181
+Point #185
+Point #72
+Point #189
+Point #193
+Point #76
+Point #197
+Point #80
+Point #81
+Point #77
+Point #73
+Point #69
+Point #68
+Point #177
+Point #173
+Point #169
+Point #64
+Point #165
+Point #60
+Point #161
+Point #157
+Point #153
+Point #56
+Point #149
+Point #52
+Point #145
+Point #141
+Point #137
+Point #48
+Point #133
+Point #129
+Point #44
+Point #45
+Point #49
+Point #53
+Point #57
+Point #61
+Point #65
+Execution time: 1041 ms
+
+Elapsed time: 4463 ms
+
+
+Execution #5/10
+
+
+Appending markers to the file:
+C:/Users/mrade/Documents/tsp_v6/commands/3_opt/../../results/3_opt_rand/histories/263/shp/263/runs_1_500/0.flush.bin
+
+Done appending markers to the file:
+C:/Users/mrade/Documents/tsp_v6/commands/3_opt/../../results/3_opt_rand/histories/263/shp/263/runs_1_500/0.flush.bin
+ITERATION 1: 22892.2
+ITERATION 2: 22697.2
+ITERATION 3: 22689.7
+ITERATION 4: 22664.2
+ITERATION 5: 22508
+ITERATION 6: 22422
+ITERATION 7: 22255.6
+ITERATION 8: 22206
+ITERATION 9: 22165.4
+ITERATION 10: 21852.6
+ITERATION 20: 20583
+ITERATION 30: 19815.7
+ITERATION 40: 18955.9
+ITERATION 50: 17958.4
+ITERATION 60: 16885.5
+ITERATION 70: 15947.4
+ITERATION 80: 15396.5
+ITERATION 90: 14774.6
+ITERATION 100: 14307.8
+ITERATION 110: 14093.6
+ITERATION 120: 13116.4
+ITERATION 130: 12388.5
+ITERATION 140: 11935.3
+ITERATION 150: 11673.5
+ITERATION 160: 11434
+ITERATION 170: 11196.2
+ITERATION 180: 10627.7
+ITERATION 190: 10329.4
+ITERATION 200: 9931.5
+ITERATION 210: 9431.28
+ITERATION 220: 9110.89
+ITERATION 230: 8896.89
+ITERATION 240: 8800.63
+ITERATION 250: 8593.46
+ITERATION 260: 8404.83
+ITERATION 270: 8254.25
+ITERATION 280: 8028.85
+ITERATION 290: 7748.11
+ITERATION 300: 7643.19
+ITERATION 310: 7381.32
+ITERATION 320: 7269.03
+ITERATION 330: 6976.25
+ITERATION 340: 6706.16
+ITERATION 350: 6540.91
+ITERATION 360: 6358.64
+ITERATION 370: 6179.72
+ITERATION 380: 6083.57
+ITERATION 390: 5955.71
+ITERATION 400: 5865.97
+ITERATION 410: 5686.84
+ITERATION 420: 5544.05
+ITERATION 430: 5369.72
+ITERATION 440: 5246.12
+ITERATION 450: 5155.59
+ITERATION 460: 5000.58
+ITERATION 470: 4889.2
+ITERATION 480: 4817.19
+ITERATION 490: 4632.29
+ITERATION 500: 4532.17
+ITERATION 510: 4409.79
+ITERATION 520: 4292.13
+ITERATION 530: 4248.84
+ITERATION 540: 4138.1
+ITERATION 550: 4029.31
+ITERATION 560: 3975.18
+ITERATION 570: 3840.14
+ITERATION 580: 3757.21
+ITERATION 590: 3662.52
+ITERATION 600: 3614.25
+ITERATION 610: 3536.79
+ITERATION 620: 3470.44
+ITERATION 630: 3388.11
+ITERATION 640: 3331.71
+ITERATION 650: 3212.44
+ITERATION 660: 3129.84
+ITERATION 670: 3066.14
+ITERATION 680: 3000.82
+ITERATION 690: 2931.4
+ITERATION 700: 2855.46
+ITERATION 710: 2802.05
+ITERATION 720: 2748.26
+ITERATION 730: 2711.91
+ITERATION 740: 2672.71
+ITERATION 750: 2599.81
+ITERATION 760: 2566.12
+ITERATION 770: 2524.55
+ITERATION 780: 2483.28
+ITERATION 790: 2432.56
+ITERATION 800: 2374.41
+ITERATION 810: 2312.87
+ITERATION 820: 2242.09
+ITERATION 830: 2197.37
+ITERATION 840: 2169
+ITERATION 850: 2133.51
+ITERATION 860: 2079.29
+ITERATION 870: 2046.62
+ITERATION 880: 2007.75
+ITERATION 890: 1952.25
+ITERATION 900: 1860.95
+ITERATION 910: 1814.06
+ITERATION 920: 1779.98
+ITERATION 930: 1732.25
+ITERATION 940: 1710.99
+ITERATION 950: 1683.3
+ITERATION 960: 1644.11
+
+Storing histories into the file:
+C:/Users/mrade/Documents/tsp_v6/commands/3_opt/../../results/3_opt_rand/histories/263/shp/263/runs_1_500/0.flush.bin
+
+Done storing histories into the file:
+C:/Users/mrade/Documents/tsp_v6/commands/3_opt/../../results/3_opt_rand/histories/263/shp/263/runs_1_500/0.flush.bin
+
+Last ITERATION 965: 1638.72
+Best found total distance for 263 points: 1638.72
+Corresponding path (0-indexed):
+Point #114
+Point #115
+Point #260
+Point #262
+Point #261
+Point #110
+Point #109
+Point #108
+Point #116
+Point #240
+Point #241
+Point #117
+Point #242
+Point #243
+Point #244
+Point #254
+Point #253
+Point #252
+Point #251
+Point #250
+Point #39
+Point #38
+Point #42
+Point #46
+Point #50
+Point #54
+Point #58
+Point #62
+Point #63
+Point #162
+Point #166
+Point #170
+Point #67
+Point #66
+Point #70
+Point #71
+Point #178
+Point #174
+Point #175
+Point #176
+Point #172
+Point #171
+Point #167
+Point #168
+Point #164
+Point #163
+Point #160
+Point #159
+Point #158
+Point #154
+Point #59
+Point #150
+Point #55
+Point #146
+Point #142
+Point #138
+Point #51
+Point #134
+Point #47
+Point #130
+Point #126
+Point #43
+Point #122
+Point #118
+Point #119
+Point #120
+Point #124
+Point #123
+Point #128
+Point #127
+Point #131
+Point #132
+Point #136
+Point #135
+Point #139
+Point #140
+Point #144
+Point #143
+Point #147
+Point #148
+Point #152
+Point #151
+Point #155
+Point #156
+Point #157
+Point #161
+Point #60
+Point #165
+Point #64
+Point #169
+Point #173
+Point #68
+Point #177
+Point #181
+Point #185
+Point #72
+Point #189
+Point #184
+Point #180
+Point #179
+Point #183
+Point #182
+Point #186
+Point #75
+Point #74
+Point #78
+Point #79
+Point #190
+Point #194
+Point #198
+Point #202
+Point #83
+Point #82
+Point #86
+Point #90
+Point #94
+Point #95
+Point #233
+Point #230
+Point #226
+Point #222
+Point #91
+Point #218
+Point #214
+Point #87
+Point #210
+Point #206
+Point #203
+Point #204
+Point #200
+Point #199
+Point #195
+Point #196
+Point #192
+Point #191
+Point #187
+Point #188
+Point #193
+Point #76
+Point #197
+Point #80
+Point #201
+Point #205
+Point #208
+Point #207
+Point #211
+Point #212
+Point #216
+Point #215
+Point #219
+Point #220
+Point #224
+Point #223
+Point #227
+Point #228
+Point #232
+Point #231
+Point #234
+Point #235
+Point #1
+Point #98
+Point #0
+Point #229
+Point #225
+Point #221
+Point #92
+Point #99
+Point #96
+Point #97
+Point #237
+Point #93
+Point #89
+Point #88
+Point #217
+Point #213
+Point #209
+Point #84
+Point #85
+Point #81
+Point #77
+Point #73
+Point #69
+Point #65
+Point #61
+Point #57
+Point #56
+Point #153
+Point #149
+Point #52
+Point #145
+Point #141
+Point #137
+Point #133
+Point #48
+Point #53
+Point #49
+Point #45
+Point #44
+Point #129
+Point #125
+Point #121
+Point #40
+Point #41
+Point #236
+Point #259
+Point #258
+Point #257
+Point #256
+Point #255
+Point #245
+Point #246
+Point #247
+Point #248
+Point #249
+Point #37
+Point #113
+Point #112
+Point #111
+Point #36
+Point #35
+Point #34
+Point #33
+Point #32
+Point #31
+Point #30
+Point #29
+Point #28
+Point #27
+Point #26
+Point #25
+Point #24
+Point #23
+Point #22
+Point #21
+Point #239
+Point #238
+Point #5
+Point #4
+Point #3
+Point #2
+Point #102
+Point #100
+Point #101
+Point #103
+Point #104
+Point #105
+Point #106
+Point #107
+Point #20
+Point #19
+Point #18
+Point #17
+Point #16
+Point #15
+Point #14
+Point #13
+Point #12
+Point #11
+Point #10
+Point #9
+Point #8
+Point #7
+Point #6
+Execution time: 1415 ms
+
+Elapsed time: 5878 ms
+
+
+Execution #6/10
+
+
+Appending markers to the file:
+C:/Users/mrade/Documents/tsp_v6/commands/3_opt/../../results/3_opt_rand/histories/263/shp/263/runs_1_500/0.flush.bin
+
+Done appending markers to the file:
+C:/Users/mrade/Documents/tsp_v6/commands/3_opt/../../results/3_opt_rand/histories/263/shp/263/runs_1_500/0.flush.bin
+ITERATION 1: 22586.4
+ITERATION 2: 22389.8
+ITERATION 3: 22331.5
+ITERATION 4: 22221.3
+ITERATION 5: 21970
+ITERATION 6: 21969
+ITERATION 7: 21935.1
+ITERATION 8: 21928.1
+ITERATION 9: 21891.7
+ITERATION 10: 21874.7
+ITERATION 20: 20870.5
+ITERATION 30: 19876.2
+ITERATION 40: 19100.8
+ITERATION 50: 18133.4
+ITERATION 60: 17437.2
+ITERATION 70: 17137.2
+ITERATION 80: 16099.2
+ITERATION 90: 15552.2
+ITERATION 100: 14854.4
+ITERATION 110: 14287.9
+ITERATION 120: 13665.7
+ITERATION 130: 13279
+ITERATION 140: 12832.9
+ITERATION 150: 12045.6
+ITERATION 160: 11690.3
+ITERATION 170: 11130.3
+ITERATION 180: 10835
+ITERATION 190: 10495.2
+ITERATION 200: 10197
+ITERATION 210: 9943.01
+ITERATION 220: 9794.55
+ITERATION 230: 9480.35
+ITERATION 240: 9201.56
+ITERATION 250: 8832.26
+ITERATION 260: 8573.23
+ITERATION 270: 8401.85
+ITERATION 280: 8245.55
+ITERATION 290: 7963.49
+ITERATION 300: 7850.19
+ITERATION 310: 7682.93
+ITERATION 320: 7354.29
+ITERATION 330: 7217.19
+ITERATION 340: 7131.83
+ITERATION 350: 6981.16
+ITERATION 360: 6733.99
+ITERATION 370: 6517.06
+ITERATION 380: 6312.13
+ITERATION 390: 6169.42
+ITERATION 400: 6048.58
+ITERATION 410: 5849.83
+ITERATION 420: 5743.24
+ITERATION 430: 5571.22
+ITERATION 440: 5451.58
+ITERATION 450: 5341.74
+ITERATION 460: 5270.56
+ITERATION 470: 5198.13
+ITERATION 480: 5056.59
+ITERATION 490: 4920.39
+ITERATION 500: 4870.59
+ITERATION 510: 4781.24
+ITERATION 520: 4657.07
+ITERATION 530: 4593.05
+ITERATION 540: 4466.3
+ITERATION 550: 4372.37
+ITERATION 560: 4290.09
+ITERATION 570: 4170.81
+ITERATION 580: 4041.86
+ITERATION 590: 3967.63
+ITERATION 600: 3870.62
+ITERATION 610: 3794.37
+ITERATION 620: 3710.08
+ITERATION 630: 3592.95
+ITERATION 640: 3511.64
+ITERATION 650: 3428.59
+ITERATION 660: 3336.47
+ITERATION 670: 3272.37
+ITERATION 680: 3190.64
+ITERATION 690: 3145.41
+ITERATION 700: 3071.76
+ITERATION 710: 2973.7
+ITERATION 720: 2867.12
+ITERATION 730: 2823.09
+ITERATION 740: 2711.37
+ITERATION 750: 2673.16
+ITERATION 760: 2610.5
+ITERATION 770: 2584.66
+ITERATION 780: 2538.27
+ITERATION 790: 2491.5
+ITERATION 800: 2446.75
+ITERATION 810: 2409.66
+ITERATION 820: 2371.36
+ITERATION 830: 2334.57
+ITERATION 840: 2259.69
+ITERATION 850: 2222.48
+ITERATION 860: 2190.2
+ITERATION 870: 2167.4
+ITERATION 880: 2122.52
+ITERATION 890: 2078.54
+ITERATION 900: 2025.36
+ITERATION 910: 1988.11
+ITERATION 920: 1923.39
+ITERATION 930: 1871.88
+ITERATION 940: 1798.64
+ITERATION 950: 1765.22
+ITERATION 960: 1736.23
+ITERATION 970: 1691.43
+ITERATION 980: 1650.31
+ITERATION 990: 1630.18
+
+Storing histories into the file:
+C:/Users/mrade/Documents/tsp_v6/commands/3_opt/../../results/3_opt_rand/histories/263/shp/263/runs_1_500/0.flush.bin
+
+Done storing histories into the file:
+C:/Users/mrade/Documents/tsp_v6/commands/3_opt/../../results/3_opt_rand/histories/263/shp/263/runs_1_500/0.flush.bin
+
+Last ITERATION 993: 1628.43
+Best found total distance for 263 points: 1628.43
+Corresponding path (0-indexed):
+Point #114
+Point #115
+Point #260
+Point #4
+Point #3
+Point #2
+Point #102
+Point #100
+Point #101
+Point #103
+Point #104
+Point #105
+Point #106
+Point #107
+Point #20
+Point #19
+Point #18
+Point #17
+Point #16
+Point #15
+Point #14
+Point #13
+Point #12
+Point #11
+Point #10
+Point #9
+Point #8
+Point #7
+Point #6
+Point #238
+Point #5
+Point #262
+Point #261
+Point #239
+Point #21
+Point #22
+Point #23
+Point #24
+Point #25
+Point #26
+Point #27
+Point #28
+Point #29
+Point #30
+Point #31
+Point #32
+Point #33
+Point #34
+Point #35
+Point #36
+Point #111
+Point #112
+Point #113
+Point #37
+Point #249
+Point #248
+Point #247
+Point #246
+Point #245
+Point #244
+Point #243
+Point #242
+Point #241
+Point #117
+Point #110
+Point #109
+Point #108
+Point #116
+Point #240
+Point #250
+Point #251
+Point #252
+Point #253
+Point #254
+Point #255
+Point #256
+Point #257
+Point #258
+Point #259
+Point #236
+Point #41
+Point #40
+Point #121
+Point #125
+Point #120
+Point #119
+Point #123
+Point #124
+Point #128
+Point #127
+Point #131
+Point #132
+Point #133
+Point #129
+Point #44
+Point #45
+Point #49
+Point #48
+Point #137
+Point #141
+Point #136
+Point #135
+Point #139
+Point #140
+Point #144
+Point #143
+Point #142
+Point #138
+Point #51
+Point #134
+Point #47
+Point #130
+Point #126
+Point #122
+Point #43
+Point #118
+Point #39
+Point #38
+Point #42
+Point #46
+Point #50
+Point #54
+Point #55
+Point #146
+Point #150
+Point #147
+Point #148
+Point #152
+Point #151
+Point #155
+Point #156
+Point #157
+Point #153
+Point #56
+Point #149
+Point #145
+Point #52
+Point #53
+Point #57
+Point #61
+Point #60
+Point #161
+Point #165
+Point #169
+Point #64
+Point #65
+Point #69
+Point #68
+Point #181
+Point #177
+Point #173
+Point #172
+Point #176
+Point #180
+Point #184
+Point #188
+Point #187
+Point #192
+Point #191
+Point #195
+Point #196
+Point #200
+Point #199
+Point #203
+Point #204
+Point #208
+Point #207
+Point #211
+Point #212
+Point #213
+Point #84
+Point #209
+Point #205
+Point #80
+Point #201
+Point #197
+Point #76
+Point #193
+Point #189
+Point #185
+Point #72
+Point #73
+Point #77
+Point #81
+Point #85
+Point #89
+Point #93
+Point #237
+Point #97
+Point #96
+Point #99
+Point #98
+Point #1
+Point #0
+Point #229
+Point #225
+Point #92
+Point #221
+Point #88
+Point #217
+Point #216
+Point #215
+Point #219
+Point #220
+Point #223
+Point #224
+Point #228
+Point #227
+Point #231
+Point #232
+Point #235
+Point #234
+Point #233
+Point #230
+Point #95
+Point #226
+Point #222
+Point #91
+Point #218
+Point #214
+Point #210
+Point #87
+Point #206
+Point #83
+Point #202
+Point #198
+Point #79
+Point #194
+Point #190
+Point #186
+Point #75
+Point #182
+Point #183
+Point #179
+Point #175
+Point #171
+Point #167
+Point #168
+Point #163
+Point #164
+Point #160
+Point #159
+Point #158
+Point #154
+Point #59
+Point #58
+Point #62
+Point #63
+Point #162
+Point #166
+Point #67
+Point #170
+Point #174
+Point #178
+Point #71
+Point #66
+Point #70
+Point #74
+Point #78
+Point #82
+Point #86
+Point #90
+Point #94
+Execution time: 866 ms
+
+Elapsed time: 6744 ms
+
+
+Execution #7/10
+
+
+Appending markers to the file:
+C:/Users/mrade/Documents/tsp_v6/commands/3_opt/../../results/3_opt_rand/histories/263/shp/263/runs_1_500/0.flush.bin
+
+Done appending markers to the file:
+C:/Users/mrade/Documents/tsp_v6/commands/3_opt/../../results/3_opt_rand/histories/263/shp/263/runs_1_500/0.flush.bin
+ITERATION 1: 21997.5
+ITERATION 2: 21920.2
+ITERATION 3: 21666.5
+ITERATION 4: 21642.8
+ITERATION 5: 21639.5
+ITERATION 6: 21524.2
+ITERATION 7: 21326
+ITERATION 8: 21147.7
+ITERATION 9: 21086
+ITERATION 10: 21047.2
+ITERATION 20: 20029.9
+ITERATION 30: 19457.7
+ITERATION 40: 18592.5
+ITERATION 50: 18096.8
+ITERATION 60: 17170.4
+ITERATION 70: 16387.5
+ITERATION 80: 15630.4
+ITERATION 90: 14915.5
+ITERATION 100: 14439
+ITERATION 110: 13827.5
+ITERATION 120: 13490.4
+ITERATION 130: 13100
+ITERATION 140: 12740.2
+ITERATION 150: 12402.2
+ITERATION 160: 12155.9
+ITERATION 170: 11722.3
+ITERATION 180: 11371
+ITERATION 190: 11117.8
+ITERATION 200: 10856.8
+ITERATION 210: 10417.5
+ITERATION 220: 10171.3
+ITERATION 230: 9774.06
+ITERATION 240: 9429.42
+ITERATION 250: 9094.68
+ITERATION 260: 8798.56
+ITERATION 270: 8468.04
+ITERATION 280: 8077.07
+ITERATION 290: 7914.98
+ITERATION 300: 7584.01
+ITERATION 310: 7397.35
+ITERATION 320: 7113.64
+ITERATION 330: 6806.34
+ITERATION 340: 6659.76
+ITERATION 350: 6488.99
+ITERATION 360: 6411.91
+ITERATION 370: 6136.14
+ITERATION 380: 5999.67
+ITERATION 390: 5869.19
+ITERATION 400: 5799.51
+ITERATION 410: 5626.05
+ITERATION 420: 5542.13
+ITERATION 430: 5467.43
+ITERATION 440: 5241.06
+ITERATION 450: 5173.8
+ITERATION 460: 5039.47
+ITERATION 470: 4912.57
+ITERATION 480: 4790.9
+ITERATION 490: 4650.26
+ITERATION 500: 4498.6
+ITERATION 510: 4406.59
+ITERATION 520: 4334.46
+ITERATION 530: 4291.32
+ITERATION 540: 4160.6
+ITERATION 550: 4082.71
+ITERATION 560: 3974.6
+ITERATION 570: 3858.78
+ITERATION 580: 3782.58
+ITERATION 590: 3723.67
+ITERATION 600: 3615.64
+ITERATION 610: 3537.32
+ITERATION 620: 3489.27
+ITERATION 630: 3452.16
+ITERATION 640: 3409.18
+ITERATION 650: 3303.44
+ITERATION 660: 3254.31
+ITERATION 670: 3171.77
+ITERATION 680: 3115.51
+ITERATION 690: 2997.02
+ITERATION 700: 2961.78
+ITERATION 710: 2916.68
+ITERATION 720: 2845.97
+ITERATION 730: 2791.22
+ITERATION 740: 2736.1
+ITERATION 750: 2678.83
+ITERATION 760: 2636.93
+ITERATION 770: 2558.07
+ITERATION 780: 2492.69
+ITERATION 790: 2433.8
+ITERATION 800: 2394.74
+ITERATION 810: 2327.65
+ITERATION 820: 2276.91
+ITERATION 830: 2241.83
+ITERATION 840: 2185.46
+ITERATION 850: 2084.56
+ITERATION 860: 2057.73
+ITERATION 870: 2019.93
+ITERATION 880: 1966.17
+ITERATION 890: 1923.39
+ITERATION 900: 1895.84
+ITERATION 910: 1869.31
+ITERATION 920: 1838.12
+ITERATION 930: 1774.93
+ITERATION 940: 1753.2
+ITERATION 950: 1732.6
+ITERATION 960: 1707.84
+ITERATION 970: 1686.28
+ITERATION 980: 1675.67
+
+Storing histories into the file:
+C:/Users/mrade/Documents/tsp_v6/commands/3_opt/../../results/3_opt_rand/histories/263/shp/263/runs_1_500/0.flush.bin
+
+Done storing histories into the file:
+C:/Users/mrade/Documents/tsp_v6/commands/3_opt/../../results/3_opt_rand/histories/263/shp/263/runs_1_500/0.flush.bin
+
+Last ITERATION 984: 1666.57
+Best found total distance for 263 points: 1666.57
+Corresponding path (0-indexed):
+Point #53
+Point #57
+Point #61
+Point #65
+Point #69
+Point #73
+Point #77
+Point #76
+Point #193
+Point #189
+Point #72
+Point #185
+Point #181
+Point #177
+Point #68
+Point #173
+Point #172
+Point #176
+Point #180
+Point #179
+Point #175
+Point #171
+Point #167
+Point #163
+Point #158
+Point #63
+Point #162
+Point #166
+Point #170
+Point #67
+Point #174
+Point #71
+Point #178
+Point #182
+Point #75
+Point #186
+Point #183
+Point #184
+Point #188
+Point #187
+Point #191
+Point #192
+Point #196
+Point #197
+Point #201
+Point #80
+Point #81
+Point #85
+Point #89
+Point #93
+Point #237
+Point #97
+Point #96
+Point #99
+Point #98
+Point #0
+Point #1
+Point #235
+Point #232
+Point #231
+Point #234
+Point #233
+Point #230
+Point #226
+Point #95
+Point #94
+Point #90
+Point #86
+Point #87
+Point #206
+Point #210
+Point #214
+Point #218
+Point #91
+Point #222
+Point #223
+Point #224
+Point #227
+Point #228
+Point #229
+Point #225
+Point #92
+Point #221
+Point #88
+Point #217
+Point #213
+Point #84
+Point #209
+Point #205
+Point #208
+Point #212
+Point #216
+Point #220
+Point #219
+Point #215
+Point #211
+Point #207
+Point #203
+Point #204
+Point #200
+Point #199
+Point #195
+Point #190
+Point #194
+Point #79
+Point #198
+Point #202
+Point #83
+Point #82
+Point #78
+Point #74
+Point #70
+Point #66
+Point #62
+Point #58
+Point #59
+Point #154
+Point #150
+Point #146
+Point #55
+Point #54
+Point #50
+Point #46
+Point #47
+Point #130
+Point #134
+Point #138
+Point #51
+Point #142
+Point #143
+Point #139
+Point #135
+Point #136
+Point #140
+Point #144
+Point #148
+Point #147
+Point #151
+Point #152
+Point #156
+Point #155
+Point #159
+Point #160
+Point #164
+Point #168
+Point #169
+Point #64
+Point #165
+Point #161
+Point #60
+Point #157
+Point #56
+Point #153
+Point #149
+Point #52
+Point #145
+Point #141
+Point #137
+Point #48
+Point #49
+Point #45
+Point #41
+Point #40
+Point #121
+Point #125
+Point #44
+Point #129
+Point #133
+Point #132
+Point #131
+Point #128
+Point #127
+Point #123
+Point #124
+Point #120
+Point #119
+Point #118
+Point #122
+Point #126
+Point #43
+Point #42
+Point #38
+Point #39
+Point #250
+Point #251
+Point #252
+Point #253
+Point #254
+Point #255
+Point #256
+Point #257
+Point #258
+Point #236
+Point #259
+Point #249
+Point #248
+Point #247
+Point #246
+Point #245
+Point #244
+Point #243
+Point #242
+Point #241
+Point #240
+Point #116
+Point #108
+Point #109
+Point #110
+Point #117
+Point #239
+Point #238
+Point #5
+Point #262
+Point #261
+Point #260
+Point #115
+Point #114
+Point #4
+Point #3
+Point #2
+Point #102
+Point #100
+Point #101
+Point #103
+Point #104
+Point #105
+Point #106
+Point #107
+Point #20
+Point #19
+Point #18
+Point #17
+Point #16
+Point #15
+Point #14
+Point #13
+Point #12
+Point #11
+Point #10
+Point #9
+Point #8
+Point #7
+Point #6
+Point #21
+Point #22
+Point #23
+Point #24
+Point #25
+Point #26
+Point #27
+Point #28
+Point #29
+Point #30
+Point #31
+Point #32
+Point #33
+Point #34
+Point #35
+Point #36
+Point #37
+Point #113
+Point #112
+Point #111
+Execution time: 722 ms
+
+Elapsed time: 7466 ms
+
+
+Execution #8/10
+
+
+Appending markers to the file:
+C:/Users/mrade/Documents/tsp_v6/commands/3_opt/../../results/3_opt_rand/histories/263/shp/263/runs_1_500/0.flush.bin
+
+Done appending markers to the file:
+C:/Users/mrade/Documents/tsp_v6/commands/3_opt/../../results/3_opt_rand/histories/263/shp/263/runs_1_500/0.flush.bin
+ITERATION 1: 23297
+ITERATION 2: 23233.5
+ITERATION 3: 23053.2
+ITERATION 4: 22955.9
+ITERATION 5: 22786.4
+ITERATION 6: 22557.1
+ITERATION 7: 22383.5
+ITERATION 8: 22382.8
+ITERATION 9: 22372.4
+ITERATION 10: 22172.3
+ITERATION 20: 20951.4
+ITERATION 30: 19759.1
+ITERATION 40: 19008.7
+ITERATION 50: 18362.4
+ITERATION 60: 17522.3
+ITERATION 70: 16548.2
+ITERATION 80: 16045.7
+ITERATION 90: 15473.9
+ITERATION 100: 14002.7
+ITERATION 110: 13156
+ITERATION 120: 12760.8
+ITERATION 130: 12475.9
+ITERATION 140: 11925
+ITERATION 150: 11406.7
+ITERATION 160: 11088.4
+ITERATION 170: 10529.3
+ITERATION 180: 10240
+ITERATION 190: 9804.68
+ITERATION 200: 9450.1
+ITERATION 210: 9259.39
+ITERATION 220: 8950.45
+ITERATION 230: 8752.88
+ITERATION 240: 8587.82
+ITERATION 250: 8327.78
+ITERATION 260: 8168.83
+ITERATION 270: 7920.36
+ITERATION 280: 7758.37
+ITERATION 290: 7477.09
+ITERATION 300: 7319.54
+ITERATION 310: 7147.49
+ITERATION 320: 6936.85
+ITERATION 330: 6794.75
+ITERATION 340: 6714.68
+ITERATION 350: 6447.22
+ITERATION 360: 6338.89
+ITERATION 370: 6115.47
+ITERATION 380: 6001.24
+ITERATION 390: 5895.97
+ITERATION 400: 5769.17
+ITERATION 410: 5608.38
+ITERATION 420: 5517.35
+ITERATION 430: 5350.35
+ITERATION 440: 5236.64
+ITERATION 450: 5000.42
+ITERATION 460: 4893.45
+ITERATION 470: 4775.62
+ITERATION 480: 4694.66
+ITERATION 490: 4582.57
+ITERATION 500: 4487.49
+ITERATION 510: 4401.84
+ITERATION 520: 4300.89
+ITERATION 530: 4227.7
+ITERATION 540: 4140.52
+ITERATION 550: 4047.1
+ITERATION 560: 3911.84
+ITERATION 570: 3817.65
+ITERATION 580: 3665.32
+ITERATION 590: 3611.34
+ITERATION 600: 3540.43
+ITERATION 610: 3477.76
+ITERATION 620: 3346.51
+ITERATION 630: 3287.6
+ITERATION 640: 3199.66
+ITERATION 650: 3144.07
+ITERATION 660: 3063.25
+ITERATION 670: 2993.24
+ITERATION 680: 2894.1
+ITERATION 690: 2847.53
+ITERATION 700: 2788.39
+ITERATION 710: 2751.1
+ITERATION 720: 2682.31
+ITERATION 730: 2602.89
+ITERATION 740: 2550.08
+ITERATION 750: 2487.26
+ITERATION 760: 2452.63
+ITERATION 770: 2386.97
+ITERATION 780: 2348.11
+ITERATION 790: 2303.76
+ITERATION 800: 2222.94
+ITERATION 810: 2172.33
+ITERATION 820: 2116
+ITERATION 830: 2059.29
+ITERATION 840: 1977.32
+ITERATION 850: 1920.31
+ITERATION 860: 1853.94
+ITERATION 870: 1816.48
+ITERATION 880: 1784.57
+ITERATION 890: 1757.94
+ITERATION 900: 1725.23
+ITERATION 910: 1691.05
+ITERATION 920: 1662.97
+ITERATION 930: 1629.64
+
+Storing histories into the file:
+C:/Users/mrade/Documents/tsp_v6/commands/3_opt/../../results/3_opt_rand/histories/263/shp/263/runs_1_500/0.flush.bin
+
+Done storing histories into the file:
+C:/Users/mrade/Documents/tsp_v6/commands/3_opt/../../results/3_opt_rand/histories/263/shp/263/runs_1_500/0.flush.bin
+
+Last ITERATION 939: 1622.04
+Best found total distance for 263 points: 1622.04
+Corresponding path (0-indexed):
+Point #94
+Point #90
+Point #86
+Point #82
+Point #78
+Point #74
+Point #70
+Point #71
+Point #178
+Point #182
+Point #186
+Point #75
+Point #190
+Point #79
+Point #194
+Point #198
+Point #202
+Point #83
+Point #206
+Point #87
+Point #210
+Point #214
+Point #218
+Point #91
+Point #222
+Point #95
+Point #226
+Point #230
+Point #233
+Point #234
+Point #235
+Point #232
+Point #231
+Point #227
+Point #228
+Point #223
+Point #224
+Point #220
+Point #219
+Point #215
+Point #216
+Point #212
+Point #211
+Point #207
+Point #208
+Point #204
+Point #203
+Point #199
+Point #200
+Point #196
+Point #195
+Point #191
+Point #192
+Point #188
+Point #187
+Point #183
+Point #184
+Point #189
+Point #193
+Point #76
+Point #197
+Point #80
+Point #201
+Point #205
+Point #84
+Point #209
+Point #213
+Point #88
+Point #217
+Point #221
+Point #225
+Point #92
+Point #229
+Point #0
+Point #1
+Point #98
+Point #99
+Point #96
+Point #97
+Point #237
+Point #93
+Point #89
+Point #85
+Point #81
+Point #77
+Point #73
+Point #72
+Point #185
+Point #181
+Point #180
+Point #179
+Point #176
+Point #175
+Point #174
+Point #170
+Point #67
+Point #66
+Point #62
+Point #58
+Point #59
+Point #154
+Point #150
+Point #151
+Point #147
+Point #143
+Point #144
+Point #148
+Point #152
+Point #156
+Point #155
+Point #159
+Point #160
+Point #164
+Point #163
+Point #158
+Point #162
+Point #63
+Point #166
+Point #167
+Point #168
+Point #171
+Point #172
+Point #173
+Point #177
+Point #68
+Point #69
+Point #65
+Point #64
+Point #169
+Point #165
+Point #161
+Point #60
+Point #61
+Point #57
+Point #56
+Point #157
+Point #153
+Point #149
+Point #145
+Point #52
+Point #53
+Point #49
+Point #45
+Point #41
+Point #236
+Point #259
+Point #258
+Point #257
+Point #256
+Point #255
+Point #40
+Point #121
+Point #125
+Point #44
+Point #129
+Point #133
+Point #48
+Point #137
+Point #141
+Point #140
+Point #139
+Point #136
+Point #135
+Point #131
+Point #132
+Point #128
+Point #127
+Point #123
+Point #124
+Point #120
+Point #119
+Point #118
+Point #122
+Point #43
+Point #126
+Point #47
+Point #130
+Point #134
+Point #51
+Point #138
+Point #142
+Point #146
+Point #55
+Point #54
+Point #50
+Point #46
+Point #42
+Point #38
+Point #39
+Point #254
+Point #253
+Point #252
+Point #251
+Point #250
+Point #240
+Point #116
+Point #108
+Point #109
+Point #110
+Point #117
+Point #241
+Point #242
+Point #243
+Point #244
+Point #245
+Point #246
+Point #247
+Point #248
+Point #249
+Point #37
+Point #113
+Point #112
+Point #111
+Point #36
+Point #35
+Point #34
+Point #33
+Point #32
+Point #31
+Point #30
+Point #29
+Point #28
+Point #27
+Point #26
+Point #25
+Point #24
+Point #23
+Point #22
+Point #21
+Point #239
+Point #261
+Point #262
+Point #5
+Point #238
+Point #6
+Point #7
+Point #8
+Point #9
+Point #10
+Point #11
+Point #12
+Point #13
+Point #14
+Point #15
+Point #16
+Point #17
+Point #18
+Point #19
+Point #20
+Point #107
+Point #106
+Point #105
+Point #104
+Point #103
+Point #101
+Point #100
+Point #102
+Point #2
+Point #3
+Point #4
+Point #260
+Point #115
+Point #114
+Execution time: 1686 ms
+
+Elapsed time: 9152 ms
+
+
+Execution #9/10
+
+
+Appending markers to the file:
+C:/Users/mrade/Documents/tsp_v6/commands/3_opt/../../results/3_opt_rand/histories/263/shp/263/runs_1_500/0.flush.bin
+
+Done appending markers to the file:
+C:/Users/mrade/Documents/tsp_v6/commands/3_opt/../../results/3_opt_rand/histories/263/shp/263/runs_1_500/0.flush.bin
+ITERATION 1: 22698.5
+ITERATION 2: 22628.2
+ITERATION 3: 22568.4
+ITERATION 4: 22426.3
+ITERATION 5: 22337.8
+ITERATION 6: 22154.4
+ITERATION 7: 21868
+ITERATION 8: 21672.2
+ITERATION 9: 21544
+ITERATION 10: 21518.9
+ITERATION 20: 20345.4
+ITERATION 30: 19050.3
+ITERATION 40: 18303.6
+ITERATION 50: 17273.1
+ITERATION 60: 16629.6
+ITERATION 70: 16048.4
+ITERATION 80: 15596
+ITERATION 90: 14970.1
+ITERATION 100: 14519
+ITERATION 110: 13958.4
+ITERATION 120: 13686.3
+ITERATION 130: 13126.9
+ITERATION 140: 12646.6
+ITERATION 150: 12279.6
+ITERATION 160: 11651
+ITERATION 170: 11238
+ITERATION 180: 10500.1
+ITERATION 190: 10153.5
+ITERATION 200: 9787.45
+ITERATION 210: 9391.9
+ITERATION 220: 8996.37
+ITERATION 230: 8799.94
+ITERATION 240: 8534.02
+ITERATION 250: 8130.81
+ITERATION 260: 7958.43
+ITERATION 270: 7667.98
+ITERATION 280: 7445.35
+ITERATION 290: 7165.01
+ITERATION 300: 6990.26
+ITERATION 310: 6724.39
+ITERATION 320: 6573.57
+ITERATION 330: 6511.27
+ITERATION 340: 6381.61
+ITERATION 350: 6331.33
+ITERATION 360: 6186.28
+ITERATION 370: 6073.31
+ITERATION 380: 5921.9
+ITERATION 390: 5817.93
+ITERATION 400: 5687.85
+ITERATION 410: 5549.06
+ITERATION 420: 5415.81
+ITERATION 430: 5285.88
+ITERATION 440: 5122.47
+ITERATION 450: 5014
+ITERATION 460: 4899
+ITERATION 470: 4784.71
+ITERATION 480: 4666.31
+ITERATION 490: 4599.21
+ITERATION 500: 4538.04
+ITERATION 510: 4396.15
+ITERATION 520: 4306.53
+ITERATION 530: 4183.2
+ITERATION 540: 4094.99
+ITERATION 550: 3954
+ITERATION 560: 3898.03
+ITERATION 570: 3793.31
+ITERATION 580: 3748.49
+ITERATION 590: 3647.98
+ITERATION 600: 3573.46
+ITERATION 610: 3523.17
+ITERATION 620: 3464.83
+ITERATION 630: 3396.94
+ITERATION 640: 3330.09
+ITERATION 650: 3205.28
+ITERATION 660: 3161.93
+ITERATION 670: 3138.86
+ITERATION 680: 3076.84
+ITERATION 690: 3024.65
+ITERATION 700: 2968.77
+ITERATION 710: 2900.66
+ITERATION 720: 2836.47
+ITERATION 730: 2786.47
+ITERATION 740: 2738.62
+ITERATION 750: 2695.36
+ITERATION 760: 2653.59
+ITERATION 770: 2617.03
+ITERATION 780: 2551.15
+ITERATION 790: 2479.21
+ITERATION 800: 2421.96
+ITERATION 810: 2362.41
+ITERATION 820: 2296.88
+ITERATION 830: 2257.56
+ITERATION 840: 2226.25
+ITERATION 850: 2194.68
+ITERATION 860: 2113.07
+ITERATION 870: 2059.94
+ITERATION 880: 1997.08
+ITERATION 890: 1961.52
+ITERATION 900: 1903.67
+ITERATION 910: 1873.9
+ITERATION 920: 1833.01
+ITERATION 930: 1797.59
+ITERATION 940: 1776.95
+ITERATION 950: 1761.68
+ITERATION 960: 1747.06
+ITERATION 970: 1714.41
+
+Storing histories into the file:
+C:/Users/mrade/Documents/tsp_v6/commands/3_opt/../../results/3_opt_rand/histories/263/shp/263/runs_1_500/0.flush.bin
+
+Done storing histories into the file:
+C:/Users/mrade/Documents/tsp_v6/commands/3_opt/../../results/3_opt_rand/histories/263/shp/263/runs_1_500/0.flush.bin
+
+Last ITERATION 977: 1711.86
+Best found total distance for 263 points: 1711.86
+Corresponding path (0-indexed):
+Point #94
+Point #90
+Point #91
+Point #218
+Point #222
+Point #95
+Point #226
+Point #230
+Point #233
+Point #234
+Point #231
+Point #232
+Point #235
+Point #1
+Point #0
+Point #98
+Point #99
+Point #96
+Point #97
+Point #237
+Point #93
+Point #89
+Point #88
+Point #217
+Point #221
+Point #225
+Point #92
+Point #229
+Point #228
+Point #227
+Point #224
+Point #223
+Point #219
+Point #220
+Point #216
+Point #213
+Point #209
+Point #84
+Point #85
+Point #81
+Point #80
+Point #201
+Point #205
+Point #204
+Point #203
+Point #207
+Point #208
+Point #212
+Point #211
+Point #215
+Point #214
+Point #210
+Point #87
+Point #86
+Point #82
+Point #78
+Point #74
+Point #70
+Point #66
+Point #62
+Point #58
+Point #59
+Point #154
+Point #158
+Point #63
+Point #162
+Point #166
+Point #67
+Point #170
+Point #174
+Point #71
+Point #178
+Point #182
+Point #75
+Point #186
+Point #190
+Point #79
+Point #194
+Point #198
+Point #83
+Point #206
+Point #202
+Point #199
+Point #200
+Point #195
+Point #196
+Point #192
+Point #191
+Point #187
+Point #188
+Point #189
+Point #193
+Point #197
+Point #76
+Point #77
+Point #73
+Point #69
+Point #65
+Point #61
+Point #60
+Point #157
+Point #161
+Point #165
+Point #169
+Point #64
+Point #173
+Point #68
+Point #177
+Point #181
+Point #72
+Point #185
+Point #184
+Point #183
+Point #179
+Point #180
+Point #176
+Point #175
+Point #171
+Point #172
+Point #167
+Point #168
+Point #164
+Point #163
+Point #159
+Point #160
+Point #156
+Point #155
+Point #152
+Point #151
+Point #147
+Point #148
+Point #144
+Point #145
+Point #52
+Point #149
+Point #153
+Point #56
+Point #57
+Point #53
+Point #49
+Point #45
+Point #44
+Point #129
+Point #133
+Point #137
+Point #48
+Point #141
+Point #140
+Point #136
+Point #132
+Point #131
+Point #135
+Point #139
+Point #143
+Point #142
+Point #146
+Point #150
+Point #55
+Point #54
+Point #50
+Point #51
+Point #138
+Point #134
+Point #130
+Point #47
+Point #126
+Point #122
+Point #43
+Point #118
+Point #119
+Point #120
+Point #124
+Point #123
+Point #127
+Point #128
+Point #125
+Point #121
+Point #40
+Point #41
+Point #236
+Point #259
+Point #258
+Point #257
+Point #256
+Point #255
+Point #248
+Point #249
+Point #37
+Point #36
+Point #35
+Point #20
+Point #107
+Point #106
+Point #105
+Point #104
+Point #19
+Point #18
+Point #17
+Point #16
+Point #15
+Point #14
+Point #13
+Point #12
+Point #11
+Point #10
+Point #9
+Point #8
+Point #7
+Point #6
+Point #238
+Point #5
+Point #4
+Point #3
+Point #103
+Point #101
+Point #100
+Point #102
+Point #2
+Point #114
+Point #115
+Point #260
+Point #262
+Point #261
+Point #110
+Point #109
+Point #108
+Point #116
+Point #240
+Point #241
+Point #242
+Point #117
+Point #239
+Point #21
+Point #22
+Point #23
+Point #24
+Point #25
+Point #26
+Point #27
+Point #28
+Point #29
+Point #30
+Point #31
+Point #32
+Point #33
+Point #34
+Point #113
+Point #112
+Point #111
+Point #247
+Point #246
+Point #245
+Point #244
+Point #243
+Point #254
+Point #253
+Point #252
+Point #251
+Point #250
+Point #39
+Point #38
+Point #42
+Point #46
+Execution time: 1136 ms
+
+Elapsed time: 10288 ms
+
+
+Execution #10/10
+
+
+Appending markers to the file:
+C:/Users/mrade/Documents/tsp_v6/commands/3_opt/../../results/3_opt_rand/histories/263/shp/263/runs_1_500/0.flush.bin
+
+Done appending markers to the file:
+C:/Users/mrade/Documents/tsp_v6/commands/3_opt/../../results/3_opt_rand/histories/263/shp/263/runs_1_500/0.flush.bin
+ITERATION 1: 23027.7
+ITERATION 2: 22958
+ITERATION 3: 22834
+ITERATION 4: 22822.2
+ITERATION 5: 22571.1
+ITERATION 6: 22542.8
+ITERATION 7: 22327.6
+ITERATION 8: 22285.1
+ITERATION 9: 22258
+ITERATION 10: 22093.2
+ITERATION 20: 21227.5
+ITERATION 30: 19458.8
+ITERATION 40: 18582.2
+ITERATION 50: 17687.6
+ITERATION 60: 17127.9
+ITERATION 70: 16682.6
+ITERATION 80: 15920.8
+ITERATION 90: 15411.6
+ITERATION 100: 14818.2
+ITERATION 110: 14329.9
+ITERATION 120: 13832.8
+ITERATION 130: 13425.1
+ITERATION 140: 13093
+ITERATION 150: 12690.4
+ITERATION 160: 12024.1
+ITERATION 170: 11798.1
+ITERATION 180: 11511.1
+ITERATION 190: 11086.3
+ITERATION 200: 10849.1
+ITERATION 210: 10448.6
+ITERATION 220: 10005.7
+ITERATION 230: 9759.31
+ITERATION 240: 9454.39
+ITERATION 250: 8912.77
+ITERATION 260: 8730.27
+ITERATION 270: 8499.29
+ITERATION 280: 8281.39
+ITERATION 290: 8134.89
+ITERATION 300: 7949.38
+ITERATION 310: 7675.56
+ITERATION 320: 7543
+ITERATION 330: 7398.17
+ITERATION 340: 7253.3
+ITERATION 350: 6861.94
+ITERATION 360: 6743.08
+ITERATION 370: 6595.95
+ITERATION 380: 6479.56
+ITERATION 390: 6208.12
+ITERATION 400: 6018.88
+ITERATION 410: 5890.21
+ITERATION 420: 5692.57
+ITERATION 430: 5539.46
+ITERATION 440: 5391.34
+ITERATION 450: 5330.91
+ITERATION 460: 5239.89
+ITERATION 470: 5160.65
+ITERATION 480: 4984.05
+ITERATION 490: 4915.95
+ITERATION 500: 4887.9
+ITERATION 510: 4820.06
+ITERATION 520: 4719.92
+ITERATION 530: 4565.04
+ITERATION 540: 4447.44
+ITERATION 550: 4366.1
+ITERATION 560: 4305.86
+ITERATION 570: 4217.8
+ITERATION 580: 4127.81
+ITERATION 590: 3984.14
+ITERATION 600: 3901.63
+ITERATION 610: 3774.99
+ITERATION 620: 3623.9
+ITERATION 630: 3577.53
+ITERATION 640: 3486.82
+ITERATION 650: 3424.48
+ITERATION 660: 3292.85
+ITERATION 670: 3185.03
+ITERATION 680: 3104.47
+ITERATION 690: 3025.14
+ITERATION 700: 2930.68
+ITERATION 710: 2860.77
+ITERATION 720: 2833.32
+ITERATION 730: 2787.59
+ITERATION 740: 2728.15
+ITERATION 750: 2684.57
+ITERATION 760: 2614.77
+ITERATION 770: 2537.99
+ITERATION 780: 2483.59
+ITERATION 790: 2451.97
+ITERATION 800: 2423.31
+ITERATION 810: 2382.24
+ITERATION 820: 2353
+ITERATION 830: 2307.29
+ITERATION 840: 2240.99
+ITERATION 850: 2192.69
+ITERATION 860: 2146.3
+ITERATION 870: 2103.26
+ITERATION 880: 2070.2
+ITERATION 890: 2029.48
+ITERATION 900: 1959.32
+ITERATION 910: 1932.26
+ITERATION 920: 1902.15
+ITERATION 930: 1874.35
+ITERATION 940: 1844.88
+ITERATION 950: 1803.95
+ITERATION 960: 1782.78
+ITERATION 970: 1745.84
+ITERATION 980: 1682.2
+
+Storing histories into the file:
+C:/Users/mrade/Documents/tsp_v6/commands/3_opt/../../results/3_opt_rand/histories/263/shp/263/runs_1_500/0.flush.bin
+
+Done storing histories into the file:
+C:/Users/mrade/Documents/tsp_v6/commands/3_opt/../../results/3_opt_rand/histories/263/shp/263/runs_1_500/0.flush.bin
+
+Last ITERATION 989: 1672.74
+Best found total distance for 263 points: 1672.74
+Corresponding path (0-indexed):
+Point #1
+Point #0
+Point #98
+Point #99
+Point #96
+Point #97
+Point #237
+Point #93
+Point #89
+Point #85
+Point #84
+Point #205
+Point #209
+Point #213
+Point #88
+Point #217
+Point #221
+Point #92
+Point #225
+Point #229
+Point #228
+Point #227
+Point #231
+Point #232
+Point #235
+Point #234
+Point #233
+Point #230
+Point #226
+Point #95
+Point #94
+Point #90
+Point #91
+Point #214
+Point #218
+Point #222
+Point #223
+Point #224
+Point #220
+Point #219
+Point #215
+Point #216
+Point #212
+Point #211
+Point #207
+Point #208
+Point #204
+Point #203
+Point #200
+Point #199
+Point #195
+Point #196
+Point #192
+Point #191
+Point #187
+Point #188
+Point #184
+Point #183
+Point #179
+Point #180
+Point #176
+Point #175
+Point #171
+Point #172
+Point #173
+Point #68
+Point #177
+Point #181
+Point #72
+Point #185
+Point #189
+Point #76
+Point #193
+Point #197
+Point #201
+Point #80
+Point #81
+Point #77
+Point #73
+Point #69
+Point #65
+Point #61
+Point #57
+Point #53
+Point #52
+Point #145
+Point #149
+Point #56
+Point #153
+Point #157
+Point #60
+Point #161
+Point #165
+Point #64
+Point #169
+Point #168
+Point #167
+Point #163
+Point #164
+Point #160
+Point #159
+Point #155
+Point #156
+Point #152
+Point #151
+Point #147
+Point #148
+Point #144
+Point #143
+Point #139
+Point #140
+Point #141
+Point #137
+Point #48
+Point #49
+Point #45
+Point #41
+Point #236
+Point #259
+Point #258
+Point #257
+Point #256
+Point #255
+Point #40
+Point #121
+Point #125
+Point #129
+Point #44
+Point #133
+Point #128
+Point #124
+Point #120
+Point #119
+Point #123
+Point #127
+Point #131
+Point #132
+Point #136
+Point #135
+Point #134
+Point #130
+Point #47
+Point #126
+Point #43
+Point #122
+Point #118
+Point #39
+Point #251
+Point #252
+Point #253
+Point #254
+Point #243
+Point #244
+Point #245
+Point #246
+Point #247
+Point #248
+Point #249
+Point #37
+Point #113
+Point #112
+Point #111
+Point #36
+Point #35
+Point #34
+Point #33
+Point #32
+Point #31
+Point #30
+Point #29
+Point #14
+Point #15
+Point #16
+Point #17
+Point #18
+Point #19
+Point #20
 Point #107
 Point #106
 Point #105
@@ -154,21 +3856,6 @@ Point #10
 Point #11
 Point #12
 Point #13
-Point #14
-Point #15
-Point #16
-Point #17
-Point #18
-Point #19
-Point #20
-Point #36
-Point #35
-Point #34
-Point #33
-Point #32
-Point #31
-Point #30
-Point #29
 Point #28
 Point #27
 Point #26
@@ -178,224 +3865,62 @@ Point #23
 Point #22
 Point #21
 Point #239
-Point #117
 Point #110
 Point #109
 Point #108
 Point #116
-Point #240
-Point #241
+Point #117
 Point #242
-Point #243
-Point #244
-Point #245
-Point #246
-Point #247
-Point #248
-Point #111
-Point #112
-Point #113
-Point #37
-Point #249
-Point #259
-Point #236
-Point #258
-Point #257
-Point #256
-Point #255
-Point #121
-Point #125
-Point #40
-Point #41
-Point #45
-Point #49
-Point #44
-Point #129
-Point #133
-Point #48
-Point #137
-Point #141
-Point #140
-Point #139
-Point #144
-Point #143
-Point #147
-Point #148
-Point #152
-Point #151
-Point #154
-Point #59
-Point #150
-Point #146
-Point #55
-Point #142
-Point #51
-Point #138
-Point #134
-Point #47
-Point #130
-Point #126
-Point #127
-Point #131
-Point #135
-Point #136
-Point #132
-Point #128
-Point #124
-Point #120
-Point #119
-Point #123
-Point #122
-Point #43
-Point #118
-Point #39
-Point #254
-Point #253
-Point #252
-Point #251
+Point #241
+Point #240
 Point #250
 Point #38
 Point #42
 Point #46
 Point #50
+Point #51
+Point #138
+Point #142
+Point #55
+Point #146
+Point #150
+Point #154
+Point #59
 Point #54
 Point #58
 Point #62
 Point #66
+Point #63
+Point #158
+Point #162
+Point #166
+Point #170
+Point #67
+Point #174
+Point #178
+Point #182
+Point #71
 Point #70
 Point #74
 Point #75
-Point #190
 Point #186
-Point #182
-Point #71
-Point #178
-Point #174
-Point #170
-Point #67
-Point #166
-Point #63
-Point #162
-Point #158
-Point #163
-Point #164
-Point #160
-Point #159
-Point #155
-Point #156
-Point #157
-Point #153
-Point #56
-Point #149
-Point #145
-Point #52
-Point #53
-Point #57
-Point #61
-Point #60
-Point #161
-Point #165
-Point #169
-Point #64
-Point #65
-Point #69
-Point #68
-Point #173
-Point #177
-Point #181
-Point #185
-Point #72
-Point #73
-Point #77
-Point #81
-Point #85
-Point #84
-Point #213
-Point #209
-Point #205
-Point #80
-Point #201
-Point #197
-Point #76
-Point #193
-Point #189
-Point #184
-Point #180
-Point #176
-Point #172
-Point #168
-Point #167
-Point #171
-Point #175
-Point #179
-Point #183
-Point #187
-Point #188
-Point #192
-Point #191
-Point #195
-Point #196
-Point #200
-Point #199
-Point #203
-Point #204
-Point #208
-Point #212
-Point #216
-Point #215
-Point #211
-Point #207
-Point #206
-Point #83
-Point #202
-Point #198
+Point #190
 Point #194
 Point #79
-Point #78
-Point #82
-Point #86
-Point #87
+Point #198
+Point #202
+Point #83
+Point #206
 Point #210
-Point #214
-Point #218
-Point #222
-Point #91
-Point #90
-Point #94
-Point #95
-Point #226
-Point #230
-Point #233
-Point #234
-Point #235
-Point #232
-Point #231
-Point #227
-Point #228
-Point #224
-Point #223
-Point #219
-Point #220
-Point #221
-Point #217
-Point #88
-Point #89
-Point #93
-Point #92
-Point #225
-Point #229
-Point #0
-Point #1
-Point #98
-Point #99
-Point #96
-Point #97
-Point #237
-Execution time: 2118 ms
+Point #87
+Point #86
+Point #82
+Point #78
+Execution time: 1738 ms
 
-Elapsed time: 2118 ms
-Executed runs: 1/1
-Total execution time: 2.118 s
-Avg execution time: 2118 ms
-AVG MIN COST OVER 1 RUNS: 1659.74
-BEST COST OVER 1 RUNS: 1659.74
+Elapsed time: 12026 ms
+Executed runs: 10/10
+Total execution time: 12.026 s
+Avg execution time: 1202.6 ms
+AVG MIN COST OVER 10 RUNS: 1651.88
+BEST COST OVER 10 RUNS: 1622.04

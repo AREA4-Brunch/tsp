@@ -16,10 +16,11 @@
 #include "../common/timing.hpp"
 #include "../common/problem_loader.hpp"
 
-template <typename cost_t, typename weight_t>
+
+template <typename cost_t>
 cost_t Solve(
     LocalSearch3Opt<cost_t, int> &algo,
-    std::vector<std::vector<weight_t>> &distances,
+    std::vector<std::vector<cost_t>> &distances,
     const bool is_searching_for_cycle,
     History<cost_t> &history,
     const unsigned int seed = 0U
@@ -100,7 +101,7 @@ int main(const int argc, const char **argv)
 
                 const auto seed = random::genRandomSeed();
                 const auto algo = detail::selectAlgo<cost_t, int>(req_algo, seed);
-                const cost_t min_cost = Solve<cost_t, cost_t>(
+                const cost_t min_cost = Solve<cost_t>(
                     *algo, distances, is_searching_for_cycle, *cur_history,
                     seed  // e.g. good: 3310318500
                 );
@@ -133,10 +134,10 @@ int main(const int argc, const char **argv)
 }
 
 
-template <typename cost_t, typename weight_t>
+template <typename cost_t>
 cost_t Solve(
     LocalSearch3Opt<cost_t, int> &algo,
-    std::vector<std::vector<weight_t>> &distances,
+    std::vector<std::vector<cost_t>> &distances,
     const bool is_searching_for_cycle,
     History<cost_t> &history,
     const unsigned int seed
@@ -147,13 +148,12 @@ cost_t Solve(
     std::mt19937 psrng = random::initPSRNG(seed);
     random::permuteRandomly(path, psrng);
 
-    const cost_t min_distance = algo.template search<weight_t>(
+    const cost_t min_distance = algo.search(
         distances,
         path,
         !is_searching_for_cycle,
         history,
-        false,  // is_weights_upper_triangular
-        1       // verbose
+        1  // verbose
     );
     // if cycle change to format with path[0] == path.back()
     if (is_searching_for_cycle) path.push_back(path[0]);
