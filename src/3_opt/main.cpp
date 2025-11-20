@@ -127,7 +127,6 @@ int main(const int argc, const char **argv)
     return 0;
 }
 
-#include "../common/logging.hpp"
 
 template <typename cost_t, typename weight_t>
 cost_t Solve(

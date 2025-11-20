@@ -27,10 +27,24 @@ IS_PROBLEM_IN_PTS_FORMAT = 1
 MODES = ['tsp', 'shp']
 PARALLEL_CAPACITY = 2
 
+ALGO = '3_opt_funky'
+MIN_N = 29
+MAX_N = 29  # inclusive
+NUM_RERUNS = 100
+RUNS_PER_HISTORY = 500
+SINGLE_TEST_TIMEOUT_SEC = 5 * 60
+PROBLEM_NAME = 'bayg29'
+PROBLEM_FNAME = f'{PROBLEM_NAME}.tsp'
+IS_PROBLEM_IN_PTS_FORMAT = 0
+MODES = ['tsp', 'shp']
+PARALLEL_CAPACITY = 2
+
+
 
 def main():
     algo = sys.argv[1] if len(sys.argv) > 2 else ALGO
     print(get_script_header(algo))
+    print(f'\n\necho "Solving problem: {PROBLEM_NAME}"')
     for mode in MODES:
         print(f'\n\necho "solving {mode}"')
         print_sh_commands(MIN_N, MAX_N, algo, SINGLE_TEST_TIMEOUT_SEC,

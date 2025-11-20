@@ -13,6 +13,7 @@ if ! g++ --static -std=c++20 -O3 -Wall -Wextra -o "$SRC_DIR/main.exe" "$SRC_DIR/
     exit 1
 fi
 
+echo "Solving problem: 263"
 
 echo "solving tsp"
 mkdir -p "$RESULTS_DIR/263/tsp"
@@ -264,7 +265,137 @@ echo "Solving 263 points..."
 wait
 
 
+echo "solving tsp"
+mkdir -p "$RESULTS_DIR/bayg29/tsp"
+echo "Solving 1 points..."
+"$SRC_DIR/main.exe" "3_opt_funky" 1 "$PROBLEMS_DIR/bayg29.txt" "$HISTORY_DIR/bayg29/tsp/1" 100  500 300 tsp 1 > "$RESULTS_DIR/bayg29/tsp/1.txt" &
+echo "Solving 2 points..."
+"$SRC_DIR/main.exe" "3_opt_funky" 2 "$PROBLEMS_DIR/bayg29.txt" "$HISTORY_DIR/bayg29/tsp/2" 100  500 300 tsp 1 > "$RESULTS_DIR/bayg29/tsp/2.txt" &
+
+wait
+
+echo "Solving 3 points..."
+"$SRC_DIR/main.exe" "3_opt_funky" 3 "$PROBLEMS_DIR/bayg29.txt" "$HISTORY_DIR/bayg29/tsp/3" 100  500 300 tsp 1 > "$RESULTS_DIR/bayg29/tsp/3.txt" &
+echo "Solving 4 points..."
+"$SRC_DIR/main.exe" "3_opt_funky" 4 "$PROBLEMS_DIR/bayg29.txt" "$HISTORY_DIR/bayg29/tsp/4" 100  500 300 tsp 1 > "$RESULTS_DIR/bayg29/tsp/4.txt" &
+
+wait
+
+echo "Solving 5 points..."
+"$SRC_DIR/main.exe" "3_opt_funky" 5 "$PROBLEMS_DIR/bayg29.txt" "$HISTORY_DIR/bayg29/tsp/5" 100  500 300 tsp 1 > "$RESULTS_DIR/bayg29/tsp/5.txt" &
+echo "Solving 6 points..."
+"$SRC_DIR/main.exe" "3_opt_funky" 6 "$PROBLEMS_DIR/bayg29.txt" "$HISTORY_DIR/bayg29/tsp/6" 100  500 300 tsp 1 > "$RESULTS_DIR/bayg29/tsp/6.txt" &
+
+wait
+
+echo "Solving 7 points..."
+"$SRC_DIR/main.exe" "3_opt_funky" 7 "$PROBLEMS_DIR/bayg29.txt" "$HISTORY_DIR/bayg29/tsp/7" 100  500 300 tsp 1 > "$RESULTS_DIR/bayg29/tsp/7.txt" &
+echo "Solving 8 points..."
+"$SRC_DIR/main.exe" "3_opt_funky" 8 "$PROBLEMS_DIR/bayg29.txt" "$HISTORY_DIR/bayg29/tsp/8" 100  500 300 tsp 1 > "$RESULTS_DIR/bayg29/tsp/8.txt" &
+
+wait
+
+echo "Solving 9 points..."
+"$SRC_DIR/main.exe" "3_opt_funky" 9 "$PROBLEMS_DIR/bayg29.txt" "$HISTORY_DIR/bayg29/tsp/9" 100  500 300 tsp 1 > "$RESULTS_DIR/bayg29/tsp/9.txt" &
+echo "Solving 10 points..."
+"$SRC_DIR/main.exe" "3_opt_funky" 10 "$PROBLEMS_DIR/bayg29.txt" "$HISTORY_DIR/bayg29/tsp/10" 100  500 300 tsp 1 > "$RESULTS_DIR/bayg29/tsp/10.txt" &
+
+wait
+
+echo "Solving 11 points..."
+"$SRC_DIR/main.exe" "3_opt_funky" 11 "$PROBLEMS_DIR/bayg29.txt" "$HISTORY_DIR/bayg29/tsp/11" 100  500 300 tsp 1 > "$RESULTS_DIR/bayg29/tsp/11.txt" &
+echo "Solving 12 points..."
+"$SRC_DIR/main.exe" "3_opt_funky" 12 "$PROBLEMS_DIR/bayg29.txt" "$HISTORY_DIR/bayg29/tsp/12" 100  500 300 tsp 1 > "$RESULTS_DIR/bayg29/tsp/12.txt" &
+
+wait
+
+echo "Solving 13 points..."
+"$SRC_DIR/main.exe" "3_opt_funky" 13 "$PROBLEMS_DIR/bayg29.txt" "$HISTORY_DIR/bayg29/tsp/13" 100  500 300 tsp 1 > "$RESULTS_DIR/bayg29/tsp/13.txt" &
+echo "Solving 14 points..."
+"$SRC_DIR/main.exe" "3_opt_funky" 14 "$PROBLEMS_DIR/bayg29.txt" "$HISTORY_DIR/bayg29/tsp/14" 100  500 300 tsp 1 > "$RESULTS_DIR/bayg29/tsp/14.txt" &
+
+wait
+
+echo "Solving 15 points..."
+"$SRC_DIR/main.exe" "3_opt_funky" 15 "$PROBLEMS_DIR/bayg29.txt" "$HISTORY_DIR/bayg29/tsp/15" 100  500 300 tsp 1 > "$RESULTS_DIR/bayg29/tsp/15.txt" &
+echo "Solving 16 points..."
+"$SRC_DIR/main.exe" "3_opt_funky" 16 "$PROBLEMS_DIR/bayg29.txt" "$HISTORY_DIR/bayg29/tsp/16" 100  500 300 tsp 1 > "$RESULTS_DIR/bayg29/tsp/16.txt" &
+
+wait
+
+echo "Solving 17 points..."
+"$SRC_DIR/main.exe" "3_opt_funky" 17 "$PROBLEMS_DIR/bayg29.txt" "$HISTORY_DIR/bayg29/tsp/17" 100  500 300 tsp 1 > "$RESULTS_DIR/bayg29/tsp/17.txt" &
+echo "Solving 18 points..."
+"$SRC_DIR/main.exe" "3_opt_funky" 18 "$PROBLEMS_DIR/bayg29.txt" "$HISTORY_DIR/bayg29/tsp/18" 100  500 300 tsp 1 > "$RESULTS_DIR/bayg29/tsp/18.txt" &
+
+wait
+
+echo "Solving 19 points..."
+"$SRC_DIR/main.exe" "3_opt_funky" 19 "$PROBLEMS_DIR/bayg29.txt" "$HISTORY_DIR/bayg29/tsp/19" 100  500 300 tsp 1 > "$RESULTS_DIR/bayg29/tsp/19.txt" &
+echo "Solving 20 points..."
+"$SRC_DIR/main.exe" "3_opt_funky" 20 "$PROBLEMS_DIR/bayg29.txt" "$HISTORY_DIR/bayg29/tsp/20" 100  500 300 tsp 1 > "$RESULTS_DIR/bayg29/tsp/20.txt" &
+
+wait
+
+echo "Solving 21 points..."
+"$SRC_DIR/main.exe" "3_opt_funky" 21 "$PROBLEMS_DIR/bayg29.txt" "$HISTORY_DIR/bayg29/tsp/21" 100  500 300 tsp 1 > "$RESULTS_DIR/bayg29/tsp/21.txt" &
+echo "Solving 22 points..."
+"$SRC_DIR/main.exe" "3_opt_funky" 22 "$PROBLEMS_DIR/bayg29.txt" "$HISTORY_DIR/bayg29/tsp/22" 100  500 300 tsp 1 > "$RESULTS_DIR/bayg29/tsp/22.txt" &
+
+wait
+
+echo "Solving 23 points..."
+"$SRC_DIR/main.exe" "3_opt_funky" 23 "$PROBLEMS_DIR/bayg29.txt" "$HISTORY_DIR/bayg29/tsp/23" 100  500 300 tsp 1 > "$RESULTS_DIR/bayg29/tsp/23.txt" &
+echo "Solving 24 points..."
+"$SRC_DIR/main.exe" "3_opt_funky" 24 "$PROBLEMS_DIR/bayg29.txt" "$HISTORY_DIR/bayg29/tsp/24" 100  500 300 tsp 1 > "$RESULTS_DIR/bayg29/tsp/24.txt" &
+
+wait
+
+echo "Solving 25 points..."
+"$SRC_DIR/main.exe" "3_opt_funky" 25 "$PROBLEMS_DIR/bayg29.txt" "$HISTORY_DIR/bayg29/tsp/25" 100  500 300 tsp 1 > "$RESULTS_DIR/bayg29/tsp/25.txt" &
+echo "Solving 26 points..."
+"$SRC_DIR/main.exe" "3_opt_funky" 26 "$PROBLEMS_DIR/bayg29.txt" "$HISTORY_DIR/bayg29/tsp/26" 100  500 300 tsp 1 > "$RESULTS_DIR/bayg29/tsp/26.txt" &
+
+wait
+
+echo "Solving 27 points..."
+"$SRC_DIR/main.exe" "3_opt_funky" 27 "$PROBLEMS_DIR/bayg29.txt" "$HISTORY_DIR/bayg29/tsp/27" 100  500 300 tsp 1 > "$RESULTS_DIR/bayg29/tsp/27.txt" &
+echo "Solving 28 points..."
+"$SRC_DIR/main.exe" "3_opt_funky" 28 "$PROBLEMS_DIR/bayg29.txt" "$HISTORY_DIR/bayg29/tsp/28" 100  500 300 tsp 1 > "$RESULTS_DIR/bayg29/tsp/28.txt" &
+
+wait
+
+echo "Solving 29 points..."
+"$SRC_DIR/main.exe" "3_opt_funky" 29 "$PROBLEMS_DIR/bayg29.txt" "$HISTORY_DIR/bayg29/tsp/29" 100  500 300 tsp 1 > "$RESULTS_DIR/bayg29/tsp/29.txt" &
+
+wait
+
+
+echo "Solving problem: bayg29"
+
+
+echo "solving tsp"
+mkdir -p "$RESULTS_DIR/bayg29/tsp"
+echo "Solving 29 points..."
+"$SRC_DIR/main.exe" "3_opt_funky" 29 "$PROBLEMS_DIR/bayg29.tsp" "$HISTORY_DIR/bayg29/tsp/29" 100  500 300 tsp 0 > "$RESULTS_DIR/bayg29/tsp/29.txt" &
+
+wait
+
+
+
+echo "solving shp"
+mkdir -p "$RESULTS_DIR/bayg29/shp"
+echo "Solving 29 points..."
+"$SRC_DIR/main.exe" "3_opt_funky" 29 "$PROBLEMS_DIR/bayg29.tsp" "$HISTORY_DIR/bayg29/shp/29" 100  500 300 shp 0 > "$RESULTS_DIR/bayg29/shp/29.txt" &
+
+wait
+
 
 # Test results:
 echo "Checking results 263..."
 python "$ROOT_DIR/judge_results.py" 3_opt_funky 263 263.txt 263
+
+
+# Test results:
+echo "Checking results bayg29..."
+python "$ROOT_DIR/judge_results.py" 3_opt_funky bayg29 bayg29.tsp 29
