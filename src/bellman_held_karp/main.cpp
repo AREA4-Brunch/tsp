@@ -157,7 +157,7 @@ void Solve(
     const int verbose,
     const unsigned int seed
 ) {
-    std::mt19937 psrng = detail::initPSRNG(seed);
+    std::mt19937 psrng = random::initPSRNG(seed);
     const distance_t max_cost = detail::estimateMaxPossibleCost(
         distances, is_finding_cycle, psrng, 10
     );

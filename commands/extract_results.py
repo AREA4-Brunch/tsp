@@ -12,11 +12,11 @@ from collections import defaultdict
 
 
 def main():
-    res_dir = sys.argv[1] if len(sys.argv) > 1 else 'bellman_held_karp/263'
+    results_dir = sys.argv[1] if len(sys.argv) > 1 else 'bellman_held_karp/263'
     is_symmetrical = '-asym' not in sys.argv[2] if len(sys.argv) > 2 else True
     cwd = os.path.realpath(os.path.dirname(__file__))
-    results_dir = os.path.join(cwd, '..', 'results', res_dir)
-    solutions, max_n = find_bellman_results(results_dir)
+    results_dir = os.path.join(cwd, '..', 'results', results_dir)
+    solutions, max_n = find_best_results(results_dir)
     print_paths(is_symmetrical, solutions, max_n)
     print_costs(solutions, max_n)
 
@@ -50,41 +50,44 @@ def print_costs(solutions, n):
                 print(f'{tab}{cost},')
         print(f'],')
 
-def find_bellman_results(results_dir):
+def find_best_results(results_dir):
     results: dict[str, dict[tuple[float, list[int]]]] = defaultdict(dict)
-    pattern = re.compile(r"Optimal total distance for (\d+) points: ([\d\.Ee+-]+)")
+    pattern = re.compile(r"total distance for (\d+) points: ([\d\.Ee+-]+)")
     path_pattern = re.compile(r"Point #(\d+)")
     max_n = 0
+    is_bellman = '/bellman_held_karp/' in results_dir
     for dirpath, _, filenames in os.walk(results_dir):
-        if '\\double' not in dirpath:
+        if is_bellman and '\\double' not in dirpath:
             continue
         for fname in filenames:
             fpath = os.path.join(dirpath, fname)
             mode = 'shp' if ('shp\\' in fpath) else 'tsp'
             short_fpath = fpath.replace(results_dir, '')
             n = int(short_fpath[ short_fpath.rfind('\\') + 1
-                              : short_fpath.rfind('.txt')])
+                               : short_fpath.rfind('.txt')])
             max_n = max(max_n, n)
-            path, value = [], None
+            path, best_cost = [], float('inf')
             try:
                 did_add = False
-                lines = []
                 with open(fpath, "r") as f:
                     for line in f:
                         m = pattern.search(line)
-                        if not did_add and m:
-                            value = float(m.group(2))
-                            did_add = True
+                        if m:
+                            cost = float(m.group(2))
+                            if cost < best_cost:
+                                best_cost = cost
+                                did_add = True
+                                path = []
+                            else:
+                                did_add = False
                         elif did_add:
-                            lines.append(line)
-                for line in lines:
-                    m = path_pattern.match(line.strip())
-                    if m:
-                        path.append(int(m.group(1)))
-                results[mode][n] = (value, path)
+                            m = path_pattern.match(line.strip())
+                            if m:
+                                path.append(int(m.group(1)))
+                results[mode][n] = (best_cost, path)
             except Exception as e:
                 print(f"Could not read {fpath}: {e}")
-                results[mode][n] = (value, path)
+                results[mode][n] = (best_cost, path)
     return results, max_n
 
 

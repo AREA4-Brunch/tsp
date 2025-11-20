@@ -2,6 +2,7 @@
 #define TIMING_HPP
 
 #include <iostream>
+#include <chrono>
 
 namespace timing {
 
@@ -39,7 +40,7 @@ int executeAndMeasureAvgExecTime(
         }
     }
 
-    double avg_time_ms = 1. * total_time_ms / executed_runs;
+    const double avg_time_ms = 1. * total_time_ms / executed_runs;
     std::cout << "Executed runs: " << executed_runs << "/" << num_runs
               << std::endl
               << "Total execution time: " << (1. * total_time_ms / 1000) << " s"

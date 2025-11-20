@@ -1,3 +1,9 @@
+## 3-opt Heuristic
+
+Some variations of the 3-opt heuristic will be published here along with the results of the research.
+Implementations solve only the STSP and SSHP.
+
+
 ## Bellman-Held-Karp
 This is a heavily optimized single-core Bellman-Held-Karp implementation.
 

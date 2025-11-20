@@ -181,6 +181,22 @@ std::vector<std::vector<distance_t>> loadDistances(
     );
 }
 
+template<typename point_t, typename distance_t>
+std::vector<std::vector<distance_t>> loadDistances(
+    const std::string &path_in_file,
+    const std::string &point_format_str,
+    const int num_points,
+    const bool should_compute_distances = true
+) {
+    distance_t dummy1, dummy2;
+    bool dummy3;
+    return loadDistances<point_t, distance_t>(
+        path_in_file, point_format_str, num_points,
+        dummy1, dummy2, dummy3,
+        should_compute_distances
+    );
+}
+
 }  // prloader namespace
 
 #endif

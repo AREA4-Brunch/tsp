@@ -51,7 +51,8 @@ std::vector<unsigned long long> prevVertexStarts(
     return prev_starts;
 }
 
-/// @return (min_cost, vertices making up the path)
+/// @param solution - changes to the found path iff find_path=true
+/// @return min cost
 template<
     typename T,
     bool is_symmetric,

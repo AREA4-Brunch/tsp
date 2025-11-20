@@ -12,7 +12,7 @@ def main():
     num_points = int(args[3]) if len(args) > 3 else 263
     cwd = os.path.realpath(os.path.dirname(__file__))
     results_dir = os.path.join(cwd, '..', 'results', res_dir, prob_name)
-    results = find_bellman_results(results_dir, num_points)
+    results = find_best_results(results_dir, num_points)
     weights = load_weights_from_file(
         os.path.join(cwd, '..', 'problems', prob_file),
         num_points,
@@ -21,39 +21,40 @@ def main():
     # find_small_perm_sols(weights)
 
 
-def find_bellman_results(results_dir, max_n):
+def find_best_results(results_dir, max_n):
     results = []
-    pattern = re.compile(r"Optimal total distance for (\d+) points: ([\d\.Ee+-]+)")
+    pattern = re.compile(r"total distance for (\d+) points: ([\d\.Ee+-]+)")
     path_pattern = re.compile(r"Point #(\d+)")
     for dirpath, _, filenames in os.walk(results_dir):
         for fname in filenames:
             fpath = os.path.join(dirpath, fname)
             short_fpath = fpath.replace(results_dir, '')
             n = int(short_fpath[ short_fpath.rfind('\\') + 1
-                              : short_fpath.rfind('.txt')])
+                               : short_fpath.rfind('.txt')])
             if n > max_n:
                 continue
-            path, value = [], None
+            path, best_cost = [], float('inf')
             try:
                 did_add = False
-                lines = []
                 with open(fpath, "r") as f:
                     for line in f:
                         m = pattern.search(line)
-                        if not did_add and m:
-                            value = float(m.group(2))
-                            did_add = True
+                        if m:
+                            cost = float(m.group(2))
+                            if cost < best_cost:
+                                best_cost = cost
+                                did_add = True
+                                path = []
+                            else:
+                                did_add = False
                         elif did_add:
-                            lines.append(line)
-                        m2 = path_pattern.match(line.strip())
-                        if m2:
-                            path.append(int(m2.group(1)))
-                        if line.strip().startswith('Execution time:'):
-                            break
-                results.append((fpath, short_fpath, n, value, path))
+                            m = path_pattern.match(line.strip())
+                            if m:
+                                path.append(int(m.group(1)))
+                results.append((fpath, short_fpath, n, best_cost, path))
             except Exception as e:
                 print(f"Could not read {fpath}: {e}")
-                results.append((fpath, short_fpath, n, value, path))
+                results.append((fpath, short_fpath, n, best_cost, path))
     # sort by problem mode and num points:
     results = sorted(results, key=lambda x: (x[1][:x[1].rfind('\\')], x[2]))
     return results
@@ -90,11 +91,14 @@ def compare_solutions(results, solutions_costs,
     wrong = total - num_ok - num_unknown
     print(f'CORRECT: {num_ok}/{total}, WRONG: {wrong}, UNKNOWN: {num_unknown}')
 
-def check_solution(found_cost, expected, actual_path,
+def check_solution(found_cost, expected_cost, actual_path,
                    expected_path_variants, mode, weights):
-    if expected is None:
+    if expected_cost is None:
         return "NO_EXPECTED", False
-    do_match = found_cost is not None and abs(found_cost - expected) < 1e-6
+    do_match = (
+        found_cost is not None
+        and abs(found_cost - expected_cost) < 1e-6
+    )
     if do_match:
         return "OK", True
     if found_cost is None or actual_path is None:
@@ -139,21 +143,21 @@ def check_solution(found_cost, expected, actual_path,
             dst = expected_path_variants[0][i]
             actual_expected_cost += weights[src][dst]
 
-        if abs(actual_expected_cost - expected) > 1e-6:
+        if abs(actual_expected_cost - expected_cost) > 1e-6:
             print(f'WARNING: Expected solution does not have expected cost.')
-            print(f'expected cost: {expected} vs {actual_expected_cost}'
+            print(f'expected cost: {expected_cost} vs {actual_expected_cost}'
                 f' (actual exp) vs {actual_cost} (found cost)')
             if actual_cost <= actual_expected_cost:
                 print(f'But actual cost {actual_cost} is the solution.')
 
-    if actual_cost <= expected:
-        return f"UNEXPECTED_BUT_BETTER ({actual_cost} vs {expected})", True
+    if actual_cost <= expected_cost:
+        return f"UNEXPECTED_BUT_BETTER ({actual_cost} vs {expected_cost})", True
 
     n = max(actual_path) + 1
-    print(f'n={n}: Expected paths variants:\n'
+    print(f'N={n}: Expected paths variants:\n'
           f'{'\n'.join([ str(p) for p in expected_path_variants ])}')
     print(f'Found path:\n{actual_path}')
-    return f"DIFF ({actual_cost:.6f} vs {expected:.6f})", False
+    return f"DIFF ({actual_cost:.6f} vs {expected_cost:.6f})", False
 
 def load_weights_from_file(filepath, num_points):
     def parse_points(lines):
@@ -241,7 +245,7 @@ def get_solutions(prob_name):
     raise ValueError(f'Unsupported problem name: {prob_name}')
 
 def get_solutions_costs_263():
-    return {
+    solutions = {
         'shp': [
             None,
             0.0,
@@ -315,6 +319,14 @@ def get_solutions_costs_263():
             None,
         ],
     }
+    # convert solutinos from list to dict
+    for mode in solutions:
+        new_sol = dict()
+        for idx, sol in enumerate(solutions[mode]):
+            new_sol[idx] = sol
+        solutions[mode] = new_sol
+    solutions['shp'][263] = 1546.172353
+    return solutions
 
 def get_solutions_paths_263():
     solutions = {
@@ -437,20 +449,20 @@ def get_solutions_paths_263():
                 [ 1, 0, 21, 22, 23, 24, 25, 26, 27, 28, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 ],
             ],
             [
-                [ 2, 1, 22, 23, 24, 25, 26, 27, 28, 29, 30, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 22, 23, 24, 25, 26, 27, 28, 29, 30, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 22, 23, 24, 25, 26, 27, 28, 29, 30, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 22, 23, 24, 25, 26, 27, 28, 29, 30, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 22, 23, 24, 25, 26, 27, 28, 29, 30, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 22, 23, 24, 25, 26, 27, 28, 29, 30, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3 ],
-                [ 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 30, 29, 28, 27, 26, 25, 24, 23, 22, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 30, 29, 28, 27, 26, 25, 24, 23, 22, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 30, 29, 28, 27, 26, 25, 24, 23, 22, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 30, 29, 28, 27, 26, 25, 24, 23, 22, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 30, 29, 28, 27, 26, 25, 24, 23, 22, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 30, 29, 28, 27, 26, 25, 24, 23, 22, 1, 2 ],
+                [ 1, 0, 21, 22, 23, 24, 25, 26, 27, 28, 29, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 ],
+                [ 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 29, 28, 27, 26, 25, 24, 23, 22, 21, 0, 1 ],
             ],
             [
-                [ 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 1, 2 ],
-                [ 2, 1, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3 ],
+                [ 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 0, 1 ],
+                [ 1, 0, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 ],
             ],
             [
-                [ 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 1, 2 ],
-                [ 2, 1, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3 ],
+                [ 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 0, 1 ],
+                [ 1, 0, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 ],
             ],
             [
-                [ 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 33, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 1, 2 ],
-                [ 2, 1, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3 ],
+                [ 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 0, 1 ],
+                [ 1, 0, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 ],
             ],
         ],
         'tsp': [
@@ -580,6 +592,18 @@ def get_solutions_paths_263():
             None,
         ],
     }
+    # convert solutinos from list to dict
+    for mode in solutions:
+        new_sol = dict()
+        for idx, sol in enumerate(solutions[mode]):
+            new_sol[idx] = sol
+        solutions[mode] = new_sol
+
+    best_263 = [ x - 1 for x in [
+        115, 116, 261, 5, 4, 3, 103, 101, 102, 104, 105, 106, 107, 108, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 239, 6, 263, 262, 240, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 112, 113, 114, 38, 250, 249, 248, 247, 246, 245, 244, 243, 242, 118, 111, 110, 109, 117, 241, 251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 237, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94, 238, 98, 97, 100, 99, 2, 1, 230, 226, 93, 222, 89, 218, 214, 85, 210, 206, 81, 202, 198, 77, 194, 190, 73, 186, 182, 178, 69, 174, 65, 170, 166, 61, 162, 158, 57, 154, 150, 146, 53, 142, 49, 138, 134, 130, 45, 126, 41, 122, 121, 120, 124, 125, 129, 128, 132, 133, 137, 136, 140, 141, 145, 144, 148, 149, 153, 152, 156, 157, 161, 160, 164, 165, 168, 169, 173, 172, 176, 177, 181, 180, 184, 185, 189, 188, 192, 193, 197, 196, 200, 201, 205, 204, 208, 209, 213, 212, 216, 217, 221, 220, 224, 225, 229, 228, 232, 233, 236, 235, 234, 231, 227, 96, 223, 92, 219, 215, 211, 88, 207, 203, 84, 199, 195, 80, 191, 187, 76, 183, 179, 72, 175, 171, 68, 167, 163, 64, 159, 60, 155, 151, 56, 147, 143, 139, 52, 135, 48, 131, 127, 123, 44, 119, 40, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75, 79, 83, 87, 91, 95
+    ]]
+    solutions['shp'][263] = [ best_263, list(reversed(best_263)) ]
+
     return solutions
 
 def get_solutions_costs_br17():
@@ -722,7 +746,7 @@ def get_solutions_paths_bayg29():
         },
         'tsp': {
             29: [
-                [ 28, 4, 20, 1, 19, 9, 3, 14, 17, 13, 16, 21, 10, 18, 24, 6, 22, 7, 26, 15, 12, 23, 0, 27, 5, 11, 8, 25, 2, 28, ]
+                [ 28, 4, 20, 1, 19, 9, 3, 14, 17, 13, 16, 21, 10, 18, 24, 6, 22, 7, 26, 15, 12, 23, 0, 27, 5, 11, 8, 25, 2, 28 ],
             ],
         }
     }
