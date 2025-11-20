@@ -9,6 +9,9 @@
 #include "history.hpp"
 #include "3_opt.hpp"
 #include "3_opt_funky.hpp"
+#include "3_opt_best_cut.hpp"
+#include "3_opt_classical.hpp"
+#include "3_opt_rand.hpp"
 #include "../common/random.hpp"
 #include "../common/timing.hpp"
 #include "../common/problem_loader.hpp"
@@ -34,7 +37,8 @@ void startNewHistory(
 
 template<typename cost_t, typename vertex_t>
 std::unique_ptr<LocalSearch3Opt<cost_t, vertex_t>> selectAlgo(
-    const std::string &req_algo
+    const std::string &req_algo,
+    const unsigned int seed = 0U
 );
 
 }
@@ -83,7 +87,6 @@ int main(const int argc, const char **argv)
         cost_t best_cost_in_n_reruns = std::numeric_limits<cost_t>::max();
         History<cost_t> *cur_history = nullptr;
         int run_idx = 1;
-        const auto algo = detail::selectAlgo<cost_t, int>(req_algo);
         const int executed_reruns = timing::executeAndMeasureAvgExecTime(
             num_reruns,
             timeout_ms,
@@ -95,9 +98,11 @@ int main(const int argc, const char **argv)
                 // make sure it is (ull, int) for python script to work
                 cur_history->appendMarkersToLastFlush(0ULL, (int) run_idx);
 
+                const auto seed = random::genRandomSeed();
+                const auto algo = detail::selectAlgo<cost_t, int>(req_algo, seed);
                 const cost_t min_cost = Solve<cost_t, cost_t>(
                     *algo, distances, is_searching_for_cycle, *cur_history,
-                    random::genRandomSeed()  // e.g. good: 3310318500
+                    seed  // e.g. good: 3310318500
                 );
                 avg_min_cost_in_n_reruns += min_cost;
                 best_cost_in_n_reruns = std::min(best_cost_in_n_reruns, min_cost);
@@ -195,11 +200,21 @@ void detail::startNewHistory(
 
 template<typename cost_t, typename vertex_t>
 std::unique_ptr<LocalSearch3Opt<cost_t, vertex_t>> detail::selectAlgo(
-    const std::string &req_algo
+    const std::string &req_algo,
+    const unsigned int seed
 ) {
     if (req_algo == "3_opt_funky") {
         return std::make_unique<LocalSearch3OptFunky<cost_t, vertex_t>>();
     }
+    if (req_algo == "3_opt_best_cut") {
+        return std::make_unique<LocalSearch3OptBestCut<cost_t, vertex_t>>();
+    }
+    if (req_algo == "3_opt_classical") {
+        return std::make_unique<LocalSearch3OptClassical<cost_t, vertex_t>>();
+    }
+    if (req_algo == "3_opt_rand") {
+        auto psrng = random::initPSRNG(seed);
+        return std::make_unique<LocalSearch3OptRand<cost_t, vertex_t>>(psrng);
+    }
     throw std::invalid_argument("No such algorithm: " + req_algo);
 }
-
