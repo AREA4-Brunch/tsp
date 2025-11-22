@@ -1,39 +1,15 @@
-#ifndef TSP_3_OPT_HPP
-#define TSP_3_OPT_HPP
+#ifndef TSP_3_OPT_CUT_HPP
+#define TSP_3_OPT_CUT_HPP
 
 #include <vector>
-#include <functional>
-#include "history.hpp"
 
+
+/// @brief Implements k_opt::CutStrategy concept avoiding virtual overhead.
 template<typename cost_t, typename vertex_t>
-class LocalSearch3Opt {
+class Cut3Opt {
  public:
-    LocalSearch3Opt() = default;
-    virtual ~LocalSearch3Opt() = default;
 
-    /**
-     * @param solution Initial tour which will be overriden
-     *                 with best found tour. If cyclical should
-     *                 not contain path[0] == path.back().
-     */
-    cost_t search(
-        std::vector<std::vector<cost_t>> &weights,
-        std::vector<vertex_t> &solution,
-        const bool is_searching_for_path,
-        History<cost_t> &history,
-        const int verbose = 0
-    );
-
- protected:
-
-    virtual cost_t run(
-        std::vector<vertex_t> &solution,
-        cost_t cur_cost,
-        History<cost_t> &history,
-        const std::vector<std::vector<cost_t>> &weights,
-        const int verbose = 0
-    ) const = 0;
-
+    [[ gnu::always_inline ]]
     inline int selectCut(
         const int i,
         const int j,
@@ -43,6 +19,7 @@ class LocalSearch3Opt {
         const std::vector<std::vector<cost_t>> &weights
     ) const;
 
+    [[ gnu::always_inline ]]
     inline void applyCut(
         const int i,
         const int j,
@@ -51,11 +28,7 @@ class LocalSearch3Opt {
         std::vector<vertex_t> &path
     ) const;
 
-    cost_t calcCost(
-        const std::vector<vertex_t> &solution,
-        const bool is_searching_for_path,
-        const std::vector<std::vector<cost_t>> &weights
-    ) const;
+ protected:
 
     cost_t calcCutCost(
         const int v0,
@@ -72,61 +45,11 @@ class LocalSearch3Opt {
         return cut;
     }
 
- private:
-
-    static void removeArtificialVertex(
-        std::vector<vertex_t> &solution
-    );
 };
 
-template<typename cost_t, typename vertex_t>
-cost_t LocalSearch3Opt<cost_t, vertex_t>::search(
-    std::vector<std::vector<cost_t>> &weights,
-    std::vector<vertex_t> &solution,
-    const bool is_searching_for_path,
-    History<cost_t> &history,
-    const int verbose
-) {
-    if (is_searching_for_path) {
-        // make path a cycle with artificial vertex
-        solution.push_back(weights.size());
-        for (auto &row : weights) row.push_back((cost_t) 0);
-        weights.push_back(
-            std::vector<cost_t>(weights.size() + 1, (cost_t) 0));
-    }
-    const cost_t init_cost = this->calcCost(
-        solution, is_searching_for_path, weights
-    );
-    const cost_t best_cost = this->run(
-        solution, init_cost, history, weights, verbose
-    );
-    if (is_searching_for_path) {
-        for (auto &row : weights) row.pop_back();
-        weights.pop_back();
-        LocalSearch3Opt::removeArtificialVertex(solution);
-    }
-    return best_cost;
-}
 
 template<typename cost_t, typename vertex_t>
-cost_t LocalSearch3Opt<cost_t, vertex_t>::calcCost(
-    const std::vector<vertex_t> &path,
-    const bool is_searching_for_path,
-    const std::vector<std::vector<cost_t>> &weights
-) const {
-    cost_t cost = is_searching_for_path
-                ? (cost_t) 0
-                : weights[path.back()][path[0]];
-    for (int i = 0, n = path.size(); i < n - 1; ++i) {
-        const int src = path[i];
-        const int dst = path[i + 1];
-        cost += weights[src][dst];
-    }
-    return cost;
-}
-
-template<typename cost_t, typename vertex_t>
-int LocalSearch3Opt<cost_t, vertex_t>::selectCut(
+int Cut3Opt<cost_t, vertex_t>::selectCut(
     const int i,
     const int j,
     const int k,
@@ -164,7 +87,7 @@ int LocalSearch3Opt<cost_t, vertex_t>::selectCut(
 }
 
 template<typename cost_t, typename vertex_t>
-void LocalSearch3Opt<cost_t, vertex_t>::applyCut(
+void Cut3Opt<cost_t, vertex_t>::applyCut(
     const int i,
     const int j,
     const int k,
@@ -222,21 +145,6 @@ void LocalSearch3Opt<cost_t, vertex_t>::applyCut(
         break;
     }
 
-    path = std::move(new_path);
-}
-
-template<typename cost_t, typename vertex_t>
-void LocalSearch3Opt<cost_t, vertex_t>::removeArtificialVertex(
-    std::vector<vertex_t> &path
-) {
-    const auto artificial_it = std::find(
-        path.begin(), path.end(),
-        static_cast<vertex_t>(path.size() - 1)
-    );
-    std::vector<vertex_t> new_path;
-    new_path.reserve(path.size() - 1);
-    new_path.insert(new_path.end(), artificial_it + 1, path.end());
-    new_path.insert(new_path.end(), path.begin(), artificial_it);
     path = std::move(new_path);
 }
 

@@ -5,13 +5,18 @@
 #include <numeric>
 #include <string>
 #include <memory>
+#include <unordered_map>
+#include <variant>
+#include <random>
 
-#include "history.hpp"
-#include "3_opt.hpp"
-#include "3_opt_funky.hpp"
-#include "3_opt_best_cut.hpp"
-#include "3_opt_classical.hpp"
-#include "3_opt_rand.hpp"
+#include "cut_3_opt.hpp"
+#include "cut_3_opt_no_2_opt.hpp"
+#include "../k_opt/history.hpp"
+#include "../k_opt/heuristic.hpp"
+#include "../k_opt/heuristic_best_cut.hpp"
+#include "../k_opt/heuristic_classical.hpp"
+#include "../k_opt/heuristic_funky.hpp"
+#include "../k_opt/heuristic_rand.hpp"
 #include "../common/random.hpp"
 #include "../common/timing.hpp"
 #include "../common/problem_loader.hpp"
@@ -19,30 +24,39 @@
 
 template <typename cost_t>
 cost_t Solve(
-    LocalSearch3Opt<cost_t, int> &algo,
+    const std::string selection_name,
+    const std::string cut_name,
     std::vector<std::vector<cost_t>> &distances,
     const bool is_searching_for_cycle,
-    History<cost_t> &history,
-    const unsigned int seed = 0U
+    k_opt::History<cost_t> &history,
+    const unsigned int seed
 );
 
 namespace detail {
 
-template<typename cost_t>
-void startNewHistory(
-    const int runs_per_history,
-    const std::string& path_history_dir,
-    const int run_idx,
-    History<cost_t>* &cur_history
+template<typename cost_t, typename vertex_t>
+std::unique_ptr<k_opt::Heuristic<cost_t, vertex_t>> selectAlgo(
+    const std::string &selection_algo_name,
+    const std::string &cut_algo_name,
+    const unsigned int seed
 );
 
 template<typename cost_t, typename vertex_t>
-std::unique_ptr<LocalSearch3Opt<cost_t, vertex_t>> selectAlgo(
-    const std::string &req_algo,
-    const unsigned int seed = 0U
+std::variant<
+    Cut3Opt<cost_t, vertex_t>,
+    Cut3OptNo2Opt<cost_t, vertex_t>
+> createCut(const std::string &cut_name);
+
+template<typename cost_t, typename cut_t, typename vertex_t>
+requires k_opt::CutStrategy<cut_t, cost_t, vertex_t>
+std::unique_ptr<k_opt::Heuristic<cost_t, vertex_t>>
+createHeuristic(
+    const std::string &heur_name,
+    const cut_t &cut,
+    const unsigned int seed
 );
 
-}
+}  // namespace detail
 
 
 int main(const int argc, const char **argv)
@@ -51,25 +65,26 @@ int main(const int argc, const char **argv)
     using cost_t = point_t;
 
     const std::string input_point_format = "%lf %lf\n";
-    const std::string req_algo = argc < 2 ? "3_opt_funky" : argv[1];
-    const int num_points = argc < 3 ? 24 : std::atoi(argv[2]);
-    const std::string path_in_file = argc < 4
-                                   ? "../problems/263.txt"
-                                   : argv[3];
-    const std::string path_history_dir = argc < 5
+    const std::string selection_name = argc < 2 ? "funky" : argv[1];
+    const std::string cut_name = argc < 3 ? "3_opt" : argv[2];
+    const int num_points = argc < 4 ? 24 : std::atoi(argv[3]);
+    const std::string path_in_file = argc < 5
+                                ? "../problems/263.txt"
+                                : argv[4];
+    const std::string path_history_dir = argc < 6
             ? "../../results/3_opt_funky/histories/" + path_in_file
-            : argv[4];
-    const int num_reruns = argc < 6 ? 100 : std::atoi(argv[5]);
-    const int runs_per_history = argc < 7 ? 1 : std::atoi(argv[6]);
-    const unsigned long long timeout_ms = argc < 8
+            : argv[5];
+    const int num_reruns = argc < 7 ? 100 : std::atoi(argv[6]);
+    const int runs_per_history = argc < 8 ? 1 : std::atoi(argv[7]);
+    const unsigned long long timeout_ms = argc < 9
                                         ? 1000ULL * 105 * 60  // 105 mins
-                                        : 1000ULL * std::atoll(argv[7]);
-    const bool is_searching_for_cycle = argc < 9
-                                      ? false  // by default solve SHP
-                                      : std::string(argv[8]) == "tsp";
-    const bool is_problem_in_pts_format = argc < 10
+                                        : 1000ULL * std::atoll(argv[8]);
+    const bool is_searching_for_cycle = argc < 10
+                                    ? false  // by default solve SHP
+                                    : std::string(argv[9]) == "tsp";
+    const bool is_problem_in_pts_format = argc < 11
                                         ? true  // not TSPLIB format by default
-                                        : std::atoi(argv[9]);
+                                        : std::atoi(argv[10]);
 
     std::cout << "Solving "
               << (is_searching_for_cycle ? "TSP" : "SHP")
@@ -86,24 +101,24 @@ int main(const int argc, const char **argv)
 
         cost_t avg_min_cost_in_n_reruns = (cost_t) 0;
         cost_t best_cost_in_n_reruns = std::numeric_limits<cost_t>::max();
-        History<cost_t> *cur_history = nullptr;
+        k_opt::History<cost_t> *cur_history = nullptr;
         int run_idx = 1;
+        auto seed = random::genRandomSeed();
         const int executed_reruns = timing::executeAndMeasureAvgExecTime(
             num_reruns,
             timeout_ms,
             [&] () {
                 if ((run_idx - 1) % runs_per_history == 0) {
-                    detail::startNewHistory(
+                    k_opt::startNewHistory(
                         runs_per_history, path_history_dir, run_idx, cur_history);
                 }
                 // make sure it is (ull, int) for python script to work
                 cur_history->appendMarkersToLastFlush(0ULL, (int) run_idx);
 
-                const auto seed = random::genRandomSeed();
-                const auto algo = detail::selectAlgo<cost_t, int>(req_algo, seed);
                 const cost_t min_cost = Solve<cost_t>(
-                    *algo, distances, is_searching_for_cycle, *cur_history,
-                    seed  // e.g. good: 3310318500
+                    selection_name, cut_name,
+                    distances, is_searching_for_cycle, *cur_history,
+                    seed++  // e.g. good: 3310318500
                 );
                 avg_min_cost_in_n_reruns += min_cost;
                 best_cost_in_n_reruns = std::min(best_cost_in_n_reruns, min_cost);
@@ -136,28 +151,29 @@ int main(const int argc, const char **argv)
 
 template <typename cost_t>
 cost_t Solve(
-    LocalSearch3Opt<cost_t, int> &algo,
+    const std::string selection_name,
+    const std::string cut_name,
     std::vector<std::vector<cost_t>> &distances,
     const bool is_searching_for_cycle,
-    History<cost_t> &history,
+    k_opt::History<cost_t> &history,
     const unsigned int seed
 ) {
-    // start with a random solution
-    std::vector<int> path(distances.size());
-    std::iota(path.begin(), path.end(), 0);
-    std::mt19937 psrng = random::initPSRNG(seed);
-    random::permuteRandomly(path, psrng);
+    std::cout << "Seed: " << seed << std::endl;
+    const auto algo = detail::selectAlgo<cost_t, int>(
+        selection_name, cut_name, seed);
 
-    const cost_t min_distance = algo.search(
+    std::vector<int> path;
+    const cost_t min_distance = algo->search(
         distances,
         path,
         !is_searching_for_cycle,
         history,
         1  // verbose
     );
-    // if cycle change to format with path[0] == path.back()
+    // if cycle then change to format with explicit last edge
     if (is_searching_for_cycle) path.push_back(path[0]);
 
+    // log found cost and path:
     std::cout << "Best found total distance for " << distances.size()
               << " points: " << static_cast<double>(min_distance)
               << std::endl;
@@ -165,56 +181,75 @@ cost_t Solve(
     for (const int idx : path) {
         std::cout << "Point #" << ((int) idx) << std::endl;
     }
+
     return min_distance;
 }
 
-/// clears run(s) dir if it already exists
-template<typename cost_t>
-void detail::startNewHistory(
-    const int runs_per_history,
-    const std::string& path_history_dir,
-    const int run_idx,
-    History<cost_t>* &cur_history
+template<typename cost_t, typename vertex_t>
+std::unique_ptr<k_opt::Heuristic<cost_t, vertex_t>> detail::selectAlgo(
+    const std::string &selection_algo_name,
+    const std::string &cut_algo_name,
+    const unsigned int seed
 ) {
-    const std::string path_history_run
-        = runs_per_history == 1 ?
-        path_history_dir + "/run_" + std::to_string(run_idx)
-        : path_history_dir + "/runs_"
-        + std::to_string(1 + runs_per_history * (run_idx / runs_per_history))
-        + "_"
-        + std::to_string(runs_per_history * (1 + run_idx / runs_per_history));
-
-    std::cout << "Run(s) folder: " << path_history_run << std::endl;
-    // clear the run folder if it already exists
-    if (std::filesystem::is_directory(path_history_run)) {
-        std::error_code err_code;
-        std::filesystem::remove_all(path_history_run, err_code);
-        if (err_code) throw ("Failed to delete run folder: " + path_history_run);
-        std::cout << "Deleted already existing run folder: "
-            << path_history_run << std::endl;
-    }
-
-    if (cur_history != nullptr) delete cur_history;
-    cur_history = new History<cost_t>(path_history_run);
+    return std::visit([&] (auto && cut) {
+        using cut_t = std::decay_t<decltype(cut)>;
+        return detail::createHeuristic<cost_t, cut_t, vertex_t>(
+            selection_algo_name, cut, seed
+        );
+    }, detail::createCut<cost_t, vertex_t>(cut_algo_name));
 }
 
 template<typename cost_t, typename vertex_t>
-std::unique_ptr<LocalSearch3Opt<cost_t, vertex_t>> detail::selectAlgo(
-    const std::string &req_algo,
+std::variant<
+    Cut3Opt<cost_t, vertex_t>,
+    Cut3OptNo2Opt<cost_t, vertex_t>
+> detail::createCut(const std::string &cut_name) {
+    using cut_t = std::variant<
+        Cut3Opt<cost_t, vertex_t>,
+        Cut3OptNo2Opt<cost_t, vertex_t>
+    >;
+    using factory_t = std::function<cut_t ()>;
+    static const std::unordered_map<std::string, factory_t> cuts = {
+        { "3_opt", [] () { return Cut3Opt<cost_t, vertex_t>(); }},
+        { "3_opt_no_2_opt", [] () {
+            return Cut3OptNo2Opt<cost_t, vertex_t>();
+        }}
+    };
+    return cuts.at(cut_name)();
+}
+
+template<typename cost_t, typename cut_t, typename vertex_t>
+requires k_opt::CutStrategy<cut_t, cost_t, vertex_t>
+std::unique_ptr<k_opt::Heuristic<cost_t, vertex_t>>
+detail::createHeuristic(
+    const std::string &heur_name,
+    const cut_t &cut,
     const unsigned int seed
 ) {
-    if (req_algo == "3_opt_funky") {
-        return std::make_unique<LocalSearch3OptFunky<cost_t, vertex_t>>();
-    }
-    if (req_algo == "3_opt_best_cut") {
-        return std::make_unique<LocalSearch3OptBestCut<cost_t, vertex_t>>();
-    }
-    if (req_algo == "3_opt_classical") {
-        return std::make_unique<LocalSearch3OptClassical<cost_t, vertex_t>>();
-    }
-    if (req_algo == "3_opt_rand") {
-        auto psrng = random::initPSRNG(seed);
-        return std::make_unique<LocalSearch3OptRand<cost_t, vertex_t>>(psrng);
-    }
-    throw std::invalid_argument("No such algorithm: " + req_algo);
+    using heur_ptr = std::unique_ptr<k_opt::Heuristic<cost_t, vertex_t>>;
+    using factory_t = std::function<heur_ptr ()>;
+    static const std::unordered_map<std::string, factory_t> heurs = {
+        { "best_cut", [&cut] () {
+            return std::make_unique<k_opt::HeuristicBestCut<
+                cost_t, cut_t, vertex_t
+            >>(cut);
+        }},
+        { "classical", [&cut] () {
+            return std::make_unique<k_opt::HeuristicClassical<
+                cost_t, cut_t, vertex_t
+            >>(cut);
+        }},
+        { "funky", [&cut] () {
+            return std::make_unique<k_opt::HeuristicFunky<
+                cost_t, cut_t, vertex_t
+            >>(cut);
+        }},
+        { "rand", [&cut, seed] () {
+            auto psrng = random::initPSRNG(seed);
+            return std::make_unique<k_opt::HeuristicRand<
+                cost_t, cut_t, vertex_t
+            >>(cut, psrng);
+        }}
+    };
+    return heurs.at(heur_name)();
 }

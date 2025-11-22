@@ -1,0 +1,131 @@
+#ifndef TSP_K_OPT_HEURISTIC_HPP
+#define TSP_K_OPT_HEURISTIC_HPP
+
+#include <vector>
+#include <functional>
+#include "history.hpp"
+#include "../common/random.hpp"
+
+namespace k_opt {
+
+template<typename cost_t, typename vertex_t>
+class Heuristic {
+ public:
+
+    virtual ~Heuristic() = default;
+
+    /**
+     * @param solution Initial tour which will be overriden
+     *                 with best found tour. If cyclical should
+     *                 not contain path[0] == path.back().
+     *                 If provided tour is empty then a random
+     *                 tour will be generated.
+     */
+    cost_t search(
+        std::vector<std::vector<cost_t>> &weights,
+        std::vector<vertex_t> &solution,
+        const bool is_searching_for_path,
+        History<cost_t> &history,
+        const int verbose = 0
+    );
+
+ protected:
+
+    virtual cost_t run(
+        std::vector<vertex_t> &solution,
+        cost_t cur_cost,
+        History<cost_t> &history,
+        const std::vector<std::vector<cost_t>> &weights,
+        const int verbose = 0
+    ) const = 0;
+
+    cost_t calcCost(
+        const std::vector<vertex_t> &solution,
+        const bool is_searching_for_path,
+        const std::vector<std::vector<cost_t>> &weights
+    ) const;
+
+ private:
+
+    static void removeArtificialVertex(
+        std::vector<vertex_t> &solution
+    );
+};
+
+}  // namespace k_opt
+
+
+template<typename cost_t, typename vertex_t>
+cost_t k_opt::Heuristic<cost_t, vertex_t>::search(
+    std::vector<std::vector<cost_t>> &weights,
+    std::vector<vertex_t> &solution,
+    const bool is_searching_for_path,
+    History<cost_t> &history,
+    const int verbose
+) {
+    if (solution.empty()) {  // start from random solution
+        solution.resize(weights.size());
+        std::iota(solution.begin(), solution.end(), 0);
+        std::mt19937 psrng = random::initPSRNG();
+        random::permuteRandomly(solution, psrng);
+    } else if (solution.size() != weights.size()) {
+        throw std::runtime_error(
+            "k_opt::Heuristic::search: solution.size() != 0"
+            " && solution.size() != weight.size()"
+        );
+    }
+    if (is_searching_for_path) {
+        // make path a cycle with artificial vertex
+        solution.push_back(weights.size());
+        for (auto &row : weights) row.push_back((cost_t) 0);
+        weights.push_back(
+            std::vector<cost_t>(weights.size() + 1, (cost_t) 0));
+    }
+    const cost_t init_cost = this->calcCost(
+        solution, is_searching_for_path, weights
+    );
+    const cost_t best_cost = this->run(
+        solution, init_cost, history, weights, verbose
+    );
+    if (is_searching_for_path) {
+        for (auto &row : weights) row.pop_back();
+        weights.pop_back();
+        k_opt::Heuristic<cost_t, vertex_t>
+             ::removeArtificialVertex(solution);
+    }
+    return best_cost;
+}
+
+template<typename cost_t, typename vertex_t>
+cost_t k_opt::Heuristic<cost_t, vertex_t>::calcCost(
+    const std::vector<vertex_t> &path,
+    const bool is_searching_for_path,
+    const std::vector<std::vector<cost_t>> &weights
+) const {
+    cost_t cost = is_searching_for_path
+                ? (cost_t) 0
+                : weights[path.back()][path[0]];
+    for (int i = 0, n = path.size(); i < n - 1; ++i) {
+        const int src = path[i];
+        const int dst = path[i + 1];
+        cost += weights[src][dst];
+    }
+    return cost;
+}
+
+template<typename cost_t, typename vertex_t>
+void k_opt::Heuristic<cost_t, vertex_t>::removeArtificialVertex(
+    std::vector<vertex_t> &path
+) {
+    const auto artificial_it = std::find(
+        path.begin(), path.end(),
+        static_cast<vertex_t>(path.size() - 1)
+    );
+    std::vector<vertex_t> new_path;
+    new_path.reserve(path.size() - 1);
+    new_path.insert(new_path.end(), artificial_it + 1, path.end());
+    new_path.insert(new_path.end(), path.begin(), artificial_it);
+    path = std::move(new_path);
+}
+
+#endif

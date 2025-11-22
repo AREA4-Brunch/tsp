@@ -1,18 +1,33 @@
-#ifndef TSP_3_OPT_BEST_CUT_HPP
-#define TSP_3_OPT_BEST_CUT_HPP
+#ifndef TSP_K_OPT_HEURISTIC_BEST_CUT_HPP
+#define TSP_K_OPT_HEURISTIC_BEST_CUT_HPP
 
 #include <iostream>
 #include <vector>
 #include <utility>
-#include "3_opt.hpp"
+#include "heuristic.hpp"
+#include "cut_strategy.hpp"
 
-template<typename cost_t, typename vertex_t=int>
-class LocalSearch3OptBestCut : public LocalSearch3Opt<cost_t, vertex_t> {
+namespace k_opt {
+
+template<
+    typename cost_t,
+    typename cut_strategy_t,
+    typename vertex_t=int
+>
+requires k_opt::CutStrategy<cut_strategy_t, cost_t, vertex_t>
+class HeuristicBestCut
+    : public k_opt::Heuristic<cost_t, vertex_t>
+{
  public:
-    LocalSearch3OptBestCut() = default;
-    ~LocalSearch3OptBestCut() = default;
+
+    HeuristicBestCut(cut_strategy_t cut_strategy)
+        : cut(cut_strategy) { }
+
+    ~HeuristicBestCut() = default;
 
  protected:
+
+    const cut_strategy_t cut;
 
     cost_t run(
         std::vector<vertex_t> &solution,
@@ -21,11 +36,14 @@ class LocalSearch3OptBestCut : public LocalSearch3Opt<cost_t, vertex_t> {
         const std::vector<std::vector<cost_t>> &weights,
         const int verbose = 0
     ) const override;
-
 };
 
-template<typename cost_t, typename vertex_t>
-cost_t LocalSearch3OptBestCut<cost_t, vertex_t>::run(
+}  // namespace k_opt
+
+
+template<typename cost_t, typename cut_strategy_t, typename vertex_t>
+requires k_opt::CutStrategy<cut_strategy_t, cost_t, vertex_t>
+cost_t k_opt::HeuristicBestCut<cost_t, cut_strategy_t, vertex_t>::run(
     std::vector<vertex_t> &path,
     cost_t cur_cost,
     History<cost_t> &history,
@@ -51,7 +69,7 @@ cost_t LocalSearch3OptBestCut<cost_t, vertex_t>::run(
         for (int i = 0; i < n - 2; ++i) {
             for (int j = i + 1; j < n - 1; ++j) {
                 for (int k = j + 1; k < n; ++k) {
-                    const int patch_ordinal = this->selectCut(
+                    const int patch_ordinal = this->cut.selectCut(
                         i, j, k, cur_cost_change, path, weights
                     );
                     if (cur_cost + cur_cost_change < best_cost) {
@@ -67,7 +85,7 @@ cost_t LocalSearch3OptBestCut<cost_t, vertex_t>::run(
         }
         if (did_update) {  // update path to new best
             cur_cost = best_cost;
-            this->applyCut(
+            this->cut.applyCut(
                 best_cut_desc[0],  // i
                 best_cut_desc[1],  // j
                 best_cut_desc[2],  // k

@@ -1,9 +1,9 @@
-import sys
-
 PARALLEL_CAPACITY = None  # do not parallelize
 PARALLEL_CAPACITY = 2
 
 ALGO = '3_opt_funky'
+SELECT_ALGO = 'funky'
+CUT_ALGO = '3_opt'
 MIN_N = 1
 MAX_N = 33  # inclusive
 NUM_RERUNS = 100
@@ -16,6 +16,8 @@ MODES = ['tsp', 'shp']
 PARALLEL_CAPACITY = 2
 
 ALGO = '3_opt_funky'
+SELECT_ALGO = 'funky'
+CUT_ALGO = '3_opt'
 MIN_N = 263
 MAX_N = 263  # inclusive
 NUM_RERUNS = 10
@@ -28,6 +30,8 @@ MODES = ['tsp', 'shp']
 PARALLEL_CAPACITY = 2
 
 ALGO = '3_opt_funky'
+SELECT_ALGO = 'funky'
+CUT_ALGO = '3_opt'
 MIN_N = 29
 MAX_N = 29  # inclusive
 NUM_RERUNS = 100
@@ -42,25 +46,25 @@ PARALLEL_CAPACITY = 2
 
 
 def main():
-    algo = sys.argv[1] if len(sys.argv) > 2 else ALGO
-    print(get_script_header(algo))
+    print(get_script_header(ALGO))
     print(f'\n\necho "Solving problem: {PROBLEM_NAME}"')
     for mode in MODES:
         print(f'\n\necho "solving {mode}"')
-        print_sh_commands(MIN_N, MAX_N, algo, SINGLE_TEST_TIMEOUT_SEC,
-                            NUM_RERUNS, RUNS_PER_HISTORY, mode,
-                            IS_PROBLEM_IN_PTS_FORMAT, PARALLEL_CAPACITY)
+        print_sh_commands(MIN_N, MAX_N, SELECT_ALGO, CUT_ALGO,
+                          SINGLE_TEST_TIMEOUT_SEC, NUM_RERUNS,
+                          RUNS_PER_HISTORY, mode,
+                          IS_PROBLEM_IN_PTS_FORMAT, PARALLEL_CAPACITY)
     print(f'\n\n# Test results:')
     print(f'echo "Checking results {PROBLEM_NAME}..."')
-    print(f'python "$ROOT_DIR/judge_results.py" {algo}'
+    print(f'python "$ROOT_DIR/judge_results.py" {ALGO}'
           f' {PROBLEM_NAME} {PROBLEM_FNAME} {MAX_N}')
 
 
-def print_sh_commands(min_n, max_n, algo, timeout_secs, num_reruns, runs_per_history,
+def print_sh_commands(min_n, max_n, select, cut, timeout_secs, num_reruns, runs_per_history,
                       mode='shp', is_dist_pts_fmt=1, parallel_cap=None):
     print(f'mkdir -p "$RESULTS_DIR/{PROBLEM_NAME}/{mode}"')
     for n in range(min_n, max_n + 1):
-        cmd = f'"$SRC_DIR/main.exe" "{algo}" {n} "$PROBLEMS_DIR/{PROBLEM_FNAME}"' \
+        cmd = f'"$SRC_DIR/main.exe" "{select}" "{cut}" {n} "$PROBLEMS_DIR/{PROBLEM_FNAME}"' \
               f' "$HISTORY_DIR/{PROBLEM_NAME}/{mode}/{n}" {num_reruns} ' \
               f' {runs_per_history} {timeout_secs} {mode} {is_dist_pts_fmt}' \
               f' > "$RESULTS_DIR/{PROBLEM_NAME}/{mode}/{n}.txt" &'

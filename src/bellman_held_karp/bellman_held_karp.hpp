@@ -205,10 +205,10 @@ T bellmanHeldKarp(
         const bool do_store_prev =  cardinality > 1
                                  && cardinality < max_card - 1;
 
-        T * const costs_next = is_next_big
-                             ? costs_big.data() : costs_small.data();
-        const T * const costs_prev = is_next_big
-                                   ? costs_small.data() : costs_big.data();
+        T * const __restrict costs_next = is_next_big
+                            ? costs_big.data() : costs_small.data();
+        const T * const __restrict costs_prev = is_next_big
+                            ? costs_small.data() : costs_big.data();
         const T * cost_prev = costs_prev;
 
         ull set_idx = bin_coef[n][cardinality];
@@ -266,10 +266,10 @@ T bellmanHeldKarp(
 
     for (int cardinality = max_card; cardinality <= max_card; ++cardinality) {
         is_next_big = !is_next_big;
-        const T * const costs_prev = is_next_big
+        const T * const __restrict costs_prev = is_next_big
                                    ? costs_small.data() : costs_big.data();
-        const T * const costs_prev_end = &(is_next_big ? costs_small.back()
-                                                       : costs_big.back());
+        const T * const __restrict costs_prev_end
+            = 1ULL + &(is_next_big ? costs_small.back() : costs_big.back());
         const T * cost_prev = costs_prev;
 
         ull set_idx = bin_coef[n][cardinality];
@@ -329,7 +329,7 @@ T bellmanHeldKarp(
                     } else {  // n is even, already computed solution
                         const int prev_dst_rank
                             = __builtin_popcountll(right & ((1ULL << dst) - 1));
-                        const ull prev_rank = cost_prev - costs_prev + (cardinality - 1);
+                        const ull prev_rank = cost_prev - costs_prev + cardinality;
                         other_half_cost = *(costs_prev_end - prev_rank + prev_dst_rank);
                     }
 

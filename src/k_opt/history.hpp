@@ -1,5 +1,5 @@
-#ifndef HISTORY_HPP
-#define HISTORY_HPP
+#ifndef TSP_K_OPT_HISTORY_HPP
+#define TSP_K_OPT_HISTORY_HPP
 
 #include <string>
 #include <vector>
@@ -30,6 +30,8 @@ void writeDataToBinaryFile(std::ofstream &file, Args&&... args) {
 }
 
 
+namespace k_opt {
+
 template<typename cost_t>
 class History {
  public:
@@ -54,14 +56,25 @@ class History {
     int last_flush_id = 0;
 };
 
+/// clears run(s) dir if it already exists
+template<typename cost_t>
+void startNewHistory(
+    const int runs_per_history,
+    const std::string& path_history_dir,
+    const int run_idx,
+    k_opt::History<cost_t>* &cur_history
+);
+
+}  // namespace k_opt
+
 
 template<typename cost_t>
-History<cost_t>::History(const std::string &path_root_dir)
+k_opt::History<cost_t>::History(const std::string &path_root_dir)
     : path_root_dir(path_root_dir)
 { }
 
 template<typename cost_t>
-void History<cost_t>::addCost(const cost_t cost) {
+void k_opt::History<cost_t>::addCost(const cost_t cost) {
     if (this->is_stopped) return;
     const auto time_now = std::chrono::system_clock::now();
     this->costs_times.push_back(
@@ -73,7 +86,7 @@ void History<cost_t>::addCost(const cost_t cost) {
 }
 
 template<typename cost_t>
-void History<cost_t>::storeCosts(
+void k_opt::History<cost_t>::storeCosts(
     const std::string &file_path,
     const bool do_append
 ) const {
@@ -141,7 +154,7 @@ void History<cost_t>::storeCosts(
 }
 
 template<typename cost_t>
-std::string History<cost_t>::flush(const bool do_append_to_prev) {
+std::string k_opt::History<cost_t>::flush(const bool do_append_to_prev) {
     if (!do_append_to_prev) ++this->last_flush_id;
     const std::string filename = std::to_string(this->last_flush_id)
                                + ".flush.bin";
@@ -153,7 +166,7 @@ std::string History<cost_t>::flush(const bool do_append_to_prev) {
 
 template<typename cost_t>
 template<typename... Args>
-void History<cost_t>::appendMarkersToLastFlush(Args&&... markers) const {
+void k_opt::History<cost_t>::appendMarkersToLastFlush(Args&&... markers) const {
     const std::string filename = std::to_string(this->last_flush_id)
                                + ".flush.bin";
     const std::string file_path = this->path_root_dir + "/" + filename;
@@ -178,6 +191,36 @@ void History<cost_t>::appendMarkersToLastFlush(Args&&... markers) const {
     file.close();
     printf("\nDone appending markers to the file:\n%s\n",
             file_path.c_str());
+}
+
+
+template<typename cost_t>
+void k_opt::startNewHistory(
+    const int runs_per_history,
+    const std::string& path_history_dir,
+    const int run_idx,
+    k_opt::History<cost_t>* &cur_history
+) {
+    const std::string path_history_run
+        = runs_per_history == 1 ?
+        path_history_dir + "/run_" + std::to_string(run_idx)
+        : path_history_dir + "/runs_"
+        + std::to_string(1 + runs_per_history * (run_idx / runs_per_history))
+        + "_"
+        + std::to_string(runs_per_history * (1 + run_idx / runs_per_history));
+
+    std::cout << "Run(s) folder: " << path_history_run << std::endl;
+    // clear the run folder if it already exists
+    if (std::filesystem::is_directory(path_history_run)) {
+        std::error_code err_code;
+        std::filesystem::remove_all(path_history_run, err_code);
+        if (err_code) throw ("Failed to delete run folder: " + path_history_run);
+        std::cout << "Deleted already existing run folder: "
+            << path_history_run << std::endl;
+    }
+
+    if (cur_history != nullptr) delete cur_history;
+    cur_history = new k_opt::History<cost_t>(path_history_run);
 }
 
 #endif

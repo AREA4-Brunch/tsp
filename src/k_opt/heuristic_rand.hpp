@@ -1,20 +1,37 @@
-#ifndef TSP_3_OPT_RAND_HPP
-#define TSP_3_OPT_RAND_HPP
+#ifndef TSP_K_OPT_HEURISTIC_RAND_HPP
+#define TSP_K_OPT_HEURISTIC_RAND_HPP
 
 #include <iostream>
 #include <vector>
 #include <utility>
 #include <random>
-#include "3_opt.hpp"
+#include "heuristic.hpp"
+#include "cut_strategy.hpp"
 #include "../common/random.hpp"
 
-template<typename cost_t, typename vertex_t=int>
-class LocalSearch3OptRand : public LocalSearch3Opt<cost_t, vertex_t> {
+namespace k_opt {
+
+template<
+    typename cost_t,
+    typename cut_strategy_t,
+    typename vertex_t=int
+>
+requires k_opt::CutStrategy<cut_strategy_t, cost_t, vertex_t>
+class HeuristicRand
+    : public k_opt::Heuristic<cost_t, vertex_t>
+{
  public:
-    LocalSearch3OptRand(std::mt19937 &psrng) : psrng(psrng) {}
-    ~LocalSearch3OptRand() = default;
+
+    HeuristicRand(
+        cut_strategy_t cut_strategy,
+        std::mt19937 &psrng
+    ) : cut(cut_strategy), psrng(psrng) { }
+
+    ~HeuristicRand() = default;
 
  protected:
+
+    const cut_strategy_t cut;
 
     cost_t run(
         std::vector<vertex_t> &solution,
@@ -30,8 +47,12 @@ class LocalSearch3OptRand : public LocalSearch3Opt<cost_t, vertex_t> {
 
 };
 
-template<typename cost_t, typename vertex_t>
-cost_t LocalSearch3OptRand<cost_t, vertex_t>::run(
+}  // namespace k_opt
+
+
+template<typename cost_t, typename cut_strategy_t, typename vertex_t>
+requires k_opt::CutStrategy<cut_strategy_t, cost_t, vertex_t>
+cost_t k_opt::HeuristicRand<cost_t, cut_strategy_t, vertex_t>::run(
     std::vector<vertex_t> &path,
     cost_t cur_cost,
     History<cost_t> &history,
@@ -67,7 +88,7 @@ cost_t LocalSearch3OptRand<cost_t, vertex_t>::run(
         did_update = false;
         int i = 0, j = 0, k = 0;
         const auto process_cut = [&] () {
-            const int patch_ordinal = this->selectCut(
+            const int patch_ordinal = this->cut.selectCut(
                 i, j, k, cur_cost_change, path, weights
             );
             // add slight amount to negative side when comparing
@@ -75,7 +96,7 @@ cost_t LocalSearch3OptRand<cost_t, vertex_t>::run(
             // j=i+1 or k=j+1 or both in patch_ordinals: 6, 4, 5
             if (cur_cost_change < -1e-11) {
                 did_update = true;
-                this->applyCut(i, j, k, patch_ordinal, path);
+                this->cut.applyCut(i, j, k, patch_ordinal, path);
                 cur_cost += cur_cost_change;
                 if (do_record_history) {
                     history.addCost(cur_cost);

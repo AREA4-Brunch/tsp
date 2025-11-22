@@ -14,7 +14,7 @@ unsigned int genRandomSeed() {
 }
 
 /// @param seed - if 0 then function desides a seed
-std::mt19937 initPSRNG(unsigned int seed, const int verbose=0) {
+std::mt19937 initPSRNG(unsigned int seed=0U, const int verbose=0) {
     if (seed == 0) seed = genRandomSeed();
     if (verbose > 0) std::cout << "Seed: " << seed << std::endl;
     std::mt19937 mt(seed);
