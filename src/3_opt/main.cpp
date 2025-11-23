@@ -191,7 +191,7 @@ std::unique_ptr<k_opt::Heuristic<cost_t, vertex_t>> detail::selectAlgo(
     const std::string &cut_algo_name,
     const unsigned int seed
 ) {
-    return std::visit([&] (auto && cut) {
+    return std::visit([&] (auto &&cut) {
         using cut_t = std::decay_t<decltype(cut)>;
         return detail::createHeuristic<cost_t, cut_t, vertex_t>(
             selection_algo_name, cut, seed
@@ -244,7 +244,7 @@ detail::createHeuristic(
                 cost_t, cut_t, vertex_t
             >>(cut);
         }},
-        { "rand", [&cut, seed] () {
+        { "rand", [&cut, &seed] () {
             auto psrng = random::initPSRNG(seed);
             return std::make_unique<k_opt::HeuristicRand<
                 cost_t, cut_t, vertex_t

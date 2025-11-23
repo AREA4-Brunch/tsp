@@ -39,6 +39,11 @@ class Heuristic {
         const int verbose = 0
     ) const = 0;
 
+    virtual void selectInitSolution(
+        std::vector<vertex_t> &solution,
+        const std::vector<std::vector<cost_t>> &weights
+    );
+
     cost_t calcCost(
         const std::vector<vertex_t> &solution,
         const bool is_searching_for_path,
@@ -64,10 +69,7 @@ cost_t k_opt::Heuristic<cost_t, vertex_t>::search(
     const int verbose
 ) {
     if (solution.empty()) {  // start from random solution
-        solution.resize(weights.size());
-        std::iota(solution.begin(), solution.end(), 0);
-        std::mt19937 psrng = random::initPSRNG();
-        random::permuteRandomly(solution, psrng);
+        this->selectInitSolution(solution, weights);
     } else if (solution.size() != weights.size()) {
         throw std::runtime_error(
             "k_opt::Heuristic::search: solution.size() != 0"
@@ -94,6 +96,17 @@ cost_t k_opt::Heuristic<cost_t, vertex_t>::search(
              ::removeArtificialVertex(solution);
     }
     return best_cost;
+}
+
+template<typename cost_t, typename vertex_t>
+void k_opt::Heuristic<cost_t, vertex_t>::selectInitSolution(
+    std::vector<vertex_t> &solution,
+    const std::vector<std::vector<cost_t>> &weights
+) {
+    solution.resize(weights.size());
+    std::iota(solution.begin(), solution.end(), 0);
+    std::mt19937 psrng = random::initPSRNG();
+    random::permuteRandomly(solution, psrng);
 }
 
 template<typename cost_t, typename vertex_t>

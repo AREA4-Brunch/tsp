@@ -9,26 +9,35 @@ import math
 
 DO_LOGLOG = True
 PATH_CWD = os.path.dirname(os.path.realpath(__file__))
-PATH_RES = os.path.join(PATH_CWD, f'../../results/bellman_held_karp/263')
+PATH_RES = os.path.join(PATH_CWD, f'../../results/bellman_held_karp/')
 PATH_ANALYSIS = os.path.join(PATH_CWD, f'../../analysis/bellman_held_karp/')
-PATH_CACHED = os.path.join(PATH_ANALYSIS, 'cached')
+PATH_CACHED = os.path.join(PATH_CWD, f'../../analysis', 'cached')
 PATH_PLOTS = os.path.join(PATH_CWD,  f'../../analysis/bellman_held_karp/')
 
 AXIS_FONT_SIZE = 14
 
 
 def main():
-    # Check if markdown output is requested
-    output_markdown = any(arg.lower() in ['--markdown', '-md']
-                          for arg in sys.argv)
-    
+    output_markdown = any(
+        arg.lower() in ['--markdown', '-md'] for arg in sys.argv
+    )
+    no_cache = any(
+        arg.lower() in ['--no-cache', '-nc'] for arg in sys.argv
+    )
+    prob_name = sys.argv[1] if len(sys.argv) > 2 else '263'
+
+    global PATH_ANALYSIS, PATH_CACHED, PATH_RES, PATH_PLOTS
+    PATH_RES = os.path.join(PATH_RES, prob_name)
+    PATH_ANALYSIS = os.path.join(PATH_ANALYSIS, prob_name)
+    PATH_CACHED = os.path.join(PATH_CACHED, prob_name)
+    PATH_PLOTS = os.path.join(PATH_PLOTS, prob_name)
     os.makedirs(PATH_ANALYSIS, exist_ok=True)
     os.makedirs(PATH_CACHED, exist_ok=True)
 
     filename = shorten_file_name(PATH_CACHED + 'merged')
     path_cached_avg_times = os.path.join(PATH_CACHED, filename)
     path_cached_avg_times = os.path.realpath(path_cached_avg_times)
-    if os.path.isfile(path_cached_avg_times):
+    if not no_cache and os.path.isfile(path_cached_avg_times):
         with open(path_cached_avg_times, 'rb') as file:
             avg_times_totals = pickle.load(file)
         print(f'\nWARNING: using cached avg times totals'
@@ -149,7 +158,7 @@ def analize(
                    '(u)int64_t', 'float', 'double'  ]
         order_map = {dtype: i for i, dtype in enumerate(orders)}
         data_per_num_points = dict(sorted(data_per_num_points.items()))
-        
+
         file.write('## Execution Report\n\n')
         for num_points, descs in data_per_num_points.items():
             descs.sort(key=lambda x: order_map.get(x[1], len(orders)))

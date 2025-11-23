@@ -55,7 +55,8 @@ cost_t k_opt::HeuristicClassical<cost_t, cut_strategy_t, vertex_t>::run(
     const int log_freq = 10;  // log best cost every 1 iters
     const int flush_freq = 10000;  // flush every 10000 costs
     const bool do_record_history = !history.isStopped();
-    if (do_record_history) history.addCost(cur_cost);
+    history.addCost(cur_cost);
+    history.addPath(path, -1, -1, -1, 0);
     cost_t cur_cost_change = (cost_t) 0;
     for (bool did_update = true; did_update; ++iter) {
         if (verbose > 0 && (iter < 10 || iter % log_freq == 0)) {
@@ -76,9 +77,8 @@ cost_t k_opt::HeuristicClassical<cost_t, cut_strategy_t, vertex_t>::run(
                         did_update = true;
                         this->cut.applyCut(i, j, k, patch_ordinal, path);
                         cur_cost += cur_cost_change;
-                        if (do_record_history) {
-                            history.addCost(cur_cost);
-                        }
+                        history.addCost(cur_cost);
+                        history.addPath(path, i, j, k, iter);
                         break;
                     }
                 }
@@ -87,6 +87,7 @@ cost_t k_opt::HeuristicClassical<cost_t, cut_strategy_t, vertex_t>::run(
         // store history on flush_freq, or on last iter
         if (do_record_history) {
             if (!did_update || history.size() % flush_freq == 0) {
+                // history.flush(iter > 1);
                 history.flush(true);
             }
         }

@@ -5,6 +5,7 @@
 #include <vector>
 #include <utility>
 #include <random>
+#include <numeric>
 #include "heuristic.hpp"
 #include "cut_strategy.hpp"
 #include "../common/random.hpp"
@@ -41,6 +42,11 @@ class HeuristicRand
         const int verbose = 0
     ) const override;
 
+    void selectInitSolution(
+        std::vector<vertex_t> &solution,
+        const std::vector<std::vector<cost_t>> &weights
+    ) override;
+
  private:
 
     mutable std::mt19937 psrng;
@@ -61,7 +67,8 @@ cost_t k_opt::HeuristicRand<cost_t, cut_strategy_t, vertex_t>::run(
 ) const {
     const int n = path.size();
     const bool do_record_history = !history.isStopped();
-    if (do_record_history) history.addCost(cur_cost);
+    history.addCost(cur_cost);
+    history.addPath(path, -1, -1, -1, 0);
     if (n <= 2) return cur_cost;
 
     std::uniform_int_distribution<std::mt19937::result_type>
@@ -98,9 +105,8 @@ cost_t k_opt::HeuristicRand<cost_t, cut_strategy_t, vertex_t>::run(
                 did_update = true;
                 this->cut.applyCut(i, j, k, patch_ordinal, path);
                 cur_cost += cur_cost_change;
-                if (do_record_history) {
-                    history.addCost(cur_cost);
-                }
+                history.addCost(cur_cost);
+                history.addPath(path, i, j, k, iter);
             }
         };
         // try randomly for 1/6 the i, j, k combos until collisions start
@@ -133,6 +139,19 @@ cost_t k_opt::HeuristicRand<cost_t, cut_strategy_t, vertex_t>::run(
                   << cur_cost << std::endl;
     }
     return cur_cost;
+}
+
+template<typename cost_t, typename cut_strategy_t, typename vertex_t>
+requires k_opt::CutStrategy<cut_strategy_t, cost_t, vertex_t>
+void k_opt::HeuristicRand<
+    cost_t, cut_strategy_t, vertex_t
+>::selectInitSolution(
+    std::vector<vertex_t> &solution,
+    const std::vector<std::vector<cost_t>> &weights
+) {
+    solution.resize(weights.size());
+    std::iota(solution.begin(), solution.end(), 0);
+    random::permuteRandomly(solution, this->psrng);
 }
 
 #endif
