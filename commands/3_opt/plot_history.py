@@ -1,7 +1,8 @@
 """
 python plot_history.py <problem_name> <num_points> [<mode>] [<run_start>] [<run_end>] [<window_timeframe>] [<start_time>] [--no-cache|-nc] [--loglog|-ll]
 
-python commands/3_opt/plot_history.py 263 263 shp 0 1000 1 10 -nc -ll
+python commands/3_opt/plot_history.py 263 263 shp 0 1000 1 20 -ll
+python commands/3_opt/plot_history.py 263 263 shp 0 1000 1 20 -nc -ll
 """
 
 import sys
@@ -16,8 +17,8 @@ import struct
 import plotly.graph_objects as go
 
 ALGOS = [
+    # '3_opt_best_cut',  # remove from plot since too long too large cost
     '3_opt_classical',
-    # '3_opt_best_cut',
     '3_opt_funky',
     '3_opt_rand',
     '3_opt_rand_no_2_opt',
@@ -32,28 +33,39 @@ TIME_DTYPE = 'unsigned long long'
 
 
 def main():
+    args = parse_args()
+    conf = build_conf(args)
+    setup_paths(args['prob_name'])
+
+    cum_avg_plt, all_runs_plt = setup_plots(args, conf)
+    for algo in ALGOS:
+        cum_avgs, all_runs = get_or_compute_results(algo, args, conf)
+        add_cum_avg_to_plot(cum_avg_plt, cum_avgs, loglog=args['loglog'], label=algo)
+        add_to_all_runs_plot(all_runs_plt, all_runs, loglog=args['loglog'], label=algo)
+        gc.collect()
+    cum_avg_plt['plot_or_save']()
+    all_runs_plt['plot_or_save']()
+
+def parse_args():
     flag_args = ['--no-cache-res', '-ncr', '--no-cache', '-nc', '--loglog', '-ll']
     filtered_argv = [arg for arg in sys.argv if arg.lower() not in flag_args]
-    no_cache_res_only = any(
-        arg.lower() in ['--no-cache-res', '-ncr'] for arg in sys.argv
-    )
-    no_cache = any(
-        arg.lower() in ['--no-cache', '-nc'] for arg in sys.argv
-    )
-    loglog = any(
-        arg.lower() in ['--loglog', '-ll'] for arg in sys.argv
-    )
-    prob_name = filtered_argv[1] if len(filtered_argv) > 1 else '263'
-    num_points = int(filtered_argv[2]) if len(filtered_argv) > 2 else 263
-    mode = filtered_argv[3] if len(filtered_argv) > 3 else 'shp'
-    run_start = int(filtered_argv[4]) if len(filtered_argv) > 4 else 0
-    run_end = int(filtered_argv[5]) if len(filtered_argv) > 5 else float('inf')
-    window_timeframe = float(filtered_argv[6]) if len(filtered_argv) > 6 else 1
-    start_time = float(filtered_argv[7]) if len(filtered_argv) > 7 else 0
+    return {
+        'no_cache_res_only': any(arg.lower() in ['--no-cache-res', '-ncr'] for arg in sys.argv),
+        'no_cache': any(arg.lower() in ['--no-cache', '-nc'] for arg in sys.argv),
+        'loglog': any(arg.lower() in ['--loglog', '-ll'] for arg in sys.argv),
+        'prob_name': filtered_argv[1] if len(filtered_argv) > 1 else '263',
+        'num_points': int(filtered_argv[2]) if len(filtered_argv) > 2 else 263,
+        'mode': filtered_argv[3] if len(filtered_argv) > 3 else 'shp',
+        'run_start': int(filtered_argv[4]) if len(filtered_argv) > 4 else 0,
+        'run_end': int(filtered_argv[5]) if len(filtered_argv) > 5 else float('inf'),
+        'window_timeframe': float(filtered_argv[6]) if len(filtered_argv) > 6 else 1,
+        'start_time': float(filtered_argv[7]) if len(filtered_argv) > 7 else 0,
+    }
 
-    conf = {
-        'run_start': run_start,
-        'run_end': run_end,
+def build_conf(args):
+    return {
+        'run_start': args['run_start'],
+        'run_end': args['run_end'],
         'cost_dtype_size': dtype_desc(COST_DTYPE)[0],
         'cost_dtype_format': dtype_desc(COST_DTYPE)[1],
         'cost_np_dtype': dtype_desc(COST_DTYPE)[2],
@@ -61,53 +73,69 @@ def main():
         'time_dtype_format': dtype_desc(TIME_DTYPE)[1],
         'time_np_dtype': dtype_desc(TIME_DTYPE)[2],
         'do_select_min': True,
-        'window_timeframe': window_timeframe,
-        'num_points': num_points,
+        'window_timeframe': args['window_timeframe'],
+        'num_points': args['num_points'],
         'flatten': True,
-        'start_time': start_time,
+        'start_time': args['start_time'],
     }
 
+def setup_paths(prob_name):
     global PATH_ANALYSIS, PATH_CACHED
     PATH_ANALYSIS = os.path.join(PATH_ANALYSIS, prob_name)
     PATH_CACHED = os.path.join(PATH_CACHED, prob_name)
-    path_plots = os.path.join(PATH_ANALYSIS, 'plots')
-    os.makedirs(path_plots, exist_ok=True)
+    os.makedirs(os.path.join(PATH_ANALYSIS, 'plots'), exist_ok=True)
     os.makedirs(PATH_CACHED, exist_ok=True)
 
-    plot = create_cum_avg_plot(
-        save_path=os.path.join(path_plots, f'cum_avg_{mode}_{num_points}.png'),
-        title=f'Cumulative Averages for problem: '
-              f'{prob_name} with {num_points} points',
-        xlabel='time (ms)',
-        ylabel='cost',
-        fontsize=20,
+def setup_plots(args, conf):
+    path_plots = os.path.join(PATH_ANALYSIS, 'plots')
+    shared_plt_conf = { 'xlabel': 'time (ms)', 'ylabel': 'cost', 'fontsize': 20 }
+    cum_avg_plt = create_cum_avg_plot(
+        save_path=os.path.join(path_plots, f'cum_avg_{args["mode"]}_{args["num_points"]}.png'),
+        title=f'Cumulative averages on problem: {args["prob_name"]} with {args["num_points"]} points',
+        **shared_plt_conf
     )
-    for algo in ALGOS:
-        cache_fname = get_cum_avg_cache_fname(prob_name, num_points, mode, algo)
-        path_cached = os.path.realpath(os.path.join(PATH_CACHED, cache_fname))
-        if not no_cache and not no_cache_res_only and os.path.isfile(path_cached):
-            cum_avgs = load_preprocessed(path_cached)
-            print(f'\nWARNING: using cached results from:\n{path_cached}\n')
-        else:
-            histories = fetch_algo_histories(
-                PATH_CACHED, PATH_RES,
-                algo, prob_name, mode, no_cache, conf
-            )[1]
-            cum_avgs = compute_cum_avgs(
-                histories, window_timeframe, time_incr=start_time
-            )
-            store_preprocessed(cum_avgs, path_cached)  # needs to be flattened
-            print(f'Cached cumulative avgs to: {path_cached}')
+    all_runs_plt = create_all_runs_plot(
+        save_path=os.path.join(path_plots, f'all_runs_plot_{args["mode"]}_{args["num_points"]}.png'),
+        title=f'All runs on problem: {args["prob_name"]} with {args["num_points"]} points',
+        **shared_plt_conf
+    )
+    return cum_avg_plt, all_runs_plt
 
-        # print(f'Algo: {algo}, num points: {num_points}')
-        # print(f'\n'.join([f'{t} ms: {v}' for t, v in zip(cum_avgs[0], cum_avgs[1])]))
-        add_cum_avg_to_plot(plot, cum_avgs, loglog=loglog, label=algo)
+def get_or_compute_results(algo, args, conf):
+    ca_cache_fname = get_cum_avg_cache_fname(args['prob_name'], args['num_points'], args['mode'], algo, conf)
+    ca_path_cached = os.path.realpath(os.path.join(PATH_CACHED, ca_cache_fname))
+    ar_cache_fname = get_all_runs_cache_fname(args['prob_name'], args['num_points'], args['mode'], algo, conf)
+    ar_path_cached = os.path.realpath(os.path.join(PATH_CACHED, ar_cache_fname))
+    has_cache = os.path.isfile(ca_path_cached) and os.path.isfile(ar_path_cached)
+    if not args['no_cache'] and not args['no_cache_res_only'] and has_cache:
+        cum_avgs = load_preprocessed(ca_path_cached)
+        print(f'\nWARNING: using cached results from:\n{ca_path_cached}\n')
+        all_runs = load_preprocessed(ar_path_cached)
+    else:
+        histories = fetch_algo_histories(
+            PATH_CACHED, PATH_RES,
+            algo, args['prob_name'], args['mode'], args['no_cache'], conf
+        )[1]
+        all_runs = get_all_runs(histories, args['window_timeframe'], args['start_time'])
+        store_preprocessed(all_runs, ar_path_cached)
+        print(f'Cached all runs data to: {ar_path_cached}')
         gc.collect()
-    plot['plot_or_save']()
+        cum_avgs = compute_cum_avgs(histories, args['window_timeframe'], args['start_time'])
+        store_preprocessed(cum_avgs, ca_path_cached)
+        print(f'Cached cumulative avgs to: {ca_path_cached}')
+        gc.collect()
+    return cum_avgs, all_runs
 
-def get_cum_avg_cache_fname(prob_name, num_pts, mode, algo):
+def get_cum_avg_cache_fname(prob_name, num_pts, mode, algo, conf):
     return shorten_file_name(
         f'cum_avg_{prob_name}_{mode}_{num_pts}_{algo}'
+        + stringify_args('', **conf)
+    )
+
+def get_all_runs_cache_fname(prob_name, num_pts, mode, algo, conf):
+    return shorten_file_name(
+        f'all_runs_{prob_name}_{mode}_{num_pts}_{algo}'
+        + stringify_args('', **conf)
     )
 
 def shorten_file_name(file_name):
@@ -118,28 +146,30 @@ def shorten_file_name(file_name):
     hashed = hashlib.sha256(file_name.encode()).digest()
     return hashed[2 : 2 + max_chars // 2].hex()
 
-def compute_cum_avgs(histories, calc_window=None, time_incr=0) -> tuple[list, list]:
+def compute_cum_avgs(
+    histories,
+    calc_window_size=None,
+    time_incr=0
+) -> tuple[list, list]:
     def time_at(run_times, i):
         time = run_times[i] - run_times[0]
-        if calc_window is not None:
-            time = math.floor(time / calc_window)
+        if calc_window_size is not None:
+            time = math.floor(time / calc_window_size)
         time += time_incr
         return time
 
     # cumulative_avgs[time] = [ cost, freq ]
-    max_time = 0
-    cumulative_avgs_times = set()
+    cum_avgs_times = set()
     for run_idx, run_costs, run_times in histories:
         for i, cost in enumerate(run_costs):
             time = time_at(run_times, i)
-            cumulative_avgs_times.add(time)
-            max_time = max(max_time, time)
+            cum_avgs_times.add(time)
 
-    cumulative_avgs_times = sorted(cumulative_avgs_times)
-    cumulative_avgs_vals = [ [0, 0] for _ in range(len(cumulative_avgs_times)) ]
+    cum_avgs_times = sorted(cum_avgs_times)
+    cumulative_avgs_vals = [ [0, 0] for _ in range(len(cum_avgs_times)) ]
     for run_idx, run_costs, run_times in histories:
         cur_min_cost = float('inf')
-        cum_avg_time_iter = iter(cumulative_avgs_times)
+        cum_avg_time_iter = iter(cum_avgs_times)
         cum_avg_val_iter = iter(cumulative_avgs_vals)
         cum_avg_time = next(cum_avg_time_iter)
         cum_avg_val = next(cum_avg_val_iter)
@@ -179,7 +209,7 @@ def compute_cum_avgs(histories, calc_window=None, time_incr=0) -> tuple[list, li
         for val in cumulative_avgs_vals
     ]
 
-    return cumulative_avgs_times, cumulative_avgs_vals
+    return cum_avgs_times, cumulative_avgs_vals
 
 def fetch_algo_histories(
     cache_dir_path,
@@ -521,7 +551,7 @@ def create_cum_avg_plot(
         nonlocal save_path
         if save_path is not None:
             fig.write_image(save_path, scale=2)
-            print(f'Saved cum avg plot to:\n{os.path.realpath(save_path)}')
+            print(f'Saved plot to:\n{os.path.realpath(save_path)}')
         else:
             fig.show()
 
@@ -535,7 +565,7 @@ def add_cum_avg_to_plot(
     cum_avgs: tuple[list, list],
     loglog: bool = False,
     label: str = '',
-    smooth_window: int = None  # new parameter for smoothing
+    smooth_window: int = None
 ):
     times, avgs = cum_avgs
     if not times:
@@ -544,7 +574,6 @@ def add_cum_avg_to_plot(
     print(f'Min time: {times[0]}, max time: {times[-1]}')
     print(f'Max avg: {avgs[0]}, min avg: {avgs[-1]}')
 
-    # Smoothing using moving average if requested
     if smooth_window and smooth_window > 1 and len(avgs) >= smooth_window:
         avgs = np.convolve(avgs, np.ones(smooth_window)/smooth_window, mode='valid')
         times = times[:len(avgs)]
@@ -556,14 +585,15 @@ def add_cum_avg_to_plot(
         y=avgs,
         mode=mode,
         name=label,
-        line={'shape': 'linear'} if mode == 'lines' else None,  # use linear for smoothness
+        line={'shape': 'linear'} if mode == 'lines' else None,
     ))
     if loglog:
-        # Use powers of 10 for ticks, and optionally add midpoints
         min_tick = max(1, int(np.floor(np.log10(max(times[0], 1)))))
         max_tick = int(np.ceil(np.log10(times[-1])))
+        min_tick = min(plot.get('min_time', min_tick), min_tick)
+        max_tick = max(plot.get('max_time', max_tick), max_tick)
+        plot['min_time'], plot['max_time'] = min_tick, max_tick
         tickvals = [10**i for i in range(min_tick, max_tick+1)]
-        # Optionally add midpoints (e.g., 2, 5, etc.)
         midpoints = []
         for i in range(min_tick, max_tick+1):
             midpoints.extend([2*10**i, 5*10**i])
@@ -585,6 +615,91 @@ def add_cum_avg_to_plot(
     else:
         fig.update_xaxes(tickmode='auto', nticks=20)
         fig.update_yaxes(tickmode='auto', nticks=20)
+
+def create_all_runs_plot(*args, **kwargs):
+    return create_cum_avg_plot(*args, **kwargs)
+
+def add_to_all_runs_plot(
+    plot: dict[str, any],
+    all_runs: tuple[list, list],
+    loglog: bool = False,
+    label: str = '',
+    smooth_window: int = None
+):
+    times, avgs = all_runs
+    if not times:
+        print(f'WARNING: empty all runs data, nothing to plot.')
+        return
+    print(f'Min time: {times[0]}, max time: {times[-1]}')
+    print(f'Max cost: {avgs[0]}, min cost: {avgs[-1]}')
+
+    if smooth_window and smooth_window > 1 and len(avgs) >= smooth_window:
+        avgs = np.convolve(avgs, np.ones(smooth_window)/smooth_window, mode='valid')
+        times = times[:len(avgs)]
+
+    fig = plot['fig']
+    mode = 'lines' if len(times) >= 2 else 'markers'
+    fig.add_trace(go.Scatter(
+        x=times,
+        y=avgs,
+        mode=mode,
+        name=label,
+        line={'shape': 'linear'} if mode == 'lines' else None,
+    ))
+
+    nticks = 20
+    plot['min_time'] = min(plot.get('min_time', float('inf')), min(times))
+    plot['max_time'] = max(plot.get('max_time', 0), max(times))
+    tickvals = np.linspace(plot['min_time'], plot['max_time'], nticks, dtype=int)
+    ticktext = [_format_timepoint(int(v)) for v in tickvals]
+    fig.update_xaxes(
+        tickmode='array',
+        tickvals=tickvals,
+        ticktext=ticktext
+    )
+
+    if loglog:
+        fig.update_yaxes(type="log", tickmode='auto', nticks=10,
+                         minor=dict(ticks="outside", showgrid=True))
+    else:
+        fig.update_yaxes(tickmode='auto', nticks=20)
+
+def get_all_runs(
+    histories,
+    calc_window_size=None,
+    time_incr=0
+) -> tuple[list, list]:
+    start_time = None
+    def time_at(run_times, i):
+        nonlocal start_time
+        time = run_times[i] - start_time
+        if calc_window_size is not None:
+            time = math.floor(time / calc_window_size)
+        time += time_incr
+        return time
+
+    times, costs = [], []
+    for run_idx, run_costs, run_times in histories:
+        for i, cost in enumerate(run_costs):
+            if start_time is None:
+                start_time = run_times[0]
+            time = time_at(run_times, i)
+            times.append(time)
+            costs.append(min(costs[-1], cost) if costs else cost)
+    print(f'max time: {times[-1]}, min cost: {min(costs)}, max cost: {max(costs)}')
+    return times, costs
+
+def _format_timepoint(ms):
+    secs = ms // 1000
+    if secs == 0: return f'{ms} ms'
+    ms %= 1000
+    mins = secs // 60
+    if mins == 0: return f'{secs}.{ms} s'
+    secs %= 60
+    hours = mins // 60
+    if hours == 0: return f'{mins}:{secs}.{ms} m'
+    mins %= 60
+    return f'{hours}:{mins}:{secs}.{ms} h'
 
 
 if __name__ == "__main__":
