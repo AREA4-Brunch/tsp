@@ -20,7 +20,7 @@ ALGOS = [
 MODE = 'shp'
 PATH_CWD = os.path.dirname(os.path.realpath(__file__))
 PATH_RES = os.path.join(PATH_CWD, f'../../results')
-PATH_ANALYSIS = os.path.join(PATH_CWD, f'../../analysis/all_3_opt/')
+PATH_ANALYSIS = os.path.join(PATH_CWD, f'../../analysis', 'all_3_opt')
 PATH_CACHED = os.path.join(PATH_CWD, f'../../analysis', 'cached')
 
 
