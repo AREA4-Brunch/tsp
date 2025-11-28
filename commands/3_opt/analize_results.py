@@ -110,11 +110,11 @@ def parse_execution_file(file_path):
                 cost, exec_ms, ttb_ms = block_result
                 total_costs += cost
                 num_execs += 1
+                ttl_exec_times += exec_ms
                 if cost < best_cost:
-                    best_time = ttb_ms
+                    best_time = ttl_exec_times
                     best_cost = cost
                     best_run = num_execs
-                ttl_exec_times += exec_ms
                 max_exec_time_ms = max(max_exec_time_ms, exec_ms)
                 total_time_seconds += exec_ms / 1000
 
@@ -138,9 +138,6 @@ def parse_execution_block(block):
     """
     Parse a single execution block.
     Returns: (cost, exec_time_ms, time_to_best_ms) or None
-
-    time_to_best_ms is the estimated time when the best solution
-    was found based on iteration number.
     """
     best_match = re.search(
         r'Best found total distance for \d+ points:\s*([\d.]+)', 
@@ -148,29 +145,13 @@ def parse_execution_block(block):
     )
     if not best_match:
         return None
-
     best_cost = float(best_match.group(1))
     time_match = re.search(
         r'Execution time:\s*([\d.]+)\s*ms', 
         block
     )
     exec_ms = float(time_match.group(1)) if time_match else 0
-
-    # Find which iteration found the best cost
-    iterations = re.findall(
-        r'ITERATION (\d+):\s*([\d.]+)', block
-    )
     ttb_ms = exec_ms  # default to total time
-    if iterations:
-        # find iter where best cost was found
-        for iter_num_str, iter_cost_str in iterations:
-            if float(iter_cost_str) == best_cost:
-                iter_num = int(iter_num_str)
-                total_iters = int(iterations[-1][0])
-                # estimate time proportional to iteration
-                ttb_ms = (iter_num / total_iters) * exec_ms
-                break
-
     return (best_cost, exec_ms, ttb_ms)
 
 def analyze(
@@ -258,12 +239,12 @@ def format_time(seconds):
     elif seconds < 3600:
         mins = int(seconds // 60)
         secs = seconds % 60
-        return f'{mins}:{secs:05.2f}'
+        return f'{mins}:{secs:05.2f} m'
     else:
         hours = int(seconds // 3600)
         mins = int((seconds % 3600) // 60)
         secs = seconds % 60
-        return f'{hours}:{mins:02d}:{secs:05.2f}'
+        return f'{hours}:{mins:02d}:{secs:05.2f} h'
 
 def format_time_ms(milliseconds):
     """Convert milliseconds to human readable format."""

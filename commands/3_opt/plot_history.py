@@ -1,6 +1,7 @@
 """
 python plot_history.py <problem_name> <num_points> [<mode>] [<run_start>] [<run_end>] [<window_timeframe>] [<start_time>] [--no-cache|-nc] [--loglog|-ll]
 
+python commands/3_opt/plot_history.py 263 263 shp 0 1000 1 -ll
 python commands/3_opt/plot_history.py 263 263 shp 0 1000 1 20 -ll
 python commands/3_opt/plot_history.py 263 263 shp 0 1000 1 20 -nc -ll
 """
@@ -89,13 +90,14 @@ def setup_paths(prob_name):
 def setup_plots(args, conf):
     path_plots = os.path.join(PATH_ANALYSIS, 'plots')
     shared_plt_conf = { 'xlabel': 'time (ms)', 'ylabel': 'cost', 'fontsize': 20 }
+    st = int(conf['start_time'])
     cum_avg_plt = create_cum_avg_plot(
-        save_path=os.path.join(path_plots, f'cum_avg_{args["mode"]}_{args["num_points"]}.png'),
+        save_path=os.path.join(path_plots, f'cum_avg_{args["mode"]}_{args["num_points"]}_st_{st}.png'),
         title=f'Cumulative averages on problem: {args["prob_name"]} with {args["num_points"]} points',
         **shared_plt_conf
     )
     all_runs_plt = create_all_runs_plot(
-        save_path=os.path.join(path_plots, f'all_runs_plot_{args["mode"]}_{args["num_points"]}.png'),
+        save_path=os.path.join(path_plots, f'all_runs_plot_{args["mode"]}_{args["num_points"]}_st_{st}.png'),
         title=f'All runs on problem: {args["prob_name"]} with {args["num_points"]} points',
         **shared_plt_conf
     )

@@ -125,7 +125,7 @@ def analize(
             continue
         total_dur, count = descs[0], descs[1]
         avg_time = total_dur / count
-        mem = space(num_points, cycle=True, is_symmetric=True,
+        mem = space(num_points, cycle=False, is_symmetric=True,
                     tc=_get_num_bytes(dtype), tv=1, no_path=False) / 2**30
         data_per_dtype[dtype].append((num_points, avg_time, count, mem))
         data_per_num_points[num_points].append((avg_time, dtype, count, mem))
