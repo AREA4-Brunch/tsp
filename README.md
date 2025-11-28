@@ -45,10 +45,12 @@ This is a heavily optimized single-core Bellman-Held-Karp implementation.
 <br/>Time complexity: O(n^2 * 2^n).
 <br/>Space complexity: O(n * 2^n), but in case of only searching for the optimal cost not the path: O(sqrt(n) * 2^n).
 
-<br/>In `analysis/bellman_held_karp/263` are complete tables showing the exact memory consumption of this implementation for symmetric and asymmetric TSP and SHP with and without constructing optimal path, as well as merged runtimes on STSP and SSHP on small number of reruns just for demonstration; solving TSP with 30 points takes 105 seconds using float.
+In `analysis/bellman_held_karp/263` are complete tables showing the exact memory consumption of this implementation for symmetric and asymmetric TSP and SHP with and without constructing optimal path, as well as merged runtimes on STSP and SSHP on small number of reruns just for demonstration; solving TSP with 30 points takes 105 seconds using float.
+
+2B cost dtype is sufficient for problem 263 but 1B is not. Correctness can be checked using `commands/judge_results.py`.
 
 
-### STSP (Symmetric Traveling Salesman Problem)
+## STSP (Symmetric Traveling Salesman Problem)
 
 | n  | uint8_t | uint16_t | uint32_t | uint64_t | float | double |
 |----|---------|---------|---------|---------|---------|---------|
@@ -84,13 +86,13 @@ This is a heavily optimized single-core Bellman-Held-Karp implementation.
 | 39 | 2994.895 GB | 4183.229 GB | 6559.897 GB | 11313.234 GB | 6559.897 GB | 11313.234 GB |
 
 
-### Execution Report - STSP (30 pts) + SSHP (29 pts) on problem 263
+## Execution Report - STSP (30 pts) + SSHP (29 pts) on problem 263
 
 ### 28 points
 
-| dtype | (u)int8_t | (u)int16_t | (u)int32_t | (u)int64_t | float | double |
-|---|---|---|---|---|---|---|
-| avg time [s] | 34.692 | 35.577 | 38.582 | 21.552 | 34.684 | 32.381 |
+| dtype | (u)int16_t | (u)int32_t | (u)int64_t | float | double |
+|---|---|---|---|---|---|
+| avg time [s] | 35.577 | 38.582 | 21.552 | 34.684 | 32.381 |
 | time diff [%] | 60.970 | 65.076 | 79.018 | 0.000 | 60.934 | 50.245 |
 | reruns | 10 | 10 | 17 | 1 | 10 | 11 |
 | mem [GB] | 0.907 | 1.344 | 2.219 | 3.967 | 2.219 | 3.967 |
@@ -98,9 +100,9 @@ This is a heavily optimized single-core Bellman-Held-Karp implementation.
 
 ### 29 points
 
-| dtype | (u)int8_t | (u)int16_t | (u)int32_t | (u)int64_t | float | double |
-|---|---|---|---|---|---|---|
-| avg time [s] | 71.753 | 73.369 | 76.801 | 39.797 | 63.476 | 56.993 |
+| dtype | (u)int16_t | (u)int32_t | (u)int64_t | float | double |
+|---|---|---|---|---|---|
+| avg time [s] | 73.369 | 76.801 | 39.797 | 63.476 | 56.993 |
 | time diff [%] | 80.297 | 84.358 | 92.983 | 0.000 | 59.499 | 43.208 |
 | reruns | 5 | 5 | 9 | 1 | 6 | 6 |
 | mem [GB] | 2.203 | 3.180 | 5.132 | 9.038 | 5.132 | 9.038 |
@@ -108,9 +110,9 @@ This is a heavily optimized single-core Bellman-Held-Karp implementation.
 
 ### 30 points
 
-| dtype | (u)int8_t | (u)int16_t | (u)int32_t | (u)int64_t | float | double |
-|---|---|---|---|---|---|---|
-| avg time [s] | 116.293 | 116.665 | 118.037 | 170.448 | 105.081 | 159.515 |
+| dtype | (u)int16_t | (u)int32_t | (u)int64_t | float | double |
+|---|---|---|---|---|---|
+| avg time [s] | 116.665 | 118.037 | 170.448 | 105.081 | 159.515 |
 | time diff [%] | 10.669 | 11.024 | 12.329 | 62.206 | 0.000 | 51.802 |
 | reruns | 4 | 4 | 7 | 1 | 4 | 3 |
 | mem [GB] | 3.905 | 5.738 | 9.404 | 16.735 | 9.404 | 16.735 |
