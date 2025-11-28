@@ -20,13 +20,18 @@ Problem: '263', with 263 points. Optimal solution believed to be ~1545.
 | 3_opt_funky_no_2_opt | 1660.678 | 1578.461 | 49:44.72 m | 1:45:00.29 h | 2537.372 | 4919.000 | 2483 |
 | 3_opt_rand_no_2_opt | 1641.198 | 1546.172 | 44:57.41 m | 1:45:00.49 h | 1795.522 | 5973.000 | 3509 |
 
+### Video of rand_no_2_opt variant finding best solution
+
+https://github.com/user-attachments/assets/5fbcd959-9697-4d4d-948b-8dfe71017470
+
+<br/>
 
 ![Cumulative averages](github_gallery/cum_avg_shp_263_st_20.png)
 
 ![Overall reruns minima found](github_gallery/all_runs_plot_shp_263_st_20.png)
 
 <br/>
-More illustrations including the '3-opt' move, and the '3-opt no 2-opt except when 2 consecutive edges' move can be found in `github_gallery/`.
+More illustrations including the '3-opt' move, and the '3-opt no 2-opt except when 2 consecutive edges' are in `github_gallery/`.
 
 
 ## Bellman-Held-Karp
@@ -43,7 +48,7 @@ This is a heavily optimized single-core Bellman-Held-Karp implementation.
 <br/>In `analysis/bellman_held_karp/263` are complete tables showing the exact memory consumption of this implementation for symmetric and asymmetric TSP and SHP with and without constructing optimal path, as well as merged runtimes on STSP and SSHP on small number of reruns just for demonstration; solving TSP with 30 points takes 105 seconds using float.
 
 
-## STSP (Symmetric Traveling Salesman Problem)
+### STSP (Symmetric Traveling Salesman Problem)
 
 | n  | uint8_t | uint16_t | uint32_t | uint64_t | float | double |
 |----|---------|---------|---------|---------|---------|---------|
@@ -79,7 +84,7 @@ This is a heavily optimized single-core Bellman-Held-Karp implementation.
 | 39 | 2994.895 GB | 4183.229 GB | 6559.897 GB | 11313.234 GB | 6559.897 GB | 11313.234 GB |
 
 
-## Execution Report - STSP (30 pts) + SSHP (29 pts) on problem 263
+### Execution Report - STSP (30 pts) + SSHP (29 pts) on problem 263
 
 ### 28 points
 
