@@ -8,15 +8,16 @@
 #include <unordered_map>
 #include <variant>
 #include <random>
+#include <iomanip>
 
-#include "cut_3_opt.hpp"
-#include "cut_3_opt_no_2_opt.hpp"
+#include "../3_opt/cut_3_opt.hpp"
 #include "../k_opt/history.hpp"
 #include "../k_opt/heuristic.hpp"
 #include "../k_opt/heuristic_best_cut.hpp"
 #include "../k_opt/heuristic_classical.hpp"
 #include "../k_opt/heuristic_funky.hpp"
 #include "../k_opt/heuristic_rand.hpp"
+#include "../k_opt/cut_k_opt.hpp"
 #include "../common/random.hpp"
 #include "../common/timing.hpp"
 #include "../common/problem_loader.hpp"
@@ -43,8 +44,11 @@ std::unique_ptr<k_opt::Heuristic<cost_t, vertex_t>> selectAlgo(
 
 template<typename cost_t, typename vertex_t>
 std::variant<
-    Cut3Opt<cost_t, vertex_t>,
-    Cut3OptNo2Opt<cost_t, vertex_t>
+    k_opt::Cut3Opt<cost_t, vertex_t>,
+    k_opt::Cut3OptNo2Opt<cost_t, vertex_t>,
+    k_opt::CutKOpt<cost_t, vertex_t, 4>,
+    k_opt::CutKOpt<cost_t, vertex_t, 5>,
+    k_opt::CutKOpt<cost_t, vertex_t, -1>
 > createCut(const std::string &cut_name);
 
 template<typename cost_t, typename cut_t, typename vertex_t>
@@ -128,10 +132,12 @@ int main(const int argc, const char **argv)
 
         if (cur_history != nullptr) delete cur_history;
         avg_min_cost_in_n_reruns /= executed_reruns;
+        std::cout << std::fixed << std::setprecision(6);
         std::cout << "AVG MIN COST OVER " << executed_reruns << " RUNS: "
                   << avg_min_cost_in_n_reruns << std::endl;
         std::cout << "BEST COST OVER " << executed_reruns << " RUNS: "
                   << best_cost_in_n_reruns << std::endl;
+        std::cout << std::defaultfloat;  
 
     } catch (const std::exception &err) {
         // to cout to keep in log files
@@ -162,7 +168,12 @@ cost_t Solve(
     const auto algo = detail::selectAlgo<cost_t, int>(
         selection_name, cut_name, seed);
 
-    std::vector<int> path;
+    // init random path with seed to guarantee reproducible results
+    std::vector<int> path(distances.size());
+    std::iota(path.begin(), path.end(), 0);
+    std::mt19937 psrng = random::initPSRNG(seed);
+    random::permuteRandomly(path, psrng);
+
     const cost_t min_distance = algo->search(
         distances,
         path,
@@ -201,21 +212,68 @@ std::unique_ptr<k_opt::Heuristic<cost_t, vertex_t>> detail::selectAlgo(
 
 template<typename cost_t, typename vertex_t>
 std::variant<
-    Cut3Opt<cost_t, vertex_t>,
-    Cut3OptNo2Opt<cost_t, vertex_t>
+    k_opt::Cut3Opt<cost_t, vertex_t>,
+    k_opt::Cut3OptNo2Opt<cost_t, vertex_t>,
+    k_opt::CutKOpt<cost_t, vertex_t, 4>,
+    k_opt::CutKOpt<cost_t, vertex_t, 5>,
+    k_opt::CutKOpt<cost_t, vertex_t, -1>
 > detail::createCut(const std::string &cut_name) {
     using cut_t = std::variant<
-        Cut3Opt<cost_t, vertex_t>,
-        Cut3OptNo2Opt<cost_t, vertex_t>
+        k_opt::Cut3Opt<cost_t, vertex_t>,
+        k_opt::Cut3OptNo2Opt<cost_t, vertex_t>,
+        k_opt::CutKOpt<cost_t, vertex_t, 4>,
+        k_opt::CutKOpt<cost_t, vertex_t, 5>,
+        k_opt::CutKOpt<cost_t, vertex_t, -1>
     >;
     using factory_t = std::function<cut_t ()>;
+    const bool select_first_better = false;
+    const bool do_pre_gen_perms = true;
     static const std::unordered_map<std::string, factory_t> cuts = {
-        { "3_opt", [] () { return Cut3Opt<cost_t, vertex_t>(); }},
+        { "3_opt", [] () {
+            return k_opt::Cut3Opt<cost_t, vertex_t>();
+        }},
         { "3_opt_no_2_opt", [] () {
-            return Cut3OptNo2Opt<cost_t, vertex_t>();
+            return k_opt::Cut3OptNo2Opt<cost_t, vertex_t>();
+        }},
+        { "4_opt", [] () {
+            return k_opt::CutKOpt<cost_t, vertex_t, 4>(
+                4, select_first_better, true, do_pre_gen_perms
+            );
+        }},
+        { "4_opt_no_2_opt", [] () {
+            return k_opt::CutKOpt<cost_t, vertex_t, 4>(
+                4, select_first_better, false, do_pre_gen_perms
+            );
+        }},
+        { "5_opt", [] () {
+            return k_opt::CutKOpt<cost_t, vertex_t, 5>(
+                5, select_first_better, true, do_pre_gen_perms
+            );
+        }},
+        { "5_opt_no_2_opt", [] () {
+            return k_opt::CutKOpt<cost_t, vertex_t, 5>(
+                5, select_first_better, false, do_pre_gen_perms
+            );
         }}
     };
-    return cuts.at(cut_name)();
+    if (cuts.count(cut_name)) return cuts.at(cut_name)();
+
+    using k_factory_t = std::function<cut_t (const int)>;
+    const int sep_idx = cut_name.find('_');
+    const int k = std::stoi(cut_name.substr(0, sep_idx));
+    static const std::unordered_map<std::string, k_factory_t> k_cuts = {
+        { "_opt", [] (const int k) {
+            return k_opt::CutKOpt<cost_t, vertex_t>(
+                k, select_first_better, true, do_pre_gen_perms
+            );
+        }},
+        { "_opt_no_2_opt", [] (const int k) {
+            return k_opt::CutKOpt<cost_t, vertex_t>(
+                k, select_first_better, true, do_pre_gen_perms
+            );
+        }}
+    };
+    return k_cuts.at(cut_name.substr(sep_idx))(k);
 }
 
 template<typename cost_t, typename cut_t, typename vertex_t>

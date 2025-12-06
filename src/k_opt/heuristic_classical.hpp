@@ -51,31 +51,33 @@ cost_t k_opt::HeuristicClassical<cost_t, cut_strategy_t, vertex_t>::run(
     const int verbose
 ) const {
     const int n = path.size();
-    int iter = 1;
     const int log_freq = 10;  // log best cost every 1 iters
     const int flush_freq = 10000;  // flush every 10000 costs
     const bool do_record_history = !history.isStopped();
     history.addCost(cur_cost);
     history.addPath(path, -1, -1, -1, 0);
     cost_t cur_cost_change = (cost_t) 0;
+    int iter = 1;
     for (bool did_update = true; did_update; ++iter) {
         if (verbose > 0 && (iter < 10 || iter % log_freq == 0)) {
             std::cout << "ITERATION " << iter << ": "
                       << cur_cost << std::endl;
         }
         did_update = false;
-        for (int i = 0; i < n - 2 && !did_update; ++i) {
-            for (int j = i + 1; j < n - 1 && !did_update; ++j) {
-                for (int k = j + 1; k < n; ++k) {
-                    const int patch_ordinal = this->cut.selectCut(
-                        i, j, k, cur_cost_change, path, weights
+        for (int i = 0; i < n - 3 && !did_update; ++i) {
+            for (int j = i + 1; j < n - 2 && !did_update; ++j) {
+                for (int k = j + 2; k < n; ++k) {
+                    std::vector<std::pair<int, int>> segs = {
+                        { k, i }, { i + 1, j }, { j + 1, k - 1 }
+                    };
+                    this->cut.selectCut(
+                        path, segs, cur_cost_change, weights
                     );
                     // add slight amount to negative side when comparing
-                    // the change to avoid swaps of the same element when
-                    // j=i+1 or k=j+1 or both in patch_ordinals: 6, 4, 5
-                    if (cur_cost_change < -1e-11) {
+                    // the change to avoid swaps of the same element
+                    if (cur_cost_change < -1e-10) {
                         did_update = true;
-                        this->cut.applyCut(i, j, k, patch_ordinal, path);
+                        this->cut.applyCut(path, segs);
                         cur_cost += cur_cost_change;
                         history.addCost(cur_cost);
                         history.addPath(path, i, j, k, iter);
@@ -93,8 +95,10 @@ cost_t k_opt::HeuristicClassical<cost_t, cut_strategy_t, vertex_t>::run(
         }
     }
     if (verbose > 0) {  // log cost after last iteration
-        std::cout << "Last ITERATION " << iter << ": "
-                  << cur_cost << std::endl;
+        std::cout << std::fixed << std::setprecision(6)
+                  << "Last ITERATION " << iter << ": "
+                  << cur_cost << std::defaultfloat
+                  << std::endl;
     }
     return cur_cost;
 }

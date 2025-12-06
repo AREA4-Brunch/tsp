@@ -1,6 +1,7 @@
 #ifndef TSP_K_OPT_HISTORY_HPP
 #define TSP_K_OPT_HISTORY_HPP
 
+#pragma GCC diagnostic ignored "-Winline"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -8,30 +9,6 @@
 #include <filesystem>
 #include <fstream>
 
-
-namespace detail {
-
-/// @brief Bottom of recursion for forwarding args within
-///        detail::writeDataToBinaryFileHelper(ofstream, T, Args...)
-void writeDataToBinaryFileHelper(std::ofstream &) { }
-
-template<typename T, typename... Args>
-void writeDataToBinaryFileHelper(
-    std::ofstream &file, T &&datum, Args&& ...data
-) {
-    file.write(reinterpret_cast<char *> (&datum), sizeof(datum));
-    writeDataToBinaryFileHelper(file, std::forward<Args>(data)...);
-}
-
-template<typename... Args>
-void writeDataToBinaryFile(std::ofstream &file, Args&&... args) {
-    writeDataToBinaryFileHelper(file, std::forward<Args>(args)...);
-}
-
-// could be moved to anonymous namespace in its own cpp file
-std::ofstream openFile(const std::string &file_path, const bool do_append);
-
-}
 
 
 namespace k_opt {
@@ -82,19 +59,42 @@ void startNewHistory(
     const int runs_per_history,
     const std::string& path_history_dir,
     const int run_idx,
-    k_opt::History<cost_t>* &cur_history
+    History<cost_t>* &cur_history
 );
 
-}  // namespace k_opt
+
+namespace detail {
+
+/// @brief Bottom of recursion for forwarding args within
+///        detail::writeDataToBinaryFileHelper(ofstream, T, Args...)
+void writeDataToBinaryFileHelper(std::ofstream &) { }
+
+template<typename T, typename... Args>
+void writeDataToBinaryFileHelper(
+    std::ofstream &file, T &&datum, Args&& ...data
+) {
+    file.write(reinterpret_cast<char *> (&datum), sizeof(datum));
+    writeDataToBinaryFileHelper(file, std::forward<Args>(data)...);
+}
+
+template<typename... Args>
+void writeDataToBinaryFile(std::ofstream &file, Args&&... args) {
+    writeDataToBinaryFileHelper(file, std::forward<Args>(args)...);
+}
+
+// could be moved to anonymous namespace in its own cpp file
+std::ofstream openFile(const std::string &file_path, const bool do_append);
+
+}  // namespace detail
 
 
 template<typename cost_t>
-k_opt::History<cost_t>::History(const std::string &path_root_dir)
+History<cost_t>::History(const std::string &path_root_dir)
     : path_root_dir(path_root_dir)
 { }
 
 template<typename cost_t>
-void k_opt::History<cost_t>::addCost(const cost_t cost) {
+void History<cost_t>::addCost(const cost_t cost) {
     if (this->is_stopped || this->do_not_record_cost) return;
     const auto time_now = std::chrono::system_clock::now();
     this->costs_times.push_back(
@@ -106,7 +106,7 @@ void k_opt::History<cost_t>::addCost(const cost_t cost) {
 }
 
 template<typename cost_t>
-void k_opt::History<cost_t>::addPath(
+void History<cost_t>::addPath(
     const std::vector<int> &path,
     const int i,
     const int j,
@@ -122,7 +122,7 @@ void k_opt::History<cost_t>::addPath(
 }
 
 template<typename cost_t>
-void k_opt::History<cost_t>::storeCosts(
+void History<cost_t>::storeCosts(
     const std::string &file_path,
     const bool do_append
 ) const {
@@ -173,7 +173,7 @@ void k_opt::History<cost_t>::storeCosts(
 }
 
 template<typename cost_t>
-std::string k_opt::History<cost_t>::flush(const bool do_append_to_prev) {
+std::string History<cost_t>::flush(const bool do_append_to_prev) {
     if (!do_append_to_prev) ++this->last_flush_id;
     std::string filename = std::to_string(this->last_flush_id) + ".flush.bin";
     std::string file_path = this->path_root_dir + "/" + filename;
@@ -187,7 +187,7 @@ std::string k_opt::History<cost_t>::flush(const bool do_append_to_prev) {
 
 template<typename cost_t>
 template<typename... Args>
-void k_opt::History<cost_t>::appendMarkersToLastFlush(Args&&... markers) const {
+void History<cost_t>::appendMarkersToLastFlush(Args&&... markers) const {
     const std::string filename = std::to_string(this->last_flush_id)
                                + ".flush.bin";
     const std::string file_path = this->path_root_dir + "/" + filename;
@@ -219,7 +219,7 @@ void k_opt::startNewHistory(
     const int runs_per_history,
     const std::string& path_history_dir,
     const int run_idx,
-    k_opt::History<cost_t>* &cur_history
+    History<cost_t>* &cur_history
 ) {
     const std::string path_history_run
         = runs_per_history == 1 ?
@@ -240,11 +240,11 @@ void k_opt::startNewHistory(
     }
 
     if (cur_history != nullptr) delete cur_history;
-    cur_history = new k_opt::History<cost_t>(path_history_run);
+    cur_history = new History<cost_t>(path_history_run);
 }
 
 template<typename cost_t>
-void k_opt::History<cost_t>::storePaths(
+void History<cost_t>::storePaths(
     const std::string &file_path,
     const bool do_append
 ) const {
@@ -271,7 +271,10 @@ void k_opt::History<cost_t>::storePaths(
               << std::endl << file_path << std::endl << std::endl;
 }
 
-std::ofstream detail::openFile(const std::string &file_path, const bool do_append) {
+std::ofstream detail::openFile(
+    const std::string &file_path,
+    const bool do_append
+) {
     std::filesystem::path path(file_path);
     std::filesystem::path parent_path = path.parent_path();
     std::error_code err_code;
@@ -294,5 +297,6 @@ std::ofstream detail::openFile(const std::string &file_path, const bool do_appen
     return file;
 }
 
+}  // namespace 3_opt
 
 #endif

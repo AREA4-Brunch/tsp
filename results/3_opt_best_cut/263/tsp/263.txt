@@ -3,202 +3,95 @@ Solving TSP
 
 Execution #1/10
 
-Run(s) folder: C:/Users/mrade/Documents/tsp_v9/commands/3_opt/../../results/3_opt_best_cut/histories/263/tsp/263/runs_1_500
+Run(s) folder: C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500
+Deleted already existing run folder: C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500
 
 Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v9/commands/3_opt/../../results/3_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
 
 Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v9/commands/3_opt/../../results/3_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
-Seed: 1084725590
-ITERATION 1: 24213.4
-ITERATION 2: 23756.4
-ITERATION 3: 23300.6
-ITERATION 4: 22853.7
-ITERATION 5: 22413.6
-ITERATION 6: 22001.8
-ITERATION 7: 21591.6
-ITERATION 8: 21185.1
-ITERATION 9: 20774.3
-ITERATION 50: 8507.84
-ITERATION 100: 3089.54
-ITERATION 150: 1902.98
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
+Seed: 1641076748
+ITERATION 1: 23100.2
+ITERATION 2: 22627.3
+ITERATION 3: 22184.4
+ITERATION 4: 21743.6
+ITERATION 5: 21308.9
+ITERATION 6: 20876.4
+ITERATION 7: 20447.8
+ITERATION 8: 20049.9
+ITERATION 9: 19653.2
+ITERATION 50: 7877.85
+ITERATION 100: 3086.62
+ITERATION 150: 1930.85
+Storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
 
-Storing histories into the file:
-C:/Users/mrade/Documents/tsp_v9/commands/3_opt/../../results/3_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
+Done storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
 
-Done storing histories into the file:
-C:/Users/mrade/Documents/tsp_v9/commands/3_opt/../../results/3_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
+Storing paths histories into the file:
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.paths.csv
 
-Last ITERATION 194: 1683.3
-Best found total distance for 263 points: 1683.3
+Done storing paths histories into the file:
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.paths.csv
+
+Last ITERATION 199: 1639.182673
+Best found total distance for 263 points: 1639.18
 Corresponding path (0-indexed):
-Point #242
-Point #243
-Point #244
-Point #245
-Point #246
-Point #247
-Point #248
-Point #258
-Point #257
-Point #256
-Point #255
-Point #40
-Point #121
-Point #120
-Point #119
-Point #123
-Point #127
-Point #131
-Point #135
-Point #136
-Point #132
-Point #128
-Point #124
-Point #125
-Point #44
-Point #129
-Point #133
-Point #48
-Point #137
-Point #141
-Point #140
-Point #139
-Point #143
-Point #144
-Point #148
-Point #147
-Point #146
-Point #55
-Point #142
-Point #51
-Point #138
-Point #134
-Point #130
-Point #47
-Point #126
-Point #122
-Point #43
-Point #118
-Point #39
-Point #254
-Point #253
-Point #252
-Point #251
-Point #250
-Point #38
-Point #42
-Point #46
-Point #50
-Point #54
-Point #58
-Point #62
-Point #66
-Point #70
-Point #74
-Point #78
-Point #82
-Point #86
-Point #87
-Point #210
-Point #206
-Point #83
-Point #202
-Point #198
-Point #79
-Point #194
-Point #190
-Point #75
-Point #186
-Point #182
-Point #71
-Point #178
-Point #174
-Point #170
-Point #67
-Point #166
-Point #162
-Point #63
-Point #158
-Point #154
-Point #59
-Point #150
-Point #151
-Point #152
-Point #156
-Point #155
-Point #159
-Point #163
-Point #167
 Point #171
 Point #175
+Point #179
+Point #183
+Point #184
+Point #180
 Point #176
 Point #172
 Point #168
+Point #167
+Point #163
 Point #164
 Point #160
+Point #159
+Point #155
+Point #156
+Point #152
+Point #151
+Point #147
+Point #148
+Point #149
+Point #153
+Point #56
 Point #157
-Point #161
 Point #60
+Point #161
 Point #165
-Point #64
 Point #169
+Point #64
 Point #173
 Point #68
 Point #177
 Point #181
-Point #72
 Point #185
+Point #72
 Point #189
 Point #193
 Point #76
 Point #197
 Point #80
-Point #205
 Point #201
-Point #196
-Point #192
-Point #188
-Point #184
-Point #180
-Point #179
-Point #183
-Point #187
-Point #191
-Point #195
-Point #199
-Point #200
-Point #204
-Point #203
-Point #207
-Point #208
-Point #212
-Point #211
-Point #216
-Point #215
-Point #214
-Point #218
-Point #91
-Point #90
-Point #94
-Point #95
-Point #233
-Point #230
-Point #226
-Point #222
-Point #223
-Point #219
-Point #220
-Point #224
-Point #228
-Point #227
-Point #232
-Point #231
-Point #234
-Point #235
-Point #1
+Point #205
+Point #84
+Point #209
+Point #213
+Point #88
+Point #217
+Point #221
+Point #225
+Point #92
+Point #229
 Point #0
+Point #1
 Point #98
 Point #99
 Point #96
@@ -206,15 +99,6 @@ Point #97
 Point #237
 Point #93
 Point #89
-Point #92
-Point #229
-Point #225
-Point #221
-Point #217
-Point #88
-Point #213
-Point #209
-Point #84
 Point #85
 Point #81
 Point #77
@@ -223,17 +107,31 @@ Point #69
 Point #65
 Point #61
 Point #57
-Point #56
-Point #153
-Point #149
-Point #145
-Point #52
 Point #53
+Point #52
+Point #145
+Point #141
+Point #137
+Point #48
 Point #49
 Point #45
+Point #44
+Point #133
+Point #129
+Point #125
+Point #121
+Point #40
 Point #41
 Point #236
 Point #259
+Point #258
+Point #257
+Point #256
+Point #255
+Point #245
+Point #246
+Point #247
+Point #248
 Point #249
 Point #37
 Point #113
@@ -255,9 +153,6 @@ Point #24
 Point #23
 Point #22
 Point #21
-Point #239
-Point #238
-Point #5
 Point #6
 Point #7
 Point #8
@@ -287,186 +182,189 @@ Point #4
 Point #114
 Point #115
 Point #260
-Point #262
 Point #261
+Point #262
+Point #5
+Point #238
+Point #239
+Point #244
+Point #243
+Point #242
+Point #241
+Point #117
 Point #110
 Point #109
 Point #108
 Point #116
 Point #240
-Point #241
-Point #117
-Point #242
-Execution time: 19337 ms
+Point #250
+Point #251
+Point #252
+Point #253
+Point #254
+Point #119
+Point #120
+Point #124
+Point #123
+Point #127
+Point #128
+Point #132
+Point #131
+Point #135
+Point #136
+Point #140
+Point #144
+Point #143
+Point #139
+Point #134
+Point #47
+Point #130
+Point #126
+Point #43
+Point #122
+Point #118
+Point #39
+Point #38
+Point #42
+Point #46
+Point #50
+Point #51
+Point #138
+Point #142
+Point #146
+Point #55
+Point #54
+Point #58
+Point #59
+Point #150
+Point #154
+Point #158
+Point #162
+Point #63
+Point #62
+Point #66
+Point #70
+Point #74
+Point #78
+Point #82
+Point #86
+Point #87
+Point #210
+Point #214
+Point #218
+Point #91
+Point #90
+Point #94
+Point #95
+Point #222
+Point #226
+Point #230
+Point #233
+Point #234
+Point #235
+Point #232
+Point #231
+Point #227
+Point #228
+Point #224
+Point #223
+Point #220
+Point #219
+Point #215
+Point #216
+Point #212
+Point #211
+Point #207
+Point #208
+Point #204
+Point #200
+Point #196
+Point #192
+Point #188
+Point #187
+Point #191
+Point #195
+Point #199
+Point #203
+Point #206
+Point #83
+Point #202
+Point #198
+Point #79
+Point #194
+Point #190
+Point #186
+Point #75
+Point #182
+Point #178
+Point #71
+Point #174
+Point #67
+Point #170
+Point #166
+Point #171
+Execution time: 29325 ms
 
-Elapsed time: 19337 ms
+Elapsed time: 29325 ms
 
 
 Execution #2/10
 
 
 Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v9/commands/3_opt/../../results/3_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
 
 Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v9/commands/3_opt/../../results/3_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
-Seed: 1084725591
-ITERATION 1: 23243.5
-ITERATION 2: 22740.1
-ITERATION 3: 22270.1
-ITERATION 4: 21807.3
-ITERATION 5: 21348.3
-ITERATION 6: 20897.3
-ITERATION 7: 20454.9
-ITERATION 8: 20018.8
-ITERATION 9: 19611.4
-ITERATION 50: 7952.23
-ITERATION 100: 2955.27
-ITERATION 150: 1882.59
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
+Seed: 1641076749
+ITERATION 1: 22344.2
+ITERATION 2: 21854.3
+ITERATION 3: 21395.2
+ITERATION 4: 20972.4
+ITERATION 5: 20574.8
+ITERATION 6: 20178.3
+ITERATION 7: 19781.9
+ITERATION 8: 19388.4
+ITERATION 9: 18999.1
+ITERATION 50: 7783.24
+ITERATION 100: 3136.88
+ITERATION 150: 1939.86
+ITERATION 200: 1683.97
+Storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
 
-Storing histories into the file:
-C:/Users/mrade/Documents/tsp_v9/commands/3_opt/../../results/3_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
+Done storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
 
-Done storing histories into the file:
-C:/Users/mrade/Documents/tsp_v9/commands/3_opt/../../results/3_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
+Storing paths histories into the file:
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.paths.csv
 
-Last ITERATION 199: 1690.06
-Best found total distance for 263 points: 1690.06
+Done storing paths histories into the file:
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.paths.csv
+
+Last ITERATION 203: 1681.956212
+Best found total distance for 263 points: 1681.96
 Corresponding path (0-indexed):
-Point #114
-Point #115
-Point #260
-Point #262
-Point #261
-Point #110
-Point #109
-Point #108
-Point #116
-Point #117
-Point #244
-Point #243
-Point #242
-Point #241
-Point #240
-Point #250
-Point #251
-Point #252
-Point #253
-Point #254
-Point #119
-Point #120
-Point #121
-Point #40
-Point #125
-Point #44
-Point #129
-Point #133
-Point #48
-Point #141
-Point #137
-Point #132
-Point #131
-Point #127
-Point #128
-Point #124
-Point #123
-Point #126
-Point #122
-Point #43
-Point #118
-Point #39
-Point #38
-Point #42
-Point #46
-Point #50
-Point #54
-Point #58
-Point #62
-Point #66
-Point #67
-Point #170
-Point #174
-Point #175
-Point #176
-Point #180
-Point #179
-Point #183
-Point #184
-Point #188
-Point #187
-Point #191
-Point #192
-Point #189
-Point #185
-Point #72
-Point #76
-Point #193
-Point #197
-Point #80
-Point #201
-Point #205
-Point #84
-Point #209
-Point #213
-Point #217
-Point #88
-Point #221
+Point #212
+Point #211
+Point #215
+Point #216
 Point #220
 Point #219
-Point #216
-Point #215
-Point #211
-Point #212
-Point #208
-Point #207
-Point #203
-Point #204
-Point #200
-Point #199
-Point #196
-Point #195
-Point #190
-Point #75
-Point #186
-Point #182
-Point #178
-Point #71
-Point #70
-Point #74
-Point #78
-Point #79
-Point #194
-Point #198
-Point #202
-Point #83
-Point #82
-Point #86
-Point #87
-Point #206
-Point #210
-Point #214
-Point #218
-Point #91
-Point #90
-Point #94
-Point #95
-Point #222
-Point #226
-Point #230
-Point #233
-Point #234
-Point #231
-Point #227
 Point #223
 Point #224
 Point #228
+Point #227
 Point #232
+Point #231
+Point #234
 Point #235
 Point #1
 Point #98
 Point #0
 Point #229
 Point #225
+Point #221
 Point #92
 Point #99
 Point #96
@@ -479,62 +377,22 @@ Point #81
 Point #77
 Point #73
 Point #69
-Point #68
-Point #181
-Point #177
-Point #173
-Point #169
-Point #64
 Point #65
-Point #61
-Point #57
-Point #56
-Point #153
-Point #157
+Point #64
+Point #169
+Point #165
 Point #161
 Point #60
-Point #165
-Point #164
-Point #160
-Point #156
-Point #152
-Point #151
-Point #155
-Point #159
-Point #163
-Point #167
-Point #168
-Point #172
-Point #171
-Point #166
-Point #162
-Point #63
-Point #158
-Point #154
-Point #59
-Point #150
-Point #55
-Point #146
-Point #142
-Point #138
-Point #51
-Point #134
-Point #47
-Point #130
-Point #135
-Point #136
-Point #140
-Point #139
-Point #144
-Point #143
-Point #147
-Point #148
-Point #149
-Point #145
-Point #52
+Point #61
+Point #57
 Point #53
 Point #49
 Point #45
+Point #44
+Point #129
+Point #125
+Point #121
+Point #40
 Point #41
 Point #236
 Point #259
@@ -542,6 +400,64 @@ Point #258
 Point #257
 Point #256
 Point #255
+Point #120
+Point #124
+Point #128
+Point #133
+Point #137
+Point #48
+Point #141
+Point #145
+Point #52
+Point #149
+Point #56
+Point #153
+Point #157
+Point #156
+Point #152
+Point #151
+Point #155
+Point #159
+Point #160
+Point #164
+Point #163
+Point #167
+Point #168
+Point #172
+Point #171
+Point #175
+Point #174
+Point #67
+Point #170
+Point #166
+Point #162
+Point #63
+Point #158
+Point #59
+Point #154
+Point #150
+Point #55
+Point #146
+Point #142
+Point #143
+Point #147
+Point #148
+Point #144
+Point #140
+Point #139
+Point #135
+Point #136
+Point #132
+Point #131
+Point #127
+Point #123
+Point #119
+Point #254
+Point #253
+Point #252
+Point #242
+Point #243
+Point #244
 Point #245
 Point #246
 Point #247
@@ -597,440 +513,451 @@ Point #2
 Point #3
 Point #4
 Point #114
-Execution time: 20116 ms
+Point #115
+Point #260
+Point #262
+Point #261
+Point #110
+Point #109
+Point #108
+Point #116
+Point #117
+Point #241
+Point #240
+Point #251
+Point #250
+Point #38
+Point #39
+Point #118
+Point #122
+Point #43
+Point #42
+Point #46
+Point #47
+Point #126
+Point #130
+Point #134
+Point #138
+Point #51
+Point #50
+Point #54
+Point #58
+Point #62
+Point #66
+Point #70
+Point #71
+Point #178
+Point #182
+Point #186
+Point #75
+Point #74
+Point #78
+Point #79
+Point #190
+Point #194
+Point #198
+Point #202
+Point #83
+Point #82
+Point #86
+Point #90
+Point #94
+Point #95
+Point #233
+Point #230
+Point #226
+Point #222
+Point #91
+Point #218
+Point #214
+Point #87
+Point #210
+Point #206
+Point #207
+Point #208
+Point #203
+Point #204
+Point #200
+Point #199
+Point #195
+Point #196
+Point #192
+Point #191
+Point #187
+Point #188
+Point #184
+Point #183
+Point #179
+Point #180
+Point #176
+Point #173
+Point #177
+Point #68
+Point #181
+Point #72
+Point #185
+Point #189
+Point #76
+Point #193
+Point #197
+Point #80
+Point #201
+Point #205
+Point #209
+Point #84
+Point #213
+Point #88
+Point #217
+Point #212
+Execution time: 22695 ms
 
-Elapsed time: 39453 ms
+Elapsed time: 52020 ms
 
 
 Execution #3/10
 
 
 Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v9/commands/3_opt/../../results/3_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
 
 Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v9/commands/3_opt/../../results/3_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
-Seed: 1084725592
-ITERATION 1: 22455.7
-ITERATION 2: 21990.9
-ITERATION 3: 21529.5
-ITERATION 4: 21081
-ITERATION 5: 20652.8
-ITERATION 6: 20225
-ITERATION 7: 19799
-ITERATION 8: 19390.4
-ITERATION 9: 18991.6
-ITERATION 50: 7842.02
-ITERATION 100: 2982.54
-ITERATION 150: 1910.11
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
+Seed: 1641076750
+ITERATION 1: 23123.1
+ITERATION 2: 22647.6
+ITERATION 3: 22188.7
+ITERATION 4: 21748.2
+ITERATION 5: 21313.7
+ITERATION 6: 20884.1
+ITERATION 7: 20458.3
+ITERATION 8: 20037.8
+ITERATION 9: 19618.4
+ITERATION 50: 7394.81
+ITERATION 100: 2993.27
+ITERATION 150: 1947.02
+Storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
 
-Storing histories into the file:
-C:/Users/mrade/Documents/tsp_v9/commands/3_opt/../../results/3_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
+Done storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
 
-Done storing histories into the file:
-C:/Users/mrade/Documents/tsp_v9/commands/3_opt/../../results/3_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
+Storing paths histories into the file:
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.paths.csv
 
-Last ITERATION 192: 1685.87
-Best found total distance for 263 points: 1685.87
+Done storing paths histories into the file:
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.paths.csv
+
+Last ITERATION 193: 1691.232848
+Best found total distance for 263 points: 1691.23
 Corresponding path (0-indexed):
+Point #211
+Point #215
+Point #219
+Point #223
+Point #227
+Point #228
+Point #232
+Point #231
+Point #235
+Point #234
+Point #233
+Point #230
+Point #226
+Point #222
+Point #95
+Point #94
+Point #90
+Point #91
+Point #218
+Point #214
+Point #210
+Point #87
+Point #86
+Point #82
+Point #78
+Point #74
+Point #70
+Point #71
+Point #178
+Point #174
+Point #67
+Point #170
+Point #166
+Point #162
+Point #63
+Point #66
+Point #62
+Point #58
+Point #54
+Point #50
+Point #46
+Point #47
+Point #126
+Point #130
+Point #134
+Point #51
+Point #138
+Point #142
+Point #55
+Point #146
+Point #150
+Point #59
+Point #154
+Point #158
+Point #155
+Point #151
+Point #147
+Point #143
+Point #144
+Point #139
+Point #140
+Point #136
+Point #135
+Point #131
+Point #132
+Point #128
+Point #127
+Point #123
+Point #124
+Point #120
+Point #119
+Point #118
+Point #122
+Point #43
+Point #42
+Point #38
+Point #39
+Point #250
+Point #251
+Point #252
+Point #253
+Point #254
+Point #244
+Point #243
+Point #242
+Point #241
+Point #240
+Point #116
+Point #108
+Point #109
+Point #110
+Point #117
+Point #239
+Point #21
+Point #22
+Point #23
+Point #24
+Point #25
+Point #26
+Point #27
+Point #12
+Point #11
+Point #10
+Point #9
+Point #8
+Point #7
+Point #6
+Point #238
+Point #5
+Point #262
+Point #261
+Point #260
+Point #115
+Point #114
+Point #4
+Point #3
+Point #2
+Point #102
+Point #100
+Point #101
+Point #103
+Point #104
+Point #105
+Point #106
+Point #107
+Point #20
+Point #19
+Point #18
+Point #17
+Point #16
+Point #15
+Point #14
+Point #13
+Point #28
+Point #29
+Point #30
+Point #31
+Point #32
+Point #33
+Point #34
+Point #35
+Point #36
+Point #111
+Point #112
+Point #113
+Point #37
+Point #249
+Point #248
+Point #247
+Point #246
+Point #245
+Point #255
+Point #256
+Point #257
+Point #258
+Point #259
+Point #236
+Point #41
+Point #40
+Point #121
+Point #125
+Point #129
+Point #44
+Point #45
+Point #49
+Point #48
+Point #133
+Point #137
+Point #141
+Point #145
+Point #52
+Point #53
+Point #57
+Point #61
+Point #60
+Point #161
+Point #157
+Point #56
+Point #153
+Point #149
+Point #148
+Point #152
+Point #156
+Point #160
+Point #159
+Point #163
+Point #164
+Point #165
+Point #64
+Point #169
+Point #173
+Point #177
+Point #68
+Point #65
+Point #69
+Point #73
+Point #72
+Point #181
+Point #185
+Point #189
+Point #193
+Point #76
+Point #77
+Point #81
+Point #85
+Point #89
+Point #88
+Point #217
+Point #221
+Point #225
+Point #92
+Point #93
+Point #237
+Point #97
+Point #96
+Point #99
+Point #98
+Point #1
+Point #0
+Point #229
+Point #224
+Point #220
+Point #216
+Point #212
+Point #208
+Point #207
+Point #203
+Point #199
+Point #200
+Point #204
+Point #209
+Point #213
+Point #84
+Point #205
+Point #80
+Point #201
+Point #197
+Point #196
+Point #195
+Point #191
 Point #192
 Point #188
 Point #187
 Point #183
 Point #184
 Point #180
-Point #179
-Point #175
 Point #176
 Point #172
-Point #171
-Point #167
 Point #168
-Point #164
-Point #163
-Point #159
-Point #160
-Point #156
-Point #155
-Point #158
-Point #162
-Point #166
-Point #63
-Point #59
-Point #154
-Point #150
-Point #146
-Point #55
-Point #142
-Point #138
-Point #51
-Point #50
-Point #54
-Point #58
-Point #62
-Point #66
-Point #67
-Point #170
-Point #174
-Point #178
+Point #167
+Point #171
+Point #175
+Point #179
 Point #182
-Point #71
-Point #70
-Point #74
-Point #78
-Point #75
 Point #186
+Point #75
 Point #190
-Point #79
 Point #194
+Point #79
 Point #198
 Point #202
 Point #83
-Point #82
-Point #86
-Point #90
-Point #94
-Point #95
-Point #233
-Point #230
-Point #226
-Point #222
-Point #91
-Point #218
-Point #214
-Point #210
-Point #87
 Point #206
-Point #207
-Point #203
-Point #199
-Point #200
-Point #204
-Point #208
-Point #212
 Point #211
-Point #215
-Point #219
-Point #223
-Point #227
-Point #231
-Point #234
-Point #235
-Point #232
-Point #228
-Point #224
-Point #220
-Point #216
-Point #213
-Point #217
-Point #88
-Point #221
-Point #92
-Point #225
-Point #229
-Point #0
-Point #1
-Point #98
-Point #99
-Point #96
-Point #97
-Point #237
-Point #93
-Point #89
-Point #85
-Point #84
-Point #209
-Point #205
-Point #201
-Point #80
-Point #81
-Point #77
-Point #73
-Point #69
-Point #65
-Point #61
-Point #57
-Point #53
-Point #52
-Point #145
-Point #141
-Point #137
-Point #48
-Point #133
-Point #129
-Point #125
-Point #121
-Point #40
-Point #44
-Point #49
-Point #45
-Point #41
-Point #236
-Point #259
-Point #249
-Point #37
-Point #113
-Point #112
-Point #111
-Point #36
-Point #35
-Point #34
-Point #33
-Point #32
-Point #31
-Point #30
-Point #29
-Point #28
-Point #27
-Point #26
-Point #11
-Point #12
-Point #13
-Point #14
-Point #15
-Point #16
-Point #17
-Point #18
-Point #19
-Point #20
-Point #107
-Point #106
-Point #105
-Point #104
-Point #103
-Point #101
-Point #100
-Point #102
-Point #2
-Point #3
-Point #4
-Point #114
-Point #115
-Point #260
-Point #261
-Point #262
-Point #5
-Point #238
-Point #6
-Point #7
-Point #8
-Point #9
-Point #10
-Point #25
-Point #24
-Point #23
-Point #22
-Point #21
-Point #239
-Point #117
-Point #110
-Point #109
-Point #108
-Point #116
-Point #240
-Point #241
-Point #242
-Point #243
-Point #244
-Point #245
-Point #246
-Point #247
-Point #248
-Point #258
-Point #257
-Point #256
-Point #255
-Point #254
-Point #253
-Point #252
-Point #251
-Point #250
-Point #39
-Point #38
-Point #42
-Point #46
-Point #47
-Point #134
-Point #130
-Point #126
-Point #122
-Point #43
-Point #118
-Point #119
-Point #120
-Point #124
-Point #123
-Point #127
-Point #128
-Point #131
-Point #132
-Point #136
-Point #135
-Point #139
-Point #140
-Point #144
-Point #143
-Point #147
-Point #151
-Point #152
-Point #148
-Point #149
-Point #56
-Point #153
-Point #157
-Point #60
-Point #161
-Point #165
-Point #169
-Point #64
-Point #173
-Point #68
-Point #177
-Point #181
-Point #185
-Point #72
-Point #189
-Point #76
-Point #193
-Point #197
-Point #196
-Point #195
-Point #191
-Point #192
-Execution time: 19847 ms
+Execution time: 20793 ms
 
-Elapsed time: 59300 ms
+Elapsed time: 72813 ms
 
 
 Execution #4/10
 
 
 Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v9/commands/3_opt/../../results/3_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
 
 Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v9/commands/3_opt/../../results/3_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
-Seed: 1084725593
-ITERATION 1: 23881.9
-ITERATION 2: 23390.1
-ITERATION 3: 22912.7
-ITERATION 4: 22449.1
-ITERATION 5: 22002
-ITERATION 6: 21560.8
-ITERATION 7: 21123.5
-ITERATION 8: 20705.8
-ITERATION 9: 20313.5
-ITERATION 50: 8394.53
-ITERATION 100: 3186.03
-ITERATION 150: 1955.55
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
+Seed: 1641076751
+ITERATION 1: 23970.9
+ITERATION 2: 23493.3
+ITERATION 3: 23016.1
+ITERATION 4: 22555.4
+ITERATION 5: 22098.8
+ITERATION 6: 21657.5
+ITERATION 7: 21218.3
+ITERATION 8: 20783.6
+ITERATION 9: 20358.3
+ITERATION 50: 7913.98
+ITERATION 100: 2893.12
+ITERATION 150: 1897.09
+Storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
 
-Storing histories into the file:
-C:/Users/mrade/Documents/tsp_v9/commands/3_opt/../../results/3_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
+Done storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
 
-Done storing histories into the file:
-C:/Users/mrade/Documents/tsp_v9/commands/3_opt/../../results/3_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
+Storing paths histories into the file:
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.paths.csv
 
-Last ITERATION 194: 1696.14
-Best found total distance for 263 points: 1696.14
+Done storing paths histories into the file:
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.paths.csv
+
+Last ITERATION 196: 1671.734514
+Best found total distance for 263 points: 1671.73
 Corresponding path (0-indexed):
-Point #207
-Point #208
-Point #212
-Point #211
-Point #215
-Point #216
-Point #219
-Point #220
-Point #221
-Point #217
-Point #88
-Point #213
-Point #209
-Point #84
-Point #205
-Point #80
-Point #201
-Point #197
-Point #193
-Point #76
-Point #189
-Point #72
-Point #185
-Point #181
-Point #68
-Point #177
-Point #173
-Point #172
-Point #176
-Point #180
-Point #184
-Point #188
-Point #192
-Point #196
-Point #195
-Point #191
-Point #187
-Point #183
-Point #179
-Point #175
-Point #171
-Point #167
-Point #168
-Point #164
-Point #163
-Point #160
-Point #159
-Point #155
-Point #156
-Point #152
-Point #151
-Point #150
-Point #154
-Point #59
-Point #58
-Point #54
-Point #55
-Point #146
-Point #142
-Point #138
-Point #51
-Point #50
-Point #46
-Point #42
-Point #38
-Point #250
-Point #240
-Point #116
-Point #108
-Point #109
-Point #110
-Point #117
-Point #241
-Point #242
-Point #243
-Point #244
-Point #239
-Point #21
-Point #22
-Point #23
-Point #24
-Point #25
-Point #26
-Point #11
-Point #10
-Point #9
-Point #8
-Point #7
-Point #6
-Point #238
-Point #5
-Point #262
-Point #261
 Point #260
 Point #115
 Point #114
-Point #4
-Point #3
 Point #2
 Point #102
 Point #100
@@ -1049,6 +976,18 @@ Point #15
 Point #14
 Point #13
 Point #12
+Point #11
+Point #10
+Point #9
+Point #8
+Point #7
+Point #6
+Point #21
+Point #22
+Point #23
+Point #24
+Point #25
+Point #26
 Point #27
 Point #28
 Point #29
@@ -1068,41 +1007,6 @@ Point #248
 Point #247
 Point #246
 Point #245
-Point #254
-Point #253
-Point #252
-Point #251
-Point #39
-Point #118
-Point #122
-Point #43
-Point #126
-Point #47
-Point #130
-Point #134
-Point #139
-Point #140
-Point #144
-Point #143
-Point #147
-Point #148
-Point #149
-Point #52
-Point #145
-Point #141
-Point #136
-Point #135
-Point #131
-Point #132
-Point #128
-Point #127
-Point #123
-Point #119
-Point #120
-Point #124
-Point #125
-Point #121
-Point #40
 Point #255
 Point #256
 Point #257
@@ -1111,6 +1015,9 @@ Point #259
 Point #236
 Point #41
 Point #45
+Point #40
+Point #121
+Point #125
 Point #44
 Point #129
 Point #133
@@ -1119,14 +1026,15 @@ Point #48
 Point #49
 Point #53
 Point #57
-Point #56
+Point #52
+Point #141
+Point #145
+Point #149
 Point #153
+Point #56
 Point #157
-Point #60
 Point #161
-Point #165
-Point #169
-Point #64
+Point #60
 Point #61
 Point #65
 Point #69
@@ -1141,318 +1049,234 @@ Point #97
 Point #96
 Point #99
 Point #92
+Point #88
+Point #84
+Point #205
+Point #209
+Point #213
+Point #217
+Point #221
 Point #225
 Point #229
 Point #0
 Point #98
 Point #1
 Point #235
+Point #234
+Point #231
 Point #232
 Point #228
+Point #227
 Point #224
 Point #223
-Point #227
-Point #231
-Point #234
-Point #233
-Point #230
-Point #226
+Point #219
+Point #220
+Point #216
+Point #215
+Point #211
+Point #212
+Point #208
+Point #207
+Point #203
+Point #204
+Point #200
+Point #199
+Point #198
+Point #83
+Point #202
+Point #206
+Point #210
+Point #87
+Point #214
+Point #218
+Point #91
 Point #222
+Point #226
+Point #230
+Point #233
 Point #95
 Point #94
 Point #90
-Point #91
-Point #218
-Point #214
-Point #87
-Point #210
-Point #206
-Point #202
-Point #83
 Point #86
 Point #82
 Point #78
+Point #79
+Point #194
+Point #190
+Point #75
+Point #186
+Point #182
+Point #178
+Point #174
+Point #170
+Point #166
+Point #67
+Point #71
 Point #74
 Point #70
 Point #66
 Point #62
 Point #63
-Point #158
 Point #162
-Point #166
-Point #170
-Point #67
-Point #174
-Point #71
-Point #178
-Point #182
-Point #75
-Point #186
-Point #190
-Point #79
-Point #194
-Point #198
-Point #199
-Point #200
-Point #204
-Point #203
-Point #207
-Execution time: 19133 ms
+Point #158
+Point #154
+Point #59
+Point #58
+Point #54
+Point #50
+Point #46
+Point #47
+Point #130
+Point #134
+Point #51
+Point #138
+Point #142
+Point #146
+Point #55
+Point #150
+Point #155
+Point #159
+Point #163
+Point #164
+Point #168
+Point #167
+Point #171
+Point #172
+Point #176
+Point #175
+Point #179
+Point #180
+Point #184
+Point #183
+Point #187
+Point #188
+Point #192
+Point #191
+Point #195
+Point #196
+Point #201
+Point #80
+Point #197
+Point #193
+Point #76
+Point #189
+Point #185
+Point #72
+Point #181
+Point #68
+Point #177
+Point #173
+Point #169
+Point #64
+Point #165
+Point #160
+Point #156
+Point #152
+Point #151
+Point #147
+Point #148
+Point #144
+Point #143
+Point #139
+Point #140
+Point #136
+Point #135
+Point #131
+Point #132
+Point #128
+Point #124
+Point #120
+Point #119
+Point #123
+Point #127
+Point #126
+Point #43
+Point #122
+Point #118
+Point #39
+Point #42
+Point #38
+Point #250
+Point #251
+Point #252
+Point #253
+Point #254
+Point #244
+Point #243
+Point #242
+Point #241
+Point #240
+Point #116
+Point #108
+Point #109
+Point #110
+Point #117
+Point #239
+Point #261
+Point #262
+Point #238
+Point #5
+Point #4
+Point #3
+Point #260
+Execution time: 21792 ms
 
-Elapsed time: 78433 ms
+Elapsed time: 94605 ms
 
 
 Execution #5/10
 
 
 Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v9/commands/3_opt/../../results/3_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
 
 Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v9/commands/3_opt/../../results/3_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
-Seed: 1084725594
-ITERATION 1: 23146.9
-ITERATION 2: 22654.3
-ITERATION 3: 22194.7
-ITERATION 4: 21737
-ITERATION 5: 21295.7
-ITERATION 6: 20865.5
-ITERATION 7: 20439.3
-ITERATION 8: 20021.6
-ITERATION 9: 19609.4
-ITERATION 50: 7915.86
-ITERATION 100: 2927.26
-ITERATION 150: 1877.05
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
+Seed: 1641076752
+ITERATION 1: 22448.4
+ITERATION 2: 22027.8
+ITERATION 3: 21611.6
+ITERATION 4: 21199
+ITERATION 5: 20795
+ITERATION 6: 20394.1
+ITERATION 7: 19995
+ITERATION 8: 19609.6
+ITERATION 9: 19228.8
+ITERATION 50: 7811.92
+ITERATION 100: 3061.72
+ITERATION 150: 1861.3
+Storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
 
-Storing histories into the file:
-C:/Users/mrade/Documents/tsp_v9/commands/3_opt/../../results/3_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
+Done storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
 
-Done storing histories into the file:
-C:/Users/mrade/Documents/tsp_v9/commands/3_opt/../../results/3_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
+Storing paths histories into the file:
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.paths.csv
 
-Last ITERATION 194: 1657.02
-Best found total distance for 263 points: 1657.02
+Done storing paths histories into the file:
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.paths.csv
+
+Last ITERATION 186: 1701.196693
+Best found total distance for 263 points: 1701.2
 Corresponding path (0-indexed):
-Point #118
-Point #119
-Point #120
-Point #124
-Point #123
-Point #128
-Point #127
-Point #131
-Point #132
-Point #136
-Point #135
-Point #134
-Point #138
-Point #51
-Point #50
-Point #54
-Point #58
-Point #62
-Point #66
-Point #70
-Point #74
-Point #78
-Point #82
-Point #86
-Point #90
-Point #94
-Point #95
-Point #226
-Point #230
-Point #233
-Point #234
-Point #235
-Point #232
-Point #231
-Point #227
-Point #228
-Point #224
-Point #220
-Point #216
-Point #215
-Point #219
-Point #223
-Point #222
-Point #218
-Point #91
-Point #214
-Point #210
-Point #87
-Point #206
-Point #83
-Point #202
-Point #198
-Point #194
-Point #79
-Point #190
-Point #75
-Point #186
-Point #182
-Point #71
-Point #178
-Point #174
-Point #170
-Point #67
-Point #166
-Point #63
-Point #162
-Point #158
-Point #154
-Point #59
-Point #150
-Point #146
-Point #55
-Point #142
-Point #139
-Point #140
-Point #144
-Point #143
-Point #147
-Point #148
-Point #152
-Point #151
-Point #155
-Point #156
-Point #160
-Point #159
-Point #163
-Point #164
-Point #167
-Point #168
-Point #172
-Point #171
-Point #175
-Point #176
-Point #180
-Point #179
-Point #183
-Point #184
-Point #188
-Point #187
-Point #192
-Point #191
-Point #195
-Point #196
-Point #200
-Point #199
-Point #203
-Point #204
-Point #208
-Point #207
-Point #211
-Point #212
-Point #213
-Point #88
-Point #217
-Point #221
-Point #92
-Point #225
-Point #229
-Point #0
-Point #1
-Point #98
-Point #99
-Point #96
-Point #97
-Point #237
-Point #93
-Point #89
-Point #85
-Point #84
-Point #209
-Point #205
-Point #201
-Point #80
-Point #197
-Point #193
-Point #189
-Point #76
-Point #81
-Point #77
-Point #73
-Point #69
-Point #72
-Point #185
-Point #181
-Point #68
-Point #177
-Point #173
-Point #169
-Point #64
-Point #165
-Point #161
-Point #157
-Point #60
-Point #65
-Point #61
-Point #57
-Point #56
-Point #153
-Point #149
-Point #145
-Point #52
-Point #53
-Point #49
-Point #48
-Point #141
-Point #137
-Point #133
-Point #129
-Point #44
-Point #125
-Point #121
-Point #40
-Point #45
-Point #41
-Point #236
-Point #259
-Point #258
-Point #257
-Point #256
-Point #255
-Point #245
-Point #246
-Point #247
-Point #248
-Point #249
-Point #37
-Point #113
-Point #112
-Point #111
-Point #36
-Point #35
-Point #34
-Point #33
-Point #32
-Point #31
-Point #30
-Point #29
-Point #14
-Point #15
-Point #16
-Point #17
-Point #18
-Point #19
-Point #20
-Point #107
-Point #106
-Point #105
-Point #104
-Point #103
-Point #101
-Point #100
-Point #102
-Point #2
-Point #3
-Point #4
-Point #114
-Point #115
-Point #260
+Point #240
+Point #116
+Point #108
+Point #109
+Point #110
 Point #261
 Point #262
+Point #260
+Point #115
+Point #114
+Point #2
+Point #102
+Point #100
+Point #101
+Point #103
+Point #3
+Point #4
 Point #5
 Point #238
 Point #6
@@ -1463,6 +1287,228 @@ Point #10
 Point #11
 Point #12
 Point #13
+Point #14
+Point #15
+Point #16
+Point #17
+Point #18
+Point #19
+Point #104
+Point #105
+Point #106
+Point #107
+Point #20
+Point #35
+Point #36
+Point #37
+Point #249
+Point #248
+Point #257
+Point #258
+Point #259
+Point #236
+Point #41
+Point #45
+Point #49
+Point #53
+Point #57
+Point #52
+Point #141
+Point #145
+Point #149
+Point #56
+Point #153
+Point #157
+Point #161
+Point #60
+Point #165
+Point #169
+Point #64
+Point #61
+Point #65
+Point #69
+Point #68
+Point #173
+Point #177
+Point #181
+Point #185
+Point #189
+Point #72
+Point #73
+Point #77
+Point #81
+Point #85
+Point #89
+Point #93
+Point #237
+Point #97
+Point #96
+Point #99
+Point #98
+Point #1
+Point #0
+Point #229
+Point #225
+Point #92
+Point #221
+Point #217
+Point #88
+Point #213
+Point #209
+Point #84
+Point #205
+Point #201
+Point #80
+Point #197
+Point #76
+Point #193
+Point #196
+Point #200
+Point #204
+Point #203
+Point #199
+Point #195
+Point #191
+Point #192
+Point #188
+Point #187
+Point #183
+Point #184
+Point #180
+Point #179
+Point #178
+Point #71
+Point #182
+Point #186
+Point #75
+Point #190
+Point #194
+Point #79
+Point #198
+Point #83
+Point #202
+Point #206
+Point #87
+Point #210
+Point #214
+Point #91
+Point #218
+Point #215
+Point #211
+Point #207
+Point #208
+Point #212
+Point #216
+Point #220
+Point #219
+Point #223
+Point #224
+Point #228
+Point #227
+Point #231
+Point #232
+Point #235
+Point #234
+Point #233
+Point #230
+Point #226
+Point #222
+Point #95
+Point #94
+Point #90
+Point #86
+Point #82
+Point #78
+Point #74
+Point #70
+Point #66
+Point #67
+Point #166
+Point #170
+Point #174
+Point #175
+Point #176
+Point #172
+Point #171
+Point #167
+Point #168
+Point #164
+Point #163
+Point #159
+Point #160
+Point #156
+Point #155
+Point #151
+Point #152
+Point #148
+Point #147
+Point #144
+Point #143
+Point #139
+Point #140
+Point #136
+Point #135
+Point #131
+Point #126
+Point #130
+Point #47
+Point #134
+Point #138
+Point #51
+Point #142
+Point #55
+Point #146
+Point #150
+Point #59
+Point #154
+Point #158
+Point #162
+Point #63
+Point #62
+Point #58
+Point #54
+Point #50
+Point #46
+Point #42
+Point #43
+Point #122
+Point #118
+Point #39
+Point #38
+Point #250
+Point #251
+Point #252
+Point #253
+Point #254
+Point #119
+Point #120
+Point #124
+Point #123
+Point #127
+Point #128
+Point #132
+Point #137
+Point #48
+Point #133
+Point #44
+Point #129
+Point #125
+Point #121
+Point #40
+Point #256
+Point #255
+Point #245
+Point #246
+Point #247
+Point #111
+Point #112
+Point #113
+Point #34
+Point #33
+Point #32
+Point #31
+Point #30
+Point #29
 Point #28
 Point #27
 Point #26
@@ -1472,67 +1518,89 @@ Point #23
 Point #22
 Point #21
 Point #239
-Point #117
-Point #110
-Point #109
-Point #108
-Point #116
-Point #240
-Point #241
-Point #242
-Point #243
 Point #244
-Point #254
-Point #253
-Point #252
-Point #251
-Point #250
-Point #39
-Point #38
-Point #42
-Point #46
-Point #47
-Point #130
-Point #126
-Point #122
-Point #43
-Point #118
-Execution time: 19119 ms
+Point #243
+Point #242
+Point #117
+Point #241
+Point #240
+Execution time: 19776 ms
 
-Elapsed time: 97552 ms
+Elapsed time: 114381 ms
 
 
 Execution #6/10
 
 
 Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v9/commands/3_opt/../../results/3_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
 
 Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v9/commands/3_opt/../../results/3_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
-Seed: 1084725595
-ITERATION 1: 23962.8
-ITERATION 2: 23473.8
-ITERATION 3: 23028.5
-ITERATION 4: 22587.4
-ITERATION 5: 22142.2
-ITERATION 6: 21706.9
-ITERATION 7: 21280.1
-ITERATION 8: 20856.8
-ITERATION 9: 20441.5
-ITERATION 50: 8020.34
-ITERATION 100: 3072.38
-ITERATION 150: 1860.12
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
+Seed: 1641076753
+ITERATION 1: 23856.7
+ITERATION 2: 23361.3
+ITERATION 3: 22886.8
+ITERATION 4: 22417.1
+ITERATION 5: 21953.9
+ITERATION 6: 21514.4
+ITERATION 7: 21085.1
+ITERATION 8: 20655.5
+ITERATION 9: 20237.2
+ITERATION 50: 7955.37
+ITERATION 100: 3152.62
+ITERATION 150: 1943.73
+Storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
 
-Storing histories into the file:
-C:/Users/mrade/Documents/tsp_v9/commands/3_opt/../../results/3_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
+Done storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
 
-Done storing histories into the file:
-C:/Users/mrade/Documents/tsp_v9/commands/3_opt/../../results/3_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
+Storing paths histories into the file:
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.paths.csv
 
-Last ITERATION 186: 1661.57
-Best found total distance for 263 points: 1661.57
+Done storing paths histories into the file:
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.paths.csv
+
+Last ITERATION 191: 1671.151658
+Best found total distance for 263 points: 1671.15
 Corresponding path (0-indexed):
+Point #204
+Point #203
+Point #199
+Point #200
+Point #195
+Point #196
+Point #192
+Point #191
+Point #187
+Point #188
+Point #189
+Point #185
+Point #72
+Point #73
+Point #69
+Point #65
+Point #61
+Point #57
+Point #53
+Point #49
+Point #45
+Point #41
+Point #236
+Point #259
+Point #258
+Point #257
+Point #256
+Point #245
+Point #246
+Point #247
+Point #248
+Point #249
+Point #37
+Point #113
+Point #112
+Point #111
 Point #36
 Point #35
 Point #34
@@ -1549,6 +1617,9 @@ Point #24
 Point #23
 Point #22
 Point #21
+Point #239
+Point #238
+Point #5
 Point #6
 Point #7
 Point #8
@@ -1578,441 +1649,318 @@ Point #4
 Point #114
 Point #115
 Point #260
-Point #261
 Point #262
-Point #5
-Point #238
-Point #239
-Point #117
+Point #261
 Point #110
 Point #109
 Point #108
 Point #116
 Point #240
 Point #241
+Point #117
 Point #242
 Point #243
 Point #244
+Point #255
+Point #40
+Point #121
+Point #125
+Point #129
+Point #44
+Point #133
+Point #137
+Point #48
+Point #141
+Point #145
+Point #52
+Point #149
+Point #153
+Point #56
+Point #157
+Point #161
+Point #60
+Point #165
+Point #169
+Point #64
+Point #173
+Point #177
+Point #68
+Point #181
+Point #180
+Point #184
+Point #183
+Point #179
+Point #175
+Point #176
+Point #172
+Point #171
+Point #167
+Point #168
+Point #164
+Point #163
+Point #160
+Point #159
+Point #155
+Point #156
+Point #152
+Point #151
+Point #150
+Point #146
+Point #55
+Point #142
+Point #51
+Point #138
+Point #134
+Point #130
+Point #47
+Point #126
+Point #131
+Point #135
+Point #139
+Point #143
+Point #147
+Point #148
+Point #144
+Point #140
+Point #136
+Point #132
+Point #128
+Point #127
+Point #123
+Point #124
+Point #120
+Point #119
 Point #254
 Point #253
 Point #252
 Point #251
 Point #250
-Point #39
 Point #38
-Point #42
-Point #43
+Point #39
 Point #118
 Point #122
-Point #126
-Point #130
-Point #47
+Point #43
+Point #42
 Point #46
 Point #50
 Point #54
-Point #55
-Point #150
-Point #146
-Point #142
-Point #51
-Point #138
-Point #134
-Point #131
-Point #127
-Point #123
-Point #119
-Point #120
-Point #124
-Point #128
-Point #132
-Point #136
-Point #135
-Point #139
-Point #140
-Point #144
-Point #143
-Point #147
-Point #148
-Point #152
-Point #151
-Point #155
-Point #156
-Point #160
-Point #159
-Point #163
-Point #167
-Point #166
-Point #162
-Point #63
-Point #158
-Point #154
-Point #59
 Point #58
+Point #59
+Point #154
+Point #158
+Point #162
+Point #166
+Point #63
 Point #62
 Point #66
+Point #70
 Point #67
 Point #170
 Point #174
 Point #178
-Point #182
 Point #71
-Point #70
-Point #74
-Point #75
+Point #182
 Point #186
 Point #190
-Point #194
-Point #79
+Point #75
+Point #74
 Point #78
+Point #79
+Point #194
+Point #198
+Point #202
+Point #83
 Point #82
 Point #86
 Point #90
 Point #94
 Point #95
-Point #226
-Point #230
 Point #233
-Point #234
-Point #235
-Point #232
-Point #231
-Point #228
-Point #227
-Point #223
-Point #224
-Point #220
-Point #219
+Point #230
+Point #226
 Point #222
-Point #91
 Point #218
+Point #91
 Point #214
 Point #87
 Point #210
 Point #206
-Point #202
-Point #83
-Point #198
-Point #203
 Point #207
+Point #208
+Point #212
 Point #211
 Point #215
 Point #216
-Point #217
-Point #88
-Point #221
-Point #225
-Point #92
-Point #229
-Point #0
+Point #220
+Point #219
+Point #223
+Point #224
+Point #227
+Point #228
+Point #232
+Point #231
+Point #234
+Point #235
 Point #1
+Point #0
 Point #98
 Point #99
 Point #96
 Point #97
 Point #237
 Point #93
+Point #92
+Point #229
+Point #225
+Point #221
+Point #217
+Point #88
 Point #89
 Point #85
 Point #81
 Point #77
-Point #73
-Point #69
-Point #65
-Point #64
-Point #169
-Point #173
-Point #68
-Point #177
-Point #181
-Point #185
-Point #72
-Point #189
 Point #76
 Point #193
 Point #197
-Point #80
 Point #201
+Point #80
 Point #205
 Point #84
 Point #209
 Point #213
-Point #212
-Point #208
 Point #204
-Point #200
-Point #199
-Point #195
-Point #196
-Point #192
-Point #191
-Point #187
-Point #188
-Point #184
-Point #183
-Point #179
-Point #180
-Point #176
-Point #175
-Point #171
-Point #172
-Point #168
-Point #164
-Point #165
-Point #161
-Point #60
-Point #61
-Point #57
-Point #53
-Point #49
-Point #52
-Point #56
-Point #157
-Point #153
-Point #149
-Point #145
-Point #141
-Point #48
-Point #137
-Point #133
-Point #44
-Point #129
-Point #125
-Point #121
-Point #40
-Point #45
-Point #41
-Point #236
-Point #259
-Point #258
-Point #257
-Point #256
-Point #255
-Point #245
-Point #246
-Point #247
-Point #248
-Point #249
-Point #37
-Point #113
-Point #112
-Point #111
-Point #36
-Execution time: 18125 ms
+Execution time: 20714 ms
 
-Elapsed time: 115677 ms
+Elapsed time: 135095 ms
 
 
 Execution #7/10
 
 
 Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v9/commands/3_opt/../../results/3_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
 
 Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v9/commands/3_opt/../../results/3_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
-Seed: 1084725596
-ITERATION 1: 23240.5
-ITERATION 2: 22766.7
-ITERATION 3: 22303.8
-ITERATION 4: 21846.7
-ITERATION 5: 21391.9
-ITERATION 6: 20946.3
-ITERATION 7: 20529.4
-ITERATION 8: 20101.2
-ITERATION 9: 19706.3
-ITERATION 50: 8036.74
-ITERATION 100: 3116.29
-ITERATION 150: 1957.25
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
+Seed: 1641076754
+ITERATION 1: 23875.2
+ITERATION 2: 23390.3
+ITERATION 3: 22922
+ITERATION 4: 22455.6
+ITERATION 5: 21990.1
+ITERATION 6: 21556.4
+ITERATION 7: 21134.6
+ITERATION 8: 20710.4
+ITERATION 9: 20302.3
+ITERATION 50: 8138.16
+ITERATION 100: 3150.98
+ITERATION 150: 1977.42
+ITERATION 200: 1718.88
+Storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
 
-Storing histories into the file:
-C:/Users/mrade/Documents/tsp_v9/commands/3_opt/../../results/3_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
+Done storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
 
-Done storing histories into the file:
-C:/Users/mrade/Documents/tsp_v9/commands/3_opt/../../results/3_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
+Storing paths histories into the file:
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.paths.csv
 
-Last ITERATION 195: 1692.78
-Best found total distance for 263 points: 1692.78
+Done storing paths histories into the file:
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.paths.csv
+
+Last ITERATION 204: 1718.140884
+Best found total distance for 263 points: 1718.14
 Corresponding path (0-indexed):
 Point #20
-Point #35
-Point #36
-Point #37
-Point #249
-Point #248
-Point #247
-Point #111
-Point #112
-Point #113
-Point #34
-Point #33
-Point #32
-Point #31
-Point #30
-Point #29
-Point #28
-Point #27
-Point #26
-Point #25
-Point #24
-Point #23
-Point #22
-Point #21
+Point #107
+Point #106
+Point #105
+Point #104
+Point #19
+Point #18
+Point #17
+Point #16
+Point #15
+Point #14
+Point #13
+Point #12
+Point #11
+Point #10
+Point #9
+Point #8
+Point #7
+Point #6
+Point #238
+Point #5
+Point #4
+Point #3
+Point #103
+Point #101
+Point #100
+Point #102
+Point #2
+Point #114
+Point #115
+Point #260
+Point #262
+Point #261
 Point #239
 Point #117
+Point #110
+Point #109
+Point #108
+Point #116
+Point #240
 Point #241
 Point #242
 Point #243
 Point #244
-Point #245
-Point #246
-Point #255
-Point #256
-Point #257
-Point #258
-Point #259
-Point #236
-Point #41
-Point #40
-Point #121
-Point #125
-Point #124
-Point #128
-Point #132
-Point #131
-Point #127
-Point #123
-Point #119
-Point #120
 Point #254
 Point #253
 Point #252
 Point #251
+Point #250
+Point #38
 Point #39
 Point #118
 Point #122
 Point #43
-Point #126
-Point #130
-Point #47
-Point #134
-Point #51
-Point #138
-Point #142
-Point #146
-Point #55
-Point #150
-Point #154
-Point #59
-Point #158
-Point #63
-Point #162
-Point #166
-Point #67
-Point #170
-Point #174
-Point #178
+Point #42
+Point #46
+Point #50
+Point #54
+Point #58
+Point #62
+Point #66
+Point #70
 Point #71
-Point #75
-Point #190
-Point #186
+Point #178
 Point #182
-Point #179
-Point #175
-Point #171
-Point #172
-Point #176
-Point #180
-Point #184
-Point #183
-Point #187
-Point #188
-Point #192
-Point #191
-Point #196
-Point #195
-Point #199
-Point #200
-Point #201
-Point #80
-Point #197
-Point #76
-Point #193
-Point #189
-Point #185
-Point #72
-Point #181
-Point #177
-Point #68
-Point #173
-Point #169
-Point #64
-Point #165
-Point #60
-Point #161
-Point #157
-Point #160
-Point #164
-Point #168
-Point #167
-Point #163
-Point #159
-Point #155
-Point #156
-Point #152
-Point #151
-Point #147
-Point #143
-Point #139
-Point #135
-Point #136
-Point #140
-Point #144
-Point #148
-Point #153
-Point #56
-Point #149
-Point #52
-Point #145
-Point #141
-Point #48
-Point #137
-Point #133
-Point #129
-Point #44
-Point #45
-Point #49
-Point #53
-Point #57
-Point #61
-Point #65
-Point #69
-Point #73
-Point #77
-Point #81
-Point #85
-Point #89
-Point #93
-Point #237
-Point #97
-Point #96
-Point #99
-Point #98
-Point #1
-Point #0
-Point #229
-Point #92
-Point #225
-Point #221
-Point #217
-Point #88
-Point #213
-Point #209
-Point #84
-Point #205
-Point #204
-Point #203
-Point #208
-Point #207
+Point #186
+Point #75
+Point #74
+Point #78
+Point #79
+Point #190
+Point #194
+Point #198
+Point #83
+Point #202
+Point #206
+Point #210
+Point #87
+Point #82
+Point #86
+Point #90
+Point #94
+Point #95
+Point #233
+Point #230
+Point #226
+Point #222
+Point #218
+Point #91
+Point #214
 Point #211
 Point #212
 Point #216
@@ -2021,129 +1969,275 @@ Point #219
 Point #220
 Point #224
 Point #223
-Point #228
 Point #227
-Point #231
+Point #228
 Point #232
-Point #235
+Point #231
 Point #234
-Point #233
-Point #230
-Point #226
-Point #222
-Point #95
-Point #94
-Point #90
-Point #86
-Point #91
-Point #218
-Point #214
-Point #210
-Point #87
-Point #206
-Point #83
-Point #202
-Point #198
-Point #194
-Point #79
-Point #82
-Point #78
-Point #74
-Point #70
-Point #66
-Point #62
-Point #58
-Point #54
-Point #50
-Point #46
-Point #42
-Point #38
-Point #250
-Point #240
-Point #116
-Point #108
-Point #109
-Point #110
-Point #261
-Point #262
-Point #260
-Point #115
-Point #114
-Point #2
-Point #102
-Point #100
-Point #101
-Point #103
-Point #3
-Point #4
-Point #5
-Point #238
-Point #6
-Point #7
-Point #8
-Point #9
-Point #10
-Point #11
-Point #12
-Point #13
-Point #14
-Point #15
-Point #16
-Point #17
-Point #18
-Point #19
-Point #104
-Point #105
-Point #106
-Point #107
+Point #235
+Point #1
+Point #0
+Point #98
+Point #229
+Point #225
+Point #221
+Point #217
+Point #88
+Point #92
+Point #99
+Point #96
+Point #97
+Point #237
+Point #93
+Point #89
+Point #85
+Point #81
+Point #77
+Point #73
+Point #72
+Point #185
+Point #181
+Point #177
+Point #173
+Point #68
+Point #69
+Point #65
+Point #64
+Point #169
+Point #165
+Point #164
+Point #163
+Point #168
+Point #167
+Point #171
+Point #172
+Point #176
+Point #180
+Point #184
+Point #189
+Point #193
+Point #76
+Point #197
+Point #80
+Point #201
+Point #205
+Point #84
+Point #209
+Point #213
+Point #208
+Point #207
+Point #204
+Point #203
+Point #199
+Point #200
+Point #196
+Point #195
+Point #191
+Point #192
+Point #188
+Point #187
+Point #183
+Point #179
+Point #175
+Point #174
+Point #67
+Point #170
+Point #166
+Point #63
+Point #162
+Point #158
+Point #59
+Point #154
+Point #150
+Point #151
+Point #155
+Point #159
+Point #160
+Point #156
+Point #152
+Point #148
+Point #149
+Point #56
+Point #153
+Point #157
+Point #161
+Point #60
+Point #61
+Point #57
+Point #53
+Point #52
+Point #145
+Point #141
+Point #140
+Point #139
+Point #144
+Point #143
+Point #147
+Point #146
+Point #55
+Point #142
+Point #51
+Point #138
+Point #134
+Point #47
+Point #130
+Point #126
+Point #127
+Point #131
+Point #135
+Point #136
+Point #132
+Point #128
+Point #124
+Point #123
+Point #119
+Point #120
+Point #121
+Point #40
+Point #125
+Point #129
+Point #44
+Point #133
+Point #137
+Point #48
+Point #49
+Point #45
+Point #41
+Point #236
+Point #259
+Point #258
+Point #257
+Point #256
+Point #255
+Point #245
+Point #246
+Point #247
+Point #248
+Point #249
+Point #37
+Point #113
+Point #112
+Point #111
+Point #21
+Point #22
+Point #23
+Point #24
+Point #25
+Point #26
+Point #27
+Point #28
+Point #29
+Point #30
+Point #31
+Point #32
+Point #33
+Point #34
+Point #35
+Point #36
 Point #20
-Execution time: 19075 ms
+Execution time: 22875 ms
 
-Elapsed time: 134752 ms
+Elapsed time: 157970 ms
 
 
 Execution #8/10
 
 
 Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v9/commands/3_opt/../../results/3_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
 
 Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v9/commands/3_opt/../../results/3_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
-Seed: 1084725597
-ITERATION 1: 24534.8
-ITERATION 2: 24081.4
-ITERATION 3: 23636.6
-ITERATION 4: 23191.6
-ITERATION 5: 22751.8
-ITERATION 6: 22316.4
-ITERATION 7: 21896.4
-ITERATION 8: 21471.7
-ITERATION 9: 21053.7
-ITERATION 50: 8809.37
-ITERATION 100: 3047.98
-ITERATION 150: 1923.47
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
+Seed: 1641076755
+ITERATION 1: 23153.1
+ITERATION 2: 22658.2
+ITERATION 3: 22168.5
+ITERATION 4: 21697.9
+ITERATION 5: 21242
+ITERATION 6: 20825
+ITERATION 7: 20408.5
+ITERATION 8: 19996.9
+ITERATION 9: 19596.8
+ITERATION 50: 7817.2
+ITERATION 100: 3049.48
+ITERATION 150: 1865.38
+Storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
 
-Storing histories into the file:
-C:/Users/mrade/Documents/tsp_v9/commands/3_opt/../../results/3_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
+Done storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
 
-Done storing histories into the file:
-C:/Users/mrade/Documents/tsp_v9/commands/3_opt/../../results/3_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
+Storing paths histories into the file:
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.paths.csv
 
-Last ITERATION 194: 1703.9
-Best found total distance for 263 points: 1703.9
+Done storing paths histories into the file:
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.paths.csv
+
+Last ITERATION 196: 1666.019279
+Best found total distance for 263 points: 1666.02
 Corresponding path (0-indexed):
-Point #222
-Point #226
+Point #253
+Point #252
+Point #251
+Point #250
+Point #38
+Point #42
+Point #39
+Point #118
+Point #43
+Point #122
+Point #126
+Point #130
+Point #47
+Point #46
+Point #50
+Point #54
+Point #58
+Point #62
+Point #66
+Point #70
+Point #74
+Point #78
+Point #82
+Point #86
+Point #90
+Point #94
 Point #95
+Point #226
 Point #230
 Point #233
 Point #234
-Point #231
-Point #232
 Point #235
-Point #1
+Point #232
+Point #231
+Point #228
+Point #227
+Point #223
+Point #224
+Point #220
+Point #216
+Point #212
+Point #208
+Point #204
+Point #200
+Point #196
+Point #193
+Point #76
+Point #197
+Point #80
+Point #201
+Point #205
+Point #209
+Point #84
+Point #213
+Point #88
+Point #217
+Point #221
+Point #92
+Point #225
+Point #229
 Point #0
+Point #1
 Point #98
 Point #99
 Point #96
@@ -2156,72 +2250,99 @@ Point #81
 Point #77
 Point #73
 Point #69
-Point #65
-Point #61
-Point #60
-Point #161
-Point #165
-Point #64
-Point #169
-Point #173
 Point #68
+Point #173
 Point #177
 Point #181
 Point #72
-Point #76
-Point #80
-Point #205
-Point #201
-Point #197
-Point #193
-Point #189
 Point #185
-Point #180
-Point #179
+Point #189
+Point #184
+Point #183
+Point #187
+Point #188
+Point #192
+Point #191
+Point #195
+Point #199
+Point #203
+Point #207
+Point #211
+Point #215
+Point #219
+Point #222
+Point #218
+Point #91
+Point #214
+Point #87
+Point #210
+Point #206
+Point #83
+Point #202
+Point #198
+Point #79
+Point #194
+Point #190
+Point #75
+Point #186
+Point #182
+Point #71
+Point #178
+Point #174
+Point #67
+Point #170
+Point #166
+Point #63
+Point #162
+Point #163
+Point #167
+Point #171
 Point #175
+Point #179
+Point #180
 Point #176
 Point #172
 Point #168
 Point #164
 Point #160
+Point #156
+Point #155
 Point #159
-Point #163
-Point #167
-Point #171
-Point #174
-Point #170
-Point #67
-Point #166
-Point #63
-Point #162
 Point #158
 Point #59
 Point #154
 Point #150
+Point #55
+Point #146
+Point #142
+Point #51
+Point #138
+Point #134
+Point #139
+Point #143
 Point #147
-Point #148
-Point #152
 Point #151
-Point #155
-Point #156
-Point #157
-Point #153
+Point #152
+Point #148
+Point #144
+Point #140
+Point #141
+Point #52
+Point #145
+Point #149
 Point #56
+Point #153
+Point #157
+Point #60
+Point #161
+Point #165
+Point #169
+Point #64
+Point #65
+Point #61
 Point #57
 Point #53
 Point #49
-Point #52
-Point #149
-Point #145
-Point #141
-Point #137
-Point #48
-Point #133
-Point #129
-Point #44
-Point #125
-Point #121
-Point #40
 Point #45
 Point #41
 Point #236
@@ -2230,6 +2351,25 @@ Point #258
 Point #257
 Point #256
 Point #255
+Point #40
+Point #121
+Point #125
+Point #129
+Point #44
+Point #133
+Point #48
+Point #137
+Point #136
+Point #135
+Point #131
+Point #132
+Point #128
+Point #127
+Point #123
+Point #124
+Point #120
+Point #119
+Point #254
 Point #245
 Point #246
 Point #247
@@ -2243,6 +2383,33 @@ Point #36
 Point #35
 Point #34
 Point #33
+Point #32
+Point #31
+Point #30
+Point #29
+Point #28
+Point #27
+Point #26
+Point #25
+Point #24
+Point #23
+Point #22
+Point #21
+Point #239
+Point #238
+Point #5
+Point #6
+Point #7
+Point #8
+Point #9
+Point #10
+Point #11
+Point #12
+Point #13
+Point #14
+Point #15
+Point #16
+Point #17
 Point #18
 Point #19
 Point #20
@@ -2260,564 +2427,528 @@ Point #4
 Point #114
 Point #115
 Point #260
-Point #261
 Point #262
-Point #5
-Point #238
-Point #6
-Point #7
-Point #8
-Point #9
-Point #10
-Point #11
-Point #12
-Point #13
-Point #14
-Point #15
-Point #16
-Point #17
-Point #32
-Point #31
-Point #30
-Point #29
-Point #28
-Point #27
-Point #26
-Point #25
-Point #24
-Point #23
-Point #22
-Point #21
-Point #239
-Point #244
-Point #243
-Point #242
-Point #241
-Point #117
+Point #261
 Point #110
 Point #109
 Point #108
 Point #116
 Point #240
-Point #250
-Point #251
-Point #252
+Point #241
+Point #117
+Point #242
+Point #243
+Point #244
 Point #253
-Point #254
-Point #119
-Point #120
-Point #124
-Point #123
-Point #127
-Point #128
-Point #132
-Point #136
-Point #140
-Point #144
-Point #143
-Point #139
-Point #135
-Point #131
-Point #126
-Point #43
-Point #122
-Point #118
-Point #39
-Point #38
-Point #42
-Point #46
-Point #50
-Point #47
-Point #130
-Point #134
-Point #138
-Point #51
-Point #142
-Point #146
-Point #55
-Point #54
-Point #58
-Point #62
-Point #66
-Point #70
-Point #74
-Point #78
-Point #82
-Point #86
-Point #90
-Point #94
-Point #91
-Point #218
-Point #214
-Point #87
-Point #210
-Point #206
-Point #83
-Point #202
-Point #198
-Point #194
-Point #79
-Point #190
-Point #75
-Point #186
-Point #182
-Point #71
-Point #178
-Point #183
-Point #184
-Point #188
-Point #187
-Point #191
-Point #192
-Point #196
-Point #195
-Point #199
-Point #200
-Point #204
-Point #203
-Point #207
-Point #208
-Point #212
-Point #211
-Point #215
-Point #216
-Point #213
-Point #209
-Point #84
-Point #88
-Point #217
-Point #221
-Point #92
-Point #225
-Point #229
-Point #228
-Point #227
-Point #223
-Point #224
-Point #220
-Point #219
-Point #222
-Execution time: 18912 ms
+Execution time: 20494 ms
 
-Elapsed time: 153664 ms
+Elapsed time: 178464 ms
 
 
 Execution #9/10
 
 
 Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v9/commands/3_opt/../../results/3_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
 
 Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v9/commands/3_opt/../../results/3_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
-Seed: 1084725598
-ITERATION 1: 22330.6
-ITERATION 2: 21859.1
-ITERATION 3: 21400.6
-ITERATION 4: 20979
-ITERATION 5: 20559.1
-ITERATION 6: 20149.8
-ITERATION 7: 19741.4
-ITERATION 8: 19339.5
-ITERATION 9: 18939.4
-ITERATION 50: 7761.76
-ITERATION 100: 3103.16
-ITERATION 150: 1929.78
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
+Seed: 1641076756
+ITERATION 1: 21632.8
+ITERATION 2: 21181.1
+ITERATION 3: 20750.3
+ITERATION 4: 20334.8
+ITERATION 5: 19919.2
+ITERATION 6: 19507.2
+ITERATION 7: 19092.5
+ITERATION 8: 18689.7
+ITERATION 9: 18294.8
+ITERATION 50: 6938.93
+ITERATION 100: 2815.09
+ITERATION 150: 1804.47
+Storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
 
-Storing histories into the file:
-C:/Users/mrade/Documents/tsp_v9/commands/3_opt/../../results/3_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
+Done storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
 
-Done storing histories into the file:
-C:/Users/mrade/Documents/tsp_v9/commands/3_opt/../../results/3_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
+Storing paths histories into the file:
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.paths.csv
 
-Last ITERATION 197: 1675.21
-Best found total distance for 263 points: 1675.21
+Done storing paths histories into the file:
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.paths.csv
+
+Last ITERATION 191: 1648.774878
+Best found total distance for 263 points: 1648.77
 Corresponding path (0-indexed):
-Point #37
-Point #249
-Point #248
-Point #247
-Point #246
-Point #245
-Point #255
-Point #256
-Point #257
-Point #258
-Point #259
-Point #236
-Point #41
-Point #45
-Point #49
-Point #48
-Point #137
-Point #133
-Point #129
-Point #44
-Point #125
-Point #40
-Point #121
-Point #120
+Point #118
 Point #119
-Point #123
+Point #120
 Point #124
-Point #128
+Point #123
 Point #127
-Point #131
+Point #128
 Point #132
-Point #136
+Point #131
 Point #135
+Point #136
+Point #140
 Point #139
 Point #143
+Point #144
+Point #148
 Point #147
 Point #151
+Point #152
+Point #156
 Point #155
+Point #160
 Point #159
 Point #163
 Point #164
-Point #160
-Point #156
-Point #152
-Point #148
-Point #144
-Point #140
-Point #141
-Point #145
-Point #52
-Point #53
-Point #57
-Point #56
-Point #149
-Point #153
-Point #157
-Point #60
-Point #161
-Point #165
-Point #169
-Point #64
-Point #61
-Point #65
-Point #69
-Point #73
-Point #77
-Point #81
-Point #85
-Point #89
-Point #93
-Point #237
-Point #97
-Point #96
-Point #99
-Point #98
-Point #1
-Point #0
-Point #229
-Point #225
-Point #92
-Point #221
-Point #88
-Point #84
-Point #209
-Point #213
-Point #217
-Point #220
-Point #224
-Point #228
-Point #232
-Point #235
-Point #234
-Point #231
-Point #227
-Point #223
-Point #219
-Point #218
-Point #91
-Point #222
-Point #226
-Point #230
-Point #233
-Point #95
-Point #94
-Point #90
-Point #86
-Point #82
-Point #78
-Point #79
-Point #194
-Point #198
+Point #168
+Point #167
+Point #171
+Point #172
+Point #176
+Point #175
+Point #174
+Point #170
+Point #67
+Point #166
+Point #162
+Point #63
+Point #158
+Point #59
+Point #154
+Point #150
+Point #146
+Point #142
+Point #55
+Point #54
+Point #58
+Point #62
+Point #66
+Point #70
+Point #71
+Point #178
+Point #182
+Point #179
+Point #180
+Point #184
+Point #183
+Point #187
+Point #188
+Point #192
+Point #191
+Point #195
+Point #196
+Point #200
+Point #199
+Point #203
+Point #204
+Point #208
+Point #207
+Point #206
 Point #83
 Point #202
-Point #206
+Point #198
+Point #194
+Point #79
+Point #190
+Point #186
+Point #75
+Point #74
+Point #78
+Point #82
+Point #86
 Point #87
 Point #210
 Point #214
-Point #215
+Point #218
+Point #222
+Point #91
+Point #90
+Point #94
+Point #95
+Point #226
+Point #230
+Point #233
+Point #234
+Point #235
+Point #232
+Point #231
+Point #228
+Point #227
+Point #223
+Point #224
+Point #220
+Point #219
 Point #216
-Point #212
+Point #215
 Point #211
-Point #207
-Point #208
-Point #204
-Point #203
-Point #199
-Point #195
-Point #191
-Point #187
-Point #183
-Point #184
-Point #188
-Point #192
-Point #196
-Point #200
+Point #212
+Point #213
+Point #217
+Point #88
+Point #221
+Point #92
+Point #225
+Point #229
+Point #0
+Point #1
+Point #98
+Point #99
+Point #96
+Point #97
+Point #237
+Point #93
+Point #89
+Point #85
+Point #84
+Point #209
 Point #205
 Point #201
-Point #80
 Point #197
+Point #80
+Point #81
+Point #77
 Point #76
 Point #193
 Point #189
 Point #185
 Point #72
-Point #181
+Point #73
+Point #69
 Point #68
-Point #173
+Point #181
 Point #177
-Point #180
-Point #179
-Point #175
-Point #176
-Point #172
-Point #168
-Point #167
-Point #171
-Point #174
-Point #71
-Point #178
-Point #182
-Point #186
-Point #190
-Point #75
-Point #74
-Point #70
-Point #66
-Point #67
-Point #170
-Point #166
-Point #63
-Point #162
-Point #158
-Point #154
-Point #150
-Point #146
-Point #55
-Point #59
-Point #62
-Point #58
-Point #54
+Point #173
+Point #169
+Point #165
+Point #64
+Point #65
+Point #61
+Point #60
+Point #161
+Point #157
+Point #153
+Point #149
+Point #56
+Point #57
+Point #53
+Point #52
+Point #145
+Point #141
+Point #137
+Point #48
+Point #133
+Point #129
+Point #125
+Point #121
+Point #40
+Point #44
+Point #49
+Point #45
+Point #41
+Point #236
+Point #259
+Point #258
+Point #257
+Point #256
+Point #255
+Point #245
+Point #246
+Point #247
+Point #248
+Point #249
+Point #37
+Point #113
+Point #112
+Point #111
+Point #36
+Point #35
+Point #34
+Point #33
+Point #32
+Point #31
+Point #30
+Point #29
+Point #28
+Point #27
+Point #26
+Point #25
+Point #24
+Point #23
+Point #22
+Point #21
+Point #239
+Point #238
+Point #5
+Point #6
+Point #7
+Point #8
+Point #9
+Point #10
+Point #11
+Point #12
+Point #13
+Point #14
+Point #15
+Point #16
+Point #17
+Point #18
+Point #19
+Point #20
+Point #107
+Point #106
+Point #105
+Point #104
+Point #103
+Point #101
+Point #100
+Point #102
+Point #2
+Point #3
+Point #4
+Point #114
+Point #115
+Point #260
+Point #262
+Point #261
+Point #110
+Point #109
+Point #108
+Point #116
+Point #240
+Point #241
+Point #117
+Point #242
+Point #243
+Point #244
+Point #254
+Point #253
+Point #252
+Point #251
+Point #250
+Point #39
+Point #38
+Point #42
+Point #46
 Point #50
 Point #51
-Point #142
 Point #138
 Point #134
 Point #130
-Point #126
 Point #47
-Point #46
-Point #42
-Point #43
+Point #126
 Point #122
+Point #43
 Point #118
-Point #39
-Point #38
-Point #250
-Point #251
-Point #252
-Point #253
-Point #254
-Point #244
-Point #243
-Point #242
-Point #117
-Point #241
-Point #240
-Point #116
-Point #108
-Point #109
-Point #110
-Point #261
-Point #262
-Point #260
-Point #115
-Point #114
-Point #4
-Point #3
-Point #2
-Point #102
-Point #100
-Point #101
-Point #103
-Point #104
-Point #105
-Point #106
-Point #107
-Point #20
-Point #19
-Point #18
-Point #17
-Point #16
-Point #15
-Point #14
-Point #13
-Point #12
-Point #11
-Point #10
-Point #9
-Point #8
-Point #7
-Point #6
-Point #5
-Point #238
-Point #239
-Point #21
-Point #22
-Point #23
-Point #24
-Point #25
-Point #26
-Point #27
-Point #28
-Point #29
-Point #30
-Point #31
-Point #32
-Point #33
-Point #34
-Point #35
-Point #36
-Point #111
-Point #112
-Point #113
-Point #37
-Execution time: 19198 ms
+Execution time: 19505 ms
 
-Elapsed time: 172862 ms
+Elapsed time: 197969 ms
 
 
 Execution #10/10
 
 
 Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v9/commands/3_opt/../../results/3_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
 
 Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v9/commands/3_opt/../../results/3_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
-Seed: 1084725599
-ITERATION 1: 23295.9
-ITERATION 2: 22804.1
-ITERATION 3: 22313.7
-ITERATION 4: 21852.1
-ITERATION 5: 21399.8
-ITERATION 6: 20966.8
-ITERATION 7: 20533.2
-ITERATION 8: 20124.5
-ITERATION 9: 19726.6
-ITERATION 50: 7978.28
-ITERATION 100: 3097.5
-ITERATION 150: 1894.43
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
+Seed: 1641076757
+ITERATION 1: 23634.7
+ITERATION 2: 23157
+ITERATION 3: 22703.2
+ITERATION 4: 22248.5
+ITERATION 5: 21810.2
+ITERATION 6: 21378.4
+ITERATION 7: 20946.2
+ITERATION 8: 20523.8
+ITERATION 9: 20118.2
+ITERATION 50: 8304.59
+ITERATION 100: 3185.44
+ITERATION 150: 1994.08
+ITERATION 200: 1694.88
+Storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
 
-Storing histories into the file:
-C:/Users/mrade/Documents/tsp_v9/commands/3_opt/../../results/3_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
+Done storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
 
-Done storing histories into the file:
-C:/Users/mrade/Documents/tsp_v9/commands/3_opt/../../results/3_opt_best_cut/histories/263/tsp/263/runs_1_500/0.flush.bin
+Storing paths histories into the file:
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.paths.csv
 
-Last ITERATION 194: 1673.99
-Best found total distance for 263 points: 1673.99
+Done storing paths histories into the file:
+C:/Users/mrade/Documents/tsp_v13/commands/auto_opt/../../results/auto_opt_best_cut/histories/263/tsp/263/runs_1_500/0.paths.csv
+
+Last ITERATION 205: 1687.358270
+Best found total distance for 263 points: 1687.36
 Corresponding path (0-indexed):
-Point #206
-Point #202
-Point #83
-Point #198
-Point #79
-Point #194
-Point #190
-Point #75
-Point #186
-Point #182
+Point #143
+Point #139
+Point #140
+Point #136
+Point #132
+Point #131
+Point #135
+Point #134
+Point #47
+Point #130
+Point #126
+Point #122
+Point #43
+Point #118
+Point #39
+Point #254
+Point #253
+Point #252
+Point #251
+Point #250
+Point #38
+Point #42
+Point #46
+Point #50
+Point #51
+Point #138
+Point #142
+Point #146
+Point #55
+Point #54
+Point #58
+Point #59
+Point #150
+Point #154
+Point #158
+Point #162
+Point #63
+Point #62
+Point #66
+Point #70
 Point #71
 Point #178
 Point #174
 Point #67
 Point #170
+Point #166
+Point #167
+Point #168
+Point #172
+Point #171
 Point #175
+Point #176
+Point #180
 Point #179
 Point #183
 Point #184
-Point #180
-Point #176
-Point #172
-Point #171
-Point #167
-Point #168
-Point #164
-Point #160
-Point #156
-Point #152
-Point #148
-Point #145
-Point #52
-Point #149
-Point #153
-Point #56
-Point #157
-Point #60
-Point #161
-Point #165
-Point #64
-Point #169
-Point #173
-Point #68
-Point #177
-Point #181
-Point #185
+Point #188
+Point #187
+Point #182
+Point #186
+Point #190
+Point #75
+Point #74
+Point #78
+Point #82
+Point #86
+Point #90
+Point #94
+Point #95
+Point #226
+Point #230
+Point #233
+Point #234
+Point #235
+Point #232
+Point #231
+Point #227
+Point #228
+Point #224
+Point #220
+Point #216
+Point #212
+Point #208
+Point #207
+Point #211
+Point #215
+Point #219
+Point #223
+Point #222
+Point #91
+Point #218
+Point #214
+Point #87
+Point #210
+Point #206
+Point #83
+Point #202
+Point #198
+Point #79
+Point #194
+Point #199
+Point #203
+Point #204
+Point #200
+Point #196
+Point #195
+Point #191
+Point #192
 Point #189
-Point #72
+Point #76
+Point #193
+Point #197
+Point #201
+Point #80
+Point #205
+Point #84
+Point #209
+Point #213
+Point #88
+Point #217
+Point #221
+Point #92
+Point #225
+Point #229
+Point #0
+Point #1
+Point #98
+Point #99
+Point #96
+Point #97
+Point #237
+Point #93
+Point #89
+Point #85
+Point #81
+Point #77
 Point #73
 Point #69
+Point #72
+Point #185
+Point #181
+Point #68
+Point #177
+Point #173
+Point #169
+Point #165
+Point #64
 Point #65
 Point #61
+Point #60
+Point #161
+Point #157
+Point #153
+Point #56
 Point #57
 Point #53
 Point #49
-Point #48
-Point #141
-Point #137
-Point #133
-Point #132
-Point #136
-Point #135
-Point #131
-Point #127
-Point #128
-Point #124
-Point #123
-Point #119
-Point #120
-Point #121
-Point #40
-Point #125
-Point #129
-Point #44
 Point #45
 Point #41
 Point #236
 Point #259
 Point #258
-Point #257
-Point #256
-Point #255
-Point #245
-Point #246
-Point #247
 Point #248
 Point #249
 Point #37
@@ -2884,124 +3015,47 @@ Point #241
 Point #242
 Point #243
 Point #244
-Point #254
-Point #253
-Point #252
-Point #251
-Point #250
-Point #39
-Point #38
-Point #42
-Point #43
-Point #118
-Point #122
-Point #126
-Point #130
-Point #134
-Point #47
-Point #46
-Point #50
-Point #51
-Point #138
-Point #142
-Point #139
-Point #140
+Point #245
+Point #246
+Point #247
+Point #257
+Point #256
+Point #255
+Point #40
+Point #121
+Point #120
+Point #119
+Point #123
+Point #127
+Point #128
+Point #124
+Point #125
+Point #44
+Point #129
+Point #133
+Point #137
+Point #48
+Point #141
+Point #52
+Point #145
+Point #149
+Point #152
+Point #156
+Point #160
+Point #164
+Point #163
+Point #159
+Point #155
+Point #151
+Point #147
+Point #148
 Point #144
 Point #143
-Point #147
-Point #151
-Point #155
-Point #159
-Point #163
-Point #166
-Point #162
-Point #63
-Point #158
-Point #154
-Point #59
-Point #150
-Point #146
-Point #55
-Point #54
-Point #58
-Point #62
-Point #66
-Point #70
-Point #74
-Point #78
-Point #82
-Point #86
-Point #90
-Point #94
-Point #95
-Point #233
-Point #230
-Point #226
-Point #222
-Point #91
-Point #218
-Point #214
-Point #87
-Point #210
-Point #211
-Point #212
-Point #216
-Point #215
-Point #219
-Point #220
-Point #224
-Point #223
-Point #227
-Point #228
-Point #232
-Point #231
-Point #234
-Point #235
-Point #1
-Point #0
-Point #98
-Point #229
-Point #225
-Point #92
-Point #99
-Point #96
-Point #97
-Point #237
-Point #93
-Point #89
-Point #85
-Point #88
-Point #221
-Point #217
-Point #213
-Point #209
-Point #84
-Point #205
-Point #201
-Point #80
-Point #81
-Point #77
-Point #76
-Point #193
-Point #197
-Point #196
-Point #192
-Point #188
-Point #187
-Point #191
-Point #195
-Point #199
-Point #200
-Point #204
-Point #203
-Point #208
-Point #207
-Point #206
-Execution time: 19087 ms
+Execution time: 21117 ms
 
-Elapsed time: 191949 ms
+Elapsed time: 219086 ms
 Executed runs: 10/10
-Total execution time: 191.949 s
-Avg execution time: 19194.9 ms
-AVG MIN COST OVER 10 RUNS: 1681.99
-BEST COST OVER 10 RUNS: 1657.02
+Total execution time: 219.086 s
+Avg execution time: 21908.6 ms
+AVG MIN COST OVER 10 RUNS: 1677.674791
+BEST COST OVER 10 RUNS: 1639.182673

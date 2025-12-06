@@ -111,7 +111,7 @@ def get_or_compute_results(algo, args, conf):
     has_cache = os.path.isfile(ca_path_cached) and os.path.isfile(ar_path_cached)
     if not args['no_cache'] and not args['no_cache_res_only'] and has_cache:
         cum_avgs = load_preprocessed(ca_path_cached)
-        print(f'\nWARNING: using cached results from:\n{ca_path_cached}\n')
+        print(f'\nWARNING: using cached results for {algo} from:\n{ca_path_cached}\n')
         all_runs = load_preprocessed(ar_path_cached)
     else:
         histories = fetch_algo_histories(

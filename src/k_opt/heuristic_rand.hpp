@@ -69,24 +69,26 @@ cost_t k_opt::HeuristicRand<cost_t, cut_strategy_t, vertex_t>::run(
     const bool do_record_history = !history.isStopped();
     history.addCost(cur_cost);
     history.addPath(path, -1, -1, -1, 0);
-    if (n <= 2) return cur_cost;
+    if (n <= 3) return cur_cost;
 
+    std::cout << "N: " << n << std::endl;
+    std::cout << "j-n: " << n - 2 - 1 << std::endl;
     std::uniform_int_distribution<std::mt19937::result_type>
-        rand_idx_i(0, n - 1 - 2);
+        rand_idx_i(0, n - 3 - 1);
     const auto set_rand_cut_positions = [&] (int &i, int &j, int &k) {
         i = rand_idx_i(this->psrng);
         std::uniform_int_distribution<std::mt19937::result_type>
-                rand_idx_j(i + 1, n - 1 - 1);
+                rand_idx_j(i + 1, n - 2 - 1);
         j = rand_idx_j(this->psrng);
         std::uniform_int_distribution<std::mt19937::result_type>
-                rand_idx_k(j + 1, n - 1);
+                rand_idx_k(j + 2, n - 1);
         k = rand_idx_k(this->psrng);
     };
 
-    int iter = 1;
     const int log_freq = 10;  // log best cost every 10 iters
     const int flush_freq = 10000;  // flush every 10000 costs
     cost_t cur_cost_change = (cost_t) 0;
+    int iter = 1;
     for (bool did_update = true; did_update; ++iter) {
         if (verbose > 0 && (iter < 10 || iter % log_freq == 0)) {
             std::cout << "ITERATION " << iter << ": "
@@ -95,15 +97,19 @@ cost_t k_opt::HeuristicRand<cost_t, cut_strategy_t, vertex_t>::run(
         did_update = false;
         int i = 0, j = 0, k = 0;
         const auto process_cut = [&] () {
-            const int patch_ordinal = this->cut.selectCut(
-                i, j, k, cur_cost_change, path, weights
+            // std::cout << "Processing cut " << i << " " << j
+            //           << " " << k << std::endl;
+            std::vector<std::pair<int, int>> segs = {
+                { k, i }, { i + 1, j }, { j + 1, k - 1 }
+            };
+            this->cut.selectCut(
+                path, segs, cur_cost_change, weights
             );
             // add slight amount to negative side when comparing
-            // the change to avoid swaps of the same element when
-            // j=i+1 or k=j+1 or both in patch_ordinals: 6, 4, 5
-            if (cur_cost_change < -1e-11) {
+            // the change to avoid swaps of the same element
+            if (cur_cost_change < -1e-10) {
                 did_update = true;
-                this->cut.applyCut(i, j, k, patch_ordinal, path);
+                this->cut.applyCut(path, segs);
                 cur_cost += cur_cost_change;
                 history.addCost(cur_cost);
                 history.addPath(path, i, j, k, iter);
@@ -119,9 +125,9 @@ cost_t k_opt::HeuristicRand<cost_t, cut_strategy_t, vertex_t>::run(
             set_rand_cut_positions(i, j, k);
             process_cut();
         }
-        for (i = 0; i < n - 2 && !did_update; ++i) {
-            for (j = i + 1; j < n - 1 && !did_update; ++j) {
-                for (k = j + 1; k < n && !did_update; ++k) {
+        for (i = 0; i < n - 3 && !did_update; ++i) {
+            for (j = i + 1; j < n - 2 && !did_update; ++j) {
+                for (k = j + 2; k < n && !did_update; ++k) {
                     process_cut();
                 }
             }
@@ -135,8 +141,10 @@ cost_t k_opt::HeuristicRand<cost_t, cut_strategy_t, vertex_t>::run(
         }
     }
     if (verbose > 0) {  // log cost after last iteration
-        std::cout << "Last ITERATION " << iter << ": "
-                  << cur_cost << std::endl;
+        std::cout << std::fixed << std::setprecision(6)
+                  << "Last ITERATION " << iter << ": "
+                  << cur_cost << std::defaultfloat
+                  << std::endl;
     }
     return cur_cost;
 }

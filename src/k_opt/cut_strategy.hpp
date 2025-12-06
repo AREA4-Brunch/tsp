@@ -9,20 +9,19 @@ namespace k_opt {
 template<typename this_t, typename cost_t, typename vertex_t>
 concept CutStrategy = requires(
     this_t &t,
-    const int i,
-    const int j,
-    const int k,
-    cost_t &change,
     const std::vector<vertex_t> &path_c,
+    std::vector<std::pair<int, int>> &segs,
+    cost_t &change,
     const std::vector<std::vector<cost_t>> &weights,
-    const int patch_ordinal,
-    std::vector<vertex_t> &path
+    std::vector<vertex_t> &path,
+    const std::vector<int> &seg_perm_indices_c,
+    const std::vector<bool> &is_rotated_c
 ) {
-    { t.selectCut(i, j, k, change, path_c, weights) } -> std::same_as<int>;
-    { t.applyCut(i, j, k, patch_ordinal, path) } -> std::same_as<void>;
+    { t.selectCut(path_c, segs, change, weights) }
+        -> std::same_as<bool>;
+    { t.applyCut(path, segs) } -> std::same_as<void>;
 };
 
 }  // namespace k_opt
-
 
 #endif

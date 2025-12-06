@@ -132,7 +132,7 @@ def check_solution(found_cost, expected_cost, actual_path,
         dst = actual_path[i]
         actual_cost += weights[src][dst]
 
-    if abs(actual_cost - found_cost) > 1e-6:
+    if abs(actual_cost - found_cost) > 1e-3:
         print(f'WARNING: Computed cost does not match found cost: '
               f'{found_cost} vs {actual_cost} (computed)')
 

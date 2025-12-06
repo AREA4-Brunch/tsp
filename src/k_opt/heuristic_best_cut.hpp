@@ -56,45 +56,40 @@ cost_t k_opt::HeuristicBestCut<cost_t, cut_strategy_t, vertex_t>::run(
     const bool do_record_history = !history.isStopped();
     history.addCost(cur_cost);
     history.addPath(path, -1, -1, -1, 0);
-    int iter = 1;
     cost_t cur_cost_change = (cost_t) 0;
     cost_t best_cost = cur_cost;
-    // i, j, k, patch_ord
-    std::vector<int> best_cut_desc = { -1, -1, -1, -1 };
+    std::vector<std::pair<int, int>> best_segs(2 * 3);
+    int best_i = 0, best_j = 0, best_k = 0;
+    int iter = 1;
     for (bool did_update = true; did_update; ++iter) {
         if (verbose > 0 && (iter < 10 || iter % log_freq == 0)) {
             std::cout << "ITERATION " << iter << ": "
                       << cur_cost << std::endl;
         }
         did_update = false;
-        for (int i = 0; i < n - 2; ++i) {
-            for (int j = i + 1; j < n - 1; ++j) {
-                for (int k = j + 1; k < n; ++k) {
-                    const int patch_ordinal = this->cut.selectCut(
-                        i, j, k, cur_cost_change, path, weights
+        for (int i = 0; i < n - 3; ++i) {
+            for (int j = i + 1; j < n - 2; ++j) {
+                for (int k = j + 2; k < n; ++k) {
+                    std::vector<std::pair<int, int>> segs = {
+                        { k, i }, { i + 1, j }, { j + 1, k - 1 }
+                    };
+                    this->cut.selectCut(
+                        path, segs, cur_cost_change, weights
                     );
-                    if (cur_cost + cur_cost_change < best_cost) {
+                    if (cur_cost + cur_cost_change + 1e-10 < best_cost) {
                         did_update = true;
                         best_cost = cur_cost + cur_cost_change;
-                        best_cut_desc = { i, j, k, patch_ordinal };
+                        std::swap(best_segs, segs);
+                        best_i = i; best_j = j; best_k = k;
                     }
                 }
             }
         }
         if (did_update) {  // update path to new best
             cur_cost = best_cost;
-            this->cut.applyCut(
-                best_cut_desc[0],  // i
-                best_cut_desc[1],  // j
-                best_cut_desc[2],  // k
-                best_cut_desc[3],   // patch ordinal
-                path
-            );
+            this->cut.applyCut(path, best_segs);
             history.addCost(cur_cost);
-            history.addPath(
-                path, best_cut_desc[0], best_cut_desc[1],
-                best_cut_desc[2], iter
-            );
+            history.addPath(path, best_i, best_j, best_k, iter);
         }
         // store history on flush_freq, or on last iter
         if (do_record_history) {
@@ -105,8 +100,10 @@ cost_t k_opt::HeuristicBestCut<cost_t, cut_strategy_t, vertex_t>::run(
         }
     }
     if (verbose > 0) {  // log cost after last iteration
-        std::cout << "Last ITERATION " << iter << ": "
-                  << cur_cost << std::endl;
+        std::cout << std::fixed << std::setprecision(6)
+                  << "Last ITERATION " << iter << ": "
+                  << cur_cost << std::defaultfloat
+                  << std::endl;
     }
     return cur_cost;
 }
