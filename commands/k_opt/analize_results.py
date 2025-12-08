@@ -9,18 +9,18 @@ import hashlib
 import sys
 import re
 
-
+K = 3
 ALGOS = [
-    '3_opt_classical',
-    '3_opt_best_cut',
-    '3_opt_funky',
-    '3_opt_rand',
-    '3_opt_rand_no_2_opt',
+    f'{K}_opt_classical',
+    f'{K}_opt_best_cut',
+    f'{K}_opt_funky',
+    f'{K}_opt_rand',
+    f'{K}_opt_rand_no_2_opt',
 ]
 MODE = 'shp'
 PATH_CWD = os.path.dirname(os.path.realpath(__file__))
 PATH_RES = os.path.join(PATH_CWD, f'../../results')
-PATH_ANALYSIS = os.path.join(PATH_CWD, f'../../analysis', 'all_3_opt')
+PATH_ANALYSIS = os.path.join(PATH_CWD, f'../../analysis', f'all_{K}_opt')
 PATH_CACHED = os.path.join(PATH_CWD, f'../../analysis', 'cached')
 
 

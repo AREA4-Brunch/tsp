@@ -23,14 +23,17 @@ def main():
     variant = args[6] if len(args) > 6 else None
 
     # if somethign is not provided genrate for all possibilites
-    algos = [ algo ] if algo is not None else [
-        'bellman_held_karp',
-        '3_opt_classical',
-        '3_opt_best_cut',
-        '3_opt_funky',
-        '3_opt_rand',
-        '3_opt_rand_no_2_opt',
-    ]
+    if algo is None:
+        algos = [ 'bellman_held_karp' ]
+        for k in range(3, 3 + 1):
+            algos.append(f'{k}_opt_classical')
+            algos.append(f'{k}_opt_best_cut')
+            algos.append(f'{k}_opt_funky')
+            algos.append(f'{k}_opt_rand')
+            algos.append(f'{k}_opt_rand_no_2_opt')
+    else:
+        algos = [ algo ]
+
     variants = [
         variant if variant is not None else (
             'double' if algo == 'bellman_held_karp' else 'best_found'

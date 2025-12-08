@@ -3,7 +3,7 @@
 
 #include <vector>
 #include <array>
-#include "../k_opt/cut_k_opt.hpp"
+#include "cut_k_opt.hpp"
 
 
 namespace k_opt {
@@ -19,7 +19,7 @@ class Cut3Opt {
     ~Cut3Opt() = default;
 
     [[ gnu::always_inline ]]
-    inline bool selectCut(
+    inline std::vector<std::pair<int, int>> selectCut(
         const std::vector<vertex_t> &path,
         std::vector<std::pair<int, int>> &segs,
         cost_t &change,
@@ -29,10 +29,9 @@ class Cut3Opt {
     [[ gnu::always_inline ]]
     inline void applyCut(
         std::vector<vertex_t> &path,
-        const std::vector<std::pair<int, int>> &segs
-    ) const {
-        detail::applyCut<cost_t, vertex_t, 3>(path, segs);
-    }
+        std::vector<std::pair<int, int>> &segs,
+        const int perm_idx = -1
+    ) const;
 };
 
 
@@ -80,7 +79,8 @@ inline std::array<Move3Opt<cost_t>, num_moves> getMoves(
 
 
 template<typename cost_t, typename vertex_t, bool no_2_opt>
-bool Cut3Opt<cost_t, vertex_t, no_2_opt>::selectCut(
+std::vector<std::pair<int, int>>
+Cut3Opt<cost_t, vertex_t, no_2_opt>::selectCut(
     const std::vector<vertex_t> &path,
     std::vector<std::pair<int, int>> &segs,
     cost_t &change,
@@ -114,15 +114,28 @@ bool Cut3Opt<cost_t, vertex_t, no_2_opt>::selectCut(
         (update_best(I), ...);
     } (std::make_index_sequence<num_moves>{});
 
-    if (best_idx < 0) return false;
+    if (best_idx < 0) return {};
     change = best - change;
     const auto &m = moves[best_idx];
     if (m.rot & 0b01) std::swap(s1.first, s1.second);
     if (m.rot & 0b10) std::swap(s2.first, s2.second);
-    if (m.perm == 1) std::swap(s1, s2);
-    return true;
+    return { { m.perm, -1 } };
 }
 
+template<typename cost_t, typename vertex_t, bool no_2_opt>
+void Cut3Opt<cost_t, vertex_t, no_2_opt>::applyCut(
+    std::vector<vertex_t> &path,
+    std::vector<std::pair<int, int>> &segs,
+    const int perm_idx
+) const {
+    using seg_t = const std::pair<int, int>;
+    if (perm_idx > 0) std::swap(segs[1], segs[2]);
+    detail::applyCut<cost_t, vertex_t, 3>(path, segs,
+        [&segs] (const int i) -> seg_t& {
+            return segs[i];
+    });
+    if (perm_idx > 0) std::swap(segs[1], segs[2]);
+}
 
 // ============================================================
 // Type aliases:

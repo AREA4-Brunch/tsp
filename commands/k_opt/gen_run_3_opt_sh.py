@@ -1,9 +1,14 @@
 PARALLEL_CAPACITY = None  # do not parallelize
 PARALLEL_CAPACITY = 2
 
-ALGO = '3_opt_funky'
+NO_HISTORY = '--no-history'
+NO_HISTORY = ''
+
+K = 3
+
+ALGO = f'{K}_opt_funky'
 SELECT_ALGO = 'funky'
-CUT_ALGO = '3_opt'
+CUT_ALGO = f'{K}_opt'
 MIN_N = 1
 MAX_N = 33  # inclusive
 NUM_RERUNS = 100
@@ -15,9 +20,9 @@ IS_PROBLEM_IN_PTS_FORMAT = 1
 MODES = ['tsp', 'shp']
 PARALLEL_CAPACITY = 2
 
-ALGO = '3_opt_funky'
+ALGO = f'{K}_opt_funky'
 SELECT_ALGO = 'funky'
-CUT_ALGO = '3_opt'
+CUT_ALGO = f'{K}_opt'
 MIN_N = 263
 MAX_N = 263  # inclusive
 NUM_RERUNS = 10
@@ -29,9 +34,9 @@ IS_PROBLEM_IN_PTS_FORMAT = 1
 MODES = ['tsp', 'shp']
 PARALLEL_CAPACITY = 2
 
-ALGO = '3_opt_funky'
+ALGO = f'{K}_opt_funky'
 SELECT_ALGO = 'funky'
-CUT_ALGO = '3_opt'
+CUT_ALGO = f'{K}_opt'
 MIN_N = 29
 MAX_N = 29  # inclusive
 NUM_RERUNS = 100
@@ -53,7 +58,8 @@ def main():
         print_sh_commands(MIN_N, MAX_N, SELECT_ALGO, CUT_ALGO,
                           SINGLE_TEST_TIMEOUT_SEC, NUM_RERUNS,
                           RUNS_PER_HISTORY, mode,
-                          IS_PROBLEM_IN_PTS_FORMAT, PARALLEL_CAPACITY)
+                          IS_PROBLEM_IN_PTS_FORMAT, NO_HISTORY,
+                          PARALLEL_CAPACITY)
     print(f'\n\n# Test results:')
     print(f'echo "Checking results {PROBLEM_NAME}..."')
     print(f'python "$ROOT_DIR/judge_results.py" {ALGO}'
@@ -61,12 +67,14 @@ def main():
 
 
 def print_sh_commands(min_n, max_n, select, cut, timeout_secs, num_reruns, runs_per_history,
-                      mode='shp', is_dist_pts_fmt=1, parallel_cap=None):
+                      mode='shp', is_dist_pts_fmt=1, no_history='', parallel_cap=None):
     print(f'mkdir -p "$RESULTS_DIR/{PROBLEM_NAME}/{mode}"')
+    if no_history:
+        no_history = f' {no_history}'
     for n in range(min_n, max_n + 1):
         cmd = f'"$SRC_DIR/main.exe" "{select}" "{cut}" {n} "$PROBLEMS_DIR/{PROBLEM_FNAME}"' \
               f' "$HISTORY_DIR/{PROBLEM_NAME}/{mode}/{n}" {num_reruns} ' \
-              f' {runs_per_history} {timeout_secs} {mode} {is_dist_pts_fmt}' \
+              f' {runs_per_history} {timeout_secs} {mode} {is_dist_pts_fmt}{no_history}' \
               f' > "$RESULTS_DIR/{PROBLEM_NAME}/{mode}/{n}.txt" &'
         
         print(f'echo "Solving {n} points..."')
@@ -82,9 +90,9 @@ def get_script_header(algo):
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROOT_DIR="$SCRIPT_DIR/.."
-SRC_DIR="$SCRIPT_DIR/../../src/3_opt"
+SRC_DIR="$SCRIPT_DIR/../../src/k_opt"
 PROBLEMS_DIR="$SCRIPT_DIR/../../problems"
-RESULTS_DIR="$SCRIPT_DIR/../../results/3_opt_funky"
+RESULTS_DIR="$SCRIPT_DIR/../../results/K_opt_funky"
 HISTORY_DIR="$RESULTS_DIR/histories"
 
 echo "Compiling..."
@@ -94,7 +102,7 @@ if ! g++ --static -std=c++20 -O3 -Wall -Wextra -o "$SRC_DIR/main.exe" "$SRC_DIR/
 fi
     """.strip()
 
-    cmd = cmd.replace('3_opt_funky', algo)
+    cmd = cmd.replace(f'K_opt_funky', algo)
     return cmd
 
 

@@ -1,9 +1,9 @@
 """
 python plot_history.py <problem_name> <num_points> [<mode>] [<run_start>] [<run_end>] [<window_timeframe>] [<start_time>] [--no-cache|-nc] [--loglog|-ll]
 
-python commands/3_opt/plot_history.py 263 263 shp 0 1000 1 -ll
-python commands/3_opt/plot_history.py 263 263 shp 0 1000 1 20 -ll
-python commands/3_opt/plot_history.py 263 263 shp 0 1000 1 20 -nc -ll
+python commands/k_opt/plot_history.py 263 263 shp 0 1000 1 -ll
+python commands/k_opt/plot_history.py 263 263 shp 0 1000 1 20 -ll
+python commands/k_opt/plot_history.py 263 263 shp 0 1000 1 20 -nc -ll
 """
 
 import sys
@@ -17,17 +17,18 @@ import gc
 import struct
 import plotly.graph_objects as go
 
+K = 3
 ALGOS = [
-    # '3_opt_best_cut',  # remove from plot since too long too large cost
-    '3_opt_classical',
-    '3_opt_funky',
-    '3_opt_rand',
-    '3_opt_rand_no_2_opt',
+    # f'{K}_opt_best_cut',  # remove from plot since too long too large cost
+    f'{K}_opt_classical',
+    f'{K}_opt_funky',
+    f'{K}_opt_rand',
+    f'{K}_opt_rand_no_2_opt',
 ]
 MODE = 'shp'
 PATH_CWD = os.path.dirname(os.path.realpath(__file__))
 PATH_RES = os.path.join(PATH_CWD, f'../../results')
-PATH_ANALYSIS = os.path.join(PATH_CWD, f'../../analysis', 'all_3_opt')
+PATH_ANALYSIS = os.path.join(PATH_CWD, f'../../analysis', f'all_{K}_opt')
 PATH_CACHED = os.path.join(PATH_CWD, f'../../analysis', 'cached')
 COST_DTYPE = 'double'
 TIME_DTYPE = 'unsigned long long'

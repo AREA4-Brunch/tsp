@@ -111,7 +111,7 @@ def process_run(run, config, points):
             elif idx == 1:
                 path = list(path_desc[:-4])  # include dummy node
 
-            if config['algo'] == '3_opt_funky':
+            if 'funky' in config['algo']:
                 if prev_iter != iter_val:
                     prev_iter = iter_val
                     inner_iter_idx = 1

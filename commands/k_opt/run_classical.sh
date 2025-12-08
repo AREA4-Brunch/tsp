@@ -2,7 +2,7 @@
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROOT_DIR="$SCRIPT_DIR/.."
-SRC_DIR="$SCRIPT_DIR/../../src/3_opt"
+SRC_DIR="$SCRIPT_DIR/../../src/k_opt"
 PROBLEMS_DIR="$SCRIPT_DIR/../../problems"
 RESULTS_DIR="$SCRIPT_DIR/../../results/3_opt_classical"
 HISTORY_DIR="$RESULTS_DIR/histories"
