@@ -5,11 +5,13 @@
 #include <iomanip>
 #include <vector>
 #include <utility>
+#include <algorithm>  // std::min
 #include "heuristic.hpp"
 #include "cut_strategy.hpp"
 
 #include <unordered_set>  // testing
 #include <cassert> // testing
+#include "../common/logging.hpp" // testing
 
 
 
@@ -76,7 +78,11 @@ inline bool loopSegmentsStatic(
     const Limits... limits
 ) {
     if constexpr (Depth == K) {
-        segs[0].first = start;
+        // check which value to overwrite as
+        // segs[0] may have been reversed
+        auto &seg = segs[0];
+        if (seg.first >= seg.second) seg.first = start;
+        else seg.second = start;
         return cb(segs);
     } else {
         constexpr int num_limits = sizeof...(limits);
@@ -88,7 +94,11 @@ inline bool loopSegmentsStatic(
         }
         for (int i = start; i < lim; ++i) {
             // reset start always as cb may modify
-            segs[Depth].first = start;
+            if constexpr (Depth != 0) {
+                segs[Depth].first = start;
+            } else {
+                segs[Depth].first = n;
+            }
             segs[Depth].second = i;
             const bool is_done = loopSegmentsStatic<K, Depth + 1>(
                 n, segs, i + 1, std::forward<callback_t>(cb)
@@ -135,6 +145,7 @@ cost_t KOptFunky<cost_t, cut_strategy_t, K, vertex_t>::run(
         cur_seg_indices_.resize(k);
     }
     std::array<seg_t, K == -1 ? 0 : K> cur_seg_indices;
+    std::vector<vertex_t> buffer(n);
 
     int iter = 1;
     for (bool did_update = true; did_update; ++iter) {
@@ -150,19 +161,21 @@ cost_t KOptFunky<cost_t, cut_strategy_t, K, vertex_t>::run(
             using segs_t = std::array<seg_t, K>;
             detail::loopSegmentsStatic<K, 0>(
                 n, cur_seg_indices, 0, [&] (segs_t &segs) -> bool {
+                    int perm_idx = -1;
                     auto res = this->cut.selectCut(
-                        path, segs, cur_cost_change, weights
+                        path, segs, cur_cost_change, weights, perm_idx
                     );
                     // add slight amount to negative side when comparing
                     // the change to avoid swaps of the same element
                     if (cur_cost_change < -1e-10) {
                         did_update = true;
                         last_update_i = segs[0].second;
-                        last_update_j = segs[1].second;
-                        if (res[0].second == -1) {
-                            this->cut.applyCut(path, segs, res[0].first);
+                        last_update_j = std::min(segs[1].first, segs[1].second);
+                        if (perm_idx == -1) {
+                            this->cut.applyCut(path, res, -1, buffer);
                         } else {
-                            this->cut.applyCut(path, res);
+                            this->cut.applyCut(
+                                path, segs, perm_idx, buffer);
                         }
                                 assert (path.size() == static_cast<size_t>(n));
                                 assert (

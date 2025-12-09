@@ -15,127 +15,136 @@ class Cut3Opt {
 
  public:
 
+    static constexpr int NUM_CUTS = 3;
+
     Cut3Opt() = default;
     ~Cut3Opt() = default;
 
-    [[ gnu::always_inline ]]
+    template<typename segs_t>
+    [[ gnu::hot ]]
     inline std::vector<std::pair<int, int>> selectCut(
         const std::vector<vertex_t> &path,
-        std::vector<std::pair<int, int>> &segs,
+        segs_t &segs,
         cost_t &change,
-        const std::vector<std::vector<cost_t>> &weights
+        const std::vector<std::vector<cost_t>> &weights,
+        int &perm_idx
     ) const;
 
-    [[ gnu::always_inline ]]
+    template<typename segs_t>
+    [[ gnu::hot ]]
     inline void applyCut(
         std::vector<vertex_t> &path,
-        std::vector<std::pair<int, int>> &segs,
-        const int perm_idx = -1
+        const segs_t &segs,
+        const int perm_idx,
+        std::vector<vertex_t> &buffer
     ) const;
 };
-
-
-namespace detail {
-
-template<typename cost_t>
-struct Move3Opt {
-    cost_t cost;
-    int8_t perm;
-    int8_t rot;
-};
-
-template<typename cost_t, typename vertex_t, int num_moves>
-[[ gnu::always_inline ]]
-inline std::array<Move3Opt<cost_t>, num_moves> getMoves(
-    const vertex_t a,
-    const vertex_t b,
-    const vertex_t c,
-    const vertex_t d,
-    const vertex_t e,
-    const vertex_t f,
-    const std::vector<std::vector<cost_t>> &weights
-) {
-    if constexpr (num_moves == 4) {
-        return {{
-            { weights[a][c] + weights[b][e] + weights[d][f], 0, 0b11 },
-            { weights[a][d] + weights[e][b] + weights[c][f], 1, 0b00 },
-            { weights[a][d] + weights[e][c] + weights[b][f], 1, 0b01 },
-            { weights[a][e] + weights[d][b] + weights[c][f], 1, 0b10 }
-        }};
-    } else {
-        return {{
-            { weights[a][c] + weights[b][d] + weights[e][f], 0, 0b01 },
-            { weights[a][b] + weights[c][e] + weights[d][f], 0, 0b10 },
-            { weights[a][c] + weights[b][e] + weights[d][f], 0, 0b11 },
-            { weights[a][d] + weights[e][b] + weights[c][f], 1, 0b00 },
-            { weights[a][d] + weights[e][c] + weights[b][f], 1, 0b01 },
-            { weights[a][e] + weights[d][b] + weights[c][f], 1, 0b10 },
-            { weights[a][e] + weights[d][c] + weights[b][f], 1, 0b11 }
-        }};
-    }
-}
-
-}  // namespace detail
 
 
 template<typename cost_t, typename vertex_t, bool no_2_opt>
+template<typename segs_t>
 std::vector<std::pair<int, int>>
 Cut3Opt<cost_t, vertex_t, no_2_opt>::selectCut(
     const std::vector<vertex_t> &path,
-    std::vector<std::pair<int, int>> &segs,
+    segs_t &segs,
     cost_t &change,
-    const std::vector<std::vector<cost_t>> &weights
+    const std::vector<std::vector<cost_t>> &weights,
+    int &perm_idx
 ) const {
-    static constexpr int num_moves = no_2_opt ? 4 : 7;
-    const auto &s0 = segs[0];
-    auto &s1 = segs[1];
-    auto &s2 = segs[2];
+    const vertex_t a = path[segs[0].second];
+    const vertex_t b = path[segs[1].first];
+    const vertex_t c = path[segs[1].second];
+    const vertex_t d = path[segs[2].first];
+    const vertex_t e = path[segs[2].second];
+    const vertex_t f = path[segs[0].first];
 
-    const vertex_t a = path[s0.second];
-    const vertex_t b = path[s1.first];
-    const vertex_t c = path[s1.second];
-    const vertex_t d = path[s2.first];
-    const vertex_t e = path[s2.second];
-    const vertex_t f = path[s0.first];
-    const auto moves = detail::getMoves<cost_t, vertex_t, num_moves>(
-        a, b, c, d, e, f, weights
-    );
-    change = weights[a][b] + weights[c][d] + weights[e][f];
-    cost_t best = change;
-    int best_idx = -1;
-    const auto update_best = [&] (const int i) {
-        const cost_t cost = moves[i].cost;
-        if (cost < best) {
-            best = cost;
-            best_idx = i;
-        }
-    };
-    [&] <std::size_t ...I> (std::index_sequence<I...>) {
-        (update_best(I), ...);
-    } (std::make_index_sequence<num_moves>{});
+    const cost_t* __restrict wa = weights[a].data();
+    const cost_t* __restrict wb = weights[b].data();
+    const cost_t* __restrict wc = weights[c].data();
+    const cost_t* __restrict wd = weights[d].data();
+    const cost_t* __restrict we = weights[e].data();
 
-    if (best_idx < 0) return {};
-    change = best - change;
-    const auto &m = moves[best_idx];
-    if (m.rot & 0b01) std::swap(s1.first, s1.second);
-    if (m.rot & 0b10) std::swap(s2.first, s2.second);
-    return { { m.perm, -1 } };
+    const cost_t current = wa[b] + wc[d] + we[f];
+    cost_t best = current;
+
+    #define TRY_MOVE(ord, cost_expr) \
+        do { \
+            const cost_t c_ = (cost_expr); \
+            if (c_ < best) { best = c_; perm_idx = (ord); } \
+        } while(0)
+
+    if constexpr (!no_2_opt) {
+        TRY_MOVE(0b010, wa[c] + wb[d] + we[f]);
+        TRY_MOVE(0b100, wa[b] + wc[e] + wd[f]);
+    }
+
+    TRY_MOVE(0b110, wa[c] + wb[e] + wd[f]);
+    TRY_MOVE(0b001, wa[d] + we[b] + wc[f]);
+    TRY_MOVE(0b011, wa[d] + we[c] + wb[f]);
+    TRY_MOVE(0b101, wa[e] + wd[b] + wc[f]);
+
+    if constexpr (!no_2_opt) {
+        TRY_MOVE(0b111, wa[e] + wd[c] + wb[f]);
+    }
+
+    #undef TRY_MOVE
+
+    change = best - current;
+    return {};
 }
 
 template<typename cost_t, typename vertex_t, bool no_2_opt>
+template<typename segs_t>
 void Cut3Opt<cost_t, vertex_t, no_2_opt>::applyCut(
     std::vector<vertex_t> &path,
-    std::vector<std::pair<int, int>> &segs,
-    const int perm_idx
+    const segs_t &segs,
+    const int move_ord,
+    std::vector<vertex_t> &buffer
 ) const {
-    using seg_t = const std::pair<int, int>;
-    if (perm_idx > 0) std::swap(segs[1], segs[2]);
-    detail::applyCut<cost_t, vertex_t, 3>(path, segs,
-        [&segs] (const int i) -> seg_t& {
-            return segs[i];
-    });
-    if (perm_idx > 0) std::swap(segs[1], segs[2]);
+    const int i1 = segs[1].first;
+    const int j1 = segs[1].second;
+    const int i2 = segs[2].first;
+    const int j2 = segs[2].second;
+    const int len1 = j1 - i1 + 1;  // b..c
+    const int len2 = j2 - i2 + 1;  // d..e
+
+    switch (move_ord) {
+        case 0b010: {
+            std::reverse(path.begin() + i1, path.begin() + j1 + 1);
+            return;
+        }
+        case 0b100: {
+            std::reverse(path.begin() + i2, path.begin() + j2 + 1);
+            return;
+        }
+        case 0b110: {
+            std::reverse(path.begin() + i1, path.begin() + j1 + 1);
+            std::reverse(path.begin() + i2, path.begin() + j2 + 1);
+            return;
+        }
+        case 0b001:
+        case 0b011:
+        case 0b101:
+        case 0b111: {
+            vertex_t* const __restrict buf = buffer.data();
+            if (move_ord & 0b100) {
+                std::reverse_copy(path.begin() + i2, path.begin() + j2 + 1, buf);
+            } else {
+                std::copy(path.begin() + i2, path.begin() + j2 + 1, buf);
+            }
+            if (move_ord & 0b010) {
+                std::reverse_copy(path.begin() + i1, path.begin() + j1 + 1, buf + len2);
+            } else {
+                std::copy(path.begin() + i1, path.begin() + j1 + 1, buf + len2);
+            }
+            std::copy(buf, buf + len1 + len2, path.begin() + i1);
+            return;
+        }
+        default:
+            return;
+    }
 }
+
 
 // ============================================================
 // Type aliases:

@@ -34,20 +34,22 @@ class CutKOpt {
     ~CutKOpt() = default;
 
     template<typename segs_t>
-    [[ gnu::always_inline ]]
+    [[ gnu::hot ]]
     inline std::vector<std::pair<int, int>> selectCut(
         const std::vector<vertex_t> &path,
         segs_t &segs,
         cost_t &change,
-        const std::vector<std::vector<cost_t>> &weights
+        const std::vector<std::vector<cost_t>> &weights,
+        int &perm_idx
     ) const;
 
     template<typename segs_t>
-    [[ gnu::always_inline ]]
+    [[ gnu::hot ]]
     inline void applyCut(
         std::vector<vertex_t> &path,
         const segs_t &segs,
-        const int perm_idx = -1
+        const int perm_idx,
+        std::vector<vertex_t> &buffer
     ) const;
 
     [[ nodiscard ]] constexpr int getK() const {
@@ -87,6 +89,7 @@ constexpr unsigned long long factorial(int n) {
 
 /// @brief Heap's algo
 template<typename iter_t, typename callback_t>
+[[ gnu::always_inline ]]
 inline bool all_permutations(iter_t begin, const int n, callback_t &&cb) {
     if (cb()) return true;
     if (n == 2) {
@@ -110,7 +113,8 @@ inline bool all_permutations(iter_t begin, const int n, callback_t &&cb) {
 }
 
 template<typename cost_t, typename vertex_t, typename segs_t>
-cost_t calcCutCost(
+[[ gnu::always_inline ]]
+inline cost_t calcCutCost(
     const std::vector<vertex_t> &path,
     const segs_t &segs,
     const std::vector<std::vector<cost_t>> &weights,
@@ -136,39 +140,41 @@ template<typename cost_t, typename vertex_t, int K = -1, typename segs_t>
 inline void applyCut(
     std::vector<vertex_t> &path,
     const segs_t &segs,
-    auto &&seg_at
+    auto &&seg_at,
+    std::vector<vertex_t> &buffer
 ) {
-    const int n = static_cast<int>(path.size());
-    std::vector<vertex_t> new_path;
-    new_path.reserve(n);
+    const int n = path.size();
+    vertex_t *new_path = buffer.data();
+    vertex_t * const path_begin = path.data();
+
     // first segment is always [k, i]
     const auto &seg = seg_at(0);
     const int start = seg.first;
     const int end = seg.second;
     if (start > end) {
-        new_path.insert(
-            new_path.end(),
-            path.begin() + start,
-            path.end()
+        new_path = std::copy(
+            path_begin + start,
+            path_begin + n,
+            new_path
         );
-        new_path.insert(
-            new_path.end(),
-            path.begin(),
-            path.begin() + end + 1
+        new_path = std::copy(
+            path_begin,
+            path_begin + end + 1,
+            new_path
         );
     } else if (start < end) {
-        new_path.insert(
-            new_path.end(),
-            path.rbegin() + (n - 1 - start),
-            path.rend()
+        new_path = std::reverse_copy(
+            path_begin,
+            path_begin + start + 1,
+            new_path
         );
-        new_path.insert(
-            new_path.end(),
-            path.rbegin(),
-            path.rbegin() + (n - end)
+        new_path = std::reverse_copy(
+            path_begin + end,
+            path_begin + n,
+            new_path
         );
     } else {  // single vertex
-        new_path.push_back(path[start]);
+        *(new_path++) = path[start];
     }
 
     const auto insert_seg = [&] (const int s) {
@@ -176,16 +182,16 @@ inline void applyCut(
         const int start = seg.first;
         const int end = seg.second;
         if (start <= end) {  // forward
-            new_path.insert(
-                new_path.end(), 
-                path.begin() + start, 
-                path.begin() + end + 1
+            new_path = std::copy(
+                path_begin + start, 
+                path_begin + end + 1,
+                new_path
             );
         } else {  // reversed
-            new_path.insert(
-                new_path.end(),
-                path.rbegin() + (n - 1 - start),
-                path.rbegin() + (n - end)
+            new_path = std::reverse_copy(
+                path_begin + end,
+                path_begin + start + 1,
+                new_path
             );
         }
     };
@@ -201,7 +207,7 @@ inline void applyCut(
         } (std::make_index_sequence<K - 1>{});
     }
 
-    path = std::move(new_path);
+    std::swap(path, buffer);
 }
 
 template<typename T, std::size_t N>
@@ -251,7 +257,8 @@ CutKOpt<cost_t, vertex_t, K>::selectCut(
     const std::vector<vertex_t> &path,
     segs_t &segs,
     cost_t &change,
-    const std::vector<std::vector<cost_t>> &weights
+    const std::vector<std::vector<cost_t>> &weights,
+    int &perm_idx
 ) const {
     using seg_t = std::pair<int, int>;
     using rot_t = std::pair<int, cost_t>;
@@ -366,24 +373,28 @@ CutKOpt<cost_t, vertex_t, K>::selectCut(
         return best_segs_vec;
     } else {
         int best_perm_idx = -1;
-        int perm_idx = 0;
+        perm_idx = 0;
         cost_t cur_best = change;
         for (const auto &perm_indices : this->seg_perm_indices) {
             const auto seg_at = [&] (int idx) -> seg_t& {
                 return segs[perm_indices[idx]];
             };
-            if (rotate_perm(seg_at)) break;
+            if (rotate_perm(seg_at)) {
+                change = best_edges_cost - change;
+                return {};
+            }
             if (best_edges_cost < cur_best) {
                 cur_best = best_edges_cost;
                 best_perm_idx = perm_idx;
             }
             ++perm_idx;
         }
-        if (best_edges_cost >= change) return {};
-        change = best_edges_cost - change;
-        if (best_perm_idx < 0) return { { perm_idx, -1 } };
-        std::swap(segs, best_segs);
-        return { { best_perm_idx, -1 } };
+        if (best_perm_idx != -1) {
+            perm_idx = best_perm_idx;
+            change = best_edges_cost - change;
+            std::swap(segs, best_segs);
+        }
+        return {};
     }
 }
 
@@ -392,21 +403,22 @@ template<typename segs_t>
 void CutKOpt<cost_t, vertex_t, K>::applyCut(
     std::vector<vertex_t> &path,
     const segs_t &segs,
-    const int perm_idx
+    const int perm_idx,
+    std::vector<vertex_t> &new_path
 ) const {
     using seg_t = const std::pair<int, int>;
     if (perm_idx <= 0) {
         detail::applyCut<cost_t, vertex_t, K>(path, segs,
             [&segs] (const int i) -> seg_t& {
                 return segs[i];
-        });
+        }, new_path);
         return;
     }
     const auto &perm_indices = this->seg_perm_indices[perm_idx];
     detail::applyCut<cost_t, vertex_t, K>(path, segs,
         [&segs, &perm_indices] (const int i) -> seg_t& {
             return segs[perm_indices[i]];
-    });
+    }, new_path);
 }
 
 }  // namespace k_opt

@@ -16,12 +16,11 @@ namespace k_opt {
  * @param change Modifies to gain/delta if improvement found
  *                 else is set to original cut cost.
  * @return Empty if no better cut found, else either perm. reversed
- *         reversed segs, or { { perm_idx, -1 } } and segs with
+ *         reversed segs, or { { perm_idx, foo } } and segs with
  *         matching reversals.
  * 
  * - applyCut:
- * @param segs For efficiency may get modified during method's exec
- *             but restored before returning.
+ * @param segs It may or may not get modified.
  */
 template<typename this_t, typename cost_t, typename vertex_t, int K>
 concept CutStrategy = requires(
@@ -34,17 +33,20 @@ concept CutStrategy = requires(
     > &segs,
     cost_t &change,
     const std::vector<std::vector<cost_t>> &weights,
+    int &perm_idx,
     std::vector<vertex_t> &path,
     const std::vector<int> &seg_perm_indices_c,
     const std::vector<bool> &is_rotated_c,
-    const int perm_idx
+    const int perm_idx_c,
+    std::vector<vertex_t> &new_path
 ) {
     { this_t::NUM_CUTS } -> std::convertible_to<int>;
     requires (this_t::NUM_CUTS == K);
 
-    { t.selectCut(path_c, segs, change, weights) }
+    { t.selectCut(path_c, segs, change, weights, perm_idx) }
         -> std::same_as<std::vector<std::pair<int, int>>>;
-    { t.applyCut(path, segs, perm_idx) } -> std::same_as<void>;
+    { t.applyCut(path, segs, perm_idx_c, new_path) }
+        -> std::same_as<void>;
 };
 
 }  // namespace k_opt
