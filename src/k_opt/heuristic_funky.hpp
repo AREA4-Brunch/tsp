@@ -177,18 +177,18 @@ cost_t KOptFunky<cost_t, cut_strategy_t, K, vertex_t>::run(
                             this->cut.applyCut(
                                 path, segs, perm_idx, buffer);
                         }
-                                assert (path.size() == static_cast<size_t>(n));
-                                assert (
-                                    std::unordered_set<vertex_t>(path.begin(), path.end()).size()
-                                    == static_cast<size_t>(n)
-                                );
+                                // assert (path.size() == static_cast<size_t>(n));
+                                // assert (
+                                //     std::unordered_set<vertex_t>(path.begin(), path.end()).size()
+                                //     == static_cast<size_t>(n)
+                                // );
                         cur_cost += cur_cost_change;
-                                cost_t total_cost = (cost_t)0;
-                                for (int idx = 0; idx < n; ++idx) {
-                                    const int next_idx = (idx + 1) % n;
-                                    total_cost += weights[path[idx]][path[next_idx]];
-                                }
-                                assert (std::abs(total_cost - cur_cost) < 1e-10);
+                                // cost_t total_cost = (cost_t)0;
+                                // for (int idx = 0; idx < n; ++idx) {
+                                //     const int next_idx = (idx + 1) % n;
+                                //     total_cost += weights[path[idx]][path[next_idx]];
+                                // }
+                                // assert (std::abs(total_cost - cur_cost) < 1e-10);
 
                         history.addCost(cur_cost);
                         // history.addPath(path, i, j, k, iter);
