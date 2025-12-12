@@ -6,7 +6,6 @@
 #include <functional>
 #include <utility>
 #include <array>
-#include <cstring>  // std::memcpy
 
 
 namespace k_opt {
@@ -35,7 +34,7 @@ class CutKOpt {
     ~CutKOpt() = default;
 
     template<typename segs_t>
-    [[gnu::always_inline, gnu::hot]]
+    [[ gnu::hot ]]
     inline std::vector<std::pair<int, int>> selectCut(
         const std::vector<vertex_t> &path,
         segs_t &segs,
@@ -45,7 +44,7 @@ class CutKOpt {
     ) const;
 
     template<typename segs_t>
-    [[gnu::always_inline, gnu::hot]]
+    [[ gnu::hot ]]
     inline void applyCut(
         std::vector<vertex_t> &path,
         const segs_t &segs,
@@ -291,7 +290,8 @@ CutKOpt<cost_t, vertex_t, K>::selectCut(
             cost_t &edges_cost = rot_top->second;
             const int src_i = seg_at(idx - 1).second;
             const vertex_t src_v = path[src_i];
-            const cost_t * const __restrict w_src = weights[src_v].data();
+            const cost_t * const __restrict w_src
+                = weights[src_v].data();
 
             if (idx == k) {
                 const int dst_i = seg_at(0).first;
@@ -355,7 +355,7 @@ CutKOpt<cost_t, vertex_t, K>::selectCut(
     if (this->seg_perm_indices.empty()) {
         std::array<seg_t, (K == -1 ? 0 : K)> buffer;
         std::vector<seg_t> original_segs;
-        seg_t *segs_perm;
+        seg_t * __restrict segs_perm;
         if constexpr (K == -1) {
             original_segs.assign(segs.begin(), segs.end());
             segs_perm = segs.data();

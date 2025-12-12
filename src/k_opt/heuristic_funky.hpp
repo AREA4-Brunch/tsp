@@ -9,11 +9,6 @@
 #include "heuristic.hpp"
 #include "cut_strategy.hpp"
 
-#include <unordered_set>  // testing
-#include <cassert> // testing
-#include "../common/logging.hpp" // testing
-
-
 
 namespace k_opt {
 
@@ -35,7 +30,7 @@ class KOptFunky : public Heuristic<cost_t, vertex_t>
 
     ~KOptFunky() = default;
 
-    [[ nodiscard ]] constexpr int getK() const {
+    [[ nodiscard ]] constexpr int getK() const noexcept {
         return K == -1 ? this->k : K;
     }
 
@@ -65,25 +60,29 @@ class KOptFunky : public Heuristic<cost_t, vertex_t>
 
 namespace detail {
 
-/**
- * @brief Unfolded at compile-time.
- */
-template<int K, int Depth, typename callback_t, typename... Limits>
+template<
+    int K,
+    int Depth,
+    typename callback_t,
+    typename segs_t,
+    typename... Limits
+>
 [[ gnu::always_inline ]]
-inline bool loopSegmentsStatic(
+inline void loopSegmentsStatic(
     const int n,
-    std::array<std::pair<int, int>, K> &segs,
+    segs_t &segs_,
     const int start,
     callback_t &&cb,
     const Limits... limits
 ) {
+    auto * const __restrict segs = &segs_[0];
     if constexpr (Depth == K) {
         // check which value to overwrite as
         // segs[0] may have been reversed
         auto &seg = segs[0];
         if (seg.first >= seg.second) seg.first = start;
         else seg.second = start;
-        return cb(segs);
+        cb(segs_);
     } else {
         constexpr int num_limits = sizeof...(limits);
         int lim;
@@ -100,21 +99,68 @@ inline bool loopSegmentsStatic(
                 segs[Depth].first = n;
             }
             segs[Depth].second = i;
-            const bool is_done = loopSegmentsStatic<K, Depth + 1>(
-                n, segs, i + 1, std::forward<callback_t>(cb)
+            loopSegmentsStatic<K, Depth + 1>(
+                n, segs_, i + 1,
+                std::forward<callback_t>(cb),
+                limits...
             );
-            if (is_done) return true;
         }
-        return false;
     }
 }
 
-template<typename callback_t>
+template<
+    typename segs_t,
+    typename callback_t,
+    typename... Limits
+>
 [[ gnu::always_inline ]]
-inline bool loopSegmentsDynamic(callback_t &cb) {
+inline void loopSegmentsDynamic(
+    const int k,
+    const int n,
+    segs_t &segs_,
+    callback_t &&cb,
+    const Limits... limits_
+) {
+    constexpr int num_limits = sizeof...(limits_);
+    const int limits[num_limits] = { limits_... };
 
+    auto * const __restrict segs = &segs_[0];
+
+    struct State { int prev; int start; };
+    std::array<State, 16> stack_buf;
+    std::vector<State> stack_vct;
+    if (k + 1 > 16) stack_vct.resize(k + 1);
+    State * __restrict state
+        = (k + 1 > 16) ? stack_vct.data() : stack_buf.data();
+
+    state->prev = n;
+    state->start = 0;
+    for (int depth = 0; depth >= 0; ) {
+        int &start = state->start;
+        if (depth == k) {
+            auto &seg = segs[0];
+            if (seg.first >= seg.second) seg.first = start;
+            else seg.second = start;
+            cb(segs_);
+            --depth;
+            --state;
+            continue;
+        }
+        const int lim = (depth < num_limits)
+                      ? limits[depth]
+                      : n - k + depth;
+        if (start < lim) {
+            segs[depth].first = state->prev;
+            segs[depth].second = start++;
+            (++state)->prev = start;
+            state->start = start;
+            ++depth;
+            continue;
+        }
+        --state;
+        --depth;
+    }
 }
-
 
 }  // namespace detail
 
@@ -130,6 +176,8 @@ cost_t KOptFunky<cost_t, cut_strategy_t, K, vertex_t>::run(
 ) const {
     using seg_t = std::pair<int, int>;
     const int n = path.size();
+    const int k = this->getK();
+    if (n < k) return cur_cost;
     const int log_freq = 10;  // log best cost every 1 iters
     const int flush_freq = 10000;  // flush every 10000 costs
     const bool do_record_history = !history.isStopped();
@@ -137,14 +185,11 @@ cost_t KOptFunky<cost_t, cut_strategy_t, K, vertex_t>::run(
     history.addPath(path, -1, -1, -1, 0);
     cost_t cur_cost_change = (cost_t) 0;
 
-    const int k = this->getK();
     int last_update_i = n - k - 1;
     int last_update_j = last_update_i + 1;
-    std::vector<seg_t> cur_seg_indices_;
-    if constexpr (K == -1) {
-        cur_seg_indices_.resize(k);
-    }
-    std::array<seg_t, K == -1 ? 0 : K> cur_seg_indices;
+    std::vector<seg_t> seg_indices_vct;
+    if constexpr (K == -1) seg_indices_vct.resize(k);
+    std::array<seg_t, K == -1 ? 0 : K> seg_indices_arr;
     std::vector<vertex_t> buffer(n);
 
     int iter = 1;
@@ -155,46 +200,39 @@ cost_t KOptFunky<cost_t, cut_strategy_t, K, vertex_t>::run(
         }
         did_update = false;
 
+        const auto run = [&] (auto &segs) {
+            int perm_idx = -1;
+            auto res = this->cut.selectCut(
+                path, segs, cur_cost_change, weights, perm_idx
+            );
+            // add slight amount to negative side when comparing
+            // the change to avoid swaps of the same element
+            if (cur_cost_change < -1e-10) {
+                did_update = true;
+                last_update_i = segs[0].second;
+                last_update_j = std::min(segs[1].first, segs[1].second);
+                if (perm_idx == -1) {
+                    this->cut.applyCut(path, res, -1, buffer);
+                } else {
+                    this->cut.applyCut(
+                        path, segs, perm_idx, buffer);
+                }
+                cur_cost += cur_cost_change;
+                history.addCost(cur_cost);
+                // history.addPath(path, i, j, k, iter);
+            }
+        };
+
         if constexpr (K == -1) {
-
+            detail::loopSegmentsDynamic(
+                k, n,
+                seg_indices_vct, run,
+                last_update_i + 1,
+                last_update_j + 1
+            );
         } else {
-            using segs_t = std::array<seg_t, K>;
             detail::loopSegmentsStatic<K, 0>(
-                n, cur_seg_indices, 0, [&] (segs_t &segs) -> bool {
-                    int perm_idx = -1;
-                    auto res = this->cut.selectCut(
-                        path, segs, cur_cost_change, weights, perm_idx
-                    );
-                    // add slight amount to negative side when comparing
-                    // the change to avoid swaps of the same element
-                    if (cur_cost_change < -1e-10) {
-                        did_update = true;
-                        last_update_i = segs[0].second;
-                        last_update_j = std::min(segs[1].first, segs[1].second);
-                        if (perm_idx == -1) {
-                            this->cut.applyCut(path, res, -1, buffer);
-                        } else {
-                            this->cut.applyCut(
-                                path, segs, perm_idx, buffer);
-                        }
-                                // assert (path.size() == static_cast<size_t>(n));
-                                // assert (
-                                //     std::unordered_set<vertex_t>(path.begin(), path.end()).size()
-                                //     == static_cast<size_t>(n)
-                                // );
-                        cur_cost += cur_cost_change;
-                                // cost_t total_cost = (cost_t)0;
-                                // for (int idx = 0; idx < n; ++idx) {
-                                //     const int next_idx = (idx + 1) % n;
-                                //     total_cost += weights[path[idx]][path[next_idx]];
-                                // }
-                                // assert (std::abs(total_cost - cur_cost) < 1e-10);
-
-                        history.addCost(cur_cost);
-                        // history.addPath(path, i, j, k, iter);
-                    }
-                    return false;
-                },
+                n, seg_indices_arr, 0, run,
                 last_update_i + 1,
                 last_update_j + 1
             );

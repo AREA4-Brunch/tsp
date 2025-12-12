@@ -3,8 +3,6 @@
 
 #include <vector>
 #include <array>
-#include "cut_k_opt.hpp"
-
 
 namespace k_opt {
 
@@ -24,7 +22,7 @@ class Cut3Opt {
     [[ gnu::hot ]]
     inline std::vector<std::pair<int, int>> selectCut(
         const std::vector<vertex_t> &path,
-        segs_t &segs,
+        const segs_t &segs,
         cost_t &change,
         const std::vector<std::vector<cost_t>> &weights,
         int &perm_idx
@@ -46,7 +44,7 @@ template<typename segs_t>
 std::vector<std::pair<int, int>>
 Cut3Opt<cost_t, vertex_t, no_2_opt>::selectCut(
     const std::vector<vertex_t> &path,
-    segs_t &segs,
+    const segs_t &segs,
     cost_t &change,
     const std::vector<std::vector<cost_t>> &weights,
     int &perm_idx
@@ -128,14 +126,17 @@ void Cut3Opt<cost_t, vertex_t, no_2_opt>::applyCut(
         case 0b111: {
             vertex_t* const __restrict buf = buffer.data();
             if (move_ord & 0b100) {
-                std::reverse_copy(path.begin() + i2, path.begin() + j2 + 1, buf);
+                std::reverse_copy(path.begin() + i2,
+                                  path.begin() + j2 + 1, buf);
             } else {
                 std::copy(path.begin() + i2, path.begin() + j2 + 1, buf);
             }
             if (move_ord & 0b010) {
-                std::reverse_copy(path.begin() + i1, path.begin() + j1 + 1, buf + len2);
+                std::reverse_copy(path.begin() + i1,
+                                  path.begin() + j1 + 1, buf + len2);
             } else {
-                std::copy(path.begin() + i1, path.begin() + j1 + 1, buf + len2);
+                std::copy(path.begin() + i1,
+                          path.begin() + j1 + 1, buf + len2);
             }
             std::copy(buf, buf + len1 + len2, path.begin() + i1);
             return;

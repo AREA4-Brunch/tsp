@@ -41,7 +41,7 @@ concept CutStrategy = requires(
     std::vector<vertex_t> &new_path
 ) {
     { this_t::NUM_CUTS } -> std::convertible_to<int>;
-    requires (this_t::NUM_CUTS == K);
+    requires (K == -1 || this_t::NUM_CUTS == K);
 
     { t.selectCut(path_c, segs, change, weights, perm_idx) }
         -> std::same_as<std::vector<std::pair<int, int>>>;

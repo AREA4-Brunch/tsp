@@ -10,7 +10,7 @@
 #include <random>
 #include <iomanip>
 
-// #include "cut_3_opt.hpp"
+#include "cut_3_opt.hpp"
 #include "history.hpp"
 #include "heuristic.hpp"
 // #include "heuristic_best_cut.hpp"
@@ -44,8 +44,8 @@ std::unique_ptr<k_opt::Heuristic<cost_t, vertex_t>> selectAlgo(
 
 template<typename cost_t, typename vertex_t>
 std::variant<
-    // k_opt::Cut3Opt<cost_t, vertex_t>,
-    // k_opt::Cut3OptNo2Opt<cost_t, vertex_t>,
+    k_opt::Cut3Opt<cost_t, vertex_t>,
+    k_opt::Cut3OptNo2Opt<cost_t, vertex_t>,
         k_opt::CutKOpt<cost_t, vertex_t, 3>,
     k_opt::CutKOpt<cost_t, vertex_t, 4>,
     k_opt::CutKOpt<cost_t, vertex_t, 5>,
@@ -58,7 +58,8 @@ std::unique_ptr<k_opt::Heuristic<cost_t, vertex_t>>
 createHeuristic(
     const std::string &heur_name,
     const cut_t &cut,
-    const unsigned int seed
+    const unsigned int seed,
+    const int k = -1
 );
 
 bool hasFlag(int argc, const char **argv, const std::string& flag) {
@@ -166,6 +167,8 @@ int main(const int argc, const char **argv)
         return -2;
     }
 
+    std::cout << std::flush;
+
     return 0;
 }
 
@@ -201,8 +204,9 @@ cost_t Solve(
 
     // log found cost and path:
     std::cout << "Best found total distance for " << distances.size()
-              << " points: " << static_cast<double>(min_distance)
-              << std::endl;
+              << " points: " << std::fixed << std::setprecision(6)
+              << static_cast<double>(min_distance)
+              << std::defaultfloat << std::endl;
     std::cout << "Corresponding path (0-indexed):" << std::endl;
     for (const int idx : path) {
         std::cout << "Point #" << ((int) idx) << std::endl;
@@ -219,7 +223,10 @@ std::unique_ptr<k_opt::Heuristic<cost_t, vertex_t>> detail::selectAlgo(
 ) {
     return std::visit([&] (auto &&cut) {
         using cut_t = std::decay_t<decltype(cut)>;
-        return detail::createHeuristic<cost_t, cut_t, vertex_t, cut_t::NUM_CUTS>(
+        return detail::createHeuristic<
+            cost_t, cut_t, vertex_t, cut_t::NUM_CUTS
+            // cost_t, cut_t, vertex_t, -1
+        >(
             selection_algo_name, cut, seed
         );
     }, detail::createCut<cost_t, vertex_t>(cut_algo_name));
@@ -227,16 +234,16 @@ std::unique_ptr<k_opt::Heuristic<cost_t, vertex_t>> detail::selectAlgo(
 
 template<typename cost_t, typename vertex_t>
 std::variant<
-    // k_opt::Cut3Opt<cost_t, vertex_t>,
-    // k_opt::Cut3OptNo2Opt<cost_t, vertex_t>,
+    k_opt::Cut3Opt<cost_t, vertex_t>,
+    k_opt::Cut3OptNo2Opt<cost_t, vertex_t>,
         k_opt::CutKOpt<cost_t, vertex_t, 3>,
     k_opt::CutKOpt<cost_t, vertex_t, 4>,
     k_opt::CutKOpt<cost_t, vertex_t, 5>,
     k_opt::CutKOpt<cost_t, vertex_t, -1>
 > detail::createCut(const std::string &cut_name) {
     using cut_t = std::variant<
-        // k_opt::Cut3Opt<cost_t, vertex_t>,
-        // k_opt::Cut3OptNo2Opt<cost_t, vertex_t>,
+        k_opt::Cut3Opt<cost_t, vertex_t>,
+        k_opt::Cut3OptNo2Opt<cost_t, vertex_t>,
                 k_opt::CutKOpt<cost_t, vertex_t, 3>,
         k_opt::CutKOpt<cost_t, vertex_t, 4>,
         k_opt::CutKOpt<cost_t, vertex_t, 5>,
@@ -246,22 +253,22 @@ std::variant<
     const bool select_first_better = false;
     const bool do_pre_gen_perms = true;
     static const std::unordered_map<std::string, factory_t> cuts = {
-        // { "3_opt", [] () {
-            // return k_opt::Cut3Opt<cost_t, vertex_t>();
-        // }},
-        // { "3_opt_no_2_opt", [] () {
-            // return k_opt::Cut3OptNo2Opt<cost_t, vertex_t>();
-        // }},
         { "3_opt", [] () {
-            return k_opt::CutKOpt<cost_t, vertex_t, 3>(
-                3, select_first_better, true, do_pre_gen_perms
-            );
+            return k_opt::Cut3Opt<cost_t, vertex_t>();
         }},
         { "3_opt_no_2_opt", [] () {
-            return k_opt::CutKOpt<cost_t, vertex_t, 3>(
-                3, select_first_better, false, do_pre_gen_perms
-            );
+            return k_opt::Cut3OptNo2Opt<cost_t, vertex_t>();
         }},
+        // { "3_opt", [] () {
+        //     return k_opt::CutKOpt<cost_t, vertex_t, 3>(
+        //         3, select_first_better, true, do_pre_gen_perms
+        //     );
+        // }},
+        // { "3_opt_no_2_opt", [] () {
+        //     return k_opt::CutKOpt<cost_t, vertex_t, 3>(
+        //         3, select_first_better, false, do_pre_gen_perms
+        //     );
+        // }},
         { "4_opt", [] () {
             return k_opt::CutKOpt<cost_t, vertex_t, 4>(
                 4, select_first_better, true, do_pre_gen_perms
@@ -309,7 +316,8 @@ std::unique_ptr<k_opt::Heuristic<cost_t, vertex_t>>
 detail::createHeuristic(
     const std::string &heur_name,
     const cut_t &cut,
-    const unsigned int seed
+    const unsigned int seed,
+    const int k
 ) {
     using heur_ptr = std::unique_ptr<k_opt::Heuristic<cost_t, vertex_t>>;
     using factory_t = std::function<heur_ptr ()>;
@@ -324,10 +332,10 @@ detail::createHeuristic(
         //         cost_t, cut_t, vertex_t
         //     >>(cut);
         // }},
-        { "funky", [&cut] () {
+        { "funky", [&cut, k] () {
             return std::make_unique<k_opt::KOptFunky<
                 cost_t, cut_t, K, vertex_t
-            >>(cut);
+            >>(cut, k);
         }},
         // { "rand", [&cut, seed] () {
         //     auto psrng = random::initPSRNG(seed);
