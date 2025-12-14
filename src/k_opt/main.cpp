@@ -50,7 +50,7 @@ std::variant<
     k_opt::CutKOpt<cost_t, vertex_t, 4>,
     k_opt::CutKOpt<cost_t, vertex_t, 5>,
     k_opt::CutKOpt<cost_t, vertex_t, -1>
-> createCut(const std::string &cut_name);
+> createCut(const std::string &cut_name, int &k);
 
 template<typename cost_t, typename cut_t, typename vertex_t, int K>
 requires k_opt::CutStrategy<cut_t, cost_t, vertex_t, K>
@@ -221,15 +221,15 @@ std::unique_ptr<k_opt::Heuristic<cost_t, vertex_t>> detail::selectAlgo(
     const std::string &cut_algo_name,
     const unsigned int seed
 ) {
+    int k = -1;
     return std::visit([&] (auto &&cut) {
         using cut_t = std::decay_t<decltype(cut)>;
         return detail::createHeuristic<
             cost_t, cut_t, vertex_t, cut_t::NUM_CUTS
-            // cost_t, cut_t, vertex_t, -1
         >(
-            selection_algo_name, cut, seed
+            selection_algo_name, cut, seed, k
         );
-    }, detail::createCut<cost_t, vertex_t>(cut_algo_name));
+    }, detail::createCut<cost_t, vertex_t>(cut_algo_name, k));
 }
 
 template<typename cost_t, typename vertex_t>
@@ -240,7 +240,7 @@ std::variant<
     k_opt::CutKOpt<cost_t, vertex_t, 4>,
     k_opt::CutKOpt<cost_t, vertex_t, 5>,
     k_opt::CutKOpt<cost_t, vertex_t, -1>
-> detail::createCut(const std::string &cut_name) {
+> detail::createCut(const std::string &cut_name, int &k) {
     using cut_t = std::variant<
         k_opt::Cut3Opt<cost_t, vertex_t>,
         k_opt::Cut3OptNo2Opt<cost_t, vertex_t>,
@@ -250,8 +250,8 @@ std::variant<
         k_opt::CutKOpt<cost_t, vertex_t, -1>
     >;
     using factory_t = std::function<cut_t ()>;
-    const bool select_first_better = false;
-    const bool do_pre_gen_perms = true;
+    const bool select_first_better = true;
+    const bool do_pre_gen_perms = false;
     static const std::unordered_map<std::string, factory_t> cuts = {
         { "3_opt", [] () {
             return k_opt::Cut3Opt<cost_t, vertex_t>();
@@ -261,32 +261,32 @@ std::variant<
         }},
         // { "3_opt", [] () {
         //     return k_opt::CutKOpt<cost_t, vertex_t, 3>(
-        //         3, select_first_better, true, do_pre_gen_perms
+        //         3, true, select_first_better, do_pre_gen_perms
         //     );
         // }},
         // { "3_opt_no_2_opt", [] () {
         //     return k_opt::CutKOpt<cost_t, vertex_t, 3>(
-        //         3, select_first_better, false, do_pre_gen_perms
+        //         3, false, select_first_better, do_pre_gen_perms
         //     );
         // }},
         { "4_opt", [] () {
             return k_opt::CutKOpt<cost_t, vertex_t, 4>(
-                4, select_first_better, true, do_pre_gen_perms
+                4, true, select_first_better, do_pre_gen_perms
             );
         }},
         { "4_opt_no_2_opt", [] () {
             return k_opt::CutKOpt<cost_t, vertex_t, 4>(
-                4, select_first_better, false, do_pre_gen_perms
+                4, false, select_first_better, do_pre_gen_perms
             );
         }},
         { "5_opt", [] () {
             return k_opt::CutKOpt<cost_t, vertex_t, 5>(
-                5, select_first_better, true, do_pre_gen_perms
+                5, true, select_first_better, do_pre_gen_perms
             );
         }},
         { "5_opt_no_2_opt", [] () {
             return k_opt::CutKOpt<cost_t, vertex_t, 5>(
-                5, select_first_better, false, do_pre_gen_perms
+                5, false, select_first_better, do_pre_gen_perms
             );
         }}
     };
@@ -294,16 +294,16 @@ std::variant<
 
     using k_factory_t = std::function<cut_t (const int)>;
     const int sep_idx = cut_name.find('_');
-    const int k = std::stoi(cut_name.substr(0, sep_idx));
+    k = std::stoi(cut_name.substr(0, sep_idx));
     static const std::unordered_map<std::string, k_factory_t> k_cuts = {
         { "_opt", [] (const int k) {
             return k_opt::CutKOpt<cost_t, vertex_t>(
-                k, select_first_better, true, do_pre_gen_perms
+                k, true, select_first_better, do_pre_gen_perms
             );
         }},
         { "_opt_no_2_opt", [] (const int k) {
             return k_opt::CutKOpt<cost_t, vertex_t>(
-                k, select_first_better, true, do_pre_gen_perms
+                k, false, select_first_better, do_pre_gen_perms
             );
         }}
     };

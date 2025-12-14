@@ -96,7 +96,7 @@ RESULTS_DIR="$SCRIPT_DIR/../../results/K_opt_funky"
 HISTORY_DIR="$RESULTS_DIR/histories"
 
 echo "Compiling..."
-if ! g++ --static -std=c++20 -O3 -Wall -Wextra -o "$SRC_DIR/main.exe" "$SRC_DIR/main.cpp"; then
+if ! g++ --static -std=c++23 -O3 -Wall -Wextra -o "$SRC_DIR/main.exe" "$SRC_DIR/main.cpp"; then
     echo "Compilation failed."
     exit 1
 fi

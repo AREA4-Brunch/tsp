@@ -18,37 +18,36 @@ class Cut3Opt {
     Cut3Opt() = default;
     ~Cut3Opt() = default;
 
-    template<typename segs_t>
     [[ gnu::hot ]]
-    inline std::vector<std::pair<int, int>> selectCut(
-        const std::vector<vertex_t> &path,
-        const segs_t &segs,
+    inline bool selectCut(
+        const vertex_t * __restrict const path,
+        std::pair<int, int> * __restrict const segs,
         cost_t &change,
-        const std::vector<std::vector<cost_t>> &weights,
-        int &perm_idx
-    ) const;
+        const std::vector<cost_t> * __restrict const weights,
+        int &perm_idx,
+        [[ maybe_unused ]] std::pair<int, int> * __restrict const
+    ) const noexcept;
 
-    template<typename segs_t>
     [[ gnu::hot ]]
-    inline void applyCut(
-        std::vector<vertex_t> &path,
-        const segs_t &segs,
-        const int perm_idx,
-        std::vector<vertex_t> &buffer
-    ) const;
+    inline bool applyCut(
+        vertex_t * __restrict const path,
+        const std::pair<int, int> * __restrict const segs,
+        const int move_ord,
+        vertex_t * __restrict const buf,
+        const int n = -1
+    ) const noexcept;
 };
 
 
 template<typename cost_t, typename vertex_t, bool no_2_opt>
-template<typename segs_t>
-std::vector<std::pair<int, int>>
-Cut3Opt<cost_t, vertex_t, no_2_opt>::selectCut(
-    const std::vector<vertex_t> &path,
-    const segs_t &segs,
+bool Cut3Opt<cost_t, vertex_t, no_2_opt>::selectCut(
+    const vertex_t * __restrict const path,
+    std::pair<int, int> * __restrict const segs,
     cost_t &change,
-    const std::vector<std::vector<cost_t>> &weights,
-    int &perm_idx
-) const {
+    const std::vector<cost_t> * __restrict const weights,
+    int &perm_idx,
+    [[ maybe_unused ]] std::pair<int, int> * __restrict const
+) const noexcept {
     const vertex_t a = path[segs[0].second];
     const vertex_t b = path[segs[1].first];
     const vertex_t c = path[segs[1].second];
@@ -56,11 +55,11 @@ Cut3Opt<cost_t, vertex_t, no_2_opt>::selectCut(
     const vertex_t e = path[segs[2].second];
     const vertex_t f = path[segs[0].first];
 
-    const cost_t* __restrict wa = weights[a].data();
-    const cost_t* __restrict wb = weights[b].data();
-    const cost_t* __restrict wc = weights[c].data();
-    const cost_t* __restrict wd = weights[d].data();
-    const cost_t* __restrict we = weights[e].data();
+    const cost_t*  wa = weights[a].data();
+    const cost_t*  wb = weights[b].data();
+    const cost_t*  wc = weights[c].data();
+    const cost_t*  wd = weights[d].data();
+    const cost_t*  we = weights[e].data();
 
     const cost_t current = wa[b] + wc[d] + we[f];
     cost_t best = current;
@@ -75,12 +74,10 @@ Cut3Opt<cost_t, vertex_t, no_2_opt>::selectCut(
         TRY_MOVE(0b010, wa[c] + wb[d] + we[f]);
         TRY_MOVE(0b100, wa[b] + wc[e] + wd[f]);
     }
-
     TRY_MOVE(0b110, wa[c] + wb[e] + wd[f]);
     TRY_MOVE(0b001, wa[d] + we[b] + wc[f]);
     TRY_MOVE(0b011, wa[d] + we[c] + wb[f]);
     TRY_MOVE(0b101, wa[e] + wd[b] + wc[f]);
-
     if constexpr (!no_2_opt) {
         TRY_MOVE(0b111, wa[e] + wd[c] + wb[f]);
     }
@@ -88,17 +85,17 @@ Cut3Opt<cost_t, vertex_t, no_2_opt>::selectCut(
     #undef TRY_MOVE
 
     change = best - current;
-    return {};
+    return true;
 }
 
 template<typename cost_t, typename vertex_t, bool no_2_opt>
-template<typename segs_t>
-void Cut3Opt<cost_t, vertex_t, no_2_opt>::applyCut(
-    std::vector<vertex_t> &path,
-    const segs_t &segs,
+bool Cut3Opt<cost_t, vertex_t, no_2_opt>::applyCut(
+    vertex_t * __restrict const path,
+    const std::pair<int, int> * __restrict const segs,
     const int move_ord,
-    std::vector<vertex_t> &buffer
-) const {
+    vertex_t * __restrict const buf,
+    [[ maybe_unused ]] const int n
+) const noexcept {
     const int i1 = segs[1].first;
     const int j1 = segs[1].second;
     const int i2 = segs[2].first;
@@ -108,41 +105,51 @@ void Cut3Opt<cost_t, vertex_t, no_2_opt>::applyCut(
 
     switch (move_ord) {
         case 0b010: {
-            std::reverse(path.begin() + i1, path.begin() + j1 + 1);
-            return;
+            std::reverse(path + i1, path + j1 + 1);
+            return false;
         }
         case 0b100: {
-            std::reverse(path.begin() + i2, path.begin() + j2 + 1);
-            return;
+            std::reverse(path + i2, path + j2 + 1);
+            return false;
         }
         case 0b110: {
-            std::reverse(path.begin() + i1, path.begin() + j1 + 1);
-            std::reverse(path.begin() + i2, path.begin() + j2 + 1);
-            return;
+            std::reverse(path + i1, path + j1 + 1);
+            std::reverse(path + i2, path + j2 + 1);
+            return false;
         }
         case 0b001:
         case 0b011:
         case 0b101:
         case 0b111: {
-            vertex_t* const __restrict buf = buffer.data();
             if (move_ord & 0b100) {
-                std::reverse_copy(path.begin() + i2,
-                                  path.begin() + j2 + 1, buf);
+                std::reverse_copy(path + i2,
+                                  path + j2 + 1, buf);
             } else {
-                std::copy(path.begin() + i2, path.begin() + j2 + 1, buf);
+                std::copy(path + i2, path + j2 + 1, buf);
             }
             if (move_ord & 0b010) {
-                std::reverse_copy(path.begin() + i1,
-                                  path.begin() + j1 + 1, buf + len2);
+                std::reverse_copy(path + i1,
+                                  path + j1 + 1, buf + len2);
             } else {
-                std::copy(path.begin() + i1,
-                          path.begin() + j1 + 1, buf + len2);
+                std::copy(path + i1,
+                          path + j1 + 1, buf + len2);
             }
-            std::copy(buf, buf + len1 + len2, path.begin() + i1);
-            return;
+            const int buf_len = len1 + len2;
+            // copy shorter part
+            if (buf_len <= n - buf_len) {
+                std::copy(buf, buf + buf_len, path + i1);
+                return false;
+            }
+            auto *buf_tail = std::copy(
+                path + i1 + buf_len,
+                path + n, 
+                buf + buf_len
+            );
+            std::copy(path, path + i1, buf_tail);
+            return true;
         }
         default:
-            return;
+            return false;
     }
 }
 

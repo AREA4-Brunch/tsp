@@ -37,7 +37,7 @@ class Heuristic {
         History<cost_t> &history,
         const std::vector<std::vector<cost_t>> &weights,
         const int verbose = 0
-    ) const = 0;
+    ) const noexcept = 0;
 
     virtual void selectInitSolution(
         std::vector<vertex_t> &solution,
