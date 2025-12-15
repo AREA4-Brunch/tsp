@@ -174,7 +174,7 @@ inline void applyCut(
     }
 
     const auto insert_seg = [&] (const int s)
-        __attribute__((always_inline))
+        [[ gnu::always_inline ]]
     {
         const auto &seg = seg_at(s);
         const int start = seg.first;
@@ -369,7 +369,7 @@ bool CutKOpt<cost_t, vertex_t, K>::selectCut(
                       ? best_segs : buffer.data();
             std::copy(segs, segs + k, segs_perm);
         }
-        const auto seg_at = [segs_perm] (int idx) -> seg_t& {
+        const auto seg_at = [&] (int idx) -> seg_t& {
             return segs_perm[idx];
         };
         detail::all_permutations(segs_perm + 1, k - 1, [&] () {
@@ -393,8 +393,7 @@ bool CutKOpt<cost_t, vertex_t, K>::selectCut(
         for (const auto &perm_indices_ : this->seg_perm_indices) {
             const int * const __restrict perm_indices
                 = perm_indices_.data();
-            const auto seg_at = [segs, perm_indices]
-                (int idx) -> seg_t& {
+            const auto seg_at = [&] (int idx) -> seg_t& {
                 return segs[perm_indices[idx]];
             };
             rotate_perm(seg_at, segs);

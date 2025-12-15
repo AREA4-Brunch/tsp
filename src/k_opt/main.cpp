@@ -250,15 +250,15 @@ std::variant<
         k_opt::CutKOpt<cost_t, vertex_t, -1>
     >;
     using factory_t = std::function<cut_t ()>;
-    const bool select_first_better = true;
+    const bool select_first_better = false;
     const bool do_pre_gen_perms = true;
     static const std::unordered_map<std::string, factory_t> cuts = {
-        // { "3_opt", [] () {
-        //     return k_opt::Cut3Opt<cost_t, vertex_t>();
-        // }},
-        // { "3_opt_no_2_opt", [] () {
-        //     return k_opt::Cut3OptNo2Opt<cost_t, vertex_t>();
-        // }},
+        { "3_opt", [] () {
+            return k_opt::Cut3Opt<cost_t, vertex_t>();
+        }},
+        { "3_opt_no_2_opt", [] () {
+            return k_opt::Cut3OptNo2Opt<cost_t, vertex_t>();
+        }},
         // { "3_opt", [] () {
         //     return k_opt::CutKOpt<cost_t, vertex_t, 3>(
         //         3, true, select_first_better, do_pre_gen_perms
