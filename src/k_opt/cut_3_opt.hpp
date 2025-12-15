@@ -20,10 +20,11 @@ class Cut3Opt {
 
     [[ gnu::hot ]]
     inline bool selectCut(
+        const int n,
         const vertex_t * __restrict const path,
         std::pair<int, int> * __restrict const segs,
         cost_t &change,
-        const std::vector<cost_t> * __restrict const weights,
+        const cost_t * __restrict const weights,
         int &perm_idx,
         [[ maybe_unused ]] std::pair<int, int> * __restrict const
     ) const noexcept;
@@ -41,10 +42,11 @@ class Cut3Opt {
 
 template<typename cost_t, typename vertex_t, bool no_2_opt>
 bool Cut3Opt<cost_t, vertex_t, no_2_opt>::selectCut(
+    const int n,
     const vertex_t * __restrict const path,
     std::pair<int, int> * __restrict const segs,
     cost_t &change,
-    const std::vector<cost_t> * __restrict const weights,
+    const cost_t * __restrict const weights,
     int &perm_idx,
     [[ maybe_unused ]] std::pair<int, int> * __restrict const
 ) const noexcept {
@@ -55,11 +57,11 @@ bool Cut3Opt<cost_t, vertex_t, no_2_opt>::selectCut(
     const vertex_t e = path[segs[2].second];
     const vertex_t f = path[segs[0].first];
 
-    const cost_t*  wa = weights[a].data();
-    const cost_t*  wb = weights[b].data();
-    const cost_t*  wc = weights[c].data();
-    const cost_t*  wd = weights[d].data();
-    const cost_t*  we = weights[e].data();
+    const cost_t* __restrict wa = weights + a * n;
+    const cost_t* __restrict wb = weights + b * n;
+    const cost_t* __restrict wc = weights + c * n;
+    const cost_t* __restrict wd = weights + d * n;
+    const cost_t* __restrict we = weights + e * n;
 
     const cost_t current = wa[b] + wc[d] + we[f];
     cost_t best = current;

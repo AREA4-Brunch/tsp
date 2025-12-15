@@ -38,10 +38,11 @@ class CutKOpt {
 
     [[ gnu::hot ]]
     inline bool selectCut(
+        const int n,
         const vertex_t * __restrict const path,
         std::pair<int, int> * __restrict const segs,
         cost_t &change,
-        const std::vector<cost_t> * __restrict const weights,
+        const cost_t * __restrict const weights,
         int &perm_idx,
         std::pair<int, int> * __restrict const best_segs
     ) const noexcept;
@@ -115,23 +116,20 @@ inline bool all_permutations(iter_t begin, const int n, callback_t &&cb) {
 }
 
 template<typename cost_t, typename vertex_t>
-[[ gnu::hot ]]
+[[ gnu::always_inline, gnu::hot ]]
 inline cost_t calcCutCost(
+    const int n,
     const int k,
     const vertex_t * __restrict const path,
-    const std::pair<int, int> *  const segs,
-    const std::vector<cost_t> * __restrict const weights,
-    bool &not_inc_single_v_seg
+    const std::pair<int, int> * __restrict const segs,
+    const cost_t * __restrict const weights
 ) noexcept {
-    not_inc_single_v_seg = true;
     int prev_i = std::max(segs[0].first, segs[0].second);
-    cost_t cut = weights[path[prev_i - 1]]
-                        [path[prev_i]];
+    cost_t cut = weights[n * path[prev_i - 1] + path[prev_i]];
     for (int i = 1; i < k; ++i) {
         const int cur_i = std::min(segs[i].first, segs[i].second);
         prev_i = cur_i - 1;
-        not_inc_single_v_seg |= segs[i].first != segs[i].second;
-        cut += weights[path[prev_i]][path[cur_i]];
+        cut += weights[n * path[prev_i] + path[cur_i]];
     }
     return cut;
 }
@@ -256,10 +254,11 @@ void CutKOpt<cost_t, vertex_t, K>::generateSegPermIndices() {
 
 template<typename cost_t, typename vertex_t, int K>
 bool CutKOpt<cost_t, vertex_t, K>::selectCut(
+    const int n,
     const vertex_t * __restrict const path,
     std::pair<int, int> * __restrict const segs,
     cost_t &change,
-    const std::vector<cost_t> * __restrict const weights,
+    const cost_t * __restrict const weights,
     int &perm_idx,
     std::pair<int, int> * __restrict const best_segs
 ) const noexcept {
@@ -268,11 +267,10 @@ bool CutKOpt<cost_t, vertex_t, K>::selectCut(
 
     const int k = this->getK();
     const bool choose_first = this->select_first_better;
-    bool not_inc_single_v_seg = false;
-    change = detail::calcCutCost(k, path, segs, weights,
-                                 not_inc_single_v_seg);
-    const bool is_not_pure_k_opt = !not_inc_single_v_seg
-                                 || this->is_not_pure_k_opt;
+    const bool is_not_pure_k_opt = this->is_not_pure_k_opt;
+    change = detail::calcCutCost<cost_t, vertex_t>(
+        n, k, path, segs, weights
+    );
     cost_t best_edges_cost = change;
 
     std::array<rot_t, (K == -1 ? 16 : K)> rot_stack;
@@ -296,8 +294,8 @@ bool CutKOpt<cost_t, vertex_t, K>::selectCut(
             cost_t &edges_cost = rot_top->second;
             const int src_i = seg_at(idx - 1).second;
             const vertex_t src_v = path[src_i];
-            const cost_t * const __restrict w_src
-                = weights[src_v].data();
+            const cost_t * __restrict const w_src
+                = weights + src_v * n;
 
             if (idx == k) {
                 const int dst_i = seg_at(0).first;

@@ -27,24 +27,26 @@ template<typename this_t, typename cost_t, typename vertex_t, int K>
 concept CutStrategy = requires(
     this_t &t,
 
+    const int n,
     const vertex_t * __restrict const path_c,
     std::pair<int, int> * __restrict const segs,
     cost_t &change,
-    const std::vector<cost_t> * __restrict const weights,
+    const cost_t * __restrict const weights,
     int &perm_idx,
     std::pair<int, int> * __restrict const best_segs,
 
     vertex_t * __restrict const path,
     const std::pair<int, int> * __restrict const segs_c,
     const int perm_idx_c,
-    vertex_t * __restrict const buffer,
-    const int n
+    vertex_t * __restrict const buffer
 ) {
     { this_t::NUM_CUTS } -> std::convertible_to<int>;
     requires (K == -1 || this_t::NUM_CUTS == K);
 
-    { t.selectCut(path_c, segs, change, weights, perm_idx, best_segs) }
+    { t.selectCut(n, path_c, segs, change, weights,
+                  perm_idx, best_segs) }
         noexcept -> std::same_as<bool>;
+
     { t.applyCut(path, segs_c, perm_idx_c, buffer, n) }
         noexcept -> std::same_as<bool>;
 };
