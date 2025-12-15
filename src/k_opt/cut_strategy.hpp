@@ -29,25 +29,26 @@ concept CutStrategy = requires(
 
     const int n,
     const vertex_t * __restrict const path_c,
-    std::pair<int, int> * __restrict const segs,
+    const std::pair<int, int> * __restrict const segs,
     cost_t &change,
     const cost_t * __restrict const weights,
     int &perm_idx,
-    std::pair<int, int> * __restrict const best_segs,
 
     vertex_t * __restrict const path,
+    vertex_t * __restrict const buffer,
     const std::pair<int, int> * __restrict const segs_c,
     const int perm_idx_c,
-    vertex_t * __restrict const buffer
+    const int swap_mask
 ) {
     { this_t::NUM_CUTS } -> std::convertible_to<int>;
     requires (K == -1 || this_t::NUM_CUTS == K);
 
     { t.selectCut(n, path_c, segs, change, weights,
-                  perm_idx, best_segs) }
-        noexcept -> std::same_as<bool>;
+                  perm_idx) }
+        noexcept -> std::same_as<int>;
 
-    { t.applyCut(path, segs_c, perm_idx_c, buffer, n) }
+    { t.applyCut(path, buffer, segs_c, perm_idx_c,
+                 swap_mask, n) }
         noexcept -> std::same_as<bool>;
 };
 

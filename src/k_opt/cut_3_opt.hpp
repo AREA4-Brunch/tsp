@@ -19,36 +19,35 @@ class Cut3Opt {
     ~Cut3Opt() = default;
 
     [[ gnu::hot ]]
-    inline bool selectCut(
+    inline int selectCut(
         const int n,
         const vertex_t * __restrict const path,
-        std::pair<int, int> * __restrict const segs,
+        const std::pair<int, int> * __restrict const segs,
         cost_t &change,
         const cost_t * __restrict const weights,
-        int &perm_idx,
-        [[ maybe_unused ]] std::pair<int, int> * __restrict const
+        int &perm_idx
     ) const noexcept;
 
     [[ gnu::hot ]]
     inline bool applyCut(
         vertex_t * __restrict const path,
+        vertex_t * __restrict const buf,
         const std::pair<int, int> * __restrict const segs,
         const int move_ord,
-        vertex_t * __restrict const buf,
-        const int n = -1
+        [[ maybe_unused ]] const int swap_mask = -1,
+        [[ maybe_unused ]] const int n = -1
     ) const noexcept;
 };
 
 
 template<typename cost_t, typename vertex_t, bool no_2_opt>
-bool Cut3Opt<cost_t, vertex_t, no_2_opt>::selectCut(
+int Cut3Opt<cost_t, vertex_t, no_2_opt>::selectCut(
     const int n,
     const vertex_t * __restrict const path,
-    std::pair<int, int> * __restrict const segs,
+    const std::pair<int, int> * __restrict const segs,
     cost_t &change,
     const cost_t * __restrict const weights,
-    int &perm_idx,
-    [[ maybe_unused ]] std::pair<int, int> * __restrict const
+    int &perm_idx
 ) const noexcept {
     const vertex_t a = path[segs[0].second];
     const vertex_t b = path[segs[1].first];
@@ -87,15 +86,16 @@ bool Cut3Opt<cost_t, vertex_t, no_2_opt>::selectCut(
     #undef TRY_MOVE
 
     change = best - current;
-    return true;
+    return 0;
 }
 
 template<typename cost_t, typename vertex_t, bool no_2_opt>
 bool Cut3Opt<cost_t, vertex_t, no_2_opt>::applyCut(
     vertex_t * __restrict const path,
+    vertex_t * __restrict const buf,
     const std::pair<int, int> * __restrict const segs,
     const int move_ord,
-    vertex_t * __restrict const buf,
+    [[ maybe_unused ]] const int swap_mask,
     [[ maybe_unused ]] const int n
 ) const noexcept {
     const int i1 = segs[1].first;
@@ -142,7 +142,7 @@ bool Cut3Opt<cost_t, vertex_t, no_2_opt>::applyCut(
                 std::copy(buf, buf + buf_len, path + i1);
                 return false;
             }
-            auto *buf_tail = std::copy(
+            auto * const buf_tail = std::copy(
                 path + i1 + buf_len,
                 path + n, 
                 buf + buf_len

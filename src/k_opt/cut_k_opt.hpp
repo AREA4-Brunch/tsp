@@ -37,22 +37,22 @@ class CutKOpt {
     ~CutKOpt() = default;
 
     [[ gnu::hot ]]
-    inline bool selectCut(
+    inline int selectCut(
         const int n,
         const vertex_t * __restrict const path,
-        std::pair<int, int> * __restrict const segs,
+        const std::pair<int, int> * __restrict const segs,
         cost_t &change,
         const cost_t * __restrict const weights,
-        int &perm_idx,
-        std::pair<int, int> * __restrict const best_segs
+        int &perm_idx
     ) const noexcept;
 
     [[ gnu::hot ]]
     inline bool applyCut(
         vertex_t * __restrict const path,
+        vertex_t * __restrict const buffer,
         const std::pair<int, int> * __restrict const segs,
         const int perm_idx,
-        vertex_t * __restrict const buffer,
+        const int swap_mask,
         const int n
     ) const noexcept;
 
@@ -70,12 +70,18 @@ class CutKOpt {
 
  private:
 
+    struct RotDesc {
+        int_fast8_t step;
+        cost_t cost;
+        int prev_i;
+    };
+
     int k = -1;
     bool is_not_pure_k_opt = true;
     bool select_first_better = true;
     std::vector<std::vector<int>> seg_perm_indices;
     // buffer for dynamic K only
-    mutable std::vector<std::pair<int, cost_t>> rot_stack;
+    mutable std::vector<RotDesc> rot_stack;
 
     void generateSegPermIndices();
 
@@ -115,25 +121,6 @@ inline bool all_permutations(iter_t begin, const int n, callback_t &&cb) {
     return false;
 }
 
-template<typename cost_t, typename vertex_t>
-[[ gnu::always_inline, gnu::hot ]]
-inline cost_t calcCutCost(
-    const int n,
-    const int k,
-    const vertex_t * __restrict const path,
-    const std::pair<int, int> * __restrict const segs,
-    const cost_t * __restrict const weights
-) noexcept {
-    int prev_i = std::max(segs[0].first, segs[0].second);
-    cost_t cut = weights[n * path[prev_i - 1] + path[prev_i]];
-    for (int i = 1; i < k; ++i) {
-        const int cur_i = std::min(segs[i].first, segs[i].second);
-        prev_i = cur_i - 1;
-        cut += weights[n * path[prev_i] + path[cur_i]];
-    }
-    return cut;
-}
-
 template<typename cost_t, typename vertex_t, int K = -1>
 [[ gnu::hot ]]
 inline void applyCut(
@@ -141,6 +128,7 @@ inline void applyCut(
     vertex_t * __restrict const path,
     auto &&seg_at,
     vertex_t * __restrict new_path,
+    const int swap_mask,
     [[ maybe_unused ]] const int k
 ) noexcept {
     // first segment is always [k, i]
@@ -173,22 +161,22 @@ inline void applyCut(
         *(new_path++) = path[start];
     }
 
-    const auto insert_seg = [&] (const int s)
-        [[ gnu::always_inline ]]
+    const auto insert_seg = [&] (const int i)
+        [[ always_inline ]]
     {
-        const auto &seg = seg_at(s);
-        const int start = seg.first;
-        const int end = seg.second;
-        if (start <= end) {  // forward
-            new_path = std::copy(
-                path + start, 
+        const auto &s = seg_at(i);
+        const int start = s.first;
+        const int end = s.second;
+        if (swap_mask & (1 << i)) {  // reversed
+            new_path = std::reverse_copy(
+                path + start,
                 path + end + 1,
                 new_path
             );
-        } else {  // reversed
-            new_path = std::reverse_copy(
-                path + end,
-                path + start + 1,
+        } else {  // forward
+            new_path = std::copy(
+                path + start, 
+                path + end + 1,
                 new_path
             );
         }
@@ -196,8 +184,8 @@ inline void applyCut(
 
     // remaining k-1 contiguous ranges
     if constexpr (K == -1) {
-        for (int s = 1; s < k; ++s) {
-            insert_seg(s);
+        for (int i = 1; i < k; ++i) {
+            insert_seg(i);
         }
     } else {
         [&] <std::size_t... I> (std::index_sequence<I...>) {
@@ -253,80 +241,90 @@ void CutKOpt<cost_t, vertex_t, K>::generateSegPermIndices() {
 }
 
 template<typename cost_t, typename vertex_t, int K>
-bool CutKOpt<cost_t, vertex_t, K>::selectCut(
+int CutKOpt<cost_t, vertex_t, K>::selectCut(
     const int n,
     const vertex_t * __restrict const path,
-    std::pair<int, int> * __restrict const segs,
+    const std::pair<int, int> * __restrict const segs,
     cost_t &change,
     const cost_t * __restrict const weights,
-    int &perm_idx,
-    std::pair<int, int> * __restrict const best_segs
+    int &perm_idx
 ) const noexcept {
     using seg_t = std::pair<int, int>;
-    using rot_t = std::pair<int, cost_t>;
 
     const int k = this->getK();
     const bool choose_first = this->select_first_better;
-    const bool is_not_pure_k_opt = this->is_not_pure_k_opt;
-    change = detail::calcCutCost<cost_t, vertex_t>(
-        n, k, path, segs, weights
-    );
-    cost_t best_edges_cost = change;
+    // true at least for 1st chang compute
+    bool is_not_pure_k_opt = true;
 
-    std::array<rot_t, (K == -1 ? 16 : K)> rot_stack;
-    rot_t * __restrict rotations;
+    std::array<RotDesc, (K == -1 ? 16 : K)> rot_stack;
+    RotDesc * __restrict rotations;
     if constexpr (K == -1) {
         rotations = k <= 16 ? rot_stack.data()
                             : this->rot_stack.data();
     } else {
         rotations = rot_stack.data();
     }
+    rotations->cost = static_cast<cost_t>(0);
+    rotations->prev_i = segs[0].second;
 
-    const auto rotate_perm = [&] (
-        auto &&seg_at,
-        seg_t * const segs
-    ) [[ always_inline, gnu::hot ]] {
-        rot_t * __restrict rot_top = rotations;
-        rot_top->first = 0;
-        rot_top->second = static_cast<cost_t>(0);
+    int swap_mask = 0, best_mask = 0;
+    bool to_set_init_cost = true;
+    cost_t best_edges_cost = std::numeric_limits<cost_t>::max();
+    const auto rotate_perm = [&] (auto &&seg_at)
+        [[ always_inline, gnu::hot ]]
+    {
+        RotDesc * __restrict rot_top = rotations;
+        rot_top->step = 0;
 
         for (int idx = 1; idx > 0; ++idx) {
-            cost_t &edges_cost = rot_top->second;
-            const int src_i = seg_at(idx - 1).second;
+            cost_t &edges_cost = rot_top->cost;
+            const int src_i = rot_top->prev_i;
             const vertex_t src_v = path[src_i];
             const cost_t * __restrict const w_src
                 = weights + src_v * n;
 
-            if (idx == k) {
+            if (idx == k) [[ unlikely ]] {
                 const int dst_i = seg_at(0).first;
                 const int diff = dst_i - src_i;
-                if ( is_not_pure_k_opt
-                 || (diff != 1 && diff != -1)
-                ) {
+                if (to_set_init_cost) [[ unlikely ]] {
+                    best_edges_cost = change
+                        = edges_cost + w_src[path[dst_i]];
+                    to_set_init_cost = false;
+                    is_not_pure_k_opt = this->is_not_pure_k_opt;
+                } else if (
+                    is_not_pure_k_opt || (diff != 1 && diff != -1)
+                ) [[ likely ]] {
                     edges_cost += w_src[path[dst_i]];
-                    if (edges_cost < best_edges_cost) {
+                    if (edges_cost < best_edges_cost)
+                        [[ unlikely ]]
+                    {
                         best_edges_cost = edges_cost;
-                        if (choose_first) return true;
-                        std::copy(segs, segs + k, best_segs);
+                        best_mask = swap_mask;
+                        if (choose_first) [[ unlikely ]]
+                            return true;
                     }
                 }
                 --rot_top;
                 idx -= 2;
                 continue;
             }
-            seg_t &dst_seg = seg_at(idx);
-            int &step = rot_top->first;
+            const seg_t &dst_seg = seg_at(idx);
+            int_fast8_t &step = rot_top->step;
             if (step == 0) {  // try one rotation
                 const int dst_i = dst_seg.first;
                 const int diff = dst_i - src_i;
                 if ( is_not_pure_k_opt
                   || (diff != 1 && diff != -1)
-                ) {
+                ) [[ likely ]] {
                     const cost_t new_cost = edges_cost
                         + w_src[path[dst_i]];
-                    if (new_cost < best_edges_cost) {
-                        (++rot_top)->first = 0;
-                        rot_top->second = new_cost;
+                    if (new_cost < best_edges_cost)
+                       [[ unlikely ]]
+                    {
+                        swap_mask &= ~(1 << idx);
+                        (++rot_top)->step = 0;
+                        rot_top->cost = new_cost;
+                        rot_top->prev_i = dst_seg.second;
                         ++step;
                         continue;
                     }
@@ -334,17 +332,20 @@ bool CutKOpt<cost_t, vertex_t, K>::selectCut(
             }
             // other rotation
             if (dst_seg.first != dst_seg.second && step == 1) {
-                std::swap(dst_seg.first, dst_seg.second);
-                const int dst_i = dst_seg.first;
+                const int dst_i = dst_seg.second;
                 const int diff = dst_i - src_i;
                 if ( is_not_pure_k_opt
                  || (diff != 1 && diff != -1)
-                ) {
+                ) [[ likely ]] {
                     const cost_t new_cost = edges_cost
                         + w_src[path[dst_i]];
-                    if (new_cost < best_edges_cost) {
-                        (++rot_top)->first = 0;
-                        rot_top->second = new_cost;
+                    if (new_cost < best_edges_cost)
+                       [[ unlikely ]]
+                    {
+                        swap_mask |= (1 << idx);
+                        (++rot_top)->step = 0;
+                        rot_top->cost = new_cost;
+                        rot_top->prev_i = dst_seg.first;
                         ++step;
                         continue;
                     }
@@ -360,20 +361,18 @@ bool CutKOpt<cost_t, vertex_t, K>::selectCut(
         std::array<seg_t, (K == -1 ? 16 : K)> buffer;
         seg_t * __restrict segs_perm;
         if constexpr (K == -1) {
-            segs_perm = choose_first
-                ? best_segs
-                : (k <= 16 ? buffer.data() : new seg_t[k]);
+            segs_perm = k <= 16 ? buffer.data()
+                                : new seg_t[k];
             std::copy(segs, segs + k, segs_perm);
         } else {
-            segs_perm = choose_first
-                      ? best_segs : buffer.data();
+            segs_perm = buffer.data();
             std::copy(segs, segs + k, segs_perm);
         }
         const auto seg_at = [&] (int idx) -> seg_t& {
             return segs_perm[idx];
         };
         detail::all_permutations(segs_perm + 1, k - 1, [&] () {
-            return rotate_perm(seg_at, segs_perm);
+            return rotate_perm(seg_at);
         });
         if (best_edges_cost < change) {
             change = best_edges_cost - change;
@@ -383,27 +382,28 @@ bool CutKOpt<cost_t, vertex_t, K>::selectCut(
                 delete[] segs_perm;
             }
         }
-        return false;
+        return best_mask;
 
     } else {
         int best_perm_idx = -1;
         perm_idx = 0;
-        cost_t cur_best = change;
+        cost_t cur_best = best_edges_cost;
 
         for (const auto &perm_indices_ : this->seg_perm_indices) {
             const int * const __restrict perm_indices
                 = perm_indices_.data();
-            const auto seg_at = [&] (int idx) -> seg_t& {
+            const auto seg_at = [&] (int idx) -> const seg_t& {
                 return segs[perm_indices[idx]];
             };
-            rotate_perm(seg_at, segs);
-            if (choose_first) {
+            if (rotate_perm(seg_at)) [[ unlikely ]] {
                 change = best_edges_cost - change;
-                return true;  // best segs is stored in segs
+                return best_mask;
             }
-            if (best_edges_cost < cur_best) {
+            if (best_edges_cost < cur_best) [[ unlikely ]] {
                 cur_best = best_edges_cost;
-                best_perm_idx = perm_idx;
+                if (best_edges_cost < change) [[ likely ]] {
+                    best_perm_idx = perm_idx;
+                }
             }
             ++perm_idx;
         }
@@ -411,16 +411,17 @@ bool CutKOpt<cost_t, vertex_t, K>::selectCut(
             perm_idx = best_perm_idx;
             change = best_edges_cost - change;
         }
-        return false;
+        return best_mask;
     }
 }
 
 template<typename cost_t, typename vertex_t, int K>
 bool CutKOpt<cost_t, vertex_t, K>::applyCut(
     vertex_t * __restrict const path,
+    vertex_t * __restrict const buffer,
     const std::pair<int, int> * __restrict const segs,
     const int perm_idx,
-    vertex_t * __restrict const buffer,
+    const int swap_mask,
     const int n
 ) const noexcept {
     using seg_t = const std::pair<int, int>;
@@ -430,7 +431,7 @@ bool CutKOpt<cost_t, vertex_t, K>::applyCut(
         detail::applyCut<cost_t, vertex_t, K>(n, path,
             [segs] (const int i) -> seg_t& {
                 return segs[i];
-        }, buffer, k);
+        }, buffer, swap_mask, k);
         return true;
     }
     const int * const __restrict perm_indices
@@ -439,7 +440,7 @@ bool CutKOpt<cost_t, vertex_t, K>::applyCut(
     detail::applyCut<cost_t, vertex_t, K>(n, path,
         [segs, perm_indices] (const int i) -> seg_t& {
             return segs[perm_indices[i]];
-    }, buffer, k);
+    }, buffer, swap_mask, k);
     return true;
 }
 

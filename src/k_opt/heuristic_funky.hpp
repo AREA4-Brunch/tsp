@@ -8,6 +8,9 @@
 #include "heuristic.hpp"
 #include "cut_strategy.hpp"
 
+#include <cassert>  // for debugging
+#include <unordered_set>  // for debugging
+
 namespace k_opt {
 
 template<
@@ -76,13 +79,12 @@ inline void loopSegmentsStatic(
         cb();
     } else {
         const int lim = limits[Depth];
+        if constexpr (Depth == 0) {
+            segs[Depth].first = n;
+        } else {
+            segs[Depth].first = start;
+        }
         for (int i = start; i < lim; ++i) {
-            // reset start always as cb may modify
-            if constexpr (Depth != 0) {
-                segs[Depth].first = start;
-            } else {
-                segs[Depth].first = n;
-            }
             segs[Depth].second = i;
             loopSegmentsStatic<K, Depth + 1>(
                 n, segs, i + 1,
@@ -157,9 +159,7 @@ cost_t KOptFunky<cost_t, cut_strategy_t, K, vertex_t>::run(
     vertex_t * path = path_.data();
 
     std::array<seg_t, K == -1 ? 16 : K> seg_indices_arr;
-    std::array<seg_t, K == -1 ? 16 : K> segs_buf_arr;
     seg_t * __restrict segs_indices = nullptr;
-    seg_t * __restrict segs_buf = nullptr;
 
     std::array<int, K == -1 ? 16 : K> limits_arr;
     std::array<int, K == -1 ? 16 : K> next_limits_arr;
@@ -169,15 +169,12 @@ cost_t KOptFunky<cost_t, cut_strategy_t, K, vertex_t>::run(
     if constexpr (K == -1) {
         segs_indices = k <= 16 ? seg_indices_arr.data()
                                : new seg_t[k];
-        segs_buf = k <= 16 ? segs_buf_arr.data()
-                           : new seg_t[k];
         limits = k <= 16 ? limits_arr.data()
                          : new int[k];
         next_limits = k <= 16 ? next_limits_arr.data()
                               : new int[k];
     } else {
         segs_indices = seg_indices_arr.data();
-        segs_buf = segs_buf_arr.data();
         limits = limits_arr.data();
         next_limits = next_limits_arr.data();
     }
@@ -196,21 +193,84 @@ cost_t KOptFunky<cost_t, cut_strategy_t, K, vertex_t>::run(
 
         const auto run = [&] () [[ gnu::hot ]] {
             int perm_idx = -1;
-            const bool is_sol_in_segs = cut->selectCut(
+            const int swap_mask = cut->selectCut(
                 n, path,
                 segs_indices, cur_cost_change, weights,
-                perm_idx, segs_buf
+                perm_idx
             );
+// std::cerr << "perm_idx: " << perm_idx << std::endl;
+// std::cerr << "swap_mask: " << swap_mask << std::endl;
+// std::cerr << "Segs original\n";
+// for (int i = 0; i < k; ++i) {
+//     std::cerr << "(" << segs_indices[i].first << ", " << segs_indices[i].second << ")\n";
+// }
+// std::cerr << std::endl;
+// std::cerr << "cur_cost: " << cur_cost << std::endl;
+// std::cerr << "cur_cost_change: " << cur_cost_change << std::endl;
+
             // add slight amount to negative side when comparing
             // the change to avoid swaps of the same element
             if (cur_cost_change < -1e-10) {
-                cur_cost += cur_cost_change;
+
+
+// std::cerr  << "Orig path:\n";
+// for (int i = 0; i < n; ++i) {
+// std::cerr << path[i] << " ";
+// }
+// std::cerr << std::endl;
+
                 const bool is_new_path_in_buf = cut->applyCut(
-                    path,
-                    is_sol_in_segs ? segs_indices : segs_buf,
-                    perm_idx, path_buf, n
+                    path, path_buf, segs_indices,
+                    perm_idx, swap_mask, n
                 );
                 if (is_new_path_in_buf) std::swap(path, path_buf);
+
+
+// std::cerr << "New Path: \n";
+// for (int i = 0; i < n; ++i) {
+// std::cerr << path[i] << " ";
+// }
+// std::cerr << std::endl;
+//         std::cerr << "Segs\n";
+//         for (int i = 0; i < k; ++i) {
+//             std::cerr << "(" << segs_indices[i].first << ", " << segs_indices[i].second << ")\n";
+//         }
+//         std::cerr << std::endl;
+//         std::cerr << "cur_cost: " << cur_cost << std::endl;
+//         std::cerr << "cur_cost_change: " << cur_cost_change << std::endl;
+                                // if (
+                                //     std::unordered_set<vertex_t>(path, path + n).size()
+                                //     != static_cast<size_t>(n)) {
+                                //         std::cerr << "Assertion erro man!\n";
+                                //         exit(0);
+                                // }
+                                // assert (
+                                //     std::unordered_set<vertex_t>(path, path + n).size()
+                                //     == static_cast<size_t>(n)
+                                // );
+                cur_cost += cur_cost_change;
+                                // cost_t total_cost = (cost_t)0;
+                                // for (int idx = 0; idx < n; ++idx) {
+                                //     const int next_idx = (idx + 1) % n;
+                                //     total_cost += weights[n * path[idx] + path[next_idx]];
+                                // }
+                                // if (std::abs(total_cost - cur_cost) >= 1e-10) {
+                                //     std::cerr << "Error: cost mismatch after k-opt application!\n";
+                                //     std::cerr << "Computed cost: " << cur_cost << "\n";
+                                //     std::cerr << "Actual cost:   " << total_cost << "\n";
+                                //     std::cerr << "Difference:    " << std::abs(total_cost - cur_cost) << "\n";
+                                //     std::cerr << "Sol Segs:\n";
+                                //     for (int i = 0; i < k; ++i) {
+                                //         std::cerr << "(" << segs_indices[i].first << ", "
+                                //                   << segs_indices[i].second << ")\n";
+                                //     }
+                                //     std::cerr << "Path: \n";
+                                //     for (int i = 0; i < n; ++i) {
+                                //         std::cerr << path[i] << " ";
+                                //     }
+                                // }
+                                // assert (std::abs(total_cost - cur_cost) < 1e-10);
+
                 for (int i = 1; i < k; ++i) {
                     const auto &s = segs_indices[i];
                     next_limits[i - 1] = std::min(s.first, s.second);
@@ -253,9 +313,6 @@ cost_t KOptFunky<cost_t, cut_strategy_t, K, vertex_t>::run(
     if constexpr (K == -1) {
         if (segs_indices != seg_indices_arr.data()) {
             delete[] segs_indices;
-        }
-        if (segs_buf != segs_buf_arr.data()) {
-            delete[] segs_buf;
         }
     }
 
