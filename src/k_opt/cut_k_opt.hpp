@@ -310,7 +310,7 @@ int CutKOpt<cost_t, vertex_t, K>::selectCut(
             }
             const seg_t &dst_seg = seg_at(idx);
             int_fast8_t &step = rot_top->step;
-            if (step == 0) {  // try one rotation
+            if (step == 0) [[ likely ]] {  // try one rotation
                 const int dst_i = dst_seg.first;
                 const int diff = dst_i - src_i;
                 if ( is_not_pure_k_opt
@@ -374,17 +374,17 @@ int CutKOpt<cost_t, vertex_t, K>::selectCut(
         detail::all_permutations(segs_perm + 1, k - 1, [&] () {
             return rotate_perm(seg_at);
         });
-        if (best_edges_cost < change) {
+        if (best_edges_cost < change) [[ unlikely ]] {
             change = best_edges_cost - change;
         }
         if constexpr (K == -1) {
-            if (!choose_first && k > 16) {
+            if (!choose_first && k > 16) [[ unlikely ]] {
                 delete[] segs_perm;
             }
         }
         return best_mask;
 
-    } else {
+    } else [[ likely ]] {
         int best_perm_idx = -1;
         perm_idx = 0;
         cost_t cur_best = best_edges_cost;
@@ -407,7 +407,7 @@ int CutKOpt<cost_t, vertex_t, K>::selectCut(
             }
             ++perm_idx;
         }
-        if (best_perm_idx != -1) {
+        if (best_perm_idx != -1) [[ unlikely ]] {
             perm_idx = best_perm_idx;
             change = best_edges_cost - change;
         }

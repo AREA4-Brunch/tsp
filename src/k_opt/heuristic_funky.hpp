@@ -8,9 +8,6 @@
 #include "heuristic.hpp"
 #include "cut_strategy.hpp"
 
-#include <cassert>  // for debugging
-#include <unordered_set>  // for debugging
-
 namespace k_opt {
 
 template<
@@ -198,79 +195,15 @@ cost_t KOptFunky<cost_t, cut_strategy_t, K, vertex_t>::run(
                 segs_indices, cur_cost_change, weights,
                 perm_idx
             );
-// std::cerr << "perm_idx: " << perm_idx << std::endl;
-// std::cerr << "swap_mask: " << swap_mask << std::endl;
-// std::cerr << "Segs original\n";
-// for (int i = 0; i < k; ++i) {
-//     std::cerr << "(" << segs_indices[i].first << ", " << segs_indices[i].second << ")\n";
-// }
-// std::cerr << std::endl;
-// std::cerr << "cur_cost: " << cur_cost << std::endl;
-// std::cerr << "cur_cost_change: " << cur_cost_change << std::endl;
-
             // add slight amount to negative side when comparing
             // the change to avoid swaps of the same element
             if (cur_cost_change < -1e-10) {
-
-
-// std::cerr  << "Orig path:\n";
-// for (int i = 0; i < n; ++i) {
-// std::cerr << path[i] << " ";
-// }
-// std::cerr << std::endl;
-
                 const bool is_new_path_in_buf = cut->applyCut(
                     path, path_buf, segs_indices,
                     perm_idx, swap_mask, n
                 );
                 if (is_new_path_in_buf) std::swap(path, path_buf);
-
-
-// std::cerr << "New Path: \n";
-// for (int i = 0; i < n; ++i) {
-// std::cerr << path[i] << " ";
-// }
-// std::cerr << std::endl;
-//         std::cerr << "Segs\n";
-//         for (int i = 0; i < k; ++i) {
-//             std::cerr << "(" << segs_indices[i].first << ", " << segs_indices[i].second << ")\n";
-//         }
-//         std::cerr << std::endl;
-//         std::cerr << "cur_cost: " << cur_cost << std::endl;
-//         std::cerr << "cur_cost_change: " << cur_cost_change << std::endl;
-// if (
-//     std::unordered_set<vertex_t>(path, path + n).size()
-//     != static_cast<size_t>(n)) {
-//         std::cerr << "Assertion erro man!\n";
-//         exit(0);
-// }
-                                // assert (
-                                //     std::unordered_set<vertex_t>(path, path + n).size()
-                                //     == static_cast<size_t>(n)
-                                // );
                 cur_cost += cur_cost_change;
-                                // cost_t total_cost = (cost_t)0;
-                                // for (int idx = 0; idx < n; ++idx) {
-                                //     const int next_idx = (idx + 1) % n;
-                                //     total_cost += weights[n * path[idx] + path[next_idx]];
-                                // }
-                                // if (std::abs(total_cost - cur_cost) >= 1e-10) {
-                                //     std::cerr << "Error: cost mismatch after k-opt application!\n";
-                                //     std::cerr << "Computed cost: " << cur_cost << "\n";
-                                //     std::cerr << "Actual cost:   " << total_cost << "\n";
-                                //     std::cerr << "Difference:    " << std::abs(total_cost - cur_cost) << "\n";
-                                //     std::cerr << "Sol Segs:\n";
-                                //     for (int i = 0; i < k; ++i) {
-                                //         std::cerr << "(" << segs_indices[i].first << ", "
-                                //                   << segs_indices[i].second << ")\n";
-                                //     }
-                                //     std::cerr << "Path: \n";
-                                //     for (int i = 0; i < n; ++i) {
-                                //         std::cerr << path[i] << " ";
-                                //     }
-                                // }
-                                // assert (std::abs(total_cost - cur_cost) < 1e-10);
-
                 for (int i = 1; i < k; ++i) {
                     const auto &s = segs_indices[i];
                     next_limits[i - 1] = std::min(s.first, s.second);
