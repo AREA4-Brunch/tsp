@@ -253,22 +253,22 @@ std::variant<
     const bool select_first_better = false;
     const bool do_pre_gen_perms = true;
     static const std::unordered_map<std::string, factory_t> cuts = {
-        { "3_opt", [] () {
-            return k_opt::Cut3Opt<cost_t, vertex_t>();
-        }},
-        { "3_opt_no_2_opt", [] () {
-            return k_opt::Cut3OptNo2Opt<cost_t, vertex_t>();
-        }},
         // { "3_opt", [] () {
-        //     return k_opt::CutKOpt<cost_t, vertex_t, 3>(
-        //         3, true, select_first_better, do_pre_gen_perms
-        //     );
+        //     return k_opt::Cut3Opt<cost_t, vertex_t>();
         // }},
         // { "3_opt_no_2_opt", [] () {
-        //     return k_opt::CutKOpt<cost_t, vertex_t, 3>(
-        //         3, false, select_first_better, do_pre_gen_perms
-        //     );
+        //     return k_opt::Cut3OptNo2Opt<cost_t, vertex_t>();
         // }},
+        { "3_opt", [] () {
+            return k_opt::CutKOpt<cost_t, vertex_t, 3>(
+                3, true, select_first_better, do_pre_gen_perms
+            );
+        }},
+        { "3_opt_no_2_opt", [] () {
+            return k_opt::CutKOpt<cost_t, vertex_t, 3>(
+                3, false, select_first_better, do_pre_gen_perms
+            );
+        }},
         { "4_opt", [] () {
             return k_opt::CutKOpt<cost_t, vertex_t, 4>(
                 4, true, select_first_better, do_pre_gen_perms

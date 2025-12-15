@@ -121,25 +121,6 @@ inline bool all_permutations(iter_t begin, const int n, callback_t &&cb) {
     return false;
 }
 
-template<typename cost_t, typename vertex_t>
-[[ gnu::always_inline, gnu::hot ]]
-inline cost_t calcCutCost(
-    const int n,
-    const int k,
-    const vertex_t * __restrict const path,
-    const std::pair<int, int> * __restrict const segs,
-    const cost_t * __restrict const weights
-) noexcept {
-    int prev_i = std::max(segs[0].first, segs[0].second);
-    cost_t cut = weights[n * path[prev_i - 1] + path[prev_i]];
-    for (int i = 1; i < k; ++i) {
-        const int cur_i = std::min(segs[i].first, segs[i].second);
-        prev_i = cur_i - 1;
-        cut += weights[n * path[prev_i] + path[cur_i]];
-    }
-    return cut;
-}
-
 template<typename cost_t, typename vertex_t, int K = -1>
 [[ gnu::hot ]]
 inline void applyCut(
@@ -274,10 +255,6 @@ int CutKOpt<cost_t, vertex_t, K>::selectCut(
     const bool choose_first = this->select_first_better;
     // true at least for 1st chang compute
     bool is_not_pure_k_opt = true;
-    change = detail::calcCutCost<cost_t, vertex_t>(
-        n, k, path, segs, weights
-    );
-    cost_t best_edges_cost = change;
 
     std::array<RotDesc, (K == -1 ? 16 : K)> rot_stack;
     RotDesc * __restrict rotations;
@@ -291,6 +268,8 @@ int CutKOpt<cost_t, vertex_t, K>::selectCut(
     rotations->prev_i = segs[0].second;
 
     int swap_mask = 0, best_mask = 0;
+    bool to_set_init_cost = true;
+    cost_t best_edges_cost = std::numeric_limits<cost_t>::max();
     const auto rotate_perm = [&] (auto &&seg_at)
         [[ always_inline, gnu::hot ]]
     {
@@ -304,11 +283,16 @@ int CutKOpt<cost_t, vertex_t, K>::selectCut(
             const cost_t * __restrict const w_src
                 = weights + src_v * n;
 
-            if (idx == k) {
+            if (idx == k) [[ unlikely ]] {
                 const int dst_i = seg_at(0).first;
                 const int diff = dst_i - src_i;
-                if ( is_not_pure_k_opt
-                  || (diff != 1 && diff != -1)
+                if (to_set_init_cost) [[ unlikely ]] {
+                    best_edges_cost = change
+                        = edges_cost + w_src[path[dst_i]];
+                    to_set_init_cost = false;
+                    is_not_pure_k_opt = this->is_not_pure_k_opt;
+                } else if (
+                    is_not_pure_k_opt || (diff != 1 && diff != -1)
                 ) [[ likely ]] {
                     edges_cost += w_src[path[dst_i]];
                     if (edges_cost < best_edges_cost)
@@ -390,7 +374,7 @@ int CutKOpt<cost_t, vertex_t, K>::selectCut(
         detail::all_permutations(segs_perm + 1, k - 1, [&] () {
             return rotate_perm(seg_at);
         });
-        if (best_edges_cost < change) [[ unlikely ]] {
+        if (best_edges_cost < change) {
             change = best_edges_cost - change;
         }
         if constexpr (K == -1) {
@@ -417,11 +401,13 @@ int CutKOpt<cost_t, vertex_t, K>::selectCut(
             }
             if (best_edges_cost < cur_best) [[ unlikely ]] {
                 cur_best = best_edges_cost;
-                best_perm_idx = perm_idx;
+                if (best_edges_cost < change) [[ likely ]] {
+                    best_perm_idx = perm_idx;
+                }
             }
             ++perm_idx;
         }
-        if (best_perm_idx != -1) [[ unlikely ]] {
+        if (best_perm_idx != -1) {
             perm_idx = best_perm_idx;
             change = best_edges_cost - change;
         }
