@@ -238,12 +238,12 @@ cost_t KOptFunky<cost_t, cut_strategy_t, K, vertex_t>::run(
 //         std::cerr << std::endl;
 //         std::cerr << "cur_cost: " << cur_cost << std::endl;
 //         std::cerr << "cur_cost_change: " << cur_cost_change << std::endl;
-                                // if (
-                                //     std::unordered_set<vertex_t>(path, path + n).size()
-                                //     != static_cast<size_t>(n)) {
-                                //         std::cerr << "Assertion erro man!\n";
-                                //         exit(0);
-                                // }
+// if (
+//     std::unordered_set<vertex_t>(path, path + n).size()
+//     != static_cast<size_t>(n)) {
+//         std::cerr << "Assertion erro man!\n";
+//         exit(0);
+// }
                                 // assert (
                                 //     std::unordered_set<vertex_t>(path, path + n).size()
                                 //     == static_cast<size_t>(n)
