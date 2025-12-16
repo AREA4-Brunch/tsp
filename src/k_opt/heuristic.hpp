@@ -16,10 +16,10 @@ class Heuristic {
 
     /**
      * @param solution Initial tour which will be overriden
-     *                 with best found tour. If cyclical should
-     *                 not contain path[0] == path.back().
-     *                 If provided tour is empty then a random
-     *                 tour will be generated.
+     * __restrict                with best found tour. If cyclical should
+     * __restrict                not contain path[0] == path.back().
+     * __restrict                If provided tour is empty then a random
+     * __restrict                tour will be generated.
      */
     cost_t search(
         const std::vector<std::vector<cost_t>> &weights,

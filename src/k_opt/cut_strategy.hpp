@@ -14,10 +14,10 @@ namespace k_opt {
  * - selectCut:
  * @param segs Modified, not permuted, but segs may get reversed.
  * @param change Modifies to gain/delta if improvement found
- *                 else is set to original cut cost.
+ * __restrict                else is set to original cut cost.
  * @return Empty if no better cut found, else either perm. reversed
- *         reversed segs, or { { perm_idx, foo } } and segs with
- *         matching reversals.
+ * __restrict        reversed segs, or { { perm_idx, foo } } and segs with
+ * __restrict        matching reversals.
  * 
  * - applyCut:
  * @param segs It may or may not get modified.
@@ -33,6 +33,7 @@ concept CutStrategy = requires(
     cost_t &change,
     const cost_t * __restrict const weights,
     int &perm_idx,
+    std::pair<int, int> * __restrict const best_segs,
 
     vertex_t * __restrict const path,
     vertex_t * __restrict const buffer,
@@ -44,7 +45,7 @@ concept CutStrategy = requires(
     requires (K == -1 || this_t::NUM_CUTS == K);
 
     { t.selectCut(n, path_c, segs, change, weights,
-                  perm_idx) }
+                  perm_idx, best_segs) }
         noexcept -> std::same_as<int>;
 
     { t.applyCut(path, buffer, segs_c, perm_idx_c,

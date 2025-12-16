@@ -25,7 +25,8 @@ class Cut3Opt {
         const std::pair<int, int> * __restrict const segs,
         cost_t &change,
         const cost_t * __restrict const weights,
-        int &perm_idx
+        int &perm_idx,
+        [[ maybe_unused ]] std::pair<int, int> * __restrict const
     ) const noexcept;
 
     [[ gnu::hot ]]
@@ -47,7 +48,8 @@ int Cut3Opt<cost_t, vertex_t, no_2_opt>::selectCut(
     const std::pair<int, int> * __restrict const segs,
     cost_t &change,
     const cost_t * __restrict const weights,
-    int &perm_idx
+    int &perm_idx,
+    [[ maybe_unused ]] std::pair<int, int> * __restrict const
 ) const noexcept {
     const vertex_t a = path[segs[0].second];
     const vertex_t b = path[segs[1].first];

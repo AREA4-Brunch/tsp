@@ -8,6 +8,9 @@
 #include "heuristic.hpp"
 #include "cut_strategy.hpp"
 
+#include <cassert>  // for debugging
+#include <unordered_set>  // for debugging
+
 namespace k_opt {
 
 template<
@@ -152,26 +155,33 @@ cost_t KOptFunky<cost_t, cut_strategy_t, K, vertex_t>::run(
     cost_t cur_cost_change = (cost_t) 0;
 
     std::vector<vertex_t> path_buf_(n);
-    vertex_t * path_buf = path_buf_.data();
-    vertex_t * path = path_.data();
+    // vertex_t * __restrict path_buf = path_buf_.data();
+    // vertex_t * __restrict path = path_.data();
+    vertex_t * __restrict path_buf = path_buf_.data();
+    vertex_t * __restrict path = path_.data();
 
     std::array<seg_t, K == -1 ? 16 : K> seg_indices_arr;
-    seg_t * __restrict segs_indices = nullptr;
+    std::array<seg_t, K == -1 ? 16 : K> seg_indices_buf_arr;
+    seg_t * __restrict segs_indices;
+    seg_t * __restrict segs_indices_buf;
 
     std::array<int, K == -1 ? 16 : K> limits_arr;
     std::array<int, K == -1 ? 16 : K> next_limits_arr;
-    int * __restrict limits = nullptr;
-    int * __restrict next_limits = nullptr;
+    int * __restrict limits;
+    int * __restrict next_limits;
     bool use_next_limits = false;
     if constexpr (K == -1) {
         segs_indices = k <= 16 ? seg_indices_arr.data()
                                : new seg_t[k];
+        segs_indices_buf = k <= 16 ? seg_indices_buf_arr.data()
+                                   : new seg_t[k];
         limits = k <= 16 ? limits_arr.data()
                          : new int[k];
         next_limits = k <= 16 ? next_limits_arr.data()
                               : new int[k];
     } else {
         segs_indices = seg_indices_arr.data();
+        segs_indices_buf = seg_indices_buf_arr.data();
         limits = limits_arr.data();
         next_limits = next_limits_arr.data();
     }
@@ -193,17 +203,86 @@ cost_t KOptFunky<cost_t, cut_strategy_t, K, vertex_t>::run(
             const int swap_mask = cut->selectCut(
                 n, path,
                 segs_indices, cur_cost_change, weights,
-                perm_idx
+                perm_idx, segs_indices_buf
             );
+// std::cerr << "perm_idx: " << perm_idx << std::endl;
+// std::cerr << "swap_mask: " << swap_mask << std::endl;
+// std::cerr << "Segs original\n";
+// for (int i = 0; i < k; ++i) {
+//     std::cerr << "(" << segs_indices[i].first << ", " << segs_indices[i].second << ")\n";
+// }
+// std::cerr << std::endl;
+// std::cerr << "cur_cost: " << cur_cost << std::endl;
+// std::cerr << "cur_cost_change: " << cur_cost_change << std::endl;
+
             // add slight amount to negative side when comparing
             // the change to avoid swaps of the same element
             if (cur_cost_change < -1e-10) {
+
+
+// std::cerr  << "Orig path:\n";
+// for (int i = 0; i < n; ++i) {
+// std::cerr << path[i] << " ";
+// }
+// std::cerr << std::endl;
+
                 const bool is_new_path_in_buf = cut->applyCut(
-                    path, path_buf, segs_indices,
+                    path, path_buf,
+                    perm_idx >= 0 ? segs_indices : segs_indices_buf,
                     perm_idx, swap_mask, n
                 );
                 if (is_new_path_in_buf) std::swap(path, path_buf);
+
+
+// std::cerr << "New Path: \n";
+// for (int i = 0; i < n; ++i) {
+// std::cerr << path[i] << " ";
+// }
+// std::cerr << std::endl;
+//         std::cerr << "Segs\n";
+//         for (int i = 0; i < k; ++i) {
+//             if (perm_idx >= 0) {
+//                 std::cerr << "(" << segs_indices[i].first << ", " << segs_indices[i].second << ")\n";
+//             } else {
+//                 std::cerr << "(" << segs_indices_buf[i].first << ", " << segs_indices_buf[i].second << ")\n";
+//             }
+//         }
+//         std::cerr << std::endl;
+//         std::cerr << "cur_cost: " << cur_cost << std::endl;
+//         std::cerr << "cur_cost_change: " << cur_cost_change << std::endl;
+// if (
+//     std::unordered_set<vertex_t>(path, path + n).size()
+//     != static_cast<size_t>(n)) {
+//         std::cerr << "Assertion erro man!\n";
+//         exit(0);
+// }
+                                assert (
+                                    std::unordered_set<vertex_t>(path, path + n).size()
+                                    == static_cast<size_t>(n)
+                                );
                 cur_cost += cur_cost_change;
+                                cost_t total_cost = (cost_t)0;
+                                for (int idx = 0; idx < n; ++idx) {
+                                    const int next_idx = (idx + 1) % n;
+                                    total_cost += weights[n * path[idx] + path[next_idx]];
+                                }
+                                if (std::abs(total_cost - cur_cost) >= 1e-10) {
+                                    std::cerr << "Error: cost mismatch after k-opt application!\n";
+                                    std::cerr << "Computed cost: " << cur_cost << "\n";
+                                    std::cerr << "Actual cost:   " << total_cost << "\n";
+                                    std::cerr << "Difference:    " << std::abs(total_cost - cur_cost) << "\n";
+                                    std::cerr << "Sol Segs:\n";
+                                    for (int i = 0; i < k; ++i) {
+                                        std::cerr << "(" << segs_indices[i].first << ", "
+                                                  << segs_indices[i].second << ")\n";
+                                    }
+                                    std::cerr << "Path: \n";
+                                    for (int i = 0; i < n; ++i) {
+                                        std::cerr << path[i] << " ";
+                                    }
+                                }
+                                assert (std::abs(total_cost - cur_cost) < 1e-10);
+
                 for (int i = 1; i < k; ++i) {
                     const auto &s = segs_indices[i];
                     next_limits[i - 1] = std::min(s.first, s.second);
@@ -246,6 +325,9 @@ cost_t KOptFunky<cost_t, cut_strategy_t, K, vertex_t>::run(
     if constexpr (K == -1) {
         if (segs_indices != seg_indices_arr.data()) {
             delete[] segs_indices;
+        }
+        if (segs_indices_buf != seg_indices_buf_arr.data()) {
+            delete[] segs_indices_buf;
         }
     }
 
