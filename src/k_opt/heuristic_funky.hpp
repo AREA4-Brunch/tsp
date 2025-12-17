@@ -203,7 +203,7 @@ cost_t KOptFunky<cost_t, cut_strategy_t, K, vertex_t>::run(
 
         const auto run = [&] () [[ gnu::hot ]] {
             int perm_idx = -1;
-            const int swap_mask = cut->selectCut(
+            const int swap_mask = cut->template selectCut<false>(
                 n, path,
                 segs_indices, cur_cost_change, weights,
                 perm_idx, segs_indices_buf
@@ -262,6 +262,12 @@ cost_t KOptFunky<cost_t, cut_strategy_t, K, vertex_t>::run(
         }
         if (segs_indices_buf != seg_indices_buf_arr.data()) {
             delete[] segs_indices_buf;
+        }
+        if (limits != limits_arr.data()) {
+            delete[] limits;
+        }
+        if (next_limits != next_limits_arr.data()) {
+            delete[] next_limits;
         }
     }
 

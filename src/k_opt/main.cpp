@@ -13,10 +13,10 @@
 #include "cut_3_opt.hpp"
 #include "history.hpp"
 #include "heuristic.hpp"
-// #include "heuristic_best_cut.hpp"
-// #include "heuristic_classical.hpp"
+#include "heuristic_best_cut.hpp"
+#include "heuristic_classical.hpp"
 #include "heuristic_funky.hpp"
-// #include "heuristic_rand.hpp"
+#include "heuristic_rand.hpp"
 #include "cut_k_opt.hpp"
 #include "../common/random.hpp"
 #include "../common/timing.hpp"
@@ -46,7 +46,6 @@ template<typename cost_t, typename vertex_t>
 std::variant<
     k_opt::Cut3Opt<cost_t, vertex_t>,
     k_opt::Cut3OptNo2Opt<cost_t, vertex_t>,
-        k_opt::CutKOpt<cost_t, vertex_t, 3>,
     k_opt::CutKOpt<cost_t, vertex_t, 4>,
     k_opt::CutKOpt<cost_t, vertex_t, 5>,
     k_opt::CutKOpt<cost_t, vertex_t, -1>
@@ -121,7 +120,6 @@ int main(const int argc, const char **argv)
         cost_t best_cost_in_n_reruns = std::numeric_limits<cost_t>::max();
         int run_idx = 1;
         auto seed = random::genRandomSeed();
-        seed = 1U;  // TODO: remove this
         const int executed_reruns = timing::executeAndMeasureAvgExecTime(
             num_reruns,
             timeout_ms,
@@ -236,7 +234,6 @@ template<typename cost_t, typename vertex_t>
 std::variant<
     k_opt::Cut3Opt<cost_t, vertex_t>,
     k_opt::Cut3OptNo2Opt<cost_t, vertex_t>,
-        k_opt::CutKOpt<cost_t, vertex_t, 3>,
     k_opt::CutKOpt<cost_t, vertex_t, 4>,
     k_opt::CutKOpt<cost_t, vertex_t, 5>,
     k_opt::CutKOpt<cost_t, vertex_t, -1>
@@ -244,13 +241,13 @@ std::variant<
     using cut_t = std::variant<
         k_opt::Cut3Opt<cost_t, vertex_t>,
         k_opt::Cut3OptNo2Opt<cost_t, vertex_t>,
-                k_opt::CutKOpt<cost_t, vertex_t, 3>,
         k_opt::CutKOpt<cost_t, vertex_t, 4>,
         k_opt::CutKOpt<cost_t, vertex_t, 5>,
         k_opt::CutKOpt<cost_t, vertex_t, -1>
     >;
     using factory_t = std::function<cut_t ()>;
-    const bool select_first_better = false;
+
+    const bool select_first_better = true;
     const bool do_pre_gen_perms = true;
     static const std::unordered_map<std::string, factory_t> cuts = {
         { "3_opt", [] () {
@@ -259,16 +256,6 @@ std::variant<
         { "3_opt_no_2_opt", [] () {
             return k_opt::Cut3OptNo2Opt<cost_t, vertex_t>();
         }},
-        // { "3_opt", [] () {
-        //     return k_opt::CutKOpt<cost_t, vertex_t, 3>(
-        //         3, true, select_first_better, do_pre_gen_perms
-        //     );
-        // }},
-        // { "3_opt_no_2_opt", [] () {
-        //     return k_opt::CutKOpt<cost_t, vertex_t, 3>(
-        //         3, false, select_first_better, do_pre_gen_perms
-        //     );
-        // }},
         { "4_opt", [] () {
             return k_opt::CutKOpt<cost_t, vertex_t, 4>(
                 4, true, select_first_better, do_pre_gen_perms
@@ -322,27 +309,27 @@ detail::createHeuristic(
     using heur_ptr = std::unique_ptr<k_opt::Heuristic<cost_t, vertex_t>>;
     using factory_t = std::function<heur_ptr ()>;
     const std::unordered_map<std::string, factory_t> heurs = {
-        // { "best_cut", [&cut] () {
-        //     return std::make_unique<k_opt::HeuristicBestCut<
-        //         cost_t, cut_t, vertex_t
-        //     >>(cut);
-        // }},
-        // { "classical", [&cut] () {
-        //     return std::make_unique<k_opt::HeuristicClassical<
-        //         cost_t, cut_t, vertex_t
-        //     >>(cut);
-        // }},
-        { "funky", [&cut, k] () {
+        { "best_cut", [&] () {
+            return std::make_unique<k_opt::KOptBestCut<
+                cost_t, cut_t, K, vertex_t
+            >>(cut, k);
+        }},
+        { "classical", [&] () {
+            return std::make_unique<k_opt::KOptClassical<
+                cost_t, cut_t, K, vertex_t
+            >>(cut, k);
+        }},
+        { "funky", [&] () {
             return std::make_unique<k_opt::KOptFunky<
                 cost_t, cut_t, K, vertex_t
             >>(cut, k);
         }},
-        // { "rand", [&cut, seed] () {
-        //     auto psrng = random::initPSRNG(seed);
-        //     return std::make_unique<k_opt::HeuristicRand<
-        //         cost_t, cut_t, vertex_t
-        //     >>(cut, psrng);
-        // }}
+        { "rand", [&] () {
+            auto psrng = random::initPSRNG(seed);
+            return std::make_unique<k_opt::KOptRand<
+                cost_t, cut_t, K, vertex_t
+            >>(cut, psrng, k);
+        }}
     };
     return heurs.at(heur_name)();
 }

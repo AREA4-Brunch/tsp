@@ -18,6 +18,7 @@ class Cut3Opt {
     Cut3Opt() = default;
     ~Cut3Opt() = default;
 
+    template<bool can_modify_segs>
     [[ gnu::hot ]]
     inline int selectCut(
         const int n,
@@ -42,6 +43,7 @@ class Cut3Opt {
 
 
 template<typename cost_t, typename vertex_t, bool no_2_opt>
+template<bool can_modify_segs>
 int Cut3Opt<cost_t, vertex_t, no_2_opt>::selectCut(
     const int n,
     const vertex_t * __restrict const path,
@@ -141,7 +143,7 @@ bool Cut3Opt<cost_t, vertex_t, no_2_opt>::applyCut(
             const int buf_len = len1 + len2;
             // copy shorter part
             if (buf_len <= n - buf_len) {
-                std::copy(buf, buf + buf_len, path + i1);
+                std::copy_n(buf, buf_len, path + i1);
                 return false;
             }
             auto * const buf_tail = std::copy(
@@ -149,7 +151,7 @@ bool Cut3Opt<cost_t, vertex_t, no_2_opt>::applyCut(
                 path + n, 
                 buf + buf_len
             );
-            std::copy(path, path + i1, buf_tail);
+            std::copy_n(path, i1, buf_tail);
             return true;
         }
         default:

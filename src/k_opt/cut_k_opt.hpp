@@ -36,11 +36,15 @@ class CutKOpt {
 
     ~CutKOpt() = default;
 
+    template<bool can_modify_segs>
     [[ gnu::hot ]]
     inline int selectCut(
         const int n,
         const vertex_t * __restrict const path,
-        const std::pair<int, int> * __restrict const segs,
+        std::conditional_t<can_modify_segs,
+            std::pair<int, int> * __restrict,
+            const std::pair<int, int> * __restrict
+        > const segs,
         cost_t &change,
         const cost_t * __restrict const weights,
         int &perm_idx,
@@ -197,36 +201,6 @@ inline void applyCut(
     }
 }
 
-/// N must be small.
-template<typename T, std::size_t N>
-constexpr inline void swap(std::vector<T> &v,
-                           std::array<T, N> &a) noexcept {
-    const auto swap_element = [&] (const std::size_t i) {
-        std::swap(v[i], a[i]);
-    };
-    [&] <std::size_t ...I> (std::index_sequence<I...>) {
-        (swap_element(I), ...);
-    } (std::make_index_sequence<N>{});
-}
-
-template<typename T, std::size_t N>
-constexpr inline void swap(std::array<T, N> &a,
-                           std::vector<T> &v) noexcept {
-    detail::swap(v, a);
-}
-
-template<typename T>
-constexpr inline void swap(std::vector<T> &a,
-                           std::vector<T> &b) noexcept {
-    std::swap(a, b);
-}
-
-template<typename T, std::size_t N>
-constexpr inline void swap(std::array<T, N> &a,
-                           std::array<T, N> &b) noexcept {
-    std::swap(a, b);
-}
-
 }  // namespace detail
 
 template<typename cost_t, typename vertex_t, int K>
@@ -244,10 +218,14 @@ void CutKOpt<cost_t, vertex_t, K>::generateSegPermIndices() {
 }
 
 template<typename cost_t, typename vertex_t, int K>
+template<bool can_modify_segs>
 int CutKOpt<cost_t, vertex_t, K>::selectCut(
     const int n,
     const vertex_t * __restrict const path,
-    const std::pair<int, int> * __restrict const segs,
+    std::conditional_t<can_modify_segs,
+        std::pair<int, int> * __restrict,
+        const std::pair<int, int> * __restrict
+    > const segs,
     cost_t &change,
     const cost_t * __restrict const weights,
     int &perm_idx,
@@ -365,17 +343,22 @@ int CutKOpt<cost_t, vertex_t, K>::selectCut(
     if (this->seg_perm_indices.empty()) {
         std::array<seg_t, (K == -1 ? 16 : K)> buffer;
         seg_t * __restrict segs_perm;
-        if (choose_first) segs_perm = best_segs;
-        else {
-            if constexpr (K == -1) {
-                segs_perm = k <= 16
-                          ? buffer.data()
-                          : this->perm_buf.data();
+        if constexpr (can_modify_segs) {
+            segs_perm = segs;
+        } else {
+            if (choose_first) {
+                segs_perm = best_segs;
             } else {
-                segs_perm = buffer.data();
+                if constexpr (K == -1) {
+                    segs_perm = k <= 16
+                              ? buffer.data()
+                              : this->perm_buf.data();
+                } else {
+                    segs_perm = buffer.data();
+                }
             }
+            std::copy_n(segs, k, segs_perm);
         }
-        std::copy(segs, segs + k, segs_perm);
         const auto seg_at = [&] (int idx) -> const seg_t& {
             return segs_perm[idx];
         };
@@ -386,21 +369,18 @@ int CutKOpt<cost_t, vertex_t, K>::selectCut(
             }
             if (best_edges_cost < cur_best) [[ unlikely ]] {
                 cur_best = best_edges_cost;
-                std::copy(segs_perm, segs_perm + k, best_segs);
+                if (best_edges_cost < change) [[ likely ]] {
+                    std::copy_n(segs_perm, k, best_segs);
+                }
             }
             return false;
         });
         if (best_edges_cost < change) [[ unlikely ]] {
             change = best_edges_cost - change;
         }
-        if constexpr (K == -1) {
-            if (!choose_first && k > 16) [[ unlikely ]]  {
-                delete[] segs_perm;
-            }
-        }
         return best_mask;
 
-    } else {
+    } else [[ likely ]] {
         int best_perm_idx = -1;
         perm_idx = 0;
         cost_t cur_best = best_edges_cost;
@@ -423,7 +403,7 @@ int CutKOpt<cost_t, vertex_t, K>::selectCut(
             }
             ++perm_idx;
         }
-        if (best_perm_idx != -1) {
+        if (best_perm_idx != -1) [[ unlikely ]] {
             perm_idx = best_perm_idx;
             change = best_edges_cost - change;
         }

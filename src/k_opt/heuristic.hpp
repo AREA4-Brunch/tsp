@@ -62,7 +62,6 @@ class Heuristic {
     );
 };
 
-
 template<typename cost_t, typename vertex_t>
 cost_t Heuristic<cost_t, vertex_t>::search(
     const std::vector<std::vector<cost_t>> &weights,
@@ -167,6 +166,64 @@ std::vector<cost_t> Heuristic<cost_t, vertex_t>::genFlatMatrix(
     return flat_weights;
 }
 
+
+namespace detail {
+
+template<int K, int Depth, typename callback_t>
+[[ gnu::hot ]]
+inline bool loopSegmentsStatic(
+    const int start,
+    const int n,
+    std::pair<int, int> * __restrict const segs,
+    callback_t &&cb
+) noexcept {
+    if constexpr (Depth != 0) {
+        segs[Depth].first = start;
+    }
+    const int lim = n - K + Depth;
+    for (int i = start; i < lim; ++i) {
+        segs[Depth].second = i;
+        if constexpr (Depth == K - 1) {
+            segs[0].first = i + 1;
+            return cb();
+        } else {
+            if (loopSegmentsStatic<K, Depth + 1>(
+                i + 1, n, segs,
+                std::forward<callback_t>(cb)
+            )) [[ unlikely ]] return true;
+        }
+    }
+    return false;
+}
+
+template<typename callback_t>
+[[ gnu::hot ]]
+inline bool loopSegmentsDynamic(
+    const int start,
+    const int depth,
+    const int k,
+    const int n,
+    std::pair<int, int> * __restrict const segs,
+    callback_t &&cb
+) noexcept {
+    segs[depth].first = start;
+    const int lim = n - k + depth;
+    for (int i = start; i < lim; ++i) {
+        segs[depth].second = i;
+        if (depth == k - 1) [[ likely ]] {
+            segs[0].first = i + 1;
+            return cb();
+        } else {
+            if (loopSegmentsDynamic(
+                i + 1, depth + 1, k, n, segs,
+                std::forward<callback_t>(cb)
+            )) [[ unlikely ]] return true;
+        }
+    }
+    return false;
+}
+
+}  // namespace detail
 
 }  // namespace k_opt
 
