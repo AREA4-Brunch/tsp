@@ -86,7 +86,7 @@ inline std::stack<int> genRandomIndices(
     >;
     std::stack<int> generated;
     for (int batch = batch_size; batch > 0; --batch) {
-        int rnd = n - 1;  // -1 to allow for k + 1 <= n - 1
+        int rnd = n;
         if constexpr (K == -1) {
             for (int depth = 0; depth < k; ++depth) {
                 distr_t rand_idx(k - 1 - depth, rnd - 1);
@@ -96,7 +96,7 @@ inline std::stack<int> genRandomIndices(
         } else {
             const auto set_rand_seg = [&] (const int depth) {
                 distr_t rand_idx(K - 1 - depth, rnd - 1);
-                rnd = rand_idx(psrng);
+                rnd = static_cast<int>(rand_idx(psrng));
                 generated.push(rnd);
             };
             [&] <std::size_t... I> (std::index_sequence<I...>) {
@@ -125,12 +125,16 @@ void KOptRand<cost_t, cut_strategy_t, K, vertex_t>::genRandomSegments(
     }
 
     const auto set_rand_seg = [&] (const int idx) {
-        const int rnd = this->rand_indices.top();
-        segs[idx].second = rnd;
+        int rnd = this->rand_indices.top();
+        segs[idx].second = rnd++;
         if constexpr (K == -1) {
-            segs[idx == k - 1 ? 0 : idx + 1].first = rnd + 1;
+            if (idx == k - 1) {
+                segs[0].first = rnd == n ? 0 : rnd;
+            } else segs[idx + 1].first = rnd;
         } else {
-            segs[idx == K - 1 ? 0 : idx + 1].first = rnd + 1;
+            if (idx == K - 1) {
+                segs[0].first = rnd == n ? 0 : rnd;
+            } else segs[idx + 1].first = rnd;
         }
         this->rand_indices.pop();
     };

@@ -247,7 +247,7 @@ std::variant<
     >;
     using factory_t = std::function<cut_t ()>;
 
-    const bool select_first_better = true;
+    const bool select_first_better = false;
     const bool do_pre_gen_perms = true;
     static const std::unordered_map<std::string, factory_t> cuts = {
         { "3_opt", [] () {

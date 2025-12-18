@@ -260,7 +260,7 @@ echo "Solving 33 points..."
 wait
 
 echo "Solving 263 points..."
-"$SRC_DIR/main.exe" "funky" "3_opt" 263 "$PROBLEMS_DIR/263.txt" "$HISTORY_DIR/263/shp/263" 10  500 300 shp 1 > "$RESULTS_DIR/263/shp/263.txt" &
+"$SRC_DIR/main.exe" "funky" "3_opt" 263 "$PROBLEMS_DIR/263.txt" "$HISTORY_DIR/263/shp/263" 1000000  500 5700 shp 1 > "$RESULTS_DIR/263/shp/263.txt" &
 
 wait
 

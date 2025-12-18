@@ -16,10 +16,10 @@ class Heuristic {
 
     /**
      * @param solution Initial tour which will be overriden
-     * __restrict                with best found tour. If cyclical should
-     * __restrict                not contain path[0] == path.back().
-     * __restrict                If provided tour is empty then a random
-     * __restrict                tour will be generated.
+     *                 with best found tour. If cyclical should
+     *                 not contain path[0] == path.back().
+     *                 If provided tour is empty then a random
+     *                 tour will be generated.
      */
     cost_t search(
         const std::vector<std::vector<cost_t>> &weights,
@@ -181,10 +181,10 @@ inline bool loopSegmentsStatic(
         segs[Depth].first = start;
     }
     const int lim = n - K + Depth;
-    for (int i = start; i < lim; ++i) {
+    for (int i = start; i <= lim; ++i) {
         segs[Depth].second = i;
         if constexpr (Depth == K - 1) {
-            segs[0].first = i + 1;
+            segs[0].first = i != lim ? i + 1 : 0;
             return cb();
         } else {
             if (loopSegmentsStatic<K, Depth + 1>(
@@ -208,10 +208,10 @@ inline bool loopSegmentsDynamic(
 ) noexcept {
     segs[depth].first = start;
     const int lim = n - k + depth;
-    for (int i = start; i < lim; ++i) {
+    for (int i = start; i <= lim; ++i) {
         segs[depth].second = i;
         if (depth == k - 1) [[ likely ]] {
-            segs[0].first = i + 1;
+            segs[0].first = i != lim ? i + 1 : 0;
             return cb();
         } else {
             if (loopSegmentsDynamic(
