@@ -181,10 +181,10 @@ inline bool loopSegmentsStatic(
         segs[Depth].first = start;
     }
     const int lim = n - K + Depth;
-    for (int i = start; i <= lim; ++i) {
+    for (int i = start; i < lim; ++i) {
         segs[Depth].second = i;
         if constexpr (Depth == K - 1) {
-            segs[0].first = i != lim ? i + 1 : 0;
+            segs[0].first = i + 1;
             return cb();
         } else {
             if (loopSegmentsStatic<K, Depth + 1>(
@@ -208,10 +208,10 @@ inline bool loopSegmentsDynamic(
 ) noexcept {
     segs[depth].first = start;
     const int lim = n - k + depth;
-    for (int i = start; i <= lim; ++i) {
+    for (int i = start; i < lim; ++i) {
         segs[depth].second = i;
         if (depth == k - 1) [[ likely ]] {
-            segs[0].first = i != lim ? i + 1 : 0;
+            segs[0].first = i + 1;
             return cb();
         } else {
             if (loopSegmentsDynamic(

@@ -86,7 +86,7 @@ inline std::stack<int> genRandomIndices(
     >;
     std::stack<int> generated;
     for (int batch = batch_size; batch > 0; --batch) {
-        int rnd = n;
+        int rnd = n - 1;
         if constexpr (K == -1) {
             for (int depth = 0; depth < k; ++depth) {
                 distr_t rand_idx(k - 1 - depth, rnd - 1);
@@ -129,11 +129,11 @@ void KOptRand<cost_t, cut_strategy_t, K, vertex_t>::genRandomSegments(
         segs[idx].second = rnd++;
         if constexpr (K == -1) {
             if (idx == k - 1) {
-                segs[0].first = rnd == n ? 0 : rnd;
+                segs[0].first = rnd;
             } else segs[idx + 1].first = rnd;
         } else {
             if (idx == K - 1) {
-                segs[0].first = rnd == n ? 0 : rnd;
+                segs[0].first = rnd;
             } else segs[idx + 1].first = rnd;
         }
         this->rand_indices.pop();
@@ -186,6 +186,7 @@ cost_t KOptRand<cost_t, cut_strategy_t, K, vertex_t>::run(
         segs_indices_buf = seg_indices_buf_arr.data();
     }
 
+    const int max_checks = n > k ? n * n * n / 6 : 0;
     const cut_strategy_t * __restrict const cut = &this->cut;
     int iter = 1;
     cost_t cur_cost_change = (cost_t) 0;
@@ -227,8 +228,8 @@ cost_t KOptRand<cost_t, cut_strategy_t, K, vertex_t>::run(
         };
 
         if (no_collision) [[ likely ]] {
-            for (int tries_left = n * n * n / 6;
-                tries_left >= 0;
+            for (int tries_left = max_checks;
+                tries_left > 0;
                 --tries_left
             ) {
                 // batch size = n
