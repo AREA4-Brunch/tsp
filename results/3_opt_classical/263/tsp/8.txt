@@ -1,679 +1,81 @@
 Solving TSP
 
 
-Execution #1/100
+Execution #1/30
 
-Run(s) folder: C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500
-Deleted already existing run folder: C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500
+Run(s) folder: C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500
 
 Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
 
 Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930765
-ITERATION 1: 959.985
-ITERATION 2: 956.087
-ITERATION 3: 537.06
-ITERATION 4: 516.805
-ITERATION 5: 504.294
-ITERATION 6: 501.67
-ITERATION 7: 501.653
-ITERATION 8: 499.717
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+Seed: 1564021014
+ITERATION 1: 940.981
+ITERATION 2: 939.712
+ITERATION 3: 518.059
+ITERATION 4: 498.696
 Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
 
 Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
 
 Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
 
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 9: 499.717208
-Best found total distance for 8 points: 499.717
+nPaths history empty, aborting store.
+Last ITERATION 5: 498.696005
+Best found total distance for 8 points: 498.696005
 Corresponding path (0-indexed):
 Point #7
 Point #6
-Point #0
-Point #1
-Point #5
-Point #4
-Point #3
 Point #2
+Point #3
+Point #4
+Point #5
+Point #1
+Point #0
 Point #7
 Execution time: 1 ms
 
 Elapsed time: 1 ms
 
 
-Execution #2/100
+Execution #2/30
 
 
 Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
 
 Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930766
-ITERATION 1: 1016.53
-ITERATION 2: 975.132
-ITERATION 3: 940.188
-ITERATION 4: 940.171
-ITERATION 5: 938.296
-ITERATION 6: 935.672
-ITERATION 7: 922.082
-ITERATION 8: 498.716
-ITERATION 9: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 10: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #0
-Point #1
-Point #5
-Point #4
-Point #3
-Point #2
-Point #6
-Point #7
-Point #0
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #3/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930767
-ITERATION 1: 969.872
-ITERATION 2: 969.32
-ITERATION 3: 963.565
-ITERATION 4: 541.911
-ITERATION 5: 516.642
-ITERATION 6: 499.717
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 7: 499.717208
-Best found total distance for 8 points: 499.717
-Corresponding path (0-indexed):
-Point #6
-Point #7
-Point #2
-Point #3
-Point #4
-Point #5
-Point #1
-Point #0
-Point #6
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #4/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930768
-ITERATION 1: 999.235
-ITERATION 2: 978.962
-ITERATION 3: 978.355
-ITERATION 4: 542.465
-ITERATION 5: 541.913
-ITERATION 6: 508.11
-ITERATION 7: 499.474
-ITERATION 8: 498.716
-ITERATION 9: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 10: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #5
-Point #4
-Point #3
-Point #2
-Point #6
-Point #7
-Point #0
-Point #1
-Point #5
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #5/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930769
-ITERATION 1: 950.967
-ITERATION 2: 528.303
-ITERATION 3: 499.454
-ITERATION 4: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 5: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #2
-Point #3
-Point #4
-Point #5
-Point #1
-Point #0
-Point #7
-Point #6
-Point #2
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #6/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930770
-ITERATION 1: 966.897
-ITERATION 2: 966.139
-ITERATION 3: 543.779
-ITERATION 4: 543.76
-ITERATION 5: 527.587
-ITERATION 6: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 7: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #2
-Point #6
-Point #7
-Point #0
-Point #1
-Point #5
-Point #4
-Point #3
-Point #2
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #7/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930771
-ITERATION 1: 975.534
-ITERATION 2: 941.439
-ITERATION 3: 922.139
-ITERATION 4: 921.714
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+Seed: 1564021015
+ITERATION 1: 951.418
+ITERATION 2: 941.874
+ITERATION 3: 927.201
+ITERATION 4: 505.107
 ITERATION 5: 505.104
-ITERATION 6: 503.775
-ITERATION 7: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 8: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #6
-Point #2
-Point #3
-Point #4
-Point #5
-Point #1
-Point #0
-Point #7
-Point #6
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #8/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930772
-ITERATION 1: 560.366
-ITERATION 2: 547.854
-ITERATION 3: 546.731
-ITERATION 4: 546.717
-ITERATION 5: 528.608
-ITERATION 6: 527.63
-ITERATION 7: 513.172
-ITERATION 8: 512.121
-ITERATION 9: 503.485
-ITERATION 10: 503.076
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 13: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #4
-Point #5
-Point #1
-Point #0
-Point #7
-Point #6
-Point #2
-Point #3
-Point #4
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #9/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930773
-ITERATION 1: 505.485
-ITERATION 2: 503.05
-ITERATION 3: 498.716
-ITERATION 4: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 5: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #5
-Point #4
-Point #3
-Point #2
-Point #6
-Point #7
-Point #0
-Point #1
-Point #5
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #10/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930774
-ITERATION 1: 978.287
-ITERATION 2: 962.802
-ITERATION 3: 949.272
-ITERATION 4: 933.398
-ITERATION 5: 930.754
-ITERATION 6: 922.137
-ITERATION 7: 505.547
-ITERATION 8: 505.485
-ITERATION 9: 503.05
+ITERATION 6: 504.533
+ITERATION 7: 503.775
+ITERATION 8: 502.358
+ITERATION 9: 499.734
 ITERATION 10: 498.716
 Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
 
 Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
 
 Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
 
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
+nPaths history empty, aborting store.
 Last ITERATION 12: 498.696005
-Best found total distance for 8 points: 498.696
+Best found total distance for 8 points: 498.696005
 Corresponding path (0-indexed):
-Point #5
-Point #4
-Point #3
-Point #2
-Point #6
-Point #7
-Point #0
-Point #1
-Point #5
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #11/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930775
-ITERATION 1: 548.216
-ITERATION 2: 543.543
-ITERATION 3: 542.276
-ITERATION 4: 529.765
-ITERATION 5: 529.75
-ITERATION 6: 505.532
-ITERATION 7: 505.107
-ITERATION 8: 503.485
-ITERATION 9: 503.482
-ITERATION 10: 502.358
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 14: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #5
-Point #4
-Point #3
-Point #2
-Point #6
-Point #7
-Point #0
-Point #1
-Point #5
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #12/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930776
-ITERATION 1: 976.892
-ITERATION 2: 959.301
-ITERATION 3: 538.832
-ITERATION 4: 538.791
-ITERATION 5: 521.866
-ITERATION 6: 501.653
-ITERATION 7: 500.025
-ITERATION 8: 499.454
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 9: 499.454081
-Best found total distance for 8 points: 499.454
-Corresponding path (0-indexed):
-Point #6
-Point #7
-Point #0
-Point #1
-Point #5
-Point #4
-Point #2
-Point #3
-Point #6
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #13/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930777
-ITERATION 1: 956.643
-ITERATION 2: 936.37
-ITERATION 3: 921.697
-ITERATION 4: 500.025
-ITERATION 5: 499.454
-ITERATION 6: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 7: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #4
-Point #5
-Point #1
-Point #0
 Point #7
 Point #6
-Point #2
-Point #3
-Point #4
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #14/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930778
-ITERATION 1: 984.161
-ITERATION 2: 968.58
-ITERATION 3: 512.414
-ITERATION 4: 508.353
-ITERATION 5: 507.332
-ITERATION 6: 500.025
-ITERATION 7: 499.454
-ITERATION 8: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 9: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #6
-Point #7
-Point #0
-Point #1
-Point #5
-Point #4
-Point #3
-Point #2
-Point #6
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #15/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930779
-ITERATION 1: 1003.43
-ITERATION 2: 969.872
-ITERATION 3: 940.981
-ITERATION 4: 935.92
-ITERATION 5: 934.651
-ITERATION 6: 518.061
-ITERATION 7: 505.532
-ITERATION 8: 503.094
-ITERATION 9: 503.034
-ITERATION 10: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 11: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
 Point #2
 Point #3
 Point #4
@@ -681,666 +83,40 @@ Point #5
 Point #1
 Point #0
 Point #7
-Point #6
-Point #2
 Execution time: 0 ms
 
 Elapsed time: 1 ms
 
 
-Execution #16/100
+Execution #3/30
 
 
 Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
 
 Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930780
-ITERATION 1: 999.684
-ITERATION 2: 998.059
-ITERATION 3: 956.643
-ITERATION 4: 922.142
-ITERATION 5: 500.045
-ITERATION 6: 500.025
-ITERATION 7: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 8: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #6
-Point #7
-Point #0
-Point #1
-Point #5
-Point #4
-Point #3
-Point #2
-Point #6
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #17/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930781
-ITERATION 1: 956.881
-ITERATION 2: 956.123
-ITERATION 3: 520.169
-ITERATION 4: 504.294
-ITERATION 5: 503.094
-ITERATION 6: 499.454
-ITERATION 7: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 8: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #4
-Point #5
-Point #1
-Point #0
-Point #7
-Point #6
-Point #2
-Point #3
-Point #4
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #18/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930782
-ITERATION 1: 519.243
-ITERATION 2: 503.778
-ITERATION 3: 498.716
-ITERATION 4: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 5: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #5
-Point #4
-Point #3
-Point #2
-Point #6
-Point #7
-Point #0
-Point #1
-Point #5
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #19/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930783
-ITERATION 1: 985.079
-ITERATION 2: 984.39
-ITERATION 3: 950.295
-ITERATION 4: 927.201
-ITERATION 5: 505.532
-ITERATION 6: 505.472
-ITERATION 7: 503.034
-ITERATION 8: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 9: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #6
-Point #7
-Point #0
-Point #1
-Point #5
-Point #4
-Point #3
-Point #2
-Point #6
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #20/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930784
-ITERATION 1: 922.137
-ITERATION 2: 505.547
-ITERATION 3: 505.485
-ITERATION 4: 503.05
-ITERATION 5: 498.716
-ITERATION 6: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 7: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #5
-Point #4
-Point #3
-Point #2
-Point #6
-Point #7
-Point #0
-Point #1
-Point #5
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #21/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930785
-ITERATION 1: 950.967
-ITERATION 2: 922.118
-ITERATION 3: 499.454
-ITERATION 4: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 5: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #6
-Point #7
-Point #0
-Point #1
-Point #5
-Point #4
-Point #3
-Point #2
-Point #6
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #22/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930786
-ITERATION 1: 561.739
-ITERATION 2: 545.106
-ITERATION 3: 545.089
-ITERATION 4: 511.712
-ITERATION 5: 508.09
-ITERATION 6: 499.454
-ITERATION 7: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 8: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #2
-Point #3
-Point #4
-Point #5
-Point #1
-Point #0
-Point #7
-Point #6
-Point #2
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #23/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930787
-ITERATION 1: 984.914
-ITERATION 2: 983.833
-ITERATION 3: 963.56
-ITERATION 4: 963.546
-ITERATION 5: 542.283
-ITERATION 6: 541.525
-ITERATION 7: 534.824
-ITERATION 8: 519.243
-ITERATION 9: 518.637
-ITERATION 10: 516.199
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 12: 500.025018
-Best found total distance for 8 points: 500.025
-Corresponding path (0-indexed):
-Point #5
-Point #1
-Point #0
-Point #7
-Point #6
-Point #4
-Point #3
-Point #2
-Point #5
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #24/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930788
-ITERATION 1: 939.004
-ITERATION 2: 516.644
-ITERATION 3: 499.734
-ITERATION 4: 498.716
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 5: 498.716113
-Best found total distance for 8 points: 498.716
-Corresponding path (0-indexed):
-Point #1
-Point #0
-Point #5
-Point #4
-Point #3
-Point #2
-Point #6
-Point #7
-Point #1
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #25/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930789
-ITERATION 1: 999.261
-ITERATION 2: 978.99
-ITERATION 3: 965.46
-ITERATION 4: 965.219
-ITERATION 5: 541.853
-ITERATION 6: 500.045
-ITERATION 7: 500.025
-ITERATION 8: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 9: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #5
-Point #1
-Point #0
-Point #7
-Point #6
-Point #2
-Point #3
-Point #4
-Point #5
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #26/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930790
-ITERATION 1: 521.443
-ITERATION 2: 518.819
-ITERATION 3: 518.061
-ITERATION 4: 518.059
-ITERATION 5: 516.642
-ITERATION 6: 499.717
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 7: 499.717208
-Best found total distance for 8 points: 499.717
-Corresponding path (0-indexed):
-Point #6
-Point #7
-Point #2
-Point #3
-Point #4
-Point #5
-Point #1
-Point #0
-Point #6
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #27/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930791
-ITERATION 1: 520.238
-ITERATION 2: 500.025
-ITERATION 3: 499.454
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 4: 499.454081
-Best found total distance for 8 points: 499.454
-Corresponding path (0-indexed):
-Point #3
-Point #2
-Point #4
-Point #5
-Point #1
-Point #0
-Point #7
-Point #6
-Point #3
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #28/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930792
-ITERATION 1: 999.569
-ITERATION 2: 964.827
-ITERATION 3: 964.784
-ITERATION 4: 964.108
-ITERATION 5: 963.537
-ITERATION 6: 949.987
-ITERATION 7: 527.627
-ITERATION 8: 513.169
-ITERATION 9: 512.118
-ITERATION 10: 503.482
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 14: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #4
-Point #5
-Point #1
-Point #0
-Point #7
-Point #6
-Point #2
-Point #3
-Point #4
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #29/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930793
-ITERATION 1: 957.395
-ITERATION 2: 956.824
-ITERATION 3: 954.949
-ITERATION 4: 921.406
-ITERATION 5: 921.386
-ITERATION 6: 502.358
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 7: 502.358219
-Best found total distance for 8 points: 502.358
-Corresponding path (0-indexed):
-Point #5
-Point #4
-Point #3
-Point #2
-Point #7
-Point #0
-Point #1
-Point #6
-Point #5
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #30/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930794
-ITERATION 1: 969.872
-ITERATION 2: 968.603
-ITERATION 3: 963.93
-ITERATION 4: 542.276
-ITERATION 5: 517.765
-ITERATION 6: 500.841
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+Seed: 1564021016
+ITERATION 1: 957.877
+ITERATION 2: 942.392
+ITERATION 3: 941.483
+ITERATION 4: 922.12
+ITERATION 5: 500.858
+ITERATION 6: 499.734
 ITERATION 7: 499.717
 ITERATION 8: 498.696
 Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
 
 Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
 
 Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
 
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
+nPaths history empty, aborting store.
 Last ITERATION 9: 498.696005
-Best found total distance for 8 points: 498.696
+Best found total distance for 8 points: 498.696005
 Corresponding path (0-indexed):
 Point #2
 Point #3
@@ -1356,1645 +132,308 @@ Execution time: 0 ms
 Elapsed time: 1 ms
 
 
-Execution #31/100
+Execution #4/30
 
 
 Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
 
 Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930795
-ITERATION 1: 561.741
-ITERATION 2: 538.647
-ITERATION 3: 505.104
-ITERATION 4: 504.294
-ITERATION 5: 503.094
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 6: 503.094394
-Best found total distance for 8 points: 503.094
-Corresponding path (0-indexed):
-Point #4
-Point #3
-Point #2
-Point #5
-Point #6
-Point #7
-Point #0
-Point #1
-Point #4
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #32/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930796
-ITERATION 1: 542.462
-ITERATION 2: 500.025
-ITERATION 3: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 4: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #2
-Point #3
-Point #4
-Point #5
-Point #1
-Point #0
-Point #7
-Point #6
-Point #2
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #33/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930797
-ITERATION 1: 1003.13
-ITERATION 2: 1001.25
-ITERATION 3: 1000.68
-ITERATION 4: 958.264
-ITERATION 5: 955.197
-ITERATION 6: 954.48
-ITERATION 7: 537.87
-ITERATION 8: 521.995
-ITERATION 9: 517.322
-ITERATION 10: 499.454
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 12: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #6
-Point #7
-Point #0
-Point #1
-Point #5
-Point #4
-Point #3
-Point #2
-Point #6
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #34/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930798
-ITERATION 1: 1002.33
-ITERATION 2: 579.99
-ITERATION 3: 545.489
-ITERATION 4: 511.686
-ITERATION 5: 507.352
-ITERATION 6: 500.045
-ITERATION 7: 500.025
-ITERATION 8: 499.454
-ITERATION 9: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 10: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #4
-Point #5
-Point #1
-Point #0
-Point #7
-Point #6
-Point #2
-Point #3
-Point #4
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #35/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930799
-ITERATION 1: 982.884
-ITERATION 2: 546.949
-ITERATION 3: 545.532
-ITERATION 4: 545.489
-ITERATION 5: 516.644
-ITERATION 6: 516.219
-ITERATION 7: 516.199
-ITERATION 8: 500.025
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 9: 500.025018
-Best found total distance for 8 points: 500.025
-Corresponding path (0-indexed):
-Point #5
-Point #1
-Point #0
-Point #7
-Point #6
-Point #4
-Point #3
-Point #2
-Point #5
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #36/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930800
-ITERATION 1: 541.488
-ITERATION 2: 500.045
-ITERATION 3: 500.025
-ITERATION 4: 499.454
-ITERATION 5: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 6: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #4
-Point #5
-Point #1
-Point #0
-Point #7
-Point #6
-Point #2
-Point #3
-Point #4
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #37/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930801
-ITERATION 1: 954.947
-ITERATION 2: 938.314
-ITERATION 3: 502.361
-ITERATION 4: 498.716
-ITERATION 5: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 6: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #5
-Point #4
-Point #3
-Point #2
-Point #6
-Point #7
-Point #0
-Point #1
-Point #5
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #38/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930802
-ITERATION 1: 936.37
-ITERATION 2: 519.76
-ITERATION 3: 518.817
-ITERATION 4: 499.454
-ITERATION 5: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 6: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #6
-Point #7
-Point #0
-Point #1
-Point #5
-Point #4
-Point #3
-Point #2
-Point #6
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #39/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930803
-ITERATION 1: 955.481
-ITERATION 2: 538.891
-ITERATION 3: 537.87
-ITERATION 4: 537.06
-ITERATION 5: 534.436
-ITERATION 6: 518.561
-ITERATION 7: 518.558
-ITERATION 8: 501.653
-ITERATION 9: 500.841
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 10: 500.840516
-Best found total distance for 8 points: 500.841
-Corresponding path (0-indexed):
-Point #7
-Point #6
-Point #0
-Point #1
-Point #5
-Point #4
-Point #2
-Point #3
-Point #7
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #40/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930804
-ITERATION 1: 985.471
-ITERATION 2: 984.919
-ITERATION 3: 983.837
-ITERATION 4: 963.566
-ITERATION 5: 541.894
-ITERATION 6: 499.474
-ITERATION 7: 498.716
-ITERATION 8: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 9: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #7
-Point #6
-Point #2
-Point #3
-Point #4
-Point #5
-Point #1
-Point #0
-Point #7
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #41/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930805
-ITERATION 1: 983.245
-ITERATION 2: 939.727
-ITERATION 3: 922.137
-ITERATION 4: 922.074
-ITERATION 5: 503.05
-ITERATION 6: 498.716
-ITERATION 7: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 8: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #5
-Point #4
-Point #3
-Point #2
-Point #6
-Point #7
-Point #0
-Point #1
-Point #5
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #42/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930806
-ITERATION 1: 965.597
-ITERATION 2: 922.079
-ITERATION 3: 920.385
-ITERATION 4: 498.716
-ITERATION 5: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 6: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #0
-Point #1
-Point #5
-Point #4
-Point #3
-Point #2
-Point #6
-Point #7
-Point #0
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #43/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930807
-ITERATION 1: 518.819
-ITERATION 2: 503.094
-ITERATION 3: 500.025
-ITERATION 4: 499.454
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 5: 499.454081
-Best found total distance for 8 points: 499.454
-Corresponding path (0-indexed):
-Point #6
-Point #7
-Point #0
-Point #1
-Point #5
-Point #4
-Point #2
-Point #3
-Point #6
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #44/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930808
-ITERATION 1: 579.516
-ITERATION 2: 559.242
-ITERATION 3: 525.258
-ITERATION 4: 508.353
-ITERATION 5: 501.653
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 6: 501.652627
-Best found total distance for 8 points: 501.653
-Corresponding path (0-indexed):
-Point #7
-Point #6
-Point #0
-Point #1
-Point #5
-Point #3
-Point #2
-Point #4
-Point #7
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #45/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930809
-ITERATION 1: 964.239
-ITERATION 2: 922.12
-ITERATION 3: 922.079
-ITERATION 4: 920.385
-ITERATION 5: 498.716
-ITERATION 6: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 7: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #0
-Point #1
-Point #5
-Point #4
-Point #3
-Point #2
-Point #6
-Point #7
-Point #0
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #46/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930810
-ITERATION 1: 965.44
-ITERATION 2: 923.321
-ITERATION 3: 922.137
-ITERATION 4: 505.547
-ITERATION 5: 505.485
-ITERATION 6: 503.05
-ITERATION 7: 498.716
-ITERATION 8: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 9: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #5
-Point #4
-Point #3
-Point #2
-Point #6
-Point #7
-Point #0
-Point #1
-Point #5
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #47/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930811
-ITERATION 1: 526.675
-ITERATION 2: 507.332
-ITERATION 3: 500.025
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 4: 500.025018
-Best found total distance for 8 points: 500.025
-Corresponding path (0-indexed):
-Point #6
-Point #7
-Point #0
-Point #1
-Point #5
-Point #3
-Point #2
-Point #4
-Point #6
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #48/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930812
-ITERATION 1: 944
-ITERATION 2: 508.11
-ITERATION 3: 499.474
-ITERATION 4: 498.716
-ITERATION 5: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 6: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #7
-Point #6
-Point #2
-Point #3
-Point #4
-Point #5
-Point #1
-Point #0
-Point #7
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #49/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930813
-ITERATION 1: 984.773
-ITERATION 2: 983.752
-ITERATION 3: 963.5
-ITERATION 4: 930.715
-ITERATION 5: 508.37
-ITERATION 6: 507.352
-ITERATION 7: 498.716
-ITERATION 8: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 9: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #7
-Point #6
-Point #2
-Point #3
-Point #4
-Point #5
-Point #1
-Point #0
-Point #7
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #50/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930814
-ITERATION 1: 963.871
-ITERATION 2: 547.281
-ITERATION 3: 545.952
-ITERATION 4: 545.935
-ITERATION 5: 544.518
-ITERATION 6: 503.076
-ITERATION 7: 503.034
-ITERATION 8: 502.358
-ITERATION 9: 499.734
-ITERATION 10: 498.716
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 12: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #7
-Point #6
-Point #2
-Point #3
-Point #4
-Point #5
-Point #1
-Point #0
-Point #7
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #51/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930815
-ITERATION 1: 938.564
-ITERATION 2: 937.295
-ITERATION 3: 520.685
-ITERATION 4: 503.775
-ITERATION 5: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 6: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #6
-Point #2
-Point #3
-Point #4
-Point #5
-Point #1
-Point #0
-Point #7
-Point #6
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #52/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930816
-ITERATION 1: 965.655
-ITERATION 2: 922.137
-ITERATION 3: 500.025
-ITERATION 4: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 5: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #5
-Point #1
-Point #0
-Point #7
-Point #6
-Point #2
-Point #3
-Point #4
-Point #5
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #53/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930817
-ITERATION 1: 957.816
-ITERATION 2: 956.191
-ITERATION 3: 520.297
-ITERATION 4: 520.28
-ITERATION 5: 520.238
-ITERATION 6: 500.025
-ITERATION 7: 499.454
-ITERATION 8: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 9: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #6
-Point #7
-Point #0
-Point #1
-Point #5
-Point #4
-Point #3
-Point #2
-Point #6
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #54/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930818
-ITERATION 1: 548.148
-ITERATION 2: 548.134
-ITERATION 3: 546.717
-ITERATION 4: 545.923
-ITERATION 5: 544.537
-ITERATION 6: 524.264
-ITERATION 7: 516.199
-ITERATION 8: 500.025
-ITERATION 9: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 10: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #5
-Point #1
-Point #0
-Point #7
-Point #6
-Point #2
-Point #3
-Point #4
-Point #5
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #55/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930819
-ITERATION 1: 965.626
-ITERATION 2: 529.69
-ITERATION 3: 500.841
-ITERATION 4: 499.454
-ITERATION 5: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 6: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #6
-Point #7
-Point #0
-Point #1
-Point #5
-Point #4
-Point #3
-Point #2
-Point #6
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #56/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930820
-ITERATION 1: 961.679
-ITERATION 2: 957.799
-ITERATION 3: 957.797
-ITERATION 4: 956.169
-ITERATION 5: 520.28
-ITERATION 6: 503.076
-ITERATION 7: 499.454
-ITERATION 8: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 9: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #6
-Point #7
-Point #0
-Point #1
-Point #5
-Point #4
-Point #3
-Point #2
-Point #6
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #57/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930821
-ITERATION 1: 1021.68
-ITERATION 2: 556.898
-ITERATION 3: 539.601
-ITERATION 4: 505.532
-ITERATION 5: 505.514
-ITERATION 6: 505.472
-ITERATION 7: 503.034
-ITERATION 8: 502.358
-ITERATION 9: 499.734
-ITERATION 10: 498.716
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 12: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #7
-Point #6
-Point #2
-Point #3
-Point #4
-Point #5
-Point #1
-Point #0
-Point #7
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #58/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930822
-ITERATION 1: 520.018
-ITERATION 2: 504.533
-ITERATION 3: 503.775
-ITERATION 4: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 5: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #5
-Point #4
-Point #3
-Point #2
-Point #6
-Point #7
-Point #0
-Point #1
-Point #5
-Execution time: 0 ms
-
-Elapsed time: 1 ms
-
-
-Execution #59/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930823
-ITERATION 1: 966.447
-ITERATION 2: 937.603
-ITERATION 3: 935.978
-ITERATION 4: 935.935
-ITERATION 5: 519.325
-ITERATION 6: 518.059
-ITERATION 7: 505.547
-ITERATION 8: 505.532
-ITERATION 9: 501.653
-ITERATION 10: 500.025
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 11: 500.025018
-Best found total distance for 8 points: 500.025
-Corresponding path (0-indexed):
-Point #4
-Point #3
-Point #2
-Point #5
-Point #1
-Point #0
-Point #7
-Point #6
-Point #4
-Execution time: 1 ms
-
-Elapsed time: 2 ms
-
-
-Execution #60/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930824
-ITERATION 1: 935.246
-ITERATION 2: 516.219
-ITERATION 3: 500.045
-ITERATION 4: 500.025
-ITERATION 5: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 6: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #5
-Point #1
-Point #0
-Point #7
-Point #6
-Point #2
-Point #3
-Point #4
-Point #5
-Execution time: 0 ms
-
-Elapsed time: 2 ms
-
-
-Execution #61/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930825
-ITERATION 1: 538.354
-ITERATION 2: 538.339
-ITERATION 3: 519.99
-ITERATION 4: 518.969
-ITERATION 5: 503.094
-ITERATION 6: 500.025
-ITERATION 7: 499.454
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 8: 499.454081
-Best found total distance for 8 points: 499.454
-Corresponding path (0-indexed):
-Point #6
-Point #7
-Point #0
-Point #1
-Point #5
-Point #4
-Point #2
-Point #3
-Point #6
-Execution time: 1 ms
-
-Elapsed time: 3 ms
-
-
-Execution #62/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930826
-ITERATION 1: 937.295
-ITERATION 2: 520.685
-ITERATION 3: 503.775
-ITERATION 4: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 5: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #6
-Point #2
-Point #3
-Point #4
-Point #5
-Point #1
-Point #0
-Point #7
-Point #6
-Execution time: 0 ms
-
-Elapsed time: 3 ms
-
-
-Execution #63/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930827
-ITERATION 1: 986.28
-ITERATION 2: 985.487
-ITERATION 3: 984.218
-ITERATION 4: 960.001
-ITERATION 5: 539.531
-ITERATION 6: 534.452
-ITERATION 7: 518.969
-ITERATION 8: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 9: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #4
-Point #5
-Point #1
-Point #0
-Point #7
-Point #6
-Point #2
-Point #3
-Point #4
-Execution time: 0 ms
-
-Elapsed time: 3 ms
-
-
-Execution #64/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930828
-ITERATION 1: 982.345
-ITERATION 2: 965.496
-ITERATION 3: 963.58
-ITERATION 4: 962.821
-ITERATION 5: 939.727
-ITERATION 6: 503.775
-ITERATION 7: 499.734
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+Seed: 1564021017
+ITERATION 1: 974.843
+ITERATION 2: 949.365
+ITERATION 3: 940.749
+ITERATION 4: 559.501
+ITERATION 5: 552.194
+ITERATION 6: 526.702
+ITERATION 7: 518.637
 ITERATION 8: 499.717
 ITERATION 9: 498.696
 Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
 
 Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
 
 Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
 
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
+nPaths history empty, aborting store.
 Last ITERATION 10: 498.696005
-Best found total distance for 8 points: 498.696
+Best found total distance for 8 points: 498.696005
 Corresponding path (0-indexed):
-Point #0
-Point #1
-Point #5
-Point #4
-Point #3
 Point #2
-Point #6
-Point #7
-Point #0
-Execution time: 0 ms
-
-Elapsed time: 3 ms
-
-
-Execution #65/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930829
-ITERATION 1: 538.587
-ITERATION 2: 532.832
-ITERATION 3: 516.199
-ITERATION 4: 500.025
-ITERATION 5: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 6: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
+Point #3
+Point #4
 Point #5
 Point #1
 Point #0
 Point #7
 Point #6
 Point #2
-Point #3
-Point #4
-Point #5
 Execution time: 0 ms
 
-Elapsed time: 3 ms
+Elapsed time: 1 ms
 
 
-Execution #66/100
+Execution #5/30
 
 
 Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
 
 Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930830
-ITERATION 1: 942.667
-ITERATION 2: 942.626
-ITERATION 3: 523.581
-ITERATION 4: 502.361
-ITERATION 5: 498.716
-ITERATION 6: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 7: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #5
-Point #4
-Point #3
-Point #2
-Point #6
-Point #7
-Point #0
-Point #1
-Point #5
-Execution time: 0 ms
-
-Elapsed time: 3 ms
-
-
-Execution #67/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930831
-ITERATION 1: 1004.31
-ITERATION 2: 1003.5
-ITERATION 3: 538.719
-ITERATION 4: 534.842
-ITERATION 5: 534.476
-ITERATION 6: 534.459
-ITERATION 7: 520.001
-ITERATION 8: 501.653
-ITERATION 9: 499.717
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+Seed: 1564021018
+ITERATION 1: 578.704
+ITERATION 2: 543.76
+ITERATION 3: 528.608
+ITERATION 4: 525.261
+ITERATION 5: 525.258
+ITERATION 6: 511.729
+ITERATION 7: 503.112
+ITERATION 8: 503.094
+ITERATION 9: 500.025
 ITERATION 10: 498.696
 Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
 
 Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
 
 Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
 
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
+nPaths history empty, aborting store.
 Last ITERATION 11: 498.696005
-Best found total distance for 8 points: 498.696
+Best found total distance for 8 points: 498.696005
 Corresponding path (0-indexed):
+Point #5
+Point #1
+Point #0
+Point #7
+Point #6
 Point #2
 Point #3
+Point #4
+Point #5
+Execution time: 0 ms
+
+Elapsed time: 1 ms
+
+
+Execution #6/30
+
+
+Appending markers to the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Done appending markers to the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+Seed: 1564021019
+ITERATION 1: 578.704
+ITERATION 2: 543.76
+ITERATION 3: 528.608
+ITERATION 4: 525.261
+ITERATION 5: 525.258
+ITERATION 6: 511.729
+ITERATION 7: 503.112
+ITERATION 8: 503.094
+ITERATION 9: 500.025
+ITERATION 10: 498.696
+Storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Done storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Storing paths histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
+
+nPaths history empty, aborting store.
+Last ITERATION 11: 498.696005
+Best found total distance for 8 points: 498.696005
+Corresponding path (0-indexed):
+Point #5
+Point #1
+Point #0
+Point #7
+Point #6
+Point #2
+Point #3
+Point #4
+Point #5
+Execution time: 0 ms
+
+Elapsed time: 1 ms
+
+
+Execution #7/30
+
+
+Appending markers to the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Done appending markers to the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+Seed: 1564021020
+ITERATION 1: 559.721
+ITERATION 2: 518.52
+ITERATION 3: 516.825
+ITERATION 4: 516.219
+ITERATION 5: 502.361
+ITERATION 6: 499.717
+ITERATION 7: 498.696
+Storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Done storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Storing paths histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
+
+nPaths history empty, aborting store.
+Last ITERATION 8: 498.696005
+Best found total distance for 8 points: 498.696005
+Corresponding path (0-indexed):
+Point #5
+Point #4
+Point #3
+Point #2
+Point #6
+Point #7
+Point #0
+Point #1
+Point #5
+Execution time: 0 ms
+
+Elapsed time: 1 ms
+
+
+Execution #8/30
+
+
+Appending markers to the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Done appending markers to the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+Seed: 1564021021
+ITERATION 1: 966.409
+ITERATION 2: 964.714
+ITERATION 3: 964.108
+ITERATION 4: 963.515
+ITERATION 5: 939.004
+ITERATION 6: 935.935
+ITERATION 7: 520.254
+ITERATION 8: 500.045
+ITERATION 9: 500.025
+ITERATION 10: 498.696
+Storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Done storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Storing paths histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
+
+nPaths history empty, aborting store.
+Last ITERATION 11: 498.696005
+Best found total distance for 8 points: 498.696005
+Corresponding path (0-indexed):
+Point #5
+Point #4
+Point #3
+Point #2
+Point #6
+Point #7
+Point #0
+Point #1
+Point #5
+Execution time: 0 ms
+
+Elapsed time: 1 ms
+
+
+Execution #9/30
+
+
+Appending markers to the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Done appending markers to the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+Seed: 1564021022
+ITERATION 1: 970.762
+ITERATION 2: 548.098
+ITERATION 3: 547.707
+ITERATION 4: 528.363
+ITERATION 5: 518.819
+ITERATION 6: 505.532
+ITERATION 7: 503.094
+ITERATION 8: 500.025
+ITERATION 9: 499.454
+ITERATION 10: 498.696
+Storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Done storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Storing paths histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
+
+nPaths history empty, aborting store.
+Last ITERATION 11: 498.696005
+Best found total distance for 8 points: 498.696005
+Corresponding path (0-indexed):
+Point #1
+Point #0
+Point #7
+Point #6
+Point #2
+Point #3
+Point #4
+Point #5
+Point #1
+Execution time: 0 ms
+
+Elapsed time: 1 ms
+
+
+Execution #10/30
+
+
+Appending markers to the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Done appending markers to the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+Seed: 1564021023
+ITERATION 1: 957.142
+ITERATION 2: 551.384
+ITERATION 3: 538.114
+ITERATION 4: 538.095
+ITERATION 5: 538.081
+ITERATION 6: 534.459
+ITERATION 7: 499.717
+ITERATION 8: 498.696
+Storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Done storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Storing paths histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
+
+nPaths history empty, aborting store.
+Last ITERATION 9: 498.696005
+Best found total distance for 8 points: 498.696005
+Corresponding path (0-indexed):
 Point #4
 Point #5
 Point #1
@@ -3002,130 +441,610 @@ Point #0
 Point #7
 Point #6
 Point #2
+Point #3
+Point #4
 Execution time: 0 ms
 
-Elapsed time: 3 ms
+Elapsed time: 1 ms
 
 
-Execution #68/100
+Execution #11/30
 
 
 Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
 
 Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930832
-ITERATION 1: 562.82
-ITERATION 2: 528.319
-ITERATION 3: 508.11
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+Seed: 1564021024
+ITERATION 1: 998.242
+ITERATION 2: 542.094
+ITERATION 3: 501.67
 ITERATION 4: 500.045
 ITERATION 5: 500.025
 ITERATION 6: 498.696
 Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
 
 Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
 
 Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
 
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
+nPaths history empty, aborting store.
 Last ITERATION 7: 498.696005
-Best found total distance for 8 points: 498.696
+Best found total distance for 8 points: 498.696005
 Corresponding path (0-indexed):
 Point #5
-Point #1
-Point #0
-Point #7
-Point #6
-Point #2
-Point #3
 Point #4
+Point #3
+Point #2
+Point #6
+Point #7
+Point #0
+Point #1
 Point #5
 Execution time: 0 ms
 
-Elapsed time: 3 ms
+Elapsed time: 1 ms
 
 
-Execution #69/100
+Execution #12/30
 
 
 Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
 
 Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930833
-ITERATION 1: 941.043
-ITERATION 2: 938.605
-ITERATION 3: 937.295
-ITERATION 4: 520.685
-ITERATION 5: 503.775
-ITERATION 6: 502.358
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+Seed: 1564021025
+ITERATION 1: 1005.57
+ITERATION 2: 1004.75
+ITERATION 3: 970.253
+ITERATION 4: 505.514
+ITERATION 5: 505.472
+ITERATION 6: 503.034
+ITERATION 7: 502.358
+ITERATION 8: 499.734
+ITERATION 9: 499.717
+ITERATION 10: 498.696
 Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
 
 Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
 
 Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
 
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 7: 502.358219
-Best found total distance for 8 points: 502.358
+nPaths history empty, aborting store.
+Last ITERATION 11: 498.696005
+Best found total distance for 8 points: 498.696005
 Corresponding path (0-indexed):
-Point #6
-Point #1
-Point #0
-Point #7
 Point #2
 Point #3
 Point #4
 Point #5
+Point #1
+Point #0
+Point #7
 Point #6
+Point #2
 Execution time: 0 ms
 
-Elapsed time: 3 ms
+Elapsed time: 1 ms
 
 
-Execution #70/100
+Execution #13/30
 
 
 Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
 
 Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930834
-ITERATION 1: 980.836
-ITERATION 2: 524.629
-ITERATION 3: 512.118
-ITERATION 4: 504.294
-ITERATION 5: 501.67
-ITERATION 6: 499.734
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+Seed: 1564021026
+ITERATION 1: 969.272
+ITERATION 2: 545.909
+ITERATION 3: 505.485
+ITERATION 4: 503.775
+ITERATION 5: 498.696
+Storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Done storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Storing paths histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
+
+nPaths history empty, aborting store.
+Last ITERATION 6: 498.696005
+Best found total distance for 8 points: 498.696005
+Corresponding path (0-indexed):
+Point #2
+Point #3
+Point #4
+Point #5
+Point #1
+Point #0
+Point #7
+Point #6
+Point #2
+Execution time: 0 ms
+
+Elapsed time: 1 ms
+
+
+Execution #14/30
+
+
+Appending markers to the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Done appending markers to the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+Seed: 1564021027
+ITERATION 1: 521.907
+ITERATION 2: 505.514
+ITERATION 3: 500.841
+ITERATION 4: 499.717
+ITERATION 5: 498.696
+Storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Done storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Storing paths histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
+
+nPaths history empty, aborting store.
+Last ITERATION 6: 498.696005
+Best found total distance for 8 points: 498.696005
+Corresponding path (0-indexed):
+Point #0
+Point #1
+Point #5
+Point #4
+Point #3
+Point #2
+Point #6
+Point #7
+Point #0
+Execution time: 0 ms
+
+Elapsed time: 1 ms
+
+
+Execution #15/30
+
+
+Appending markers to the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Done appending markers to the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+Seed: 1564021028
+ITERATION 1: 963.565
+ITERATION 2: 963.546
+ITERATION 3: 963.505
+ITERATION 4: 921.126
+ITERATION 5: 542.283
+ITERATION 6: 541.262
+ITERATION 7: 503.482
+ITERATION 8: 503.076
+ITERATION 9: 503.034
+ITERATION 10: 502.358
+Storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Done storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Storing paths histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
+
+nPaths history empty, aborting store.
+Last ITERATION 14: 498.696005
+Best found total distance for 8 points: 498.696005
+Corresponding path (0-indexed):
+Point #2
+Point #3
+Point #4
+Point #5
+Point #1
+Point #0
+Point #7
+Point #6
+Point #2
+Execution time: 0 ms
+
+Elapsed time: 1 ms
+
+
+Execution #16/30
+
+
+Appending markers to the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Done appending markers to the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+Seed: 1564021029
+ITERATION 1: 967.918
+ITERATION 2: 933.398
+ITERATION 3: 933.383
+ITERATION 4: 924.747
+ITERATION 5: 545.905
+ITERATION 6: 542.26
+ITERATION 7: 541.282
+ITERATION 8: 503.485
+ITERATION 9: 503.093
+ITERATION 10: 503.05
+Storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Done storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Storing paths histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
+
+nPaths history empty, aborting store.
+Last ITERATION 13: 498.696005
+Best found total distance for 8 points: 498.696005
+Corresponding path (0-indexed):
+Point #2
+Point #3
+Point #4
+Point #5
+Point #1
+Point #0
+Point #7
+Point #6
+Point #2
+Execution time: 0 ms
+
+Elapsed time: 1 ms
+
+
+Execution #17/30
+
+
+Appending markers to the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Done appending markers to the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+Seed: 1564021030
+ITERATION 1: 922.082
+ITERATION 2: 922.077
+ITERATION 3: 498.716
+ITERATION 4: 498.696
+Storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Done storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Storing paths histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
+
+nPaths history empty, aborting store.
+Last ITERATION 5: 498.696005
+Best found total distance for 8 points: 498.696005
+Corresponding path (0-indexed):
+Point #7
+Point #6
+Point #2
+Point #3
+Point #4
+Point #5
+Point #1
+Point #0
+Point #7
+Execution time: 0 ms
+
+Elapsed time: 1 ms
+
+
+Execution #18/30
+
+
+Appending markers to the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Done appending markers to the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+Seed: 1564021031
+ITERATION 1: 957.142
+ITERATION 2: 535.03
+ITERATION 3: 533.846
+ITERATION 4: 500.025
+ITERATION 5: 499.454
+ITERATION 6: 498.696
+Storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Done storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Storing paths histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
+
+nPaths history empty, aborting store.
+Last ITERATION 7: 498.696005
+Best found total distance for 8 points: 498.696005
+Corresponding path (0-indexed):
+Point #1
+Point #0
+Point #7
+Point #6
+Point #2
+Point #3
+Point #4
+Point #5
+Point #1
+Execution time: 0 ms
+
+Elapsed time: 1 ms
+
+
+Execution #19/30
+
+
+Appending markers to the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Done appending markers to the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+Seed: 1564021032
+ITERATION 1: 1001.76
+ITERATION 2: 1000.68
+ITERATION 3: 535.901
+ITERATION 4: 524.264
+ITERATION 5: 516.199
+ITERATION 6: 500.025
+ITERATION 7: 498.696
+Storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Done storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Storing paths histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
+
+nPaths history empty, aborting store.
+Last ITERATION 8: 498.696005
+Best found total distance for 8 points: 498.696005
+Corresponding path (0-indexed):
+Point #6
+Point #7
+Point #0
+Point #1
+Point #5
+Point #4
+Point #3
+Point #2
+Point #6
+Execution time: 0 ms
+
+Elapsed time: 1 ms
+
+
+Execution #20/30
+
+
+Appending markers to the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Done appending markers to the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+Seed: 1564021033
+ITERATION 1: 958.55
+ITERATION 2: 938.296
+ITERATION 3: 921.386
+ITERATION 4: 532.832
+ITERATION 5: 516.199
+ITERATION 6: 502.358
+ITERATION 7: 499.734
+ITERATION 8: 499.717
+ITERATION 9: 498.696
+Storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Done storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Storing paths histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
+
+nPaths history empty, aborting store.
+Last ITERATION 10: 498.696005
+Best found total distance for 8 points: 498.696005
+Corresponding path (0-indexed):
+Point #3
+Point #4
+Point #5
+Point #1
+Point #0
+Point #7
+Point #6
+Point #2
+Point #3
+Execution time: 0 ms
+
+Elapsed time: 1 ms
+
+
+Execution #21/30
+
+
+Appending markers to the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Done appending markers to the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+Seed: 1564021034
+ITERATION 1: 581.45
+ITERATION 2: 581.449
+ITERATION 3: 547.34
+ITERATION 4: 522.829
+ITERATION 5: 521.114
+ITERATION 6: 505.532
+ITERATION 7: 505.107
+ITERATION 8: 505.104
+ITERATION 9: 500.025
+ITERATION 10: 498.696
+Storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Done storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Storing paths histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
+
+nPaths history empty, aborting store.
+Last ITERATION 11: 498.696005
+Best found total distance for 8 points: 498.696005
+Corresponding path (0-indexed):
+Point #5
+Point #4
+Point #3
+Point #2
+Point #6
+Point #7
+Point #0
+Point #1
+Point #5
+Execution time: 0 ms
+
+Elapsed time: 1 ms
+
+
+Execution #22/30
+
+
+Appending markers to the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Done appending markers to the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+Seed: 1564021035
+ITERATION 1: 562.736
+ITERATION 2: 539.642
+ITERATION 3: 534.971
+ITERATION 4: 533.848
+ITERATION 5: 500.045
+ITERATION 6: 500.025
+ITERATION 7: 499.454
+ITERATION 8: 498.696
+Storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Done storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Storing paths histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
+
+nPaths history empty, aborting store.
+Last ITERATION 9: 498.696005
+Best found total distance for 8 points: 498.696005
+Corresponding path (0-indexed):
+Point #7
+Point #6
+Point #2
+Point #3
+Point #4
+Point #5
+Point #1
+Point #0
+Point #7
+Execution time: 0 ms
+
+Elapsed time: 1 ms
+
+
+Execution #23/30
+
+
+Appending markers to the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Done appending markers to the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+Seed: 1564021036
+ITERATION 1: 963.948
+ITERATION 2: 922.14
+ITERATION 3: 921.697
+ITERATION 4: 536.153
+ITERATION 5: 535.03
+ITERATION 6: 534.009
+ITERATION 7: 504.294
+ITERATION 8: 503.094
+ITERATION 9: 503.076
+ITERATION 10: 499.454
+Storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Done storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Storing paths histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
+
+nPaths history empty, aborting store.
+Last ITERATION 12: 498.696005
+Best found total distance for 8 points: 498.696005
+Corresponding path (0-indexed):
+Point #1
+Point #0
+Point #7
+Point #6
+Point #2
+Point #3
+Point #4
+Point #5
+Point #1
+Execution time: 0 ms
+
+Elapsed time: 1 ms
+
+
+Execution #24/30
+
+
+Appending markers to the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Done appending markers to the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+Seed: 1564021037
+ITERATION 1: 520.018
+ITERATION 2: 519.777
+ITERATION 3: 518.654
+ITERATION 4: 518.061
+ITERATION 5: 505.532
+ITERATION 6: 505.472
 ITERATION 7: 499.717
 ITERATION 8: 498.696
 Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
 
 Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
 
 Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
 
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
+nPaths history empty, aborting store.
 Last ITERATION 9: 498.696005
-Best found total distance for 8 points: 498.696
+Best found total distance for 8 points: 498.696005
 Corresponding path (0-indexed):
 Point #0
 Point #1
@@ -3138,672 +1057,84 @@ Point #7
 Point #0
 Execution time: 0 ms
 
-Elapsed time: 3 ms
+Elapsed time: 1 ms
 
 
-Execution #71/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930835
-ITERATION 1: 964.81
-ITERATION 2: 956.193
-ITERATION 3: 955.622
-ITERATION 4: 922.079
-ITERATION 5: 499.734
-ITERATION 6: 498.716
-ITERATION 7: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 8: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #7
-Point #6
-Point #2
-Point #3
-Point #4
-Point #5
-Point #1
-Point #0
-Point #7
-Execution time: 0 ms
-
-Elapsed time: 3 ms
-
-
-Execution #72/100
+Execution #25/30
 
 
 Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
 
 Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930836
-ITERATION 1: 999
-ITERATION 2: 964.947
-ITERATION 3: 922.509
-ITERATION 4: 503.482
-ITERATION 5: 502.358
-ITERATION 6: 499.734
-ITERATION 7: 498.716
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 8: 498.716113
-Best found total distance for 8 points: 498.716
-Corresponding path (0-indexed):
-Point #1
-Point #0
-Point #5
-Point #4
-Point #3
-Point #2
-Point #6
-Point #7
-Point #1
-Execution time: 0 ms
-
-Elapsed time: 3 ms
-
-
-Execution #73/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930837
-ITERATION 1: 546.99
-ITERATION 2: 541.911
-ITERATION 3: 528.381
-ITERATION 4: 508.11
-ITERATION 5: 498.716
-ITERATION 6: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 7: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #7
-Point #6
-Point #2
-Point #3
-Point #4
-Point #5
-Point #1
-Point #0
-Point #7
-Execution time: 0 ms
-
-Elapsed time: 3 ms
-
-
-Execution #74/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930838
-ITERATION 1: 969.275
-ITERATION 2: 546.915
-ITERATION 3: 545.863
-ITERATION 4: 544.842
-ITERATION 5: 503.034
-ITERATION 6: 502.358
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+Seed: 1564021038
+ITERATION 1: 984.51
+ITERATION 2: 528.303
+ITERATION 3: 519.727
+ITERATION 4: 518.819
+ITERATION 5: 517.767
+ITERATION 6: 500.858
 ITERATION 7: 499.734
 ITERATION 8: 498.716
 ITERATION 9: 498.696
 Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
 
 Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
 
 Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
 
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
+nPaths history empty, aborting store.
 Last ITERATION 10: 498.696005
-Best found total distance for 8 points: 498.696
+Best found total distance for 8 points: 498.696005
 Corresponding path (0-indexed):
-Point #7
-Point #6
-Point #2
-Point #3
-Point #4
-Point #5
-Point #1
-Point #0
-Point #7
-Execution time: 0 ms
-
-Elapsed time: 3 ms
-
-
-Execution #75/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930839
-ITERATION 1: 537.979
-ITERATION 2: 534.911
-ITERATION 3: 532.852
-ITERATION 4: 519.565
-ITERATION 5: 505.107
-ITERATION 6: 504.536
-ITERATION 7: 504.533
-ITERATION 8: 503.482
-ITERATION 9: 503.076
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 10: 503.075750
-Best found total distance for 8 points: 503.076
-Corresponding path (0-indexed):
-Point #3
-Point #2
-Point #4
-Point #5
-Point #6
-Point #7
-Point #0
-Point #1
-Point #3
-Execution time: 0 ms
-
-Elapsed time: 3 ms
-
-
-Execution #76/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930840
-ITERATION 1: 964.826
-ITERATION 2: 964.273
-ITERATION 3: 955.637
-ITERATION 4: 939.004
-ITERATION 5: 503.05
-ITERATION 6: 502.358
-ITERATION 7: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 8: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #7
-Point #0
-Point #1
-Point #5
 Point #4
 Point #3
 Point #2
 Point #6
 Point #7
-Execution time: 0 ms
-
-Elapsed time: 3 ms
-
-
-Execution #77/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930841
-ITERATION 1: 980.855
-ITERATION 2: 966.182
-ITERATION 3: 949.272
-ITERATION 4: 527.992
-ITERATION 5: 503.482
-ITERATION 6: 503.076
-ITERATION 7: 499.454
-ITERATION 8: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 9: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #4
-Point #5
-Point #1
 Point #0
-Point #7
-Point #6
-Point #2
-Point #3
+Point #1
+Point #5
 Point #4
 Execution time: 0 ms
 
-Elapsed time: 3 ms
+Elapsed time: 1 ms
 
 
-Execution #78/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930842
-ITERATION 1: 921.697
-ITERATION 2: 500.025
-ITERATION 3: 499.454
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 4: 499.454081
-Best found total distance for 8 points: 499.454
-Corresponding path (0-indexed):
-Point #6
-Point #7
-Point #0
-Point #1
-Point #5
-Point #4
-Point #2
-Point #3
-Point #6
-Execution time: 0 ms
-
-Elapsed time: 3 ms
-
-
-Execution #79/100
+Execution #26/30
 
 
 Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
 
 Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930843
-ITERATION 1: 539.598
-ITERATION 2: 538.788
-ITERATION 3: 518.515
-ITERATION 4: 503.05
-ITERATION 5: 498.716
-ITERATION 6: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 7: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #5
-Point #4
-Point #3
-Point #2
-Point #6
-Point #7
-Point #0
-Point #1
-Point #5
-Execution time: 0 ms
-
-Elapsed time: 3 ms
-
-
-Execution #80/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930844
-ITERATION 1: 985.036
-ITERATION 2: 984.36
-ITERATION 3: 955.515
-ITERATION 4: 940.247
-ITERATION 5: 923.341
-ITERATION 6: 922.142
-ITERATION 7: 505.532
-ITERATION 8: 505.472
-ITERATION 9: 503.034
-ITERATION 10: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 11: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #6
-Point #7
-Point #0
-Point #1
-Point #5
-Point #4
-Point #3
-Point #2
-Point #6
-Execution time: 0 ms
-
-Elapsed time: 3 ms
-
-
-Execution #81/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930845
-ITERATION 1: 546.949
-ITERATION 2: 545.533
-ITERATION 3: 545.489
-ITERATION 4: 516.644
-ITERATION 5: 516.219
-ITERATION 6: 516.199
-ITERATION 7: 500.025
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 8: 500.025018
-Best found total distance for 8 points: 500.025
-Corresponding path (0-indexed):
-Point #5
-Point #1
-Point #0
-Point #7
-Point #6
-Point #4
-Point #3
-Point #2
-Point #5
-Execution time: 0 ms
-
-Elapsed time: 3 ms
-
-
-Execution #82/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930846
-ITERATION 1: 963.539
-ITERATION 2: 922.137
-ITERATION 3: 500.025
-ITERATION 4: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 5: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #6
-Point #7
-Point #0
-Point #1
-Point #5
-Point #4
-Point #3
-Point #2
-Point #6
-Execution time: 0 ms
-
-Elapsed time: 3 ms
-
-
-Execution #83/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930847
-ITERATION 1: 560.625
-ITERATION 2: 542.276
-ITERATION 3: 529.765
-ITERATION 4: 505.547
-ITERATION 5: 505.532
-ITERATION 6: 501.653
-ITERATION 7: 500.025
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 8: 500.025018
-Best found total distance for 8 points: 500.025
-Corresponding path (0-indexed):
-Point #4
-Point #2
-Point #3
-Point #5
-Point #1
-Point #0
-Point #7
-Point #6
-Point #4
-Execution time: 0 ms
-
-Elapsed time: 3 ms
-
-
-Execution #84/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930848
-ITERATION 1: 968.327
-ITERATION 2: 966.94
-ITERATION 3: 966.88
-ITERATION 4: 949.975
-ITERATION 5: 527.63
-ITERATION 6: 510.997
-ITERATION 7: 510.994
-ITERATION 8: 504.294
-ITERATION 9: 501.67
-ITERATION 10: 499.734
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 12: 499.717208
-Best found total distance for 8 points: 499.717
-Corresponding path (0-indexed):
-Point #6
-Point #7
-Point #2
-Point #3
-Point #4
-Point #5
-Point #1
-Point #0
-Point #6
-Execution time: 1 ms
-
-Elapsed time: 4 ms
-
-
-Execution #85/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930849
-ITERATION 1: 930.754
-ITERATION 2: 922.137
-ITERATION 3: 505.547
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+Seed: 1564021039
+ITERATION 1: 964.531
+ITERATION 2: 930.71
+ITERATION 3: 922.074
 ITERATION 4: 505.485
 ITERATION 5: 503.05
-ITERATION 6: 503.034
+ITERATION 6: 498.716
 ITERATION 7: 498.696
 Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
 
 Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
 
 Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
 
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
+nPaths history empty, aborting store.
 Last ITERATION 8: 498.696005
-Best found total distance for 8 points: 498.696
+Best found total distance for 8 points: 498.696005
 Corresponding path (0-indexed):
+Point #5
 Point #1
 Point #0
 Point #7
@@ -3812,619 +1143,39 @@ Point #2
 Point #3
 Point #4
 Point #5
-Point #1
 Execution time: 0 ms
 
-Elapsed time: 4 ms
+Elapsed time: 1 ms
 
 
-Execution #86/100
+Execution #27/30
 
 
 Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
 
 Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930850
-ITERATION 1: 986.24
-ITERATION 2: 563.88
-ITERATION 3: 546.975
-ITERATION 4: 527.63
-ITERATION 5: 510.997
-ITERATION 6: 502.361
-ITERATION 7: 499.717
-ITERATION 8: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 9: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #6
-Point #7
-Point #0
-Point #1
-Point #5
-Point #4
-Point #3
-Point #2
-Point #6
-Execution time: 0 ms
-
-Elapsed time: 4 ms
-
-
-Execution #87/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930851
-ITERATION 1: 927.219
-ITERATION 2: 927.156
-ITERATION 3: 922.077
-ITERATION 4: 498.716
-ITERATION 5: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 6: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #0
-Point #1
-Point #5
-Point #4
-Point #3
-Point #2
-Point #6
-Point #7
-Point #0
-Execution time: 0 ms
-
-Elapsed time: 4 ms
-
-
-Execution #88/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930852
-ITERATION 1: 546.171
-ITERATION 2: 545.089
-ITERATION 3: 543.76
-ITERATION 4: 536.266
-ITERATION 5: 503.482
-ITERATION 6: 500.858
-ITERATION 7: 500.841
-ITERATION 8: 499.717
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 9: 499.717208
-Best found total distance for 8 points: 499.717
-Corresponding path (0-indexed):
-Point #7
-Point #6
-Point #0
-Point #1
-Point #5
-Point #4
-Point #3
-Point #2
-Point #7
-Execution time: 0 ms
-
-Elapsed time: 4 ms
-
-
-Execution #89/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930853
-ITERATION 1: 981.603
-ITERATION 2: 963.494
-ITERATION 3: 922.077
-ITERATION 4: 503.05
-ITERATION 5: 498.716
-ITERATION 6: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 7: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #5
-Point #4
-Point #3
-Point #2
-Point #6
-Point #7
-Point #0
-Point #1
-Point #5
-Execution time: 0 ms
-
-Elapsed time: 4 ms
-
-
-Execution #90/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930854
-ITERATION 1: 940.212
-ITERATION 2: 523.623
-ITERATION 3: 521.706
-ITERATION 4: 516.644
-ITERATION 5: 503.094
-ITERATION 6: 500.025
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 7: 500.025018
-Best found total distance for 8 points: 500.025
-Corresponding path (0-indexed):
-Point #4
-Point #3
-Point #2
-Point #5
-Point #1
-Point #0
-Point #7
-Point #6
-Point #4
-Execution time: 0 ms
-
-Elapsed time: 4 ms
-
-
-Execution #91/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930855
-ITERATION 1: 499.474
-ITERATION 2: 498.716
-ITERATION 3: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 4: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #7
-Point #6
-Point #2
-Point #3
-Point #4
-Point #5
-Point #1
-Point #0
-Point #7
-Execution time: 0 ms
-
-Elapsed time: 4 ms
-
-
-Execution #92/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930856
-ITERATION 1: 520.001
-ITERATION 2: 504.536
-ITERATION 3: 503.485
-ITERATION 4: 503.482
-ITERATION 5: 502.358
-ITERATION 6: 499.734
-ITERATION 7: 498.716
-ITERATION 8: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 9: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #5
-Point #4
-Point #3
-Point #2
-Point #6
-Point #7
-Point #0
-Point #1
-Point #5
-Execution time: 0 ms
-
-Elapsed time: 4 ms
-
-
-Execution #93/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930857
-ITERATION 1: 956.107
-ITERATION 2: 520.172
-ITERATION 3: 518.987
-ITERATION 4: 503.112
-ITERATION 5: 503.094
-ITERATION 6: 500.025
-ITERATION 7: 499.454
-ITERATION 8: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 9: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #4
-Point #5
-Point #1
-Point #0
-Point #7
-Point #6
-Point #2
-Point #3
-Point #4
-Execution time: 0 ms
-
-Elapsed time: 4 ms
-
-
-Execution #94/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930858
-ITERATION 1: 964.213
-ITERATION 2: 541.853
-ITERATION 3: 499.734
-ITERATION 4: 498.716
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 5: 498.716113
-Best found total distance for 8 points: 498.716
-Corresponding path (0-indexed):
-Point #1
-Point #0
-Point #5
-Point #4
-Point #3
-Point #2
-Point #6
-Point #7
-Point #1
-Execution time: 0 ms
-
-Elapsed time: 4 ms
-
-
-Execution #95/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930859
-ITERATION 1: 963.945
-ITERATION 2: 962.821
-ITERATION 3: 955.514
-ITERATION 4: 935.243
-ITERATION 5: 921.714
-ITERATION 6: 500.045
-ITERATION 7: 500.025
-ITERATION 8: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 9: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #6
-Point #7
-Point #0
-Point #1
-Point #5
-Point #4
-Point #3
-Point #2
-Point #6
-Execution time: 0 ms
-
-Elapsed time: 4 ms
-
-
-Execution #96/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930860
-ITERATION 1: 961.248
-ITERATION 2: 955.498
-ITERATION 3: 935.243
-ITERATION 4: 921.714
-ITERATION 5: 920.385
-ITERATION 6: 503.775
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+Seed: 1564021040
+ITERATION 1: 970.794
+ITERATION 2: 534.842
+ITERATION 3: 503.775
+ITERATION 4: 502.358
+ITERATION 5: 499.734
+ITERATION 6: 498.716
 ITERATION 7: 498.696
 Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
 
 Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
 
 Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
 
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
+nPaths history empty, aborting store.
 Last ITERATION 8: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #7
-Point #0
-Point #1
-Point #5
-Point #4
-Point #3
-Point #2
-Point #6
-Point #7
-Execution time: 0 ms
-
-Elapsed time: 4 ms
-
-
-Execution #97/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930861
-ITERATION 1: 957.066
-ITERATION 2: 955.68
-ITERATION 3: 519.727
-ITERATION 4: 518.969
-ITERATION 5: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 6: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #3
-Point #2
-Point #6
-Point #7
-Point #0
-Point #1
-Point #5
-Point #4
-Point #3
-Execution time: 0 ms
-
-Elapsed time: 4 ms
-
-
-Execution #98/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930862
-ITERATION 1: 998.542
-ITERATION 2: 964.558
-ITERATION 3: 541.894
-ITERATION 4: 525.261
-ITERATION 5: 525.258
-ITERATION 6: 508.353
-ITERATION 7: 499.717
-ITERATION 8: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 9: 498.696005
-Best found total distance for 8 points: 498.696
-Corresponding path (0-indexed):
-Point #0
-Point #1
-Point #5
-Point #4
-Point #3
-Point #2
-Point #6
-Point #7
-Point #0
-Execution time: 0 ms
-
-Elapsed time: 4 ms
-
-
-Execution #99/100
-
-
-Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930863
-ITERATION 1: 1017.58
-ITERATION 2: 981.887
-ITERATION 3: 940.485
-ITERATION 4: 504.533
-ITERATION 5: 503.775
-ITERATION 6: 498.696
-Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-
-Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
-Last ITERATION 7: 498.696005
-Best found total distance for 8 points: 498.696
+Best found total distance for 8 points: 498.696005
 Corresponding path (0-indexed):
 Point #5
 Point #4
@@ -4437,41 +1188,39 @@ Point #1
 Point #5
 Execution time: 0 ms
 
-Elapsed time: 4 ms
+Elapsed time: 1 ms
 
 
-Execution #100/100
+Execution #28/30
 
 
 Appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
 
 Done appending markers to the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
-Seed: 1882930864
-ITERATION 1: 1005.03
-ITERATION 2: 976.179
-ITERATION 3: 940.485
-ITERATION 4: 938.05
-ITERATION 5: 937.292
-ITERATION 6: 516.805
-ITERATION 7: 504.294
-ITERATION 8: 503.094
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+Seed: 1564021041
+ITERATION 1: 969.117
+ITERATION 2: 546.454
+ITERATION 3: 529.563
+ITERATION 4: 517.563
+ITERATION 5: 504.294
+ITERATION 6: 503.094
+ITERATION 7: 503.076
+ITERATION 8: 499.454
 ITERATION 9: 498.696
 Storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
 
 Done storing costs histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
 
 Storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
 
-Done storing paths histories into the file:
-C:/Users/mrade/Documents/tsp_v13/commands/3_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
-
+nPaths history empty, aborting store.
 Last ITERATION 10: 498.696005
-Best found total distance for 8 points: 498.696
+Best found total distance for 8 points: 498.696005
 Corresponding path (0-indexed):
 Point #1
 Point #0
@@ -4484,9 +1233,96 @@ Point #5
 Point #1
 Execution time: 0 ms
 
-Elapsed time: 4 ms
-Executed runs: 100/100
-Total execution time: 0.004 s
-Avg execution time: 0.04 ms
-AVG MIN COST OVER 100 RUNS: 499.090640
-BEST COST OVER 100 RUNS: 498.696005
+Elapsed time: 1 ms
+
+
+Execution #29/30
+
+
+Appending markers to the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Done appending markers to the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+Seed: 1564021042
+ITERATION 1: 999.692
+ITERATION 2: 956.19
+ITERATION 3: 533.829
+ITERATION 4: 520.28
+ITERATION 5: 519.371
+ITERATION 6: 519.368
+ITERATION 7: 505.528
+ITERATION 8: 505.485
+ITERATION 9: 505.472
+ITERATION 10: 503.775
+Storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Done storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Storing paths histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
+
+nPaths history empty, aborting store.
+Last ITERATION 14: 498.696005
+Best found total distance for 8 points: 498.696005
+Corresponding path (0-indexed):
+Point #4
+Point #3
+Point #2
+Point #6
+Point #7
+Point #0
+Point #1
+Point #5
+Point #4
+Execution time: 0 ms
+
+Elapsed time: 1 ms
+
+
+Execution #30/30
+
+
+Appending markers to the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Done appending markers to the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+Seed: 1564021043
+ITERATION 1: 509.494
+ITERATION 2: 509.477
+ITERATION 3: 508.09
+ITERATION 4: 499.454
+ITERATION 5: 498.696
+Storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Done storing costs histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.flush.bin
+
+Storing paths histories into the file:
+C:/Users/mrade/Documents/tsp_v22/commands/k_opt/../../results/3_opt_classical/histories/263/tsp/8/runs_1_500/0.paths.csv
+
+nPaths history empty, aborting store.
+Last ITERATION 6: 498.696005
+Best found total distance for 8 points: 498.696005
+Corresponding path (0-indexed):
+Point #6
+Point #7
+Point #0
+Point #1
+Point #5
+Point #4
+Point #3
+Point #2
+Point #6
+Execution time: 0 ms
+
+Elapsed time: 1 ms
+Executed runs: 30/30
+Total execution time: 0.001 s
+Avg execution time: 0.0333333 ms
+AVG MIN COST OVER 30 RUNS: 498.696005
+BEST COST OVER 30 RUNS: 498.696005

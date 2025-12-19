@@ -253,7 +253,7 @@ std::variant<
         { "3_opt", [] () {
             return k_opt::Cut3Opt<cost_t, vertex_t>();
         }},
-        { "3_opt_no_2_opt", [] () {
+        { "3_opt_pure", [] () {
             return k_opt::Cut3OptNo2Opt<cost_t, vertex_t>();
         }},
         { "4_opt", [] () {
@@ -261,7 +261,7 @@ std::variant<
                 4, true, select_first_better, do_pre_gen_perms
             );
         }},
-        { "4_opt_no_2_opt", [] () {
+        { "4_opt_pure", [] () {
             return k_opt::CutKOpt<cost_t, vertex_t, 4>(
                 4, false, select_first_better, do_pre_gen_perms
             );
@@ -271,7 +271,7 @@ std::variant<
                 5, true, select_first_better, do_pre_gen_perms
             );
         }},
-        { "5_opt_no_2_opt", [] () {
+        { "5_opt_pure", [] () {
             return k_opt::CutKOpt<cost_t, vertex_t, 5>(
                 5, false, select_first_better, do_pre_gen_perms
             );
@@ -288,7 +288,7 @@ std::variant<
                 k, true, select_first_better, do_pre_gen_perms
             );
         }},
-        { "_opt_no_2_opt", [] (const int k) {
+        { "_opt_pure", [] (const int k) {
             return k_opt::CutKOpt<cost_t, vertex_t>(
                 k, false, select_first_better, do_pre_gen_perms
             );

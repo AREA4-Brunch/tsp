@@ -1,5 +1,8 @@
 """
 python analize_results.py <problem_name> [--markdown|-md] [--no-cache|-nc]
+
+python commands/k_opt/analize_results.py 263 -md
+python commands/k_opt/analize_results.py 263
 """
 
 import os

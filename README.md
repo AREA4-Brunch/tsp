@@ -1,3 +1,24 @@
+## K-opt Heuristic
+
+Implementations solve the STSP and SSHP.
+
+
+Previously researched and below presented 3-opt implementation (commit ) has been transformed into k-opt, and heavily optimized. When applying the 3-opt move the order of reassambled segments has changed, resulting in overall poorer quality of found solutions. Funky and rand_no_2_opt variants have been unaffected by this change. This alligns with the 3-opt research results suggesting the significance of changing the edge selection's searching order between iterations. Furthermore this research has shown that pure opt moves should be preferred at the beginning of the search resulting in higher quality solutions, and faster overall search.
+
+
+### Optimized 3-opt Variants Comparison
+Problem: '263', with 263 points. Optimal solution believed to be ~1545.
+
+
+| Variant | Avg Cost | Best Cost | Time to Best | Total Time | Avg Run Time [ms] | Max Run Time [ms] | No. Runs |
+|---------|----------|-----------|--------------|------------|--------------|---------------|------|
+| 3_opt_classical | 1688.005 | 1565.980 | 1:29:54.33 h | 1:35:00.03 h | 28.700 | 685.000 | 198605 |
+| 3_opt_best_cut | 1704.943 | 1576.086 | 53:32.05 m | 1:35:00.06 h | 78.949 | 739.000 | 72199 |
+| 3_opt_funky | 1650.123 | 1546.172 | 3:39.44 m | 1:35:00.12 h | 141.918 | 939.000 | 40165 |
+| 3_opt_rand | 1658.977 | 1559.780 | 1:21:29.36 h | 1:35:00.28 h | 308.557 | 1087.000 | 18474 |
+| 3_opt_rand_no_2_opt | 1642.864 | 1549.347 | 55:21.20 m | 1:35:00.34 h | 359.348 | 1827.000 | 15863 |
+
+
 ## 3-opt Heuristic
 
 Implementations solve the STSP and SSHP.

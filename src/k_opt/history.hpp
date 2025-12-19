@@ -252,7 +252,7 @@ void History<cost_t>::storePaths(
               << file_path << std::endl;
 
     if (this->paths.empty()) {
-        std::cout << std::endl << "nPaths history empty, aborting store."
+        std::cout << std::endl << "Paths history empty, aborting store."
                   << std::endl;
         return;
     }
