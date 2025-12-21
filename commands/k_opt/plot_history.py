@@ -116,6 +116,7 @@ def get_or_compute_results(algo, args, conf):
     ar_cache_fname = get_all_runs_cache_fname(args['prob_name'], args['num_points'], args['mode'], algo, conf)
     ar_path_cached = os.path.realpath(os.path.join(PATH_CACHED, ar_cache_fname))
     has_cache = os.path.isfile(ca_path_cached) and os.path.isfile(ar_path_cached)
+
     if not args['no_cache'] and not args['no_cache_res_only'] and has_cache:
         cum_avgs = load_preprocessed(ca_path_cached)
         print(f'\nWARNING: using cached results for {algo} from:\n{ca_path_cached}\n')
@@ -657,14 +658,33 @@ def add_to_all_runs_plot(
         times = times[:len(avgs)]
 
     fig = plot['fig']
-    mode = 'lines' if len(times) >= 2 else 'markers'
-    fig.add_trace(go.Scatter(
-        x=times,
-        y=avgs,
-        mode=mode,
-        name=label,
-        line={'shape': 'linear'} if mode == 'lines' else None,
-    ))
+    if len(times) >= 2:
+        # Create stair-step (stepwise) effect for minima
+        # Duplicate each point except the first, for horizontal-vertical steps
+        step_times = [times[0]]
+        step_avgs = [avgs[0]]
+        for t, a in zip(times[1:], avgs[1:]):
+            step_times.append(t)
+            step_avgs.append(step_avgs[-1])  # horizontal step
+            step_times.append(t)
+            step_avgs.append(a)  # vertical drop
+        # Remove the first duplicate (keeps correct length)
+        step_times = step_times[1:]
+        step_avgs = step_avgs[1:]
+        fig.add_trace(go.Scatter(
+            x=step_times,
+            y=step_avgs,
+            mode='lines',
+            name=label,
+            line={'shape': 'hv'},
+        ))
+    else:
+        fig.add_trace(go.Scatter(
+            x=times,
+            y=avgs,
+            mode='markers',
+            name=label,
+        ))
 
     nticks = 20
     plot['min_time'] = min(plot.get('min_time', float('inf')), min(times))

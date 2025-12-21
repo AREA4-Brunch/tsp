@@ -8,6 +8,7 @@
 #include <stack>
 #include <random>
 #include "heuristic.hpp"
+#include "heuristic_funky.hpp"
 #include "cut_strategy.hpp"
 
 namespace k_opt {
@@ -58,85 +59,45 @@ class KOptRand : public Heuristic<cost_t, vertex_t>
 
     mutable std::mt19937 psrng;
     int k;
-    mutable std::stack<int> rand_indices;
 
     [[ gnu::hot ]]
     inline void genRandomSegments(
         const int n,
         const int k,
-        std::pair<int, int> * __restrict const segs,
-        const int batch_size = 100
+        std::pair<int, int> * __restrict const segs
     ) const noexcept;
 
 };
-
-
-namespace detail {
-
-template<int K = -1>
-[[ gnu::hot ]]
-inline std::stack<int> genRandomIndices(
-    const int n,
-    const int k,
-    const int batch_size,
-    std::mt19937 &psrng
-) {
-    using distr_t = std::uniform_int_distribution<
-        std::mt19937::result_type
-    >;
-    std::stack<int> generated;
-    for (int batch = batch_size; batch > 0; --batch) {
-        int rnd = n - 1;
-        if constexpr (K == -1) {
-            for (int depth = 0; depth < k; ++depth) {
-                distr_t rand_idx(k - 1 - depth, rnd - 1);
-                rnd = rand_idx(psrng);
-                generated.push(rnd);
-            }
-        } else {
-            const auto set_rand_seg = [&] (const int depth) {
-                distr_t rand_idx(K - 1 - depth, rnd - 1);
-                rnd = static_cast<int>(rand_idx(psrng));
-                generated.push(rnd);
-            };
-            [&] <std::size_t... I> (std::index_sequence<I...>) {
-                (set_rand_seg(I), ...);
-            } (std::make_index_sequence<K>{});
-        }
-    }
-    return generated;
-}
-
-}  // namespace detail
-
 
 template<typename cost_t, typename cut_strategy_t, int K, typename vertex_t>
 requires CutStrategy<cut_strategy_t, cost_t, vertex_t, K>
 void KOptRand<cost_t, cut_strategy_t, K, vertex_t>::genRandomSegments(
     const int n,
     const int k,
-    std::pair<int, int> * __restrict const segs,
-    const int batch_size
+    std::pair<int, int> * __restrict const segs
 ) const noexcept {
-    if (this->rand_indices.empty()) [[ unlikely ]] {
-        this->rand_indices = detail::genRandomIndices<K>(
-            n, k, batch_size, this->psrng
-        );
-    }
-
+    using distr_t = std::uniform_int_distribution<
+        std::mt19937::result_type
+    >;
+    int rnd = 0;
+    const int lim = n - k - 1;
     const auto set_rand_seg = [&] (const int idx) {
-        int rnd = this->rand_indices.top();
+        distr_t rand_idx(rnd, lim + idx);
+        rnd = static_cast<int>(rand_idx(this->psrng));
         segs[idx].second = rnd++;
         if constexpr (K == -1) {
             if (idx == k - 1) {
                 segs[0].first = rnd;
-            } else segs[idx + 1].first = rnd;
+            } else [[ likely ]] {
+                segs[idx + 1].first = rnd;
+            }
         } else {
             if (idx == K - 1) {
                 segs[0].first = rnd;
-            } else segs[idx + 1].first = rnd;
+            } else [[ likely ]] {
+                segs[idx + 1].first = rnd;
+            }
         }
-        this->rand_indices.pop();
     };
 
     if constexpr (K == -1) {
@@ -176,14 +137,31 @@ cost_t KOptRand<cost_t, cut_strategy_t, K, vertex_t>::run(
     std::array<seg_t, K == -1 ? 16 : K> seg_indices_buf_arr;
     seg_t * __restrict segs_indices;
     seg_t * __restrict segs_indices_buf;
+
+    // for funky fallback when rand collisions start:
+    std::array<int, K == -1 ? 16 : K> limits_arr;
+    std::array<int, K == -1 ? 16 : K> next_limits_arr;
+    int * __restrict limits;
+    int * __restrict next_limits;
+    bool use_next_limits = false;
+
     if constexpr (K == -1) {
         segs_indices = k <= 16 ? seg_indices_arr.data()
                                : new seg_t[k];
         segs_indices_buf = k <= 16 ? seg_indices_buf_arr.data()
                                    : new seg_t[k];
+        limits = k <= 16 ? limits_arr.data()
+                         : new int[k];
+        next_limits = k <= 16 ? next_limits_arr.data()
+                              : new int[k];
     } else {
         segs_indices = seg_indices_arr.data();
         segs_indices_buf = seg_indices_buf_arr.data();
+        limits = limits_arr.data();
+        next_limits = next_limits_arr.data();
+    }
+    for (int depth = 0; depth < k; ++depth) {
+        limits[depth] = n - k + depth;
     }
 
     const int max_checks = n > k ? n * n * n / 6 : 0;
@@ -232,24 +210,29 @@ cost_t KOptRand<cost_t, cut_strategy_t, K, vertex_t>::run(
                 tries_left > 0;
                 --tries_left
             ) {
-                // batch size = n
-                this->genRandomSegments(n, k, segs_indices, n);
+                this->genRandomSegments(n, k, segs_indices);
                 if (process_cut()) [[ unlikely ]] break;
             }
         }
 
-        if (!did_update) [[ unlikely ]] {
-            // switch to classical to finish it
+        if (!did_update) [[ unlikely ]] {  // funky fallback
             no_collision = false;
             if constexpr (K == -1) {
                 detail::loopSegmentsDynamic(
-                    0, 0, k, n, segs_indices, process_cut
+                    0, 0, k, n, segs_indices,
+                    use_next_limits ? next_limits : limits,
+                    use_next_limits ? limits : next_limits,
+                    process_cut
                 );
             } else {
                 detail::loopSegmentsStatic<K, 0>(
-                    0, n, segs_indices, process_cut
+                    0, n, segs_indices,
+                    use_next_limits ? next_limits : limits,
+                    use_next_limits ? limits : next_limits,
+                    process_cut
                 );
             }
+            use_next_limits = !use_next_limits;
         }
         // store history on flush_freq, or on last iter
         if (do_record_history) {
@@ -271,8 +254,13 @@ cost_t KOptRand<cost_t, cut_strategy_t, K, vertex_t>::run(
         if (segs_indices_buf != seg_indices_buf_arr.data()) {
             delete[] segs_indices_buf;
         }
+        if (limits != limits_arr.data()) {
+            delete[] limits;
+        }
+        if (next_limits != next_limits_arr.data()) {
+            delete[] next_limits;
+        }
     }
-    this->rand_indices = {};
 
     if (verbose > 0) {  // log cost after last iteration
         std::cout << std::fixed << std::setprecision(6)
