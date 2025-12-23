@@ -4,6 +4,7 @@
 #include <random>
 #include <iostream>
 #include <utility>
+#include <vector>
 
 namespace random {
 
@@ -22,12 +23,16 @@ std::mt19937 initPSRNG(unsigned int seed=0U, const int verbose=0) {
 }
 
 template<typename T>
-void permuteRandomly(std::vector<T>& perm, std::mt19937& psrng) {
+void permuteRandomly(
+    std::vector<T> &perm,
+    std::mt19937 &psrng,
+    auto &&swap = [] (T &x, T &y) { std::swap(x, y); }
+) {
     for (int i = perm.size() - 1; i > 0; --i) {
         std::uniform_int_distribution<std::mt19937::result_type>
             rand_idx(0, i);
         const int j = rand_idx(psrng);
-        if (i != j) std::swap(perm[i], perm[j]);
+        if (i != j) swap(perm[i], perm[j]);
     }
 }
 

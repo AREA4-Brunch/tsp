@@ -14,7 +14,7 @@ template<
     typename cost_t,
     typename cut_strategy_t,
     int K=-1,
-    typename vertex_t=int
+    IntrusiveVertex vertex_t
 >
 requires CutStrategy<cut_strategy_t, cost_t, vertex_t, K>
 class KOptBestCut : public Heuristic<cost_t, vertex_t>
@@ -42,10 +42,11 @@ class KOptBestCut : public Heuristic<cost_t, vertex_t>
     const cut_strategy_t cut;
 
     cost_t run(
-        std::vector<vertex_t> &solution,
+        typename vertex_t::traits::node_ptr &path,
         cost_t cur_cost,
         History<cost_t> &history,
         const cost_t * __restrict const flat_weights,
+        const int n,
         const int verbose = 0
     ) const noexcept override;
 
@@ -56,17 +57,19 @@ class KOptBestCut : public Heuristic<cost_t, vertex_t>
 };
 
 
-template<typename cost_t, typename cut_strategy_t, int K, typename vertex_t>
+template<typename cost_t, typename cut_strategy_t,
+         int K, IntrusiveVertex vertex_t>
 requires CutStrategy<cut_strategy_t, cost_t, vertex_t, K>
 cost_t KOptBestCut<cost_t, cut_strategy_t, K, vertex_t>::run(
-    std::vector<vertex_t> &path_,
+    typename vertex_t::traits::node_ptr &path,
     cost_t cur_cost,
     History<cost_t> &history,
     const cost_t * __restrict const weights,
+    const int n,
     const int verbose
 ) const noexcept {
-    using seg_t = std::pair<int, int>;
-    const int n = path_.size();
+    using seg_ptr = typename vertex_t::traits::node_ptr;
+    using seg_t = std::pair<seg_ptr, seg_ptr>;
     const int k = this->getK();
     if (n < k) return cur_cost;
     const int log_freq = 10;  // log best cost every 1 iters

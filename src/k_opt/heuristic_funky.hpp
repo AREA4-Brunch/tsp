@@ -14,7 +14,7 @@ template<
     typename cost_t,
     typename cut_strategy_t,
     int K=-1,
-    typename vertex_t=int
+    IntrusiveVertex vertex_t
 >
 requires CutStrategy<cut_strategy_t, cost_t, vertex_t, K>
 class KOptFunky : public Heuristic<cost_t, vertex_t>
@@ -42,10 +42,11 @@ class KOptFunky : public Heuristic<cost_t, vertex_t>
     const cut_strategy_t cut;
 
     cost_t run(
-        std::vector<vertex_t> &solution,
+        typename vertex_t::traits::node_ptr &path,
         cost_t cur_cost,
         History<cost_t> &history,
         const cost_t * __restrict const flat_weights,
+        const int n,
         const int verbose = 0
     ) const noexcept override;
 
@@ -58,32 +59,37 @@ class KOptFunky : public Heuristic<cost_t, vertex_t>
 
 namespace detail {
 
-template<int K, int Depth, typename callback_t>
+template<int K, int Depth, IntrusiveVertex vertex_t, typename callback_t>
 [[ gnu::hot ]]
 inline bool loopSegmentsStatic(
+    typename vertex_t::traits::node_ptr cur,
     const int start,
     const int n,
-    std::pair<int, int> * __restrict const segs,
+    std::pair<
+        typename vertex_t::traits::node_ptr,
+        typename vertex_t::traits::node_ptr
+    > * __restrict const segs,
     const int * __restrict const limits,
     int * __restrict const next_limits,
     callback_t &&cb
 ) noexcept {
     if constexpr (Depth != 0) {
-        segs[Depth].first = start;
+        segs[Depth].first = cur;
     }
     const int max_lim = n - K + Depth;
     int next_lim = -1;
-    for (int i = start, lim = limits[Depth]; i < lim; ++i) {
-        segs[Depth].second = i;
+    for (int i = start, lim = limits[Depth]; i <= lim; ++i) {
+        segs[Depth].second = cur;
+        cur = vertex_t::traits::get_next(cur);
         if constexpr (Depth == K - 1) {
-            segs[0].first = i + 1;
+            segs[0].first = cur;
             if (cb()) [[ unlikely ]] {
                 next_lim = i + 1;
                 lim = max_lim;
             }
         } else {
             if (loopSegmentsStatic<K, Depth + 1>(
-                i + 1, n, segs,
+                cur, i + 1, n, segs,
                 limits, next_limits,
                 std::forward<callback_t>(cb)
             )) [[ unlikely ]] {
@@ -98,31 +104,36 @@ inline bool loopSegmentsStatic(
     return did_update;
 }
 
-template<typename callback_t>
+template<IntrusiveVertex vertex_t, typename callback_t>
 [[ gnu::hot ]]
 inline bool loopSegmentsDynamic(
+    typename vertex_t::traits::node_ptr cur,
     const int start,
     const int depth,
     const int k,
     const int n,
-    std::pair<int, int> * __restrict const segs,
+    std::pair<
+        typename vertex_t::traits::node_ptr,
+        typename vertex_t::traits::node_ptr
+    > * __restrict const segs,
     const int * __restrict const limits,
     int * __restrict const next_limits,
     callback_t &&cb
 ) noexcept {
-    segs[depth].first = start;
+    segs[depth].first = cur;
     const int max_lim = n - k + depth;
     int next_lim = -1;
-    for (int i = start, lim = limits[depth]; i < lim; ++i) {
-        segs[depth].second = i;
+    for (int i = start, lim = limits[depth]; i <= lim; ++i) {
+        segs[depth].second = cur;
+        cur = vertex_t::traits::get_next(cur);
         if (depth == k - 1) [[ likely ]] {
-            segs[0].first = i + 1;
+            segs[0].first = cur;
             if (cb()) [[ unlikely ]] {
                 next_lim = i + 1;
                 lim = max_lim;
             }
         } else if (loopSegmentsDynamic(
-            i + 1, depth + 1, k, n, segs,
+            cur, i + 1, depth + 1, k, n, segs,
             limits, next_limits,
             std::forward<callback_t>(cb)
         )) [[ unlikely ]] {
@@ -139,17 +150,19 @@ inline bool loopSegmentsDynamic(
 }  // namespace detail
 
 
-template<typename cost_t, typename cut_strategy_t, int K, typename vertex_t>
+template<typename cost_t, typename cut_strategy_t,
+         int K, IntrusiveVertex vertex_t>
 requires CutStrategy<cut_strategy_t, cost_t, vertex_t, K>
 cost_t KOptFunky<cost_t, cut_strategy_t, K, vertex_t>::run(
-    std::vector<vertex_t> &path_,
+    typename vertex_t::traits::node_ptr &path,
     cost_t cur_cost,
     History<cost_t> &history,
     const cost_t * __restrict const weights,
+    const int n,
     const int verbose
 ) const noexcept {
-    using seg_t = std::pair<int, int>;
-    const int n = path_.size();
+    using seg_ptr = typename vertex_t::traits::node_ptr;
+    using seg_t = std::pair<seg_ptr, seg_ptr>;
     const int k = this->getK();
     if (n < k) return cur_cost;
     const int log_freq = 10;  // log best cost every 1 iters
@@ -204,15 +217,14 @@ cost_t KOptFunky<cost_t, cut_strategy_t, K, vertex_t>::run(
         const auto run = [&] () [[ gnu::hot ]] {
             int perm_idx = -1;
             const int swap_mask = cut->template selectCut<false>(
-                n, path,
-                segs_indices, cur_cost_change, weights,
+                n, segs_indices, cur_cost_change, weights,
                 perm_idx, segs_indices_buf
             );
             // add slight amount to negative side when comparing
             // the change to avoid swaps of the same element
             if (cur_cost_change < -1e-10) [[ unlikely ]] {
                 const bool is_new_path_in_buf = cut->applyCut(
-                    path, path_buf,
+                    path,
                     perm_idx >= 0 ? segs_indices : segs_indices_buf,
                     perm_idx, swap_mask, n
                 );

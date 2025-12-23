@@ -9,6 +9,7 @@
 #include <variant>
 #include <random>
 #include <iomanip>
+#include <list>
 
 #include "cut_3_opt.hpp"
 #include "history.hpp"
@@ -18,6 +19,7 @@
 #include "heuristic_funky.hpp"
 #include "heuristic_rand.hpp"
 #include "cut_k_opt.hpp"
+#include "vertex.hpp"
 #include "../common/random.hpp"
 #include "../common/timing.hpp"
 #include "../common/problem_loader.hpp"
@@ -46,6 +48,7 @@ template<typename cost_t, typename vertex_t>
 std::variant<
     k_opt::Cut3Opt<cost_t, vertex_t>,
     k_opt::Cut3OptNo2Opt<cost_t, vertex_t>,
+        k_opt::CutKOpt<cost_t, vertex_t, 3>,
     k_opt::CutKOpt<cost_t, vertex_t, 4>,
     k_opt::CutKOpt<cost_t, vertex_t, 5>,
     k_opt::CutKOpt<cost_t, vertex_t, -1>
@@ -67,6 +70,12 @@ bool hasFlag(int argc, const char **argv, const std::string& flag) {
     }
     return false;
 }
+
+template<typename cost_t, typename vertex_t>
+void logPath(
+    typename vertex_t::traits::node_ptr path,
+    const bool is_searching_for_cycle
+);
 
 }  // namespace detail
 
@@ -180,37 +189,53 @@ cost_t Solve(
     k_opt::History<cost_t> &history,
     const unsigned int seed
 ) {
+    using id_t = int;
+    using vertex_t = k_opt::Vertex<id_t>;
+
+    const int n = distances.size();
     std::cout << "Seed: " << seed << std::endl;
-    const auto algo = detail::selectAlgo<cost_t, int>(
+    const auto algo = detail::selectAlgo<cost_t, vertex_t>(
         selection_name, cut_name, seed);
 
-    // init random path with seed to guarantee reproducible results
-    std::vector<int> path(distances.size());
-    std::iota(path.begin(), path.end(), 0);
-    std::mt19937 psrng = random::initPSRNG(seed);
-    random::permuteRandomly(path, psrng);
-
+    std::vector<vertex_t> path_buffer;
+    vertex_t::traits::node_ptr path;
     const cost_t min_distance = algo->search(
-        distances,
         path,
+        path_buffer,
+        std::move(distances),
         !is_searching_for_cycle,
         history,
+        seed,
         1  // verbose
     );
-    // if cycle then change to format with explicit last edge
-    if (is_searching_for_cycle) path.push_back(path[0]);
 
     // log found cost and path:
-    std::cout << "Best found total distance for " << distances.size()
+    std::cout << "Best found total distance for " << n
               << " points: " << std::fixed << std::setprecision(6)
               << static_cast<double>(min_distance)
               << std::defaultfloat << std::endl;
     std::cout << "Corresponding path (0-indexed):" << std::endl;
-    for (const int idx : path) {
-        std::cout << "Point #" << ((int) idx) << std::endl;
-    }
+    detail::logPath<cost_t, vertex_t>(path, is_searching_for_cycle);
 
     return min_distance;
+}
+
+template<typename cost_t, typename vertex_t>
+void logPath(
+    typename vertex_t::traits::node_ptr path,
+    const bool is_searching_for_cycle
+) {
+    auto cur = path;
+    do {
+        const auto v = vertex_t::v(cur)->id;
+        cur = vertex_t::traits::get_next(cur);
+        std::cout << "Point #" << ((int)v) << std::endl;
+    } while (cur != path);
+    // if cycle then change to format with explicit last edge
+    if (is_searching_for_cycle) {
+        const auto v = vertex_t::v(path)->id;
+        std::cout << "Point #" << ((int)v) << std::endl;
+    }
 }
 
 template<typename cost_t, typename vertex_t>
@@ -234,6 +259,7 @@ template<typename cost_t, typename vertex_t>
 std::variant<
     k_opt::Cut3Opt<cost_t, vertex_t>,
     k_opt::Cut3OptNo2Opt<cost_t, vertex_t>,
+        k_opt::CutKOpt<cost_t, vertex_t, 3>,
     k_opt::CutKOpt<cost_t, vertex_t, 4>,
     k_opt::CutKOpt<cost_t, vertex_t, 5>,
     k_opt::CutKOpt<cost_t, vertex_t, -1>
@@ -241,6 +267,7 @@ std::variant<
     using cut_t = std::variant<
         k_opt::Cut3Opt<cost_t, vertex_t>,
         k_opt::Cut3OptNo2Opt<cost_t, vertex_t>,
+                k_opt::CutKOpt<cost_t, vertex_t, 3>,
         k_opt::CutKOpt<cost_t, vertex_t, 4>,
         k_opt::CutKOpt<cost_t, vertex_t, 5>,
         k_opt::CutKOpt<cost_t, vertex_t, -1>
@@ -256,6 +283,16 @@ std::variant<
         { "3_opt_pure", [] () {
             return k_opt::Cut3OptNo2Opt<cost_t, vertex_t>();
         }},
+        // { "3_opt", [] () {
+        //     return k_opt::CutKOpt<cost_t, vertex_t, 3>(
+        //         3, true, select_first_better, do_pre_gen_perms
+        //     );
+        // }},
+        // { "3_opt_pure", [] () {
+        //     return k_opt::CutKOpt<cost_t, vertex_t, 3>(
+        //         3, false, select_first_better, do_pre_gen_perms
+        //     );
+        // }},
         { "4_opt", [] () {
             return k_opt::CutKOpt<cost_t, vertex_t, 4>(
                 4, true, select_first_better, do_pre_gen_perms

@@ -17,7 +17,7 @@ template<
     typename cost_t,
     typename cut_strategy_t,
     int K=-1,
-    typename vertex_t=int
+    IntrusiveVertex vertex_t
 >
 requires CutStrategy<cut_strategy_t, cost_t, vertex_t, K>
 class KOptRand : public Heuristic<cost_t, vertex_t>
@@ -48,10 +48,11 @@ class KOptRand : public Heuristic<cost_t, vertex_t>
     const cut_strategy_t cut;
 
     cost_t run(
-        std::vector<vertex_t> &solution,
+        typename vertex_t::traits::node_ptr &solution,
         cost_t cur_cost,
         History<cost_t> &history,
         const cost_t * __restrict const flat_weights,
+        const int n,
         const int verbose = 0
     ) const noexcept override;
 
@@ -64,17 +65,26 @@ class KOptRand : public Heuristic<cost_t, vertex_t>
     inline void genRandomSegments(
         const int n,
         const int k,
-        std::pair<int, int> * __restrict const segs
+        std::pair<
+            typename vertex_t::traits::node_ptr,
+            typename vertex_t::traits::node_ptr
+        > * __restrict const segs,
+        typename vertex_t::traits::node_ptr * __restrict const nodes_map
     ) const noexcept;
 
 };
 
-template<typename cost_t, typename cut_strategy_t, int K, typename vertex_t>
+template<typename cost_t, typename cut_strategy_t,
+         int K, IntrusiveVertex vertex_t>
 requires CutStrategy<cut_strategy_t, cost_t, vertex_t, K>
 void KOptRand<cost_t, cut_strategy_t, K, vertex_t>::genRandomSegments(
     const int n,
     const int k,
-    std::pair<int, int> * __restrict const segs
+    std::pair<
+        typename vertex_t::traits::node_ptr,
+        typename vertex_t::traits::node_ptr
+    > * __restrict const segs,
+    typename vertex_t::traits::node_ptr * __restrict const nodes_map
 ) const noexcept {
     using distr_t = std::uniform_int_distribution<
         std::mt19937::result_type
@@ -84,18 +94,18 @@ void KOptRand<cost_t, cut_strategy_t, K, vertex_t>::genRandomSegments(
     const auto set_rand_seg = [&] (const int idx) {
         distr_t rand_idx(rnd, lim + idx);
         rnd = static_cast<int>(rand_idx(this->psrng));
-        segs[idx].second = rnd++;
+        segs[idx].second = nodes_map[rnd++];
         if constexpr (K == -1) {
             if (idx == k - 1) {
-                segs[0].first = rnd;
+                segs[0].first = nodes_map[rnd];
             } else [[ likely ]] {
-                segs[idx + 1].first = rnd;
+                segs[idx + 1].first = nodes_map[rnd];
             }
         } else {
             if (idx == K - 1) {
-                segs[0].first = rnd;
+                segs[0].first = nodes_map[rnd];
             } else [[ likely ]] {
-                segs[idx + 1].first = rnd;
+                segs[idx + 1].first = nodes_map[rnd];
             }
         }
     };
@@ -109,18 +119,19 @@ void KOptRand<cost_t, cut_strategy_t, K, vertex_t>::genRandomSegments(
     }
 }
 
-
-template<typename cost_t, typename cut_strategy_t, int K, typename vertex_t>
+template<typename cost_t, typename cut_strategy_t,
+         int K, IntrusiveVertex vertex_t>
 requires CutStrategy<cut_strategy_t, cost_t, vertex_t, K>
 cost_t KOptRand<cost_t, cut_strategy_t, K, vertex_t>::run(
-    std::vector<vertex_t> &path_,
+    typename vertex_t::traits::node_ptr &path,
     cost_t cur_cost,
     History<cost_t> &history,
     const cost_t * __restrict const weights,
+    const int n,
     const int verbose
 ) const noexcept {
-    using seg_t = std::pair<int, int>;
-    const int n = path_.size();
+    using seg_ptr = typename vertex_t::traits::node_ptr;
+    using seg_t = std::pair<seg_ptr, seg_ptr>;
     const int k = this->getK();
     if (n < k) return cur_cost;
     const int log_freq = 10;  // log best cost every 1 iters
@@ -128,10 +139,6 @@ cost_t KOptRand<cost_t, cut_strategy_t, K, vertex_t>::run(
     const bool do_record_history = !history.isStopped();
     history.addCost(cur_cost);
     // history.addPath(path_, -1, -1, -1, 0);
-
-    std::vector<vertex_t> path_buf_(n);
-    vertex_t * __restrict path_buf = path_buf_.data();
-    vertex_t * __restrict path = path_.data();
 
     std::array<seg_t, K == -1 ? 16 : K> seg_indices_arr;
     std::array<seg_t, K == -1 ? 16 : K> seg_indices_buf_arr;
@@ -144,24 +151,35 @@ cost_t KOptRand<cost_t, cut_strategy_t, K, vertex_t>::run(
     int * __restrict limits;
     int * __restrict next_limits;
     bool use_next_limits = false;
-
-    if constexpr (K == -1) {
-        segs_indices = k <= 16 ? seg_indices_arr.data()
-                               : new seg_t[k];
-        segs_indices_buf = k <= 16 ? seg_indices_buf_arr.data()
-                                   : new seg_t[k];
-        limits = k <= 16 ? limits_arr.data()
-                         : new int[k];
-        next_limits = k <= 16 ? next_limits_arr.data()
-                              : new int[k];
-    } else {
-        segs_indices = seg_indices_arr.data();
-        segs_indices_buf = seg_indices_buf_arr.data();
-        limits = limits_arr.data();
-        next_limits = next_limits_arr.data();
+    {
+        if constexpr (K == -1) {
+            segs_indices = k <= 16 ? seg_indices_arr.data()
+                                : new seg_t[k];
+            segs_indices_buf = k <= 16 ? seg_indices_buf_arr.data()
+                                    : new seg_t[k];
+            limits = k <= 16 ? limits_arr.data()
+                            : new int[k];
+            next_limits = k <= 16 ? next_limits_arr.data()
+                                : new int[k];
+        } else {
+            segs_indices = seg_indices_arr.data();
+            segs_indices_buf = seg_indices_buf_arr.data();
+            limits = limits_arr.data();
+            next_limits = next_limits_arr.data();
+        }
+        for (int depth = 0; depth < k; ++depth) {
+            limits[depth] = n - k + depth;
+        }
     }
-    for (int depth = 0; depth < k; ++depth) {
-        limits[depth] = n - k + depth;
+
+    std::vector<seg_ptr> nodes_map_(n);
+    seg_ptr * __restrict const nodes_map = nodes_map_.data();
+    {
+        seg_ptr cur = path;
+        for (int i = 0; i < n; ++i) {
+            nodes_map[i] = cur;
+            cur = vertex_t::traits::get_next(cur);
+        }
     }
 
     const int max_checks = n > k ? n * n * n / 6 : 0;
@@ -180,23 +198,21 @@ cost_t KOptRand<cost_t, cut_strategy_t, K, vertex_t>::run(
             segs_indices_buf[0].first = -1;
             const int swap_mask = no_collision
                 ? cut->template selectCut<true>(
-                    n, path, segs_indices, cur_cost_change, weights,
+                    n, segs_indices, cur_cost_change, weights,
                     perm_idx, segs_indices_buf
                 ) : cut->template selectCut<false>(
-                    n, path, segs_indices, cur_cost_change, weights,
+                    n, segs_indices, cur_cost_change, weights,
                     perm_idx, segs_indices_buf
                 );
             // add slight amount to negative side when comparing
             // the change to avoid swaps of the same element
             if (cur_cost_change < -1e-10) [[ unlikely ]] {
-                const bool is_new_path_in_buf = cut->applyCut(
-                    path, path_buf,
+                cut->applyCut(
+                    path,
                     segs_indices_buf[0].first >= 0
                         ? segs_indices_buf : segs_indices,
                     perm_idx, swap_mask, n
                 );
-                // swapping __restrict pointers, empirically no errors
-                if (is_new_path_in_buf) std::swap(path, path_buf);
                 cur_cost += cur_cost_change;
                 history.addCost(cur_cost);
                 // history.addPath(path, i, j, k, iter);
@@ -207,10 +223,10 @@ cost_t KOptRand<cost_t, cut_strategy_t, K, vertex_t>::run(
 
         if (no_collision) [[ likely ]] {
             for (int tries_left = max_checks;
-                tries_left > 0;
-                --tries_left
+                 tries_left > 0;
+                 --tries_left
             ) {
-                this->genRandomSegments(n, k, segs_indices);
+                this->genRandomSegments(n, k, segs_indices, nodes_map);
                 if (process_cut()) [[ unlikely ]] break;
             }
         }
@@ -243,9 +259,6 @@ cost_t KOptRand<cost_t, cut_strategy_t, K, vertex_t>::run(
                 history.flush(true);
             }
         }
-    }
-    if (path == path_buf_.data()) {
-        std::swap(path_, path_buf_);
     }
     if constexpr (K == -1) {
         if (segs_indices != seg_indices_arr.data()) {
