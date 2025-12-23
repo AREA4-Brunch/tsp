@@ -3,7 +3,7 @@
 Implementations solve the STSP and SSHP.
 
 
-Previously researched and below presented 3-opt implementation has been transformed into k-opt, and heavily optimized. Rand has been merged with funky instead of classical. When applying the 3-opt move the order of reassambled segments has changed, resulting in overall poorer quality of found solutions specifically on: problem 263. Funky and rand_no_2_opt variants have been unaffected by this change. This alligns with the 3-opt research results suggesting the significance of changing the edge selection's searching order between iterations. Furthermore this research has shown that pure opt moves should be preferred at the beginning of the search resulting in higher quality solutions, and faster overall search.
+Previously researched and below presented 3-opt implementation has been transformed into k-opt, and heavily optimized. Rand has been merged with funky instead of classical. This research has shown that pure opt moves should be preferred at the beginning of the search resulting in higher quality solutions, and faster overall search.
 
 
 ### Optimized 3-opt Variants Comparison

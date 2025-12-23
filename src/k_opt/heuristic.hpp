@@ -6,6 +6,7 @@
 #include <boost/intrusive/circular_list_algorithms.hpp>
 #include "history.hpp"
 #include "vertex_concept.hpp"
+#include "path_algos.hpp"
 #include "../common/random.hpp"
 
 namespace k_opt {
@@ -43,7 +44,7 @@ class Heuristic {
  protected:
 
     virtual cost_t run(
-        typename vertex_t::traits::node_ptr &solution,
+        typename vertex_t::traits::node_ptr solution,
         cost_t cur_cost,
         History<cost_t> &history,
         const cost_t * __restrict const flat_weights,
@@ -115,11 +116,14 @@ cost_t Heuristic<cost_t, vertex_t>::search(
     const cost_t init_cost = this->calcCost(
         path, flat_weights.data(), n
     );
-    const cost_t best_cost = (cost_t)0;
     const cost_t best_cost = this->run(
         path, init_cost, history,
         flat_weights.data(), n,
         verbose
+    );
+    k_opt::path_algos::correct_order<vertex_t>(
+        path,
+        vertex_t::traits::get_previous(path)
     );
     if (is_searching_for_path) {
        removeArtificialVertex(path, n);
@@ -173,7 +177,7 @@ void Heuristic<cost_t, vertex_t>::removeArtificialVertex(
         next = vertex_t::traits::get_next(prev);
         if (vertex_t::v(next)->id == n - 1) {
             path = vertex_t::traits::get_next(next);
-            path_algos::unlink_after(prev);
+            path_algos::unlink(next);
             return;
         }
         prev = next;
@@ -221,6 +225,7 @@ namespace detail {
 template<int K, int Depth, IntrusiveVertex vertex_t, typename callback_t>
 [[ gnu::hot ]]
 inline bool loopSegmentsStatic(
+    typename vertex_t::traits::node_ptr prev,
     typename vertex_t::traits::node_ptr cur,
     const int start,
     const int n,
@@ -231,18 +236,19 @@ inline bool loopSegmentsStatic(
     callback_t &&cb
 ) noexcept {
     if constexpr (Depth != 0) {
-        segs[Depth].first = start;
+        segs[Depth].first = cur;
     }
     const int lim = n - K + Depth;
     for (int i = start; i <= lim; ++i) {
         segs[Depth].second = cur;
-        cur = vertex_t::traits::get_next(cur);
+        cur = k_opt::path_algos::get_neighbour<vertex_t>(cur, prev);
+        prev = segs[Depth].second;
         if constexpr (Depth == K - 1) {
             segs[0].first = cur;
-            return cb();
+            if (cb()) [[ unlikely ]] return true;
         } else {
-            if (loopSegmentsStatic<K, Depth + 1>(
-                cur, i + 1, n, segs,
+            if (loopSegmentsStatic<K, Depth + 1, vertex_t>(
+                prev, cur, i + 1, n, segs,
                 std::forward<callback_t>(cb)
             )) [[ unlikely ]] return true;
         }
@@ -253,7 +259,8 @@ inline bool loopSegmentsStatic(
 template<IntrusiveVertex vertex_t, typename callback_t>
 [[ gnu::hot ]]
 inline bool loopSegmentsDynamic(
-    const typename vertex_t::traits::node_ptr cur,
+    typename vertex_t::traits::node_ptr prev,
+    typename vertex_t::traits::node_ptr cur,
     const int start,
     const int depth,
     const int k,
@@ -268,13 +275,14 @@ inline bool loopSegmentsDynamic(
     const int lim = n - k + depth;
     for (int i = start; i <= lim; ++i) {
         segs[depth].second = cur;
-        cur = vertex_t::traits::get_next(cur);
+        cur = k_opt::path_algos::get_neighbour<vertex_t>(cur, prev);
+        prev = segs[depth].second;
         if (depth == k - 1) [[ likely ]] {
             segs[0].first = cur;
-            return cb();
+            if (cb()) [[ unlikely ]] return true;
         } else {
-            if (loopSegmentsDynamic(
-                cur, i + 1, depth + 1, k, n, segs,
+            if (loopSegmentsDynamic<vertex_t>(
+                prev, cur, i + 1, depth + 1, k, n, segs,
                 std::forward<callback_t>(cb)
             )) [[ unlikely ]] return true;
         }

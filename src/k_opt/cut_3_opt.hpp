@@ -37,8 +37,7 @@ class Cut3Opt {
     ) const noexcept;
 
     [[ gnu::hot ]]
-    inline bool applyCut(
-        typename vertex_t::traits::node_ptr const path,
+    inline void applyCut(
         const seg_t * __restrict const segs,
         const int move_ord,
         [[ maybe_unused ]] const int swap_mask = -1,
@@ -57,12 +56,12 @@ int Cut3Opt<cost_t, vertex_t, no_2_opt>::selectCut(
     int &perm_idx,
     [[ maybe_unused ]] const seg_t * __restrict const
 ) const noexcept {
-    const vertex_t a = vertex_t::v(segs[0].second])->id;
-    const vertex_t b = vertex_t::v(segs[1].first])->id;
-    const vertex_t c = vertex_t::v(segs[1].second])->id;
-    const vertex_t d = vertex_t::v(segs[2].first])->id;
-    const vertex_t e = vertex_t::v(segs[2].second])->id;
-    const vertex_t f = vertex_t::v(segs[0].first])->id;
+    const auto a = vertex_t::v(segs[0].second)->id;
+    const auto b = vertex_t::v(segs[1].first)->id;
+    const auto c = vertex_t::v(segs[1].second)->id;
+    const auto d = vertex_t::v(segs[2].first)->id;
+    const auto e = vertex_t::v(segs[2].second)->id;
+    const auto f = vertex_t::v(segs[0].first)->id;
 
     const cost_t* __restrict wa = weights + a * n;
     const cost_t* __restrict wb = weights + b * n;
@@ -97,90 +96,84 @@ int Cut3Opt<cost_t, vertex_t, no_2_opt>::selectCut(
     return 0;
 }
 
-template<typename cost_t, IntrusiveVertex vertex_t, bool no_2_opt>
-bool Cut3Opt<cost_t, vertex_t, no_2_opt>::applyCut(
-    typename vertex_t::traits::node_ptr const path,
+template<typename cost_t, IntrusiveVertex v_t, bool no_2_opt>
+void Cut3Opt<cost_t, v_t, no_2_opt>::applyCut(
     const seg_t * __restrict const segs,
     const int move_ord,
     [[ maybe_unused ]] const int swap_mask,
     [[ maybe_unused ]] const int n
 ) const noexcept {
-    // s0f s0s s1f s1s s2f s2s
-    // a    b   c   d   e   f
-    //         i1   j1  i2  j2
-
-
-
-    const int i1 = segs[1].first;
-    const int j1 = segs[1].second;
-    const int i2 = segs[2].first;
-    const int j2 = segs[2].second;
-    const int len1 = j1 - i1 + 1;  // b..c
-    const int len2 = j2 - i2 + 1;  // d..e
-
     switch (move_ord) {
         case 0b010: {
-            k_opt::path_algos::reverse(
+            k_opt::path_algos::reverse<v_t>(
                 segs[0].second,
                 segs[1].first, segs[1].second,
                 segs[2].first
             );
-            return false;
+            return;
         }
         case 0b100: {
-            k_opt::path_algos::reverse(
+            k_opt::path_algos::reverse<v_t>(
                 segs[1].second,
                 segs[2].first, segs[2].second,
                 segs[0].first
             );
-            return false;
+            return;
         }
         case 0b110: {
-            k_opt::path_algos::reverse(
+            k_opt::path_algos::reverse<v_t>(
                 segs[0].second,
                 segs[1].first, segs[1].second,
                 segs[2].first
             );
-            k_opt::path_algos::reverse(
+            k_opt::path_algos::reverse<v_t>(
                 segs[1].first,
                 segs[2].first, segs[2].second,
                 segs[0].first
             );
-            return false;
+            return;
         }
         case 0b001:
         case 0b011:
         case 0b101:
         case 0b111: {
+            // s0f s0s   s1f s1s s2f s2s
             if (move_ord & 0b100) {
-                std::reverse_copy(path + i2,
-                                  path + j2 + 1, buf);
-            } else {
-                std::copy(path + i2, path + j2 + 1, buf);
+                k_opt::path_algos::reverse<v_t>(
+                    segs[1].second,
+                    segs[2].first, segs[2].second,
+                    segs[0].first
+                );
             }
             if (move_ord & 0b010) {
-                std::reverse_copy(path + i1,
-                                  path + j1 + 1, buf + len2);
-            } else {
-                std::copy(path + i1,
-                          path + j1 + 1, buf + len2);
+                k_opt::path_algos::reverse<v_t>(
+                    segs[0].second,
+                    segs[1].first, segs[1].second,
+                    move_ord & 0b100
+                        ? segs[2].second
+                        : segs[2].first
+                );
             }
-            const int buf_len = len1 + len2;
-            // copy shorter part
-            if (buf_len <= n - buf_len) {
-                std::copy_n(buf, buf_len, path + i1);
-                return false;
-            }
-            auto * const buf_tail = std::copy(
-                path + i1 + buf_len,
-                path + n, 
-                buf + buf_len
+            k_opt::path_algos::swap_sequential_segs<v_t>(
+                segs[0].second,
+                move_ord & 0b100
+                    ? segs[1].second
+                    : segs[1].first,
+                move_ord & 0b100
+                    ? segs[1].first
+                    : segs[1].second,
+                move_ord & 0b010
+                    ? segs[2].second
+                    : segs[2].first,
+                move_ord & 0b010
+                    ? segs[2].first
+                    : segs[2].second,
+                segs[0].first
             );
-            std::copy_n(path, i1, buf_tail);
-            return true;
+            return;
         }
         default:
-            return false;
+            return;
     }
 }
 

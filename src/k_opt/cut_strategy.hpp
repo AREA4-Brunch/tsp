@@ -18,10 +18,6 @@ namespace k_opt {
  * @return Empty if no better cut found, else either perm. reversed
  * __restrict        reversed segs, or { { perm_idx, foo } } and segs with
  * __restrict        matching reversals.
- * 
- * - applyCut:
- * @param segs It may or may not get modified.
- * @return true if new path is in `best_segs` buffer, false if in path.
  */
 template<typename this_t, typename cost_t, typename vertex_t, int K>
 concept CutStrategy = requires(
@@ -59,9 +55,8 @@ concept CutStrategy = requires(
         n, segs_c, change, weights, perm_idx, best_segs
     )} noexcept -> std::same_as<int>;
 
-    { t.applyCut(path, segs_c, perm_idx_c,
-                 swap_mask, n) }
-        noexcept -> std::same_as<bool>;
+    { t.applyCut(segs_c, perm_idx_c, swap_mask, n) }
+        noexcept -> std::same_as<void>;
 };
 
 }  // namespace k_opt

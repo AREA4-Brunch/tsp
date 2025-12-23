@@ -13,8 +13,8 @@ namespace k_opt {
 template<
     typename cost_t,
     typename cut_strategy_t,
-    int K=-1,
-    IntrusiveVertex vertex_t
+    IntrusiveVertex vertex_t,
+    int K=-1
 >
 requires CutStrategy<cut_strategy_t, cost_t, vertex_t, K>
 class KOptClassical : public Heuristic<cost_t, vertex_t>
@@ -42,7 +42,7 @@ class KOptClassical : public Heuristic<cost_t, vertex_t>
     const cut_strategy_t cut;
 
     cost_t run(
-        typename vertex_t::traits::node_ptr &solution,
+        typename vertex_t::traits::node_ptr solution,
         cost_t cur_cost,
         History<cost_t> &history,
         const cost_t * __restrict const flat_weights,
@@ -57,10 +57,10 @@ class KOptClassical : public Heuristic<cost_t, vertex_t>
 };
 
 template<typename cost_t, typename cut_strategy_t,
-         int K, IntrusiveVertex vertex_t>
+         IntrusiveVertex vertex_t, int K>
 requires CutStrategy<cut_strategy_t, cost_t, vertex_t, K>
-cost_t KOptClassical<cost_t, cut_strategy_t, K, vertex_t>::run(
-    typename vertex_t::traits::node_ptr &path,
+cost_t KOptClassical<cost_t, cut_strategy_t, vertex_t, K>::run(
+    typename vertex_t::traits::node_ptr path,
     cost_t cur_cost,
     History<cost_t> &history,
     const cost_t * __restrict const weights,
@@ -76,10 +76,6 @@ cost_t KOptClassical<cost_t, cut_strategy_t, K, vertex_t>::run(
     const bool do_record_history = !history.isStopped();
     history.addCost(cur_cost);
     // history.addPath(path_, -1, -1, -1, 0);
-
-    std::vector<vertex_t> path_buf_(n);
-    vertex_t * __restrict path_buf = path_buf_.data();
-    vertex_t * __restrict path = path_.data();
 
     std::array<seg_t, K == -1 ? 16 : K> seg_indices_arr;
     std::array<seg_t, K == -1 ? 16 : K> seg_indices_buf_arr;
@@ -105,7 +101,7 @@ cost_t KOptClassical<cost_t, cut_strategy_t, K, vertex_t>::run(
         }
         did_update = false;
 
-        const auto run = [&] () [[ gnu::hot ]] {
+        const auto process_cut = [&] () [[ gnu::hot ]] {
             int perm_idx = -1;
             const int swap_mask = cut->template selectCut<false>(
                 n, segs_indices, cur_cost_change, weights,
@@ -114,13 +110,10 @@ cost_t KOptClassical<cost_t, cut_strategy_t, K, vertex_t>::run(
             // add slight amount to negative side when comparing
             // the change to avoid swaps of the same element
             if (cur_cost_change < -1e-10) [[ unlikely ]] {
-                const bool is_new_path_in_buf = cut->applyCut(
-                    path,
+                cut->applyCut(
                     perm_idx >= 0 ? segs_indices : segs_indices_buf,
                     perm_idx, swap_mask, n
                 );
-                // swapping __restrict pointers, empirically no errors
-                if (is_new_path_in_buf) std::swap(path, path_buf);
                 cur_cost += cur_cost_change;
                 history.addCost(cur_cost);
                 // history.addPath(path, i, j, k, iter);
@@ -130,12 +123,16 @@ cost_t KOptClassical<cost_t, cut_strategy_t, K, vertex_t>::run(
         };
 
         if constexpr (K == -1) {
-            detail::loopSegmentsDynamic(
-                0, 0, k, n, segs_indices, run
+            detail::loopSegmentsDynamic<vertex_t>(
+                vertex_t::traits::get_previous(path),
+                path,
+                0, 0, k, n, segs_indices, process_cut
             );
         } else {
-            detail::loopSegmentsStatic<K, 0>(
-                0, n, segs_indices, run
+            detail::loopSegmentsStatic<K, 0, vertex_t>(
+                vertex_t::traits::get_previous(path),
+                path,
+                0, n, segs_indices, process_cut
             );
         }
         // store history on flush_freq, or on last iter
@@ -147,9 +144,6 @@ cost_t KOptClassical<cost_t, cut_strategy_t, K, vertex_t>::run(
                 history.flush(true);
             }
         }
-    }
-    if (path == path_buf_.data()) {
-        std::swap(path_, path_buf_);
     }
     if constexpr (K == -1) {
         if (segs_indices != seg_indices_arr.data()) {

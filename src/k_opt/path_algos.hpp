@@ -6,20 +6,6 @@
 namespace k_opt {
 namespace path_algos {
 
-template<
-    auto get_more_likely,
-    auto get_less_likely,
-    IntrusiveVertex vertex_t
->
-inline typename vertex_t::traits::node_ptr get_neighbour(
-    typename vertex_t::traits::const_node_ptr const ptr,
-    typename vertex_t::traits::const_node_ptr const opp
-) {
-    using traits = typename vertex_t::traits;
-    traits::const_node_ptr const cand1 = get_more_likely(ptr);
-    return cand1 != opp ? cand1 : get_less_likely(ptr);
-}
-
 template<IntrusiveVertex v_t, bool is_next_hint = true>
 inline typename v_t::traits::node_ptr get_neighbour(
     typename v_t::traits::const_node_ptr const p,
@@ -27,9 +13,11 @@ inline typename v_t::traits::node_ptr get_neighbour(
 ) {
     using t = typename v_t::traits;
     if constexpr (is_next_hint) {
-        return get_neighbour<t::get_next, t::get_prev, v_t>(p, opp);
+        auto cand1 = t::get_next(p);
+        return cand1 != opp ? cand1 : t::get_previous(p);
     } else {
-        return get_neighbour<t::get_prev, t::get_next, v_t>(p, opp);
+        auto cand1 = t::get_previous(p);
+        return cand1 != opp ? cand1 : t::get_next(p);
     }
 }
 
@@ -39,51 +27,38 @@ inline typename v_t::traits::node_ptr get_neighbour(
     typename v_t::traits::const_node_ptr const opp,
     const bool is_next_hint
 ) {
-    using t = typename v_t::traits;
     return is_next_hint
         ? get_neighbour<true, v_t>(ptr, opp)
         : get_neighbour<false, v_t>(ptr, opp);
 }
 
-template<
-    auto get_more_likely,
-    auto set_more_likely,
-    auto set_less_likely,
-    IntrusiveVertex vertex_t
->
-inline void set_neighbour(
-    typename vertex_t::traits::const_node_ptr const ptr,
-    typename vertex_t::traits::const_node_ptr const cur_next,
-    typename vertex_t::traits::const_node_ptr const new_next
-) {
-    if (get_more_likely(ptr) == cur_next) [[ likely ]] {
-        set_more_likely(ptr, new_next);
-    } else {
-        set_less_likely(ptr, new_next);
-    }
-}
-
 template<IntrusiveVertex v_t, bool is_next_hint = true>
 inline void set_neighbour(
-    typename v_t::traits::const_node_ptr const ptr,
+    typename v_t::traits::node_ptr const ptr,
     typename v_t::traits::const_node_ptr const cur_next,
-    typename v_t::traits::const_node_ptr const new_next
+    typename v_t::traits::node_ptr const new_next
 ) {
     using t = typename v_t::traits;
     if constexpr (is_next_hint) {
-        set_neighbour<t::get_next, t::set_next, t::set_prev, v_t
-        >(ptr, cur_next, new_next);
+        if (t::get_next(ptr) == cur_next) [[ likely ]] {
+            t::set_next(ptr, new_next);
+        } else {
+            t::set_previous(ptr, new_next);
+        }
     } else {
-        set_neighbour<t::get_prev, t::set_prev, t::set_next, v_t
-        >(ptr, cur_next, new_next);
+        if (t::get_previous(ptr) == cur_next) [[ likely ]] {
+            t::set_previous(ptr, new_next);
+        } else {
+            t::set_next(ptr, new_next);
+        }
     }
 }
 
 template<IntrusiveVertex v_t>
 inline void set_neighbour(
-    typename v_t::traits::const_node_ptr const ptr,
+    typename v_t::traits::node_ptr const ptr,
     typename v_t::traits::const_node_ptr const cur_next,
-    typename v_t::traits::const_node_ptr const new_next,
+    typename v_t::traits::node_ptr const new_next,
     const bool is_next_hint
 ) {
     return is_next_hint
@@ -103,6 +78,39 @@ inline void reverse(
     set_neighbour<v_t, true>(start, before_start, after_end);
     set_neighbour<v_t, false>(after_end, end, start);
 }
+
+template<IntrusiveVertex v_t>
+inline void swap_sequential_segs(
+    typename v_t::traits::node_ptr prev_s1,
+    typename v_t::traits::node_ptr s1_start,
+    typename v_t::traits::node_ptr s1_end,
+    typename v_t::traits::node_ptr s2_start,
+    typename v_t::traits::node_ptr s2_end,
+    typename v_t::traits::node_ptr after_s2
+) {
+    set_neighbour<v_t, true>(prev_s1, s1_start, s2_start);
+    set_neighbour<v_t, false>(s2_start, s1_end, prev_s1);
+    set_neighbour<v_t, false>(s2_end, after_s2, s1_start);
+    set_neighbour<v_t, false>(s1_start, prev_s1, s2_start);
+    set_neighbour<v_t, false>(s1_end, s2_start, after_s2);
+    set_neighbour<v_t, false>(after_s2, s2_end, s1_end);
+}
+
+template<IntrusiveVertex v_t>
+inline void correct_order(
+    typename v_t::traits::node_ptr cur,
+    typename v_t::traits::node_ptr end
+) {
+    auto prev = end;
+    do {
+        auto next = get_neighbour<v_t>(cur, prev);
+        v_t::traits::set_previous(cur, prev);
+        v_t::traits::set_next(cur, next);
+        prev = cur;
+        cur = next;
+    } while (prev != end);
+}
+
 
 }  // namespace path_algos
 }  // namespace k_opt

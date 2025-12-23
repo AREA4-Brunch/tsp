@@ -16,10 +16,10 @@ concept IntrusiveVertex = requires {
     { T::traits::set_next(std::declval<typename T::traits::node_ptr>(),
                           std::declval<typename T::traits::node_ptr>()) }
         -> std::same_as<void>;
-    { T::traits::get_prev(std::declval<typename T::traits::const_node_ptr>()) }
+    { T::traits::get_previous(std::declval<typename T::traits::const_node_ptr>()) }
         -> std::same_as<typename T::traits::node_ptr>;
-    { T::traits::set_prev(std::declval<typename T::traits::node_ptr>(),
-                          std::declval<typename T::traits::node_ptr>()) }
+    { T::traits::set_previous(std::declval<typename T::traits::node_ptr>(),
+                              std::declval<typename T::traits::node_ptr>()) }
         -> std::same_as<void>;
     { T::v(std::declval<typename T::traits::node_ptr>()) }
         -> std::same_as<T*>;

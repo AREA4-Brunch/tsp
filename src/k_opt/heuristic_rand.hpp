@@ -16,8 +16,8 @@ namespace k_opt {
 template<
     typename cost_t,
     typename cut_strategy_t,
-    int K=-1,
-    IntrusiveVertex vertex_t
+    IntrusiveVertex vertex_t,
+    int K=-1
 >
 requires CutStrategy<cut_strategy_t, cost_t, vertex_t, K>
 class KOptRand : public Heuristic<cost_t, vertex_t>
@@ -48,7 +48,7 @@ class KOptRand : public Heuristic<cost_t, vertex_t>
     const cut_strategy_t cut;
 
     cost_t run(
-        typename vertex_t::traits::node_ptr &solution,
+        typename vertex_t::traits::node_ptr solution,
         cost_t cur_cost,
         History<cost_t> &history,
         const cost_t * __restrict const flat_weights,
@@ -75,9 +75,9 @@ class KOptRand : public Heuristic<cost_t, vertex_t>
 };
 
 template<typename cost_t, typename cut_strategy_t,
-         int K, IntrusiveVertex vertex_t>
+         IntrusiveVertex vertex_t, int K>
 requires CutStrategy<cut_strategy_t, cost_t, vertex_t, K>
-void KOptRand<cost_t, cut_strategy_t, K, vertex_t>::genRandomSegments(
+void KOptRand<cost_t, cut_strategy_t, vertex_t, K>::genRandomSegments(
     const int n,
     const int k,
     std::pair<
@@ -120,10 +120,10 @@ void KOptRand<cost_t, cut_strategy_t, K, vertex_t>::genRandomSegments(
 }
 
 template<typename cost_t, typename cut_strategy_t,
-         int K, IntrusiveVertex vertex_t>
+         IntrusiveVertex vertex_t, int K>
 requires CutStrategy<cut_strategy_t, cost_t, vertex_t, K>
-cost_t KOptRand<cost_t, cut_strategy_t, K, vertex_t>::run(
-    typename vertex_t::traits::node_ptr &path,
+cost_t KOptRand<cost_t, cut_strategy_t, vertex_t, K>::run(
+    typename vertex_t::traits::node_ptr path,
     cost_t cur_cost,
     History<cost_t> &history,
     const cost_t * __restrict const weights,
@@ -195,7 +195,7 @@ cost_t KOptRand<cost_t, cut_strategy_t, K, vertex_t>::run(
 
         const auto process_cut = [&] () [[ gnu::hot ]] {
             int perm_idx = -1;
-            segs_indices_buf[0].first = -1;
+            segs_indices_buf[0].first = nullptr;
             const int swap_mask = no_collision
                 ? cut->template selectCut<true>(
                     n, segs_indices, cur_cost_change, weights,
@@ -208,8 +208,7 @@ cost_t KOptRand<cost_t, cut_strategy_t, K, vertex_t>::run(
             // the change to avoid swaps of the same element
             if (cur_cost_change < -1e-10) [[ unlikely ]] {
                 cut->applyCut(
-                    path,
-                    segs_indices_buf[0].first >= 0
+                    segs_indices_buf[0].first != nullptr
                         ? segs_indices_buf : segs_indices,
                     perm_idx, swap_mask, n
                 );
@@ -234,14 +233,18 @@ cost_t KOptRand<cost_t, cut_strategy_t, K, vertex_t>::run(
         if (!did_update) [[ unlikely ]] {  // funky fallback
             no_collision = false;
             if constexpr (K == -1) {
-                detail::loopSegmentsDynamic(
+                detail::loopSegmentsDynamic<vertex_t>(
+                    vertex_t::traits::get_previous(path),
+                    path,
                     0, 0, k, n, segs_indices,
                     use_next_limits ? next_limits : limits,
                     use_next_limits ? limits : next_limits,
                     process_cut
                 );
             } else {
-                detail::loopSegmentsStatic<K, 0>(
+                detail::loopSegmentsStatic<K, 0, vertex_t>(
+                    vertex_t::traits::get_previous(path),
+                    path,
                     0, n, segs_indices,
                     use_next_limits ? next_limits : limits,
                     use_next_limits ? limits : next_limits,
