@@ -109,6 +109,9 @@ cost_t Heuristic<cost_t, vertex_t>::search(
         }
         path = this->toLinkedList(solution);
     }
+// std::cout << "Created initial solution:" << std::endl;
+// k_opt::logging::logList<vertex_t>(std::cout, path) << std::endl;
+
     const auto flat_weights = genFlatMatrix(
         weights,
         is_searching_for_path
@@ -127,7 +130,11 @@ cost_t Heuristic<cost_t, vertex_t>::search(
     );
     if (is_searching_for_path) {
        removeArtificialVertex(path, n);
+
+// std::cout << "Output after removed artificial vertex:" << std::endl;
+// k_opt::logging::logList<vertex_t>(std::cout, path) << std::endl;
     }
+// // return (cost_t)0;
     return best_cost;
 }
 
@@ -213,7 +220,7 @@ Heuristic<cost_t, vertex_t>::toLinkedList(
     std::vector<vertex_t> &vec
 ) {
     typename vertex_t::traits::node_ptr head = &vec.front();
-    path_algos::init(head);
+    path_algos::init_header(head);
     for (int i = 1, n = vec.size(); i < n; ++i) {
         path_algos::link_after(&vec[i - 1], &vec[i]);
     }

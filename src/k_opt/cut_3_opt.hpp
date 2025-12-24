@@ -137,6 +137,7 @@ void Cut3Opt<cost_t, v_t, no_2_opt>::applyCut(
         case 0b011:
         case 0b101:
         case 0b111: {
+            bool DEBUG = false;
             // s0f s0s   s1f s1s s2f s2s
             if (move_ord & 0b100) {
                 k_opt::path_algos::reverse<v_t>(
@@ -144,6 +145,27 @@ void Cut3Opt<cost_t, v_t, no_2_opt>::applyCut(
                     segs[2].first, segs[2].second,
                     segs[0].first
                 );
+                
+                if (DEBUG) {
+                    std::cout << "After swap 0b100: " << std::endl;
+                    for (int s = 0; s < 3; ++s) {
+                        std::cout << " Seg " << s << ": ";
+                        auto cur = segs[s].first;
+                        std::cout << "first"
+                            << " v: " << v_t::v(cur)->id << " "
+                            << " ptr: " << cur
+                            << " prev: " << v_t::traits::get_previous(cur)
+                            << " next: " << v_t::traits::get_next(cur)
+                            << std::endl;
+                        cur = segs[s].second;
+                        std::cout << "\t\tsecond"
+                            << " v: " << v_t::v(cur)->id << " "
+                            << " ptr: " << cur
+                            << " prev: " << v_t::traits::get_previous(cur)
+                            << " next: " << v_t::traits::get_next(cur)
+                            << std::endl;
+                    }
+                }
             }
             if (move_ord & 0b010) {
                 k_opt::path_algos::reverse<v_t>(
@@ -153,19 +175,39 @@ void Cut3Opt<cost_t, v_t, no_2_opt>::applyCut(
                         ? segs[2].second
                         : segs[2].first
                 );
+                if (DEBUG) {
+                    std::cout << "After swap 0b010: " << std::endl;
+                    for (int s = 0; s < 3; ++s) {
+                        std::cout << " Seg " << s << ": ";
+                        auto cur = segs[s].first;
+                        std::cout << "first"
+                            << " v: " << v_t::v(cur)->id << " "
+                            << " ptr: " << cur
+                            << " prev: " << v_t::traits::get_previous(cur)
+                            << " next: " << v_t::traits::get_next(cur)
+                            << std::endl;
+                        cur = segs[s].second;
+                        std::cout << "\t\tsecond"
+                            << " v: " << v_t::v(cur)->id << " "
+                            << " ptr: " << cur
+                            << " prev: " << v_t::traits::get_previous(cur)
+                            << " next: " << v_t::traits::get_next(cur)
+                            << std::endl;
+                    }
+                }
             }
             k_opt::path_algos::swap_sequential_segs<v_t>(
                 segs[0].second,
-                move_ord & 0b100
+                move_ord & 0b010
                     ? segs[1].second
                     : segs[1].first,
-                move_ord & 0b100
+                move_ord & 0b010
                     ? segs[1].first
                     : segs[1].second,
-                move_ord & 0b010
+                move_ord & 0b100
                     ? segs[2].second
                     : segs[2].first,
-                move_ord & 0b010
+                move_ord & 0b100
                     ? segs[2].first
                     : segs[2].second,
                 segs[0].first

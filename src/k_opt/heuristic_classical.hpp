@@ -8,6 +8,9 @@
 #include "heuristic.hpp"
 #include "cut_strategy.hpp"
 
+#include <unordered_set>
+
+
 namespace k_opt {
 
 template<
@@ -110,10 +113,82 @@ cost_t KOptClassical<cost_t, cut_strategy_t, vertex_t, K>::run(
             // add slight amount to negative side when comparing
             // the change to avoid swaps of the same element
             if (cur_cost_change < -1e-10) [[ unlikely ]] {
+                bool DEBUG = iter == 13;
+                DEBUG = false;
+                if (DEBUG) {
+                    std::cout << "perm idx: " << perm_idx << std::endl;
+                    std::cout << "swap_mask: " << swap_mask << std::endl;
+                    std::cout << "Orig Segments: " << std::endl;
+                    for (int s = 0; s < k; ++s) {
+                        std::cout << " Seg " << s << ": ";
+                        auto cur = segs_indices[s].first;
+                        std::cout << "first"
+                            << " v: " << vertex_t::v(cur)->id << " "
+                            << " ptr: " << cur
+                            << " prev: " << vertex_t::traits::get_previous(cur)
+                            << " next: " << vertex_t::traits::get_next(cur)
+                            << std::endl;
+                        cur = segs_indices[s].second;
+                        std::cout << "\t\tsecond"
+                            << " v: " << vertex_t::v(cur)->id << " "
+                            << " ptr: " << cur
+                            << " prev: " << vertex_t::traits::get_previous(cur)
+                            << " next: " << vertex_t::traits::get_next(cur)
+                            << std::endl;
+                    }
+                }
+
                 cut->applyCut(
                     perm_idx >= 0 ? segs_indices : segs_indices_buf,
                     perm_idx, swap_mask, n
                 );
+
+                auto cur = path, prev = vertex_t::traits::get_previous(path);
+                std::unordered_set<int> visited;
+                do {
+                if (DEBUG) {
+                    std::cout << "i: " << iter
+                              << " v: " << vertex_t::v(cur)->id << " "
+                              << " ptr: " << cur
+                              << " actual prev: " << prev
+                              << " prev: " << vertex_t::traits::get_previous(cur)
+                              << " next: " << vertex_t::traits::get_next(cur)
+                              << " mine next: "
+                              << k_opt::path_algos::get_neighbour<vertex_t>(cur, prev)
+                              << std::endl;
+                }
+                    if (visited.count(vertex_t::v(cur)->id)) {
+                        std::cerr << "Error: Cycle detected in path!" << std::endl;
+                        std::cout << "Segments: " << std::endl;
+                        for (int s = 0; s < k; ++s) {
+                            std::cout << " Seg " << s << ": ";
+                            cur = segs_indices[s].first;
+                            std::cout << "first"
+                              << " v: " << vertex_t::v(cur)->id << " "
+                              << " ptr: " << cur
+                              << " prev: " << vertex_t::traits::get_previous(cur)
+                              << " next: " << vertex_t::traits::get_next(cur)
+                              << " mine next: "
+                              << k_opt::path_algos::get_neighbour<vertex_t>(cur, prev)
+                              << std::endl;
+                            cur = segs_indices[s].second;
+                            std::cout << "\t\tsecond"
+                              << " v: " << vertex_t::v(cur)->id << " "
+                              << " ptr: " << cur
+                              << " prev: " << vertex_t::traits::get_previous(cur)
+                              << " next: " << vertex_t::traits::get_next(cur)
+                              << " mine next: "
+                              << k_opt::path_algos::get_neighbour<vertex_t>(cur, prev)
+                              << std::endl;
+                        }
+                        throw std::runtime_error("Cycle detected in path");
+                    }
+                    visited.insert(vertex_t::v(cur)->id);
+                    auto tmp = cur;
+                    cur = k_opt::path_algos::get_neighbour<vertex_t>(cur, prev);
+                    prev = tmp;
+                } while (cur != path);
+
                 cur_cost += cur_cost_change;
                 history.addCost(cur_cost);
                 // history.addPath(path, i, j, k, iter);
