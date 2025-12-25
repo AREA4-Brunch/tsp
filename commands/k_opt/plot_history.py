@@ -1,6 +1,7 @@
 """
 python plot_history.py <problem_name> <num_points> [<mode>] [<run_start>] [<run_end>] [<window_timeframe>] [<start_time>] [--no-cache|-nc] [--loglog|-ll]
 
+python commands/k_opt/plot_history.py 263 263 shp 0 -1 1 100 -ll
 python commands/k_opt/plot_history.py 263 263 shp 0 -1 1 -ll
 python commands/k_opt/plot_history.py 263 263 shp 0 1000 1 20 -ll
 python commands/k_opt/plot_history.py 263 263 shp 0 -1 1 20 -nc -ll

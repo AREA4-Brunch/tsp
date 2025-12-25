@@ -1,5 +1,16 @@
 #!/bin/bash
 
+# set limit on seolving all 263 points to something unachivable in given
+# time frame for real mode, deafult to 30 for demo mode
+mode=${1:-demo}
+if [ "$mode" = "real" ]; then
+    iterations=1000000
+else
+    iterations=30
+fi
+
+do_compile=${2-}
+
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROOT_DIR="$SCRIPT_DIR/.."
 SRC_DIR="$SCRIPT_DIR/../../src/k_opt"
@@ -7,10 +18,15 @@ PROBLEMS_DIR="$SCRIPT_DIR/../../problems"
 RESULTS_DIR="$SCRIPT_DIR/../../results/3_opt_best_cut"
 HISTORY_DIR="$RESULTS_DIR/histories"
 
-echo "Compiling..."
-if ! g++ --static -std=c++23 -O3 -Wall -Wextra -o "$SRC_DIR/main.exe" "$SRC_DIR/main.cpp"; then
-    echo "Compilation failed."
-    exit 1
+BOOST_INCLUDE=-IC:/boost_1_90_0
+if [ "$do_compile" = "--no-compile" ]; then
+    echo "Skipping compilation..."
+else
+    echo "Compiling..."
+    if ! g++ --static -std=c++23 -O3 -Wall -Winline -Wextra "$BOOST_INCLUDE" -o "$SRC_DIR/main.exe" "$SRC_DIR/main.cpp"; then
+        echo "Compilation failed."
+        exit 1
+    fi
 fi
 
 echo "Solving problem: 263"
@@ -260,8 +276,7 @@ echo "Solving 33 points..."
 wait
 
 echo "Solving 263 points..."
-"$SRC_DIR/main.exe" "best_cut" "3_opt" 263 "$PROBLEMS_DIR/263.txt" "$HISTORY_DIR/263/shp/263" 1000000  500 5700 shp 1 > "$RESULTS_DIR/263/shp/263.txt" &
-# "$SRC_DIR/main.exe" "best_cut" "3_opt" 263 "$PROBLEMS_DIR/263.txt" "$HISTORY_DIR/263/shp/263" 30  500 5700 shp 1 > "$RESULTS_DIR/263/shp/263.txt" &
+"$SRC_DIR/main.exe" "best_cut" "3_opt" 263 "$PROBLEMS_DIR/263.txt" "$HISTORY_DIR/263/shp/263" $iterations  500 5700 shp 1 > "$RESULTS_DIR/263/shp/263.txt" &
 
 wait
 
