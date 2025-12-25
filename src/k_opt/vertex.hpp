@@ -16,10 +16,12 @@ struct Vertex
 {
     using traits = boost::intrusive::list_node_traits<void*>;
 
+    [[ gnu::always_inline ]]
     static inline Vertex* v(traits::node_ptr ptr) noexcept {
         return static_cast<Vertex*>(ptr);
     }
 
+    [[ gnu::always_inline ]]
     static inline const Vertex* v(traits::const_node_ptr ptr) noexcept {
         return static_cast<const Vertex*>(ptr);
     }

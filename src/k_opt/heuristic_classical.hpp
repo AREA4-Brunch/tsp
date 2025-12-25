@@ -79,16 +79,16 @@ cost_t KOptClassical<cost_t, cut_strategy_t, vertex_t, K>::run(
 
     std::array<seg_t, K == -1 ? 16 : K> seg_indices_arr;
     std::array<seg_t, K == -1 ? 16 : K> seg_indices_buf_arr;
-    seg_t * __restrict segs_indices;
-    seg_t * __restrict segs_indices_buf;
+    seg_t * __restrict segs;
+    seg_t * __restrict segs_buf;
     if constexpr (K == -1) {
-        segs_indices = k <= 16 ? seg_indices_arr.data()
+        segs = k <= 16 ? seg_indices_arr.data()
                                : new seg_t[k];
-        segs_indices_buf = k <= 16 ? seg_indices_buf_arr.data()
+        segs_buf = k <= 16 ? seg_indices_buf_arr.data()
                                    : new seg_t[k];
     } else {
-        segs_indices = seg_indices_arr.data();
-        segs_indices_buf = seg_indices_buf_arr.data();
+        segs = seg_indices_arr.data();
+        segs_buf = seg_indices_buf_arr.data();
     }
 
     const cut_strategy_t * __restrict const cut = &this->cut;
@@ -104,14 +104,14 @@ cost_t KOptClassical<cost_t, cut_strategy_t, vertex_t, K>::run(
         const auto process_cut = [&] () [[ gnu::hot ]] {
             int perm_idx = -1;
             const int swap_mask = cut->template selectCut<false>(
-                n, segs_indices, cur_cost_change, weights,
-                perm_idx, segs_indices_buf
+                n, segs, cur_cost_change, weights,
+                perm_idx, segs_buf
             );
             // add slight amount to negative side when comparing
             // the change to avoid swaps of the same element
             if (cur_cost_change < -1e-10) [[ unlikely ]] {
                 cut->applyCut(
-                    perm_idx >= 0 ? segs_indices : segs_indices_buf,
+                    perm_idx >= 0 ? segs : segs_buf,
                     perm_idx, swap_mask, n
                 );
                 cur_cost += cur_cost_change;
@@ -126,13 +126,13 @@ cost_t KOptClassical<cost_t, cut_strategy_t, vertex_t, K>::run(
             detail::loopSegmentsDynamic<vertex_t>(
                 vertex_t::traits::get_previous(path),
                 path,
-                0, 0, k, n, segs_indices, process_cut
+                0, 0, k, n, segs, process_cut
             );
         } else {
             detail::loopSegmentsStatic<K, 0, vertex_t>(
                 vertex_t::traits::get_previous(path),
                 path,
-                0, n, segs_indices, process_cut
+                0, n, segs, process_cut
             );
         }
         // store history on flush_freq, or on last iter
@@ -146,11 +146,11 @@ cost_t KOptClassical<cost_t, cut_strategy_t, vertex_t, K>::run(
         }
     }
     if constexpr (K == -1) {
-        if (segs_indices != seg_indices_arr.data()) {
-            delete[] segs_indices;
+        if (segs != seg_indices_arr.data()) {
+            delete[] segs;
         }
-        if (segs_indices_buf != seg_indices_buf_arr.data()) {
-            delete[] segs_indices_buf;
+        if (segs_buf != seg_indices_buf_arr.data()) {
+            delete[] segs_buf;
         }
     }
 

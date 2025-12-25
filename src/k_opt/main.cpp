@@ -50,7 +50,6 @@ template<typename cost_t, k_opt::IntrusiveVertex vertex_t>
 std::variant<
     k_opt::Cut3Opt<cost_t, vertex_t>,
     k_opt::Cut3OptNo2Opt<cost_t, vertex_t>,
-        k_opt::CutKOpt<cost_t, vertex_t, 3>,
     k_opt::CutKOpt<cost_t, vertex_t, 4>,
     k_opt::CutKOpt<cost_t, vertex_t, 5>,
     k_opt::CutKOpt<cost_t, vertex_t, -1>
@@ -267,7 +266,6 @@ template<typename cost_t, k_opt::IntrusiveVertex vertex_t>
 std::variant<
     k_opt::Cut3Opt<cost_t, vertex_t>,
     k_opt::Cut3OptNo2Opt<cost_t, vertex_t>,
-        k_opt::CutKOpt<cost_t, vertex_t, 3>,
     k_opt::CutKOpt<cost_t, vertex_t, 4>,
     k_opt::CutKOpt<cost_t, vertex_t, 5>,
     k_opt::CutKOpt<cost_t, vertex_t, -1>
@@ -275,7 +273,6 @@ std::variant<
     using cut_t = std::variant<
         k_opt::Cut3Opt<cost_t, vertex_t>,
         k_opt::Cut3OptNo2Opt<cost_t, vertex_t>,
-                k_opt::CutKOpt<cost_t, vertex_t, 3>,
         k_opt::CutKOpt<cost_t, vertex_t, 4>,
         k_opt::CutKOpt<cost_t, vertex_t, 5>,
         k_opt::CutKOpt<cost_t, vertex_t, -1>
@@ -291,16 +288,6 @@ std::variant<
         { "3_opt_pure", [] () {
             return k_opt::Cut3OptNo2Opt<cost_t, vertex_t>();
         }},
-        // { "3_opt", [] () {
-        //     return k_opt::CutKOpt<cost_t, vertex_t, 3>(
-        //         3, true, select_first_better, do_pre_gen_perms
-        //     );
-        // }},
-        // { "3_opt_pure", [] () {
-        //     return k_opt::CutKOpt<cost_t, vertex_t, 3>(
-        //         3, false, select_first_better, do_pre_gen_perms
-        //     );
-        // }},
         { "4_opt", [] () {
             return k_opt::CutKOpt<cost_t, vertex_t, 4>(
                 4, true, select_first_better, do_pre_gen_perms

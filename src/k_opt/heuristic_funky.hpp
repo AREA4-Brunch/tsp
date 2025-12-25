@@ -57,103 +57,6 @@ class KOptFunky : public Heuristic<cost_t, vertex_t>
 };
 
 
-namespace detail {
-
-template<int K, int Depth, IntrusiveVertex vertex_t, typename callback_t>
-[[ gnu::hot ]]
-inline bool loopSegmentsStatic(
-    typename vertex_t::traits::node_ptr prev,
-    typename vertex_t::traits::node_ptr cur,
-    const int start,
-    const int n,
-    std::pair<
-        typename vertex_t::traits::node_ptr,
-        typename vertex_t::traits::node_ptr
-    > * __restrict const segs,
-    const int * __restrict const limits,
-    int * __restrict const next_limits,
-    callback_t &&cb
-) noexcept {
-    if constexpr (Depth != 0) {
-        segs[Depth].first = cur;
-    }
-    const int max_lim = n - K + Depth;
-    int next_lim = -1;
-    for (int i = start, lim = limits[Depth]; i <= lim; ++i) {
-        segs[Depth].second = cur;
-        cur = k_opt::path_algos::get_neighbour<vertex_t>(cur, prev);
-        prev = segs[Depth].second;
-        if constexpr (Depth == K - 1) {
-            segs[0].first = cur;
-            if (cb()) [[ unlikely ]] {
-                next_lim = i + 1;
-                lim = max_lim;
-            }
-        } else {
-            if (loopSegmentsStatic<K, Depth + 1, vertex_t>(
-                prev, cur, i + 1, n, segs,
-                limits, next_limits,
-                std::forward<callback_t>(cb)
-            )) [[ unlikely ]] {
-                next_lim = i + 1;
-                lim = max_lim;
-            }
-        }
-    }
-    const bool did_update = next_lim >= 0;
-    next_limits[Depth] = did_update
-                       ? next_lim : max_lim;
-    return did_update;
-}
-
-template<IntrusiveVertex vertex_t, typename callback_t>
-[[ gnu::hot ]]
-inline bool loopSegmentsDynamic(
-    typename vertex_t::traits::node_ptr prev,
-    typename vertex_t::traits::node_ptr cur,
-    const int start,
-    const int depth,
-    const int k,
-    const int n,
-    std::pair<
-        typename vertex_t::traits::node_ptr,
-        typename vertex_t::traits::node_ptr
-    > * __restrict const segs,
-    const int * __restrict const limits,
-    int * __restrict const next_limits,
-    callback_t &&cb
-) noexcept {
-    segs[depth].first = cur;
-    const int max_lim = n - k + depth;
-    int next_lim = -1;
-    for (int i = start, lim = limits[depth]; i <= lim; ++i) {
-        segs[depth].second = cur;
-        cur = k_opt::path_algos::get_neighbour<vertex_t>(cur, prev);
-        prev = segs[depth].second;
-        if (depth == k - 1) [[ likely ]] {
-            segs[0].first = cur;
-            if (cb()) [[ unlikely ]] {
-                next_lim = i + 1;
-                lim = max_lim;
-            }
-        } else if (loopSegmentsDynamic<vertex_t>(
-            prev, cur, i + 1, depth + 1, k, n, segs,
-            limits, next_limits,
-            std::forward<callback_t>(cb)
-        )) [[ unlikely ]] {
-            next_lim = i + 1;
-            lim = max_lim;
-        }
-    }
-    const bool did_update = next_lim >= 0;
-    next_limits[depth] = did_update
-                       ? next_lim : max_lim;
-    return did_update;
-}
-
-}  // namespace detail
-
-
 template<typename cost_t, typename cut_strategy_t,
          IntrusiveVertex vertex_t, int K>
 requires CutStrategy<cut_strategy_t, cost_t, vertex_t, K>
@@ -178,32 +81,19 @@ cost_t KOptFunky<cost_t, cut_strategy_t, vertex_t, K>::run(
 
     std::array<seg_t, K == -1 ? 16 : K> seg_indices_arr;
     std::array<seg_t, K == -1 ? 16 : K> seg_indices_buf_arr;
-    seg_t * __restrict segs_indices;
-    seg_t * __restrict segs_indices_buf;
+    seg_t * __restrict segs;
+    seg_t * __restrict segs_buf;
 
-    std::array<int, K == -1 ? 16 : K> limits_arr;
-    std::array<int, K == -1 ? 16 : K> next_limits_arr;
-    int * __restrict limits;
-    int * __restrict next_limits;
-    bool use_next_limits = false;
     if constexpr (K == -1) {
-        segs_indices = k <= 16 ? seg_indices_arr.data()
+        segs = k <= 16 ? seg_indices_arr.data()
                                : new seg_t[k];
-        segs_indices_buf = k <= 16 ? seg_indices_buf_arr.data()
+        segs_buf = k <= 16 ? seg_indices_buf_arr.data()
                                    : new seg_t[k];
-        limits = k <= 16 ? limits_arr.data()
-                         : new int[k];
-        next_limits = k <= 16 ? next_limits_arr.data()
-                              : new int[k];
     } else {
-        segs_indices = seg_indices_arr.data();
-        segs_indices_buf = seg_indices_buf_arr.data();
-        limits = limits_arr.data();
-        next_limits = next_limits_arr.data();
+        segs = seg_indices_arr.data();
+        segs_buf = seg_indices_buf_arr.data();
     }
-    for (int depth = 0; depth < k; ++depth) {
-        limits[depth] = n - k + depth;
-    }
+    segs[0].first = path;
 
     const cut_strategy_t * __restrict const cut = &this->cut;
     int iter = 1;
@@ -217,14 +107,14 @@ cost_t KOptFunky<cost_t, cut_strategy_t, vertex_t, K>::run(
         const auto process_cut = [&] () [[ gnu::hot ]] {
             int perm_idx = -1;
             const int swap_mask = cut->template selectCut<false>(
-                n, segs_indices, cur_cost_change, weights,
-                perm_idx, segs_indices_buf
+                n, segs, cur_cost_change, weights,
+                perm_idx, segs_buf
             );
             // add slight amount to negative side when comparing
             // the change to avoid swaps of the same element
             if (cur_cost_change < -1e-10) [[ unlikely ]] {
                 cut->applyCut(
-                    perm_idx >= 0 ? segs_indices : segs_indices_buf,
+                    perm_idx >= 0 ? segs : segs_buf,
                     perm_idx, swap_mask, n
                 );
                 cur_cost += cur_cost_change;
@@ -235,26 +125,19 @@ cost_t KOptFunky<cost_t, cut_strategy_t, vertex_t, K>::run(
             return false;
         };
 
+        auto start = segs[0].first;  // start from furthest vertex
+        auto prev = vertex_t::traits::get_previous(start);
         if constexpr (K == -1) {
             detail::loopSegmentsDynamic<vertex_t>(
-                vertex_t::traits::get_previous(path),
-                path,
-                0, 0, k, n, segs_indices,
-                use_next_limits ? next_limits : limits,
-                use_next_limits ? limits : next_limits,
-                process_cut
+                prev, start,
+                0, 0, k, n, segs, process_cut
             );
         } else {
             detail::loopSegmentsStatic<K, 0, vertex_t>(
-                vertex_t::traits::get_previous(path),
-                path,
-                0, n, segs_indices,
-                use_next_limits ? next_limits : limits,
-                use_next_limits ? limits : next_limits,
-                process_cut
+                prev, start,
+                0, n, segs, process_cut
             );
         }
-        use_next_limits = !use_next_limits;
 
         // store history on flush_freq, or on last iter
         if (do_record_history) {
@@ -267,17 +150,11 @@ cost_t KOptFunky<cost_t, cut_strategy_t, vertex_t, K>::run(
         }
     }
     if constexpr (K == -1) {
-        if (segs_indices != seg_indices_arr.data()) {
-            delete[] segs_indices;
+        if (segs != seg_indices_arr.data()) {
+            delete[] segs;
         }
-        if (segs_indices_buf != seg_indices_buf_arr.data()) {
-            delete[] segs_indices_buf;
-        }
-        if (limits != limits_arr.data()) {
-            delete[] limits;
-        }
-        if (next_limits != next_limits_arr.data()) {
-            delete[] next_limits;
+        if (segs_buf != seg_indices_buf_arr.data()) {
+            delete[] segs_buf;
         }
     }
 

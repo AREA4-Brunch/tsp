@@ -82,19 +82,19 @@ cost_t KOptBestCut<cost_t, cut_strategy_t, vertex_t, K>::run(
     std::array<seg_t, K == -1 ? 16 : K> seg_indices_arr;
     std::array<seg_t, K == -1 ? 16 : K> seg_indices_buf_arr;
     std::array<seg_t, K == -1 ? 16 : K> best_segs_arr;
-    seg_t * __restrict segs_indices;
-    seg_t * __restrict segs_indices_buf;
+    seg_t * __restrict segs;
+    seg_t * __restrict segs_buf;
     seg_t * __restrict best_segs;
     if constexpr (K == -1) {
-        segs_indices = k <= 16 ? seg_indices_arr.data()
+        segs = k <= 16 ? seg_indices_arr.data()
                                : new seg_t[k];
-        segs_indices_buf = k <= 16 ? seg_indices_buf_arr.data()
+        segs_buf = k <= 16 ? seg_indices_buf_arr.data()
                                    : new seg_t[k];
         best_segs = k <= 16 ? best_segs_arr.data()
                             : new seg_t[k];
     } else {
-        segs_indices = seg_indices_arr.data();
-        segs_indices_buf = seg_indices_buf_arr.data();
+        segs = seg_indices_arr.data();
+        segs_buf = seg_indices_buf_arr.data();
         best_segs = best_segs_arr.data();
     }
 
@@ -113,8 +113,8 @@ cost_t KOptBestCut<cost_t, cut_strategy_t, vertex_t, K>::run(
         const auto process_cut = [&] () [[ gnu::hot ]] {
             int perm_idx = -1;
             const int swap_mask = cut->template selectCut<false>(
-                n, segs_indices, cur_cost_change, weights,
-                perm_idx, segs_indices_buf
+                n, segs, cur_cost_change, weights,
+                perm_idx, segs_buf
             );
             // add slight amount to negative side when comparing
             // the change to avoid swaps of the same element
@@ -122,8 +122,8 @@ cost_t KOptBestCut<cost_t, cut_strategy_t, vertex_t, K>::run(
                 best_cost = cur_cost + cur_cost_change;
                 best_swap = swap_mask;
                 best_perm_idx = perm_idx;
-                if (perm_idx < 0) std::swap(best_segs, segs_indices_buf);
-                else std::copy_n(segs_indices, k, best_segs);
+                if (perm_idx < 0) std::swap(best_segs, segs_buf);
+                else std::copy_n(segs, k, best_segs);
                 did_update = true;
             }
             return false;
@@ -133,13 +133,13 @@ cost_t KOptBestCut<cost_t, cut_strategy_t, vertex_t, K>::run(
             detail::loopSegmentsDynamic<vertex_t>(
                 vertex_t::traits::get_previous(path),
                 path,
-                0, 0, k, n, segs_indices, process_cut
+                0, 0, k, n, segs, process_cut
             );
         } else {
             detail::loopSegmentsStatic<K, 0, vertex_t>(
                 vertex_t::traits::get_previous(path),
                 path,
-                0, n, segs_indices, process_cut
+                0, n, segs, process_cut
             );
         }
 
@@ -161,11 +161,11 @@ cost_t KOptBestCut<cost_t, cut_strategy_t, vertex_t, K>::run(
         }
     }
     if constexpr (K == -1) {
-        if (segs_indices != seg_indices_arr.data()) {
-            delete[] segs_indices;
+        if (segs != seg_indices_arr.data()) {
+            delete[] segs;
         }
-        if (segs_indices_buf != seg_indices_buf_arr.data()) {
-            delete[] segs_indices_buf;
+        if (segs_buf != seg_indices_buf_arr.data()) {
+            delete[] segs_buf;
         }
         if (best_segs != best_segs_arr.data()) {
             delete[] best_segs;

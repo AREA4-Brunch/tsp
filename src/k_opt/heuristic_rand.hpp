@@ -62,14 +62,15 @@ class KOptRand : public Heuristic<cost_t, vertex_t>
     int k;
 
     [[ gnu::hot ]]
-    inline void genRandomSegments(
-        const int n,
+    inline bool genRandomSegments(
+        int max_idx,
         const int k,
         std::pair<
             typename vertex_t::traits::node_ptr,
             typename vertex_t::traits::node_ptr
         > * __restrict const segs,
-        typename vertex_t::traits::node_ptr * __restrict const nodes_map
+        typename vertex_t::traits::node_ptr * __restrict const nodes_by_idx,
+        std::vector<bool> &forbidden
     ) const noexcept;
 
 };
@@ -77,46 +78,75 @@ class KOptRand : public Heuristic<cost_t, vertex_t>
 template<typename cost_t, typename cut_strategy_t,
          IntrusiveVertex vertex_t, int K>
 requires CutStrategy<cut_strategy_t, cost_t, vertex_t, K>
-void KOptRand<cost_t, cut_strategy_t, vertex_t, K>::genRandomSegments(
-    const int n,
+bool KOptRand<cost_t, cut_strategy_t, vertex_t, K>::genRandomSegments(
+    int max_idx,
     const int k,
     std::pair<
         typename vertex_t::traits::node_ptr,
         typename vertex_t::traits::node_ptr
     > * __restrict const segs,
-    typename vertex_t::traits::node_ptr * __restrict const nodes_map
+    typename vertex_t::traits::node_ptr * __restrict const nodes_by_idx,
+    std::vector<bool> &forbidden
 ) const noexcept {
     using distr_t = std::uniform_int_distribution<
         std::mt19937::result_type
     >;
-    int rnd = 0;
-    const int lim = n - k - 1;
-    const auto set_rand_seg = [&] (const int idx) {
-        distr_t rand_idx(rnd, lim + idx);
-        rnd = static_cast<int>(rand_idx(this->psrng));
-        segs[idx].second = nodes_map[rnd++];
+    max_idx = max_idx - 1 - k;
+    int rnd_idx = 0;
+    const auto set_rand_seg = [&] (const int idx) -> bool {
+        distr_t rand_idx(rnd_idx, max_idx + idx);
+        rnd_idx = static_cast<int>(rand_idx(this->psrng));
+        segs[idx].second = nodes_by_idx[rnd_idx++];
+        auto id = vertex_t::v(segs[idx].second)->id;
+        if (forbidden[id]) [[ unlikely ]] {
+            rnd_idx = static_cast<int>(rand_idx(this->psrng));
+            segs[idx].second = nodes_by_idx[rnd_idx++];
+            id = vertex_t::v(segs[idx].second)->id;
+            if (forbidden[id]) [[ unlikely ]] {
+                return true;
+            }
+        }
+        auto next = nodes_by_idx[rnd_idx];
+        auto next_id = vertex_t::v(next)->id;
+        if (forbidden[next_id]) [[ unlikely ]] {
+            return true;
+        }
+        forbidden[id] = true;
+        forbidden[next_id] = true;
+
         if constexpr (K == -1) {
-            if (idx == k - 1) {
-                segs[0].first = nodes_map[rnd];
+            if (idx == k - 1) [[ unlikely ]] {
+                segs[0].first = next;
             } else [[ likely ]] {
-                segs[idx + 1].first = nodes_map[rnd];
+                segs[idx + 1].first = next;
             }
         } else {
-            if (idx == K - 1) {
-                segs[0].first = nodes_map[rnd];
+            if (idx == K - 1) [[ unlikely ]] {
+                segs[0].first = next;
             } else [[ likely ]] {
-                segs[idx + 1].first = nodes_map[rnd];
+                segs[idx + 1].first = next;
             }
+        }
+        return false;
+    };
+
+    const auto clear_forbidden = [&] (int seg_idx) {
+        for ( ; seg_idx >= 0; --seg_idx) {
+            auto id = vertex_t::v(segs[seg_idx].first)->id;
+            forbidden[id] = false;
+            id = vertex_t::v(segs[seg_idx].second)->id;
+            forbidden[id] = false;
         }
     };
 
-    if constexpr (K == -1) {
-        for (int i = 0; i < k; ++i) set_rand_seg(i);
-    } else {
-        [&] <std::size_t... I> (std::index_sequence<I...>) {
-            (set_rand_seg(I), ...);
-        } (std::make_index_sequence<K>{});
+    for (int i = 0; i < k; ++i) {
+        if (set_rand_seg(i)) [[ unlikely ]] {
+            clear_forbidden(i - 1);
+            return false;
+        }
     }
+
+    return true;
 }
 
 template<typename cost_t, typename cut_strategy_t,
@@ -142,74 +172,61 @@ cost_t KOptRand<cost_t, cut_strategy_t, vertex_t, K>::run(
 
     std::array<seg_t, K == -1 ? 16 : K> seg_indices_arr;
     std::array<seg_t, K == -1 ? 16 : K> seg_indices_buf_arr;
-    seg_t * __restrict segs_indices;
-    seg_t * __restrict segs_indices_buf;
-
-    // for funky fallback when rand collisions start:
-    std::array<int, K == -1 ? 16 : K> limits_arr;
-    std::array<int, K == -1 ? 16 : K> next_limits_arr;
-    int * __restrict limits;
-    int * __restrict next_limits;
-    bool use_next_limits = false;
+    seg_t * __restrict segs;
+    seg_t * __restrict segs_buf;
     {
         if constexpr (K == -1) {
-            segs_indices = k <= 16 ? seg_indices_arr.data()
-                                : new seg_t[k];
-            segs_indices_buf = k <= 16 ? seg_indices_buf_arr.data()
-                                    : new seg_t[k];
-            limits = k <= 16 ? limits_arr.data()
-                            : new int[k];
-            next_limits = k <= 16 ? next_limits_arr.data()
-                                : new int[k];
+            segs = k <= 16 ? seg_indices_arr.data()
+                                   : new seg_t[k];
+            segs_buf = k <= 16 ? seg_indices_buf_arr.data()
+                                       : new seg_t[k];
         } else {
-            segs_indices = seg_indices_arr.data();
-            segs_indices_buf = seg_indices_buf_arr.data();
-            limits = limits_arr.data();
-            next_limits = next_limits_arr.data();
+            segs = seg_indices_arr.data();
+            segs_buf = seg_indices_buf_arr.data();
         }
-        for (int depth = 0; depth < k; ++depth) {
-            limits[depth] = n - k + depth;
-        }
+        segs[0].first = path;
     }
 
-    std::vector<seg_ptr> nodes_map_(n);
-    seg_ptr * __restrict const nodes_map = nodes_map_.data();
-    {
-        seg_ptr cur = path;
-        for (int i = 0; i < n; ++i) {
-            nodes_map[i] = cur;
-            cur = vertex_t::traits::get_next(cur);
-        }
-    }
+    std::vector<seg_ptr> nodes_by_idx_(n);
+    seg_ptr * __restrict const nodes_by_idx = nodes_by_idx_.data();
+
+    std::vector<bool> forbidden(n, false);
+    const int forbidden_clear_freq = n / k / 10;  // 10% of distinct k tuples
+    int forbidden_count = forbidden_clear_freq;
 
     const int max_checks = n > k ? n * n * n / 6 : 0;
     const cut_strategy_t * __restrict const cut = &this->cut;
     int iter = 1;
     cost_t cur_cost_change = (cost_t) 0;
-    for (bool did_update = true, no_collision = true; did_update; ++iter) {
+    for (bool did_update = true, no_collision = n > 30; did_update; ++iter) {
         if (verbose > 0 && (iter < 10 || iter % log_freq == 0)) {
             std::cout << "ITERATION " << iter << ": "
                       << cur_cost << std::endl;
         }
+        if (--forbidden_count == 0) {
+            forbidden = std::vector<bool>(n, false);
+            forbidden_count = forbidden_clear_freq;
+        }
+
         did_update = false;
 
         const auto process_cut = [&] () [[ gnu::hot ]] {
             int perm_idx = -1;
-            segs_indices_buf[0].first = nullptr;
+            segs_buf[0].first = nullptr;
             const int swap_mask = no_collision
                 ? cut->template selectCut<true>(
-                    n, segs_indices, cur_cost_change, weights,
-                    perm_idx, segs_indices_buf
+                    n, segs, cur_cost_change, weights,
+                    perm_idx, segs_buf
                 ) : cut->template selectCut<false>(
-                    n, segs_indices, cur_cost_change, weights,
-                    perm_idx, segs_indices_buf
+                    n, segs, cur_cost_change, weights,
+                    perm_idx, segs_buf
                 );
             // add slight amount to negative side when comparing
             // the change to avoid swaps of the same element
             if (cur_cost_change < -1e-10) [[ unlikely ]] {
                 cut->applyCut(
-                    segs_indices_buf[0].first != nullptr
-                        ? segs_indices_buf : segs_indices,
+                    segs_buf[0].first != nullptr
+                        ? segs_buf : segs,
                     perm_idx, swap_mask, n
                 );
                 cur_cost += cur_cost_change;
@@ -221,38 +238,61 @@ cost_t KOptRand<cost_t, cut_strategy_t, vertex_t, K>::run(
         };
 
         if (no_collision) [[ likely ]] {
-            for (int tries_left = max_checks;
-                 tries_left > 0;
-                 --tries_left
-            ) {
-                this->genRandomSegments(n, k, segs_indices, nodes_map);
-                if (process_cut()) [[ unlikely ]] break;
+            seg_ptr cur = segs[0].first;
+            seg_ptr prev = vertex_t::traits::get_previous(cur);
+            for (int i = 0; i < n / 2; ++i) {
+                nodes_by_idx[i] = cur;
+                auto next = path_algos::get_neighbour<vertex_t>(cur, prev);
+                prev = cur;
+                cur = next;
+            }
+            for (int i = n / 2; i < n; ++i) {
+                nodes_by_idx[i] = cur;
+                auto next = path_algos::get_neighbour<vertex_t>(cur, prev);
+                prev = cur;
+                cur = next;
+                const bool did_gen = this->genRandomSegments(
+                    i + 1, k, segs, nodes_by_idx, forbidden
+                );
+                if (did_gen) [[ likely ]] {
+                    if (process_cut()) [[ unlikely ]] break;
+                }
+            }
+        }
+        if (!did_update) {
+            if (no_collision) [[ likely ]] {
+                for (int tries_left = max_checks;
+                    tries_left > 0;
+                    --tries_left
+                ) {
+                    const bool did_gen = this->genRandomSegments(
+                        n, k, segs, nodes_by_idx, forbidden
+                    );
+                    if (did_gen) [[ likely ]] {
+                        if (process_cut()) [[ unlikely ]] break;
+                    }
+                }
+            }
+
+            if (!did_update) [[ unlikely ]] {  // funky fallback
+                no_collision = false;
+                // start from furthest vertex
+                auto start = segs[0].first;
+                auto prev = vertex_t::traits::get_previous(start);
+                if constexpr (K == -1) {
+                    detail::loopSegmentsDynamic<vertex_t>(
+                        prev, start,
+                        0, 0, k, n, segs, process_cut
+                    );
+                } else {
+                    detail::loopSegmentsStatic<K, 0, vertex_t>(
+                        prev, start,
+                        0, n, segs, process_cut
+                    );
+                }
             }
         }
 
-        if (!did_update) [[ unlikely ]] {  // funky fallback
-            no_collision = false;
-            if constexpr (K == -1) {
-                detail::loopSegmentsDynamic<vertex_t>(
-                    vertex_t::traits::get_previous(path),
-                    path,
-                    0, 0, k, n, segs_indices,
-                    use_next_limits ? next_limits : limits,
-                    use_next_limits ? limits : next_limits,
-                    process_cut
-                );
-            } else {
-                detail::loopSegmentsStatic<K, 0, vertex_t>(
-                    vertex_t::traits::get_previous(path),
-                    path,
-                    0, n, segs_indices,
-                    use_next_limits ? next_limits : limits,
-                    use_next_limits ? limits : next_limits,
-                    process_cut
-                );
-            }
-            use_next_limits = !use_next_limits;
-        }
         // store history on flush_freq, or on last iter
         if (do_record_history) {
             if (!did_update || history.size() % flush_freq == 0)
@@ -264,17 +304,11 @@ cost_t KOptRand<cost_t, cut_strategy_t, vertex_t, K>::run(
         }
     }
     if constexpr (K == -1) {
-        if (segs_indices != seg_indices_arr.data()) {
-            delete[] segs_indices;
+        if (segs != seg_indices_arr.data()) {
+            delete[] segs;
         }
-        if (segs_indices_buf != seg_indices_buf_arr.data()) {
-            delete[] segs_indices_buf;
-        }
-        if (limits != limits_arr.data()) {
-            delete[] limits;
-        }
-        if (next_limits != next_limits_arr.data()) {
-            delete[] next_limits;
+        if (segs_buf != seg_indices_buf_arr.data()) {
+            delete[] segs_buf;
         }
     }
 
