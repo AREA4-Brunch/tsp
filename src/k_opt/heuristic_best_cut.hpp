@@ -6,6 +6,7 @@
 #include <vector>
 #include <utility>
 #include "heuristic.hpp"
+#include "vertex_concept.hpp"
 #include "cut_strategy.hpp"
 
 namespace k_opt {
@@ -13,8 +14,8 @@ namespace k_opt {
 template<
     typename cost_t,
     typename cut_strategy_t,
-    int K=-1,
-    typename vertex_t=int
+    IntrusiveVertex vertex_t,
+    int K=-1
 >
 requires CutStrategy<cut_strategy_t, cost_t, vertex_t, K>
 class KOptBestCut : public Heuristic<cost_t, vertex_t>
@@ -42,10 +43,11 @@ class KOptBestCut : public Heuristic<cost_t, vertex_t>
     const cut_strategy_t cut;
 
     cost_t run(
-        std::vector<vertex_t> &solution,
+        typename vertex_t::traits::node_ptr path,
         cost_t cur_cost,
         History<cost_t> &history,
         const cost_t * __restrict const flat_weights,
+        const int n,
         const int verbose = 0
     ) const noexcept override;
 
@@ -56,17 +58,19 @@ class KOptBestCut : public Heuristic<cost_t, vertex_t>
 };
 
 
-template<typename cost_t, typename cut_strategy_t, int K, typename vertex_t>
+template<typename cost_t, typename cut_strategy_t,
+         IntrusiveVertex vertex_t, int K>
 requires CutStrategy<cut_strategy_t, cost_t, vertex_t, K>
-cost_t KOptBestCut<cost_t, cut_strategy_t, K, vertex_t>::run(
-    std::vector<vertex_t> &path_,
+cost_t KOptBestCut<cost_t, cut_strategy_t, vertex_t, K>::run(
+    typename vertex_t::traits::node_ptr path,
     cost_t cur_cost,
     History<cost_t> &history,
     const cost_t * __restrict const weights,
+    const int n,
     const int verbose
 ) const noexcept {
-    using seg_t = std::pair<int, int>;
-    const int n = path_.size();
+    using seg_ptr = typename vertex_t::traits::node_ptr;
+    using seg_t = std::pair<seg_ptr, seg_ptr>;
     const int k = this->getK();
     if (n < k) return cur_cost;
     const int log_freq = 10;  // log best cost every 1 iters
@@ -75,27 +79,30 @@ cost_t KOptBestCut<cost_t, cut_strategy_t, K, vertex_t>::run(
     history.addCost(cur_cost);
     // history.addPath(path_, -1, -1, -1, 0);
 
-    std::vector<vertex_t> path_buf_(n);
-    vertex_t * __restrict path_buf = path_buf_.data();
-    vertex_t * __restrict path = path_.data();
-
-    std::array<seg_t, K == -1 ? 16 : K> seg_indices_arr;
-    std::array<seg_t, K == -1 ? 16 : K> seg_indices_buf_arr;
     std::array<seg_t, K == -1 ? 16 : K> best_segs_arr;
-    seg_t * __restrict segs_indices;
-    seg_t * __restrict segs_indices_buf;
+    std::array<seg_t, K == -1 ? 16 : K> best_orig_segs_arr;
+    std::array<seg_t, K == -1 ? 16 : K> seg_indices_buf_arr;
+    std::array<seg_t, K == -1 ? 16 : K> seg_indices_arr;
+    seg_t * __restrict segs;
+    seg_t * __restrict segs_buf;
     seg_t * __restrict best_segs;
+    seg_t * best_orig_segs;
+    seg_t * best_orig_segs_mem = nullptr;
     if constexpr (K == -1) {
-        segs_indices = k <= 16 ? seg_indices_arr.data()
-                               : new seg_t[k];
-        segs_indices_buf = k <= 16 ? seg_indices_buf_arr.data()
-                                   : new seg_t[k];
         best_segs = k <= 16 ? best_segs_arr.data()
                             : new seg_t[k];
+        best_orig_segs = k <= 16 ? best_orig_segs_arr.data()
+                                 : new seg_t[k];
+        best_orig_segs_mem = best_orig_segs;
+        segs_buf = k <= 16 ? seg_indices_buf_arr.data()
+                                   : new seg_t[k];
+        segs = k <= 16 ? seg_indices_arr.data()
+                               : new seg_t[k];
     } else {
-        segs_indices = seg_indices_arr.data();
-        segs_indices_buf = seg_indices_buf_arr.data();
         best_segs = best_segs_arr.data();
+        best_orig_segs = best_orig_segs_arr.data();
+        segs_buf = seg_indices_buf_arr.data();
+        segs = seg_indices_arr.data();
     }
 
     const cut_strategy_t * __restrict const cut = &this->cut;
@@ -110,12 +117,11 @@ cost_t KOptBestCut<cost_t, cut_strategy_t, K, vertex_t>::run(
         }
         did_update = false;
 
-        const auto run = [&] () [[ gnu::hot ]] {
+        const auto process_cut = [&] () [[ gnu::hot ]] {
             int perm_idx = -1;
             const int swap_mask = cut->template selectCut<false>(
-                n, path,
-                segs_indices, cur_cost_change, weights,
-                perm_idx, segs_indices_buf
+                n, segs, cur_cost_change, weights,
+                perm_idx, segs_buf
             );
             // add slight amount to negative side when comparing
             // the change to avoid swaps of the same element
@@ -123,31 +129,35 @@ cost_t KOptBestCut<cost_t, cut_strategy_t, K, vertex_t>::run(
                 best_cost = cur_cost + cur_cost_change;
                 best_swap = swap_mask;
                 best_perm_idx = perm_idx;
-                if (perm_idx < 0) std::swap(best_segs, segs_indices_buf);
-                else std::copy_n(segs_indices, k, best_segs);
+                if (perm_idx < 0) {
+                    std::copy_n(segs, k, best_orig_segs);
+                    std::swap(best_segs, segs_buf);
+                } else {
+                    best_orig_segs = nullptr;
+                    std::copy_n(segs, k, best_segs);
+                }
                 did_update = true;
             }
             return false;
         };
 
         if constexpr (K == -1) {
-            detail::loopSegmentsDynamic(
-                0, 0, k, n, segs_indices, run
+            detail::loopSegmentsDynamic<vertex_t>(
+                vertex_t::traits::get_previous(path),
+                path,
+                0, 0, k, n, segs, process_cut
             );
         } else {
-            detail::loopSegmentsStatic<K, 0>(
-                0, n, segs_indices, run
+            detail::loopSegmentsStatic<K, 0, vertex_t>(
+                vertex_t::traits::get_previous(path),
+                path,
+                0, n, segs, process_cut
             );
         }
 
         if (did_update) {
-            const bool is_new_path_in_buf = cut->applyCut(
-                path, path_buf,
-                best_segs,
-                best_perm_idx, best_swap, n
-            );
-            // swapping __restrict pointers, empirically no errors
-            if (is_new_path_in_buf) std::swap(path, path_buf);
+            cut->applyCut(best_segs, best_perm_idx,
+                          best_swap, best_orig_segs);
             cur_cost = best_cost;
             history.addCost(cur_cost);
             // history.addPath(path, i, j, k, iter);
@@ -163,18 +173,18 @@ cost_t KOptBestCut<cost_t, cut_strategy_t, K, vertex_t>::run(
             }
         }
     }
-    if (path == path_buf_.data()) {
-        std::swap(path_, path_buf_);
-    }
     if constexpr (K == -1) {
-        if (segs_indices != seg_indices_arr.data()) {
-            delete[] segs_indices;
+        if (segs != seg_indices_arr.data()) {
+            delete[] segs;
         }
-        if (segs_indices_buf != seg_indices_buf_arr.data()) {
-            delete[] segs_indices_buf;
+        if (segs_buf != seg_indices_buf_arr.data()) {
+            delete[] segs_buf;
         }
         if (best_segs != best_segs_arr.data()) {
             delete[] best_segs;
+        }
+        if (best_orig_segs_mem != nullptr) {
+            delete[] best_orig_segs_mem;
         }
     }
 

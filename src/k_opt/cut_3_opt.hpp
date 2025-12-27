@@ -3,13 +3,20 @@
 
 #include <vector>
 #include <array>
+#include "vertex_concept.hpp"
+#include "path_algos.hpp"
 
 namespace k_opt {
 
 /// @brief Implements k_opt::CutStrategy concept avoiding virtual overhead.
-template<typename cost_t, typename vertex_t, bool no_2_opt=false>
+template<typename cost_t, IntrusiveVertex vertex_t, bool no_2_opt=false>
 class Cut3Opt {
     static_assert(std::is_arithmetic_v<cost_t>, "cost_t must be arithmetic");
+
+    using seg_t = std::pair<
+        typename vertex_t::traits::node_ptr,
+        typename vertex_t::traits::node_ptr
+    >;
 
  public:
 
@@ -22,43 +29,39 @@ class Cut3Opt {
     [[ gnu::hot ]]
     inline int selectCut(
         const int n,
-        const vertex_t * __restrict const path,
-        const std::pair<int, int> * __restrict const segs,
+        const seg_t * __restrict const segs,
         cost_t &change,
         const cost_t * __restrict const weights,
         int &perm_idx,
-        [[ maybe_unused ]] std::pair<int, int> * __restrict const
+        [[ maybe_unused ]] const seg_t * __restrict const
     ) const noexcept;
 
     [[ gnu::hot ]]
-    inline bool applyCut(
-        vertex_t * __restrict const path,
-        vertex_t * __restrict const buf,
-        const std::pair<int, int> * __restrict const segs,
+    inline void applyCut(
+        const seg_t * __restrict const segs,
         const int move_ord,
         [[ maybe_unused ]] const int swap_mask = -1,
-        [[ maybe_unused ]] const int n = -1
+        [[ maybe_unused ]] const seg_t * __restrict const orig_segs = nullptr
     ) const noexcept;
 };
 
 
-template<typename cost_t, typename vertex_t, bool no_2_opt>
+template<typename cost_t, IntrusiveVertex vertex_t, bool no_2_opt>
 template<bool can_modify_segs>
 int Cut3Opt<cost_t, vertex_t, no_2_opt>::selectCut(
     const int n,
-    const vertex_t * __restrict const path,
-    const std::pair<int, int> * __restrict const segs,
+    const seg_t * __restrict const segs,
     cost_t &change,
     const cost_t * __restrict const weights,
     int &perm_idx,
-    [[ maybe_unused ]] std::pair<int, int> * __restrict const
+    [[ maybe_unused ]] const seg_t * __restrict const
 ) const noexcept {
-    const vertex_t a = path[segs[0].second];
-    const vertex_t b = path[segs[1].first];
-    const vertex_t c = path[segs[1].second];
-    const vertex_t d = path[segs[2].first];
-    const vertex_t e = path[segs[2].second];
-    const vertex_t f = path[segs[0].first];
+    const auto a = vertex_t::v(segs[0].second)->id;
+    const auto b = vertex_t::v(segs[1].first)->id;
+    const auto c = vertex_t::v(segs[1].second)->id;
+    const auto d = vertex_t::v(segs[2].first)->id;
+    const auto e = vertex_t::v(segs[2].second)->id;
+    const auto f = vertex_t::v(segs[0].first)->id;
 
     const cost_t* __restrict wa = weights + a * n;
     const cost_t* __restrict wb = weights + b * n;
@@ -93,69 +96,83 @@ int Cut3Opt<cost_t, vertex_t, no_2_opt>::selectCut(
     return 0;
 }
 
-template<typename cost_t, typename vertex_t, bool no_2_opt>
-bool Cut3Opt<cost_t, vertex_t, no_2_opt>::applyCut(
-    vertex_t * __restrict const path,
-    vertex_t * __restrict const buf,
-    const std::pair<int, int> * __restrict const segs,
+template<typename cost_t, IntrusiveVertex v_t, bool no_2_opt>
+void Cut3Opt<cost_t, v_t, no_2_opt>::applyCut(
+    const seg_t * __restrict const segs,
     const int move_ord,
-    [[ maybe_unused ]] const int swap_mask,
-    [[ maybe_unused ]] const int n
+    [[ maybe_unused ]] const int,
+    [[ maybe_unused ]] const seg_t * __restrict const
 ) const noexcept {
-    const int i1 = segs[1].first;
-    const int j1 = segs[1].second;
-    const int i2 = segs[2].first;
-    const int j2 = segs[2].second;
-    const int len1 = j1 - i1 + 1;  // b..c
-    const int len2 = j2 - i2 + 1;  // d..e
-
     switch (move_ord) {
         case 0b010: {
-            std::reverse(path + i1, path + j1 + 1);
-            return false;
+            k_opt::path_algos::reverse<v_t>(
+                segs[0].second,
+                segs[1].first, segs[1].second,
+                segs[2].first
+            );
+            return;
         }
         case 0b100: {
-            std::reverse(path + i2, path + j2 + 1);
-            return false;
+            k_opt::path_algos::reverse<v_t>(
+                segs[1].second,
+                segs[2].first, segs[2].second,
+                segs[0].first
+            );
+            return;
         }
         case 0b110: {
-            std::reverse(path + i1, path + j1 + 1);
-            std::reverse(path + i2, path + j2 + 1);
-            return false;
+            k_opt::path_algos::reverse<v_t>(
+                segs[0].second,
+                segs[1].first, segs[1].second,
+                segs[2].first
+            );
+            k_opt::path_algos::reverse<v_t>(
+                segs[1].first,
+                segs[2].first, segs[2].second,
+                segs[0].first
+            );
+            return;
         }
         case 0b001:
         case 0b011:
         case 0b101:
         case 0b111: {
             if (move_ord & 0b100) {
-                std::reverse_copy(path + i2,
-                                  path + j2 + 1, buf);
-            } else {
-                std::copy(path + i2, path + j2 + 1, buf);
+                k_opt::path_algos::reverse<v_t>(
+                    segs[1].second,
+                    segs[2].first, segs[2].second,
+                    segs[0].first
+                );
             }
             if (move_ord & 0b010) {
-                std::reverse_copy(path + i1,
-                                  path + j1 + 1, buf + len2);
-            } else {
-                std::copy(path + i1,
-                          path + j1 + 1, buf + len2);
+                k_opt::path_algos::reverse<v_t>(
+                    segs[0].second,
+                    segs[1].first, segs[1].second,
+                    move_ord & 0b100
+                        ? segs[2].second
+                        : segs[2].first
+                );
             }
-            const int buf_len = len1 + len2;
-            // copy shorter part
-            if (buf_len <= n - buf_len) {
-                std::copy_n(buf, buf_len, path + i1);
-                return false;
-            }
-            auto * const buf_tail = std::copy(
-                path + i1 + buf_len,
-                path + n, 
-                buf + buf_len
+            k_opt::path_algos::swap_sequential_segs<v_t>(
+                segs[0].second,
+                move_ord & 0b010
+                    ? segs[1].second
+                    : segs[1].first,
+                move_ord & 0b010
+                    ? segs[1].first
+                    : segs[1].second,
+                move_ord & 0b100
+                    ? segs[2].second
+                    : segs[2].first,
+                move_ord & 0b100
+                    ? segs[2].first
+                    : segs[2].second,
+                segs[0].first
             );
-            std::copy_n(path, i1, buf_tail);
-            return true;
+            return;
         }
         default:
-            return false;
+            return;
     }
 }
 
@@ -163,7 +180,7 @@ bool Cut3Opt<cost_t, vertex_t, no_2_opt>::applyCut(
 // ============================================================
 // Type aliases:
 
-template<typename cost_t, typename vertex_t>
+template<typename cost_t, IntrusiveVertex vertex_t>
 using Cut3OptNo2Opt = Cut3Opt<cost_t, vertex_t, true>;
 
 

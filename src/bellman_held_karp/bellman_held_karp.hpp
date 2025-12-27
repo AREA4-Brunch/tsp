@@ -62,6 +62,7 @@ template<
     typename vertex_t=uint8_t,
     typename set_t=uint64_t
 >
+[[ gnu::hot ]]
 T bellmanHeldKarp(
     std::vector<vertex_t> &solution,
     const std::vector<std::vector<T>> &weights,
@@ -115,28 +116,29 @@ T bellmanHeldKarp(
 
     const auto get_other_half = [&add_to_set, all_vertices] (
         const set_t set, const vertex_t vertex
-    ) -> set_t {
+    ) [[ always_inline, gnu::hot ]] {
         return add_to_set(~set, vertex) & all_vertices;
     };
 
     // utilize cache since src is changing within fixed dst in nested loop
     const auto get_weight = [&weights] (
         const vertex_t s, const vertex_t d
-    ) {
+    ) [[ always_inline, gnu::hot ]] {
         if constexpr (is_symmetric) return weights[d][s];
         return weights[s][d];
     };
 
     constexpr auto store_sum_iflt = [] (const T x, const T y, T &c) {
         if constexpr (std::is_same_v<T, uint64_t>) {
-            if (x < c && y < c - x) {  // faster for uint64_t only
+            // faster for uint64_t only
+            if (x < c && y < c - x) [[ unlikely ]] {
                 c = x + y;
                 return true;
             }
         } else {
             const double sum = static_cast<double>(x)
                              + static_cast<double>(y);
-            if (sum < static_cast<double>(c)) {
+            if (sum < static_cast<double>(c)) [[ unlikely ]] {
                 c = static_cast<T>(sum);
                 return true;
             }
@@ -149,7 +151,7 @@ T bellmanHeldKarp(
         const T * prev_cost_iter,
         const vertex_t dst,
         T &cost
-    ) -> vertex_t {
+    ) [[ always_inline, gnu::hot ]] {
         vertex_t best_prev = (vertex_t) 0;
         for (set_t src_bits = set;
              src_bits;
@@ -157,7 +159,8 @@ T bellmanHeldKarp(
         ) {
             const vertex_t src = (vertex_t) __builtin_ctzll(src_bits);
             const T weight = get_weight(src, dst);
-            if (store_sum_iflt(*prev_cost_iter, weight, cost)) {
+            if (store_sum_iflt(*prev_cost_iter, weight, cost))
+               [[ unlikely ]] {
                 best_prev = src;
             }
         }
@@ -179,7 +182,8 @@ T bellmanHeldKarp(
         best_previous_vertices.resize(prev_starts.back());
     }
 
-    const auto get_cost_start = [&bin_coef] (const set_t set) -> ull {
+    const auto get_cost_start = [&bin_coef] (const set_t set)
+    [[ always_inline, gnu::hot ]] {
         ull prev_rank = 0ULL;
         int v_idx = 0;
         for (set_t src_bits = set; src_bits; src_bits &= src_bits - 1) {
@@ -337,7 +341,7 @@ T bellmanHeldKarp(
                         other_half_cost, left_best_cost, best_cost
                     );
                     if constexpr (find_path) {
-                        if (is_new_best) {
+                        if (is_new_best) [[ unlikely ]] {
                             best_set = added_dst_to_set;
                             best_left_end = dst;
                             best_left_prev = left_prev;
@@ -349,7 +353,7 @@ T bellmanHeldKarp(
                         weights[dst][n], left_best_cost, best_cost
                     );
                     if constexpr (find_path) {
-                        if (is_new_best) {
+                        if (is_new_best) [[ unlikely ]] {
                             best_left_end = dst;
                             best_left_prev = left_prev;
                         }
