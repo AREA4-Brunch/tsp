@@ -52,7 +52,7 @@ class CutKOpt {
         cost_t &change,
         const cost_t * __restrict const weights,
         int &perm_idx,
-        seg_t * __restrict const best_segs
+        [[ maybe_unused ]] seg_t * __restrict const best_segs
     ) const noexcept;
 
     [[ gnu::hot ]]
@@ -188,7 +188,6 @@ inline void applyCut(
     }
 }
 
-
 template<IntrusiveVertex vertex_t, int K = -1>
 [[ gnu::always_inline ]]
 inline void correctBridgesPtrs(
@@ -248,7 +247,7 @@ int CutKOpt<cost_t, vertex_t, K>::selectCut(
     cost_t &change,
     const cost_t * __restrict const weights,
     int &perm_idx,
-    seg_t * __restrict const best_segs
+    [[ maybe_unused ]] seg_t * __restrict const best_segs
 ) const noexcept {
     const int k = this->getK();
     const bool choose_first = this->select_first_better;
@@ -283,7 +282,6 @@ int CutKOpt<cost_t, vertex_t, K>::selectCut(
     {
         RotDesc * __restrict rot_top = rotations;
         rot_top->step = 0;
-    // std::cout << "Solving new permutation" << std::endl;
 
         for (int idx = 1; idx > 0; ++idx) {
             cost_t &edges_cost = rot_top->cost;
@@ -291,9 +289,6 @@ int CutKOpt<cost_t, vertex_t, K>::selectCut(
             const auto src_v = vertex_t::v(src_ptr)->id;
             const cost_t * __restrict const w_src
                 = weights + src_v * n;
-
-    // std::cout << "idx: " << idx << std::endl;
-
 
             if (idx == k) [[ unlikely ]] {
                 const auto dst_ptr = seg_at(0).first;
@@ -367,7 +362,7 @@ int CutKOpt<cost_t, vertex_t, K>::selectCut(
         return false;
     };
 
-    if (this->seg_perm_indices.empty()) {
+    if (this->seg_perm_indices.empty()) [[ unlikely ]] {
         std::array<seg_t, (K == -1 ? 16 : K)> buffer;
         seg_t * __restrict segs_perm;
         if constexpr (can_modify_segs) {
@@ -413,7 +408,7 @@ int CutKOpt<cost_t, vertex_t, K>::selectCut(
         cost_t cur_best = best_edges_cost;
 
         for (const auto &perm_indices_ : this->seg_perm_indices) {
-            const int * const  perm_indices
+            const int * const __restrict perm_indices
                 = perm_indices_.data();
             const auto seg_at = [&] (int idx) -> const seg_t& {
                 return segs[perm_indices[idx]];
@@ -447,33 +442,15 @@ void CutKOpt<cost_t, vertex_t, K>::applyCut(
 ) const noexcept {
     using seg_t = const seg_t;
     const int k = this->getK();
+
     detail::correctBridgesPtrs<vertex_t, K>(
         orig_segs ? orig_segs : segs, k
     );
-                        // auto cur = segs[0].first;
-                        // std::cout << "Corrected Segments: " << std::endl;
-                        // for (int s = 0; s < k; ++s) {
-                        //     std::cout << " Seg " << s << ": ";
-                        //     cur = segs[s].first;
-                        //     std::cout << "first"
-                        //       << " v: " << vertex_t::v(cur)->id << " "
-                        //       << " ptr: " << cur
-                        //       << " prev: " << vertex_t::traits::get_previous(cur)
-                        //       << " next: " << vertex_t::traits::get_next(cur)
-                        //       << std::endl;
-                        //     cur = segs[s].second;
-                        //     std::cout << "\t\tsecond"
-                        //       << " v: " << vertex_t::v(cur)->id << " "
-                        //       << " ptr: " << cur
-                        //       << " prev: " << vertex_t::traits::get_previous(cur)
-                        //       << " next: " << vertex_t::traits::get_next(cur)
-                        //       << std::endl;
-                        // }
 
     if (perm_idx <= 0) {
         detail::applyCut<cost_t, vertex_t, K>(
             swap_mask,
-            [segs, k] (const int i) -> seg_t& {
+            [&] (const int i) -> seg_t& {
                 return segs[i];
             },
             k
@@ -485,7 +462,7 @@ void CutKOpt<cost_t, vertex_t, K>::applyCut(
         = this->seg_perm_indices[perm_idx].data();
     detail::applyCut<cost_t, vertex_t, K>(
         swap_mask,
-        [segs, perm_indices, k] (const int i) -> seg_t& {
+        [&] (const int i) -> seg_t& {
             return segs[perm_indices[i]];
         },
         k
