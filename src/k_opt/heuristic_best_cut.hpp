@@ -86,12 +86,14 @@ cost_t KOptBestCut<cost_t, cut_strategy_t, vertex_t, K>::run(
     seg_t * __restrict segs;
     seg_t * __restrict segs_buf;
     seg_t * __restrict best_segs;
-    seg_t * __restrict best_orig_segs;
+    seg_t * best_orig_segs;
+    seg_t * best_orig_segs_mem = nullptr;
     if constexpr (K == -1) {
         best_segs = k <= 16 ? best_segs_arr.data()
                             : new seg_t[k];
         best_orig_segs = k <= 16 ? best_orig_segs_arr.data()
                                  : new seg_t[k];
+        best_orig_segs_mem = best_orig_segs;
         segs_buf = k <= 16 ? seg_indices_buf_arr.data()
                                    : new seg_t[k];
         segs = k <= 16 ? seg_indices_arr.data()
@@ -128,10 +130,12 @@ cost_t KOptBestCut<cost_t, cut_strategy_t, vertex_t, K>::run(
                 best_swap = swap_mask;
                 best_perm_idx = perm_idx;
                 if (perm_idx < 0) {
-                    std::swap(best_segs, segs_buf);
                     std::copy_n(segs, k, best_orig_segs);
+                    std::swap(best_segs, segs_buf);
+                } else {
+                    best_orig_segs = nullptr;
+                    std::copy_n(segs, k, best_segs);
                 }
-                else std::copy_n(segs, k, best_segs);
                 did_update = true;
             }
             return false;
@@ -178,6 +182,9 @@ cost_t KOptBestCut<cost_t, cut_strategy_t, vertex_t, K>::run(
         }
         if (best_segs != best_segs_arr.data()) {
             delete[] best_segs;
+        }
+        if (best_orig_segs_mem != nullptr) {
+            delete[] best_orig_segs_mem;
         }
     }
 
