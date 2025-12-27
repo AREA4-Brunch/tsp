@@ -41,7 +41,7 @@ class Cut3Opt {
         const seg_t * __restrict const segs,
         const int move_ord,
         [[ maybe_unused ]] const int swap_mask = -1,
-        [[ maybe_unused ]] const int n = -1
+        [[ maybe_unused ]] const seg_t * __restrict const orig_segs = nullptr
     ) const noexcept;
 };
 
@@ -100,8 +100,8 @@ template<typename cost_t, IntrusiveVertex v_t, bool no_2_opt>
 void Cut3Opt<cost_t, v_t, no_2_opt>::applyCut(
     const seg_t * __restrict const segs,
     const int move_ord,
-    [[ maybe_unused ]] const int swap_mask,
-    [[ maybe_unused ]] const int n
+    [[ maybe_unused ]] const int,
+    [[ maybe_unused ]] const seg_t * __restrict const
 ) const noexcept {
     switch (move_ord) {
         case 0b010: {

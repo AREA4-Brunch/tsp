@@ -40,7 +40,6 @@ concept CutStrategy = requires(
         typename vertex_t::traits::node_ptr
     > * __restrict const best_segs,
 
-    vertex_t * __restrict const path,
     const int perm_idx_c,
     const int swap_mask
 ) {
@@ -55,7 +54,7 @@ concept CutStrategy = requires(
         n, segs_c, change, weights, perm_idx, best_segs
     )} noexcept -> std::same_as<int>;
 
-    { t.applyCut(segs_c, perm_idx_c, swap_mask, n) }
+    { t.applyCut(segs_c, perm_idx_c, swap_mask, segs_c) }
         noexcept -> std::same_as<void>;
 };
 

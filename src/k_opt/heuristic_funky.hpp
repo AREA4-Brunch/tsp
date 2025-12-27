@@ -115,7 +115,9 @@ cost_t KOptFunky<cost_t, cut_strategy_t, vertex_t, K>::run(
             if (cur_cost_change < -1e-10) [[ unlikely ]] {
                 cut->applyCut(
                     perm_idx >= 0 ? segs : segs_buf,
-                    perm_idx, swap_mask, n
+                    perm_idx,
+                    swap_mask,
+                    perm_idx >= 0 ? nullptr : segs
                 );
                 cur_cost += cur_cost_change;
                 history.addCost(cur_cost);

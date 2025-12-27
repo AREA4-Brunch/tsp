@@ -106,6 +106,36 @@ inline void correct_order(
     } while (prev != end);
 }
 
+/// @brief If given ptr is not cur's next then sets cur's next
+///        as previous and given ptr as cur's next.
+///        Else does nothing.
+template<IntrusiveVertex v_t>
+inline void as_next(
+    typename v_t::traits::node_ptr cur,
+    typename v_t::traits::node_ptr next_if_prev
+) noexcept {
+    auto other = v_t::traits::get_next(cur);
+    if (other != next_if_prev) {
+        v_t::traits::set_next(cur, next_if_prev);
+        v_t::traits::set_previous(cur, other);
+    }
+}
+
+/// @brief If given ptr is not cur's next then sets cur's next
+///        as previous and given ptr as cur's next.
+///        Else does nothing.
+template<IntrusiveVertex v_t>
+inline void as_prev(
+    typename v_t::traits::node_ptr cur,
+    typename v_t::traits::node_ptr prev_if_next
+) noexcept {
+    auto other = v_t::traits::get_previous(cur);
+    if (other != prev_if_next) {
+        v_t::traits::set_previous(cur, prev_if_next);
+        v_t::traits::set_next(cur, other);
+    }
+}
+
 
 }  // namespace path_algos
 

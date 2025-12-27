@@ -79,23 +79,28 @@ cost_t KOptBestCut<cost_t, cut_strategy_t, vertex_t, K>::run(
     history.addCost(cur_cost);
     // history.addPath(path_, -1, -1, -1, 0);
 
-    std::array<seg_t, K == -1 ? 16 : K> seg_indices_arr;
-    std::array<seg_t, K == -1 ? 16 : K> seg_indices_buf_arr;
     std::array<seg_t, K == -1 ? 16 : K> best_segs_arr;
+    std::array<seg_t, K == -1 ? 16 : K> best_orig_segs_arr;
+    std::array<seg_t, K == -1 ? 16 : K> seg_indices_buf_arr;
+    std::array<seg_t, K == -1 ? 16 : K> seg_indices_arr;
     seg_t * __restrict segs;
     seg_t * __restrict segs_buf;
     seg_t * __restrict best_segs;
+    seg_t * __restrict best_orig_segs;
     if constexpr (K == -1) {
-        segs = k <= 16 ? seg_indices_arr.data()
-                               : new seg_t[k];
-        segs_buf = k <= 16 ? seg_indices_buf_arr.data()
-                                   : new seg_t[k];
         best_segs = k <= 16 ? best_segs_arr.data()
                             : new seg_t[k];
+        best_orig_segs = k <= 16 ? best_orig_segs_arr.data()
+                                 : new seg_t[k];
+        segs_buf = k <= 16 ? seg_indices_buf_arr.data()
+                                   : new seg_t[k];
+        segs = k <= 16 ? seg_indices_arr.data()
+                               : new seg_t[k];
     } else {
-        segs = seg_indices_arr.data();
-        segs_buf = seg_indices_buf_arr.data();
         best_segs = best_segs_arr.data();
+        best_orig_segs = best_orig_segs_arr.data();
+        segs_buf = seg_indices_buf_arr.data();
+        segs = seg_indices_arr.data();
     }
 
     const cut_strategy_t * __restrict const cut = &this->cut;
@@ -122,7 +127,10 @@ cost_t KOptBestCut<cost_t, cut_strategy_t, vertex_t, K>::run(
                 best_cost = cur_cost + cur_cost_change;
                 best_swap = swap_mask;
                 best_perm_idx = perm_idx;
-                if (perm_idx < 0) std::swap(best_segs, segs_buf);
+                if (perm_idx < 0) {
+                    std::swap(best_segs, segs_buf);
+                    std::copy_n(segs, k, best_orig_segs);
+                }
                 else std::copy_n(segs, k, best_segs);
                 did_update = true;
             }
@@ -144,7 +152,8 @@ cost_t KOptBestCut<cost_t, cut_strategy_t, vertex_t, K>::run(
         }
 
         if (did_update) {
-            cut->applyCut(best_segs, best_perm_idx, best_swap, n);
+            cut->applyCut(best_segs, best_perm_idx,
+                          best_swap, best_orig_segs);
             cur_cost = best_cost;
             history.addCost(cur_cost);
             // history.addPath(path, i, j, k, iter);

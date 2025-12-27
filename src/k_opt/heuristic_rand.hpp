@@ -212,22 +212,18 @@ cost_t KOptRand<cost_t, cut_strategy_t, vertex_t, K>::run(
 
         const auto process_cut = [&] () [[ gnu::hot ]] {
             int perm_idx = -1;
-            segs_buf[0].first = nullptr;
-            const int swap_mask = no_collision
-                ? cut->template selectCut<true>(
-                    n, segs, cur_cost_change, weights,
-                    perm_idx, segs_buf
-                ) : cut->template selectCut<false>(
-                    n, segs, cur_cost_change, weights,
-                    perm_idx, segs_buf
-                );
+            const int swap_mask = cut->template selectCut<false>(
+                n, segs, cur_cost_change, weights,
+                perm_idx, segs_buf
+            );
             // add slight amount to negative side when comparing
             // the change to avoid swaps of the same element
             if (cur_cost_change < -1e-10) [[ unlikely ]] {
                 cut->applyCut(
-                    segs_buf[0].first != nullptr
-                        ? segs_buf : segs,
-                    perm_idx, swap_mask, n
+                    perm_idx >= 0 ? segs : segs_buf,
+                    perm_idx,
+                    swap_mask,
+                    perm_idx >= 0 ? nullptr : segs
                 );
                 cur_cost += cur_cost_change;
                 history.addCost(cur_cost);
