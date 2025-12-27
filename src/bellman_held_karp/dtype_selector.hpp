@@ -27,7 +27,7 @@ template<typename T>
 T estimateMaxPossibleCost(
     const std::vector<std::vector<T>>& weights,
     const bool search_for_cycle,
-    std::mt19937 &psrng,
+    boost::random::mt19937 &psrng,
     int num_samples
 ) {
     const int n = weights.size();

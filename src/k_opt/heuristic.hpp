@@ -150,7 +150,7 @@ Heuristic<cost_t, vertex_t>::createInitSolution(
         solution.push_back(static_cast<vertex_t>(i));
     }
     auto path = toLinkedList(solution);
-    std::mt19937 psrng = random::initPSRNG(seed);
+    auto psrng = random::initPSRNG(seed);
     random::permuteRandomly(solution, psrng,
         [] (vertex_t &x, vertex_t &y) {
             path_algos::swap_nodes(&x, &y);

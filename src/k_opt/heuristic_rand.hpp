@@ -6,7 +6,8 @@
 #include <vector>
 #include <utility>
 #include <stack>
-#include <random>
+#include <boost/random/uniform_int_distribution.hpp>
+#include <boost/random/mersenne_twister.hpp>
 #include "heuristic.hpp"
 #include "heuristic_funky.hpp"
 #include "cut_strategy.hpp"
@@ -28,7 +29,7 @@ class KOptRand : public Heuristic<cost_t, vertex_t>
 
     explicit KOptRand(
         cut_strategy_t cut_strategy,
-        std::mt19937 &psrng,
+        boost::random::mt19937 &psrng,
         const int k = -1
     ) : cut(std::move(cut_strategy)), psrng(psrng), k(k) { }
 
@@ -58,7 +59,7 @@ class KOptRand : public Heuristic<cost_t, vertex_t>
 
  private:
 
-    mutable std::mt19937 psrng;
+    mutable boost::random::mt19937 psrng;
     int k;
 
     [[ gnu::hot ]]
@@ -88,8 +89,8 @@ bool KOptRand<cost_t, cut_strategy_t, vertex_t, K>::genRandomSegments(
     typename vertex_t::traits::node_ptr * __restrict const nodes_by_idx,
     std::vector<bool> &forbidden
 ) const noexcept {
-    using distr_t = std::uniform_int_distribution<
-        std::mt19937::result_type
+    using distr_t = boost::random::uniform_int_distribution<
+        boost::random::mt19937::result_type
     >;
     max_idx = max_idx - 1 - k;
     int rnd_idx = 0;
