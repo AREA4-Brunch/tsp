@@ -386,7 +386,7 @@ int CutKOpt<cost_t, vertex_t, K>::selectCut(
         cost_t cur_best = best_edges_cost;
 
         for (const auto &perm_indices_ : this->seg_perm_indices) {
-            const int * const  perm_indices
+            const int * const __restrict perm_indices
                 = perm_indices_.data();
             const auto seg_at = [&] (int idx) -> const seg_t& {
                 return segs[perm_indices[idx]];
@@ -425,16 +425,16 @@ bool CutKOpt<cost_t, vertex_t, K>::applyCut(
     const int k = this->getK();
     if (perm_idx <= 0) {
         detail::applyCut<cost_t, vertex_t, K>(n, path,
-            [segs] (const int i) -> seg_t& {
+            [&segs] (const int i) -> seg_t& {
                 return segs[i];
         }, buffer, swap_mask, k);
         return true;
     }
-    const int * const  perm_indices
+    const int * const __restrict perm_indices
         = this->seg_perm_indices[perm_idx].data();
 
     detail::applyCut<cost_t, vertex_t, K>(n, path,
-        [segs, perm_indices] (const int i) -> seg_t& {
+        [&] (const int i) -> seg_t& {
             return segs[perm_indices[i]];
     }, buffer, swap_mask, k);
     return true;

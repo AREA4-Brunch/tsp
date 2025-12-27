@@ -185,7 +185,7 @@ inline bool loopSegmentsStatic(
         segs[Depth].second = i;
         if constexpr (Depth == K - 1) {
             segs[0].first = i + 1;
-            return cb();
+            if (cb()) [[ unlikely ]] return true;
         } else {
             if (loopSegmentsStatic<K, Depth + 1>(
                 i + 1, n, segs,
@@ -212,7 +212,7 @@ inline bool loopSegmentsDynamic(
         segs[depth].second = i;
         if (depth == k - 1) [[ likely ]] {
             segs[0].first = i + 1;
-            return cb();
+            if (cb()) [[ unlikely ]] return true;
         } else {
             if (loopSegmentsDynamic(
                 i + 1, depth + 1, k, n, segs,

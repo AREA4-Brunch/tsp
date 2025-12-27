@@ -1,0 +1,26 @@
+{
+    "tasks": [
+        {
+            "label": "Build k_opt/main.cpp (C++20 static)",
+            "type": "shell",
+            "command": "g++.exe",
+            "args": [
+                "--static",
+                "-std=c++20",
+                "-Wall",
+                "-Wextra",
+                "-IC:/boost_1_90_0",
+                "-g",
+                "src/k_opt/main.cpp",
+                "-o",
+                "src/k_opt/main.exe"
+            ],
+            "isBackground": false,
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build"
+        }
+    ],
+    "version": "2.0.0"
+}
