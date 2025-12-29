@@ -11,6 +11,7 @@
 #include <iomanip>
 #include <list>
 
+#include "cut_2_opt.hpp"
 #include "cut_3_opt.hpp"
 #include "history.hpp"
 #include "heuristic.hpp"
@@ -48,6 +49,7 @@ std::unique_ptr<k_opt::Heuristic<cost_t, vertex_t>> selectAlgo(
 
 template<typename cost_t, k_opt::IntrusiveVertex vertex_t>
 std::variant<
+    k_opt::Cut2Opt<cost_t, vertex_t>,
     k_opt::Cut3Opt<cost_t, vertex_t>,
     k_opt::Cut3OptNo2Opt<cost_t, vertex_t>,
     k_opt::CutKOpt<cost_t, vertex_t, 4>,
@@ -264,6 +266,7 @@ std::unique_ptr<k_opt::Heuristic<cost_t, vertex_t>> detail::selectAlgo(
 
 template<typename cost_t, k_opt::IntrusiveVertex vertex_t>
 std::variant<
+    k_opt::Cut2Opt<cost_t, vertex_t>,
     k_opt::Cut3Opt<cost_t, vertex_t>,
     k_opt::Cut3OptNo2Opt<cost_t, vertex_t>,
     k_opt::CutKOpt<cost_t, vertex_t, 4>,
@@ -271,6 +274,7 @@ std::variant<
     k_opt::CutKOpt<cost_t, vertex_t, -1>
 > detail::createCut(const std::string &cut_name, int &k) {
     using cut_t = std::variant<
+        k_opt::Cut2Opt<cost_t, vertex_t>,
         k_opt::Cut3Opt<cost_t, vertex_t>,
         k_opt::Cut3OptNo2Opt<cost_t, vertex_t>,
         k_opt::CutKOpt<cost_t, vertex_t, 4>,
@@ -282,6 +286,9 @@ std::variant<
     const bool select_first_better = false;
     const bool do_pre_gen_perms = true;
     static const std::unordered_map<std::string, factory_t> cuts = {
+        { "2_opt", [] () {
+            return k_opt::Cut2Opt<cost_t, vertex_t>();
+        }},
         { "3_opt", [] () {
             return k_opt::Cut3Opt<cost_t, vertex_t>();
         }},
