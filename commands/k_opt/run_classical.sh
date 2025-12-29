@@ -9,6 +9,8 @@ else
     iterations=30
 fi
 
+do_compile=${2-}
+
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROOT_DIR="$SCRIPT_DIR/.."
 SRC_DIR="$SCRIPT_DIR/../../src/k_opt"
@@ -17,12 +19,16 @@ RESULTS_DIR="$SCRIPT_DIR/../../results/3_opt_classical"
 HISTORY_DIR="$RESULTS_DIR/histories"
 
 BOOST_INCLUDE=-IC:/boost_1_90_0
+if [ "$do_compile" = "--no-compile" ]; then
+    echo "Skipping compilation..."
+else
+    echo "Compiling..."
+    if ! g++ --static -std=c++23 -O3 -Wall -Winline -Wextra "$BOOST_INCLUDE" -o "$SRC_DIR/main.exe" "$SRC_DIR/main.cpp"; then
+        echo "Compilation failed."
+        exit 1
+    fi
+fi
 
-# echo "Compiling..."
-# if ! g++ --static -std=c++23 -O3 -Wall -Winline -Wextra "$BOOST_INCLUDE" -o "$SRC_DIR/main.exe" "$SRC_DIR/main.cpp"; then
-#     echo "Compilation failed."
-#     exit 1
-# fi
 
 echo "Solving problem: 263"
 

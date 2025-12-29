@@ -1,10 +1,25 @@
-#ifndef TIMING_HPP
-#define TIMING_HPP
+#ifndef TSP_COMMON_TIMING_HPP
+#define TSP_COMMON_TIMING_HPP
 
 #include <iostream>
 #include <chrono>
+#include <x86intrin.h>
 
 namespace timing {
+
+namespace detail {
+
+/**
+ * @brief Measures CPU frequency (GHz) if possible.
+ */
+inline double measure_cpu_ghz();
+
+/**
+ * @brief Returns a reference to a static const CPU frequency (GHz).
+ */
+inline double cpu_ghz();
+
+}  // namespace detail
 
 template<typename Func, typename... Args>
 unsigned long long executeAndMeasureExecTime(const Func &func, Args&&... args) {
@@ -49,6 +64,33 @@ int executeAndMeasureAvgExecTime(
     return executed_runs;
 }
 
-} // timing namesspace
+inline unsigned long long msToCycles(const double ms) {
+    return static_cast<unsigned long long>(
+        ms * 1e6 * detail::cpu_ghz()
+    );
+}
+
+namespace detail {
+
+double measure_cpu_ghz() {
+    using namespace std::chrono;
+    constexpr int ms = 100;
+    unsigned long long start = __rdtsc();
+    const auto t0 = high_resolution_clock::now();
+    while (duration_cast<milliseconds>(
+        high_resolution_clock::now() - t0
+    ).count() < ms);
+    const unsigned long long end = __rdtsc();
+    return static_cast<double>(end - start) / (ms * 1e6);
+}
+
+double cpu_ghz() {
+    static const double freq = measure_cpu_ghz();
+    return freq;
+}
+
+}
+
+} // timing namespace
 
 #endif

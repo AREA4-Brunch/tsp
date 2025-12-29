@@ -25,12 +25,12 @@ def main():
     # if somethign is not provided genrate for all possibilites
     if algo is None:
         algos = [ 'bellman_held_karp' ]
-        for k in range(3, 3 + 1):
-            algos.append(f'{k}_opt_classical')
-            algos.append(f'{k}_opt_best_cut')
-            algos.append(f'{k}_opt_funky')
-            algos.append(f'{k}_opt_rand')
-            algos.append(f'{k}_opt_rand_no_2_opt')
+        for prefix in list(range(3, 3 + 1)) + [ 'auto' ]:
+            algos.append(f'{prefix}_opt_classical')
+            algos.append(f'{prefix}_opt_best_cut')
+            algos.append(f'{prefix}_opt_funky')
+            algos.append(f'{prefix}_opt_rand')
+            algos.append(f'{prefix}_opt_rand_no_2_opt')
     else:
         algos = [ algo ]
 
