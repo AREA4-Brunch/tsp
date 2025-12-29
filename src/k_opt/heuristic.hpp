@@ -41,8 +41,6 @@ class Heuristic {
         const int verbose = 0
     );
 
- protected:
-
     virtual cost_t run(
         typename vertex_t::traits::node_ptr solution,
         cost_t cur_cost,
@@ -51,6 +49,8 @@ class Heuristic {
         const int n,
         const int verbose = 0
     ) const noexcept = 0;
+
+ protected:
 
     virtual typename vertex_t::traits::node_ptr
     createInitSolution(

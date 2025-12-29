@@ -37,10 +37,6 @@ class KOptFunky : public Heuristic<cost_t, vertex_t>
         this->k = k;
     }
 
- protected:
-
-    const cut_strategy_t cut;
-
     cost_t run(
         typename vertex_t::traits::node_ptr path,
         cost_t cur_cost,
@@ -49,6 +45,10 @@ class KOptFunky : public Heuristic<cost_t, vertex_t>
         const int n,
         const int verbose = 0
     ) const noexcept override;
+
+ protected:
+
+    const cut_strategy_t cut;
 
  private:
 
@@ -110,8 +110,6 @@ cost_t KOptFunky<cost_t, cut_strategy_t, vertex_t, K>::run(
                 n, segs, cur_cost_change, weights,
                 perm_idx, segs_buf
             );
-            // add slight amount to negative side when comparing
-            // the change to avoid swaps of the same element
             if (cur_cost_change < -1e-10) [[ unlikely ]] {
                 cut->applyCut(
                     perm_idx >= 0 ? segs : segs_buf,

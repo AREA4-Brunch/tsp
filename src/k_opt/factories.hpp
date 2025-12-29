@@ -44,6 +44,9 @@ std::variant<
         { "2_opt", [] () {
             return Cut2Opt<cost_t, vertex_t>();
         }},
+        { "2_opt_pure", [] () {
+            return Cut2Opt<cost_t, vertex_t>();
+        }},
         { "3_opt", [] () {
             return Cut3Opt<cost_t, vertex_t>();
         }},
