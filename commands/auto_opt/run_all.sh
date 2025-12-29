@@ -14,7 +14,7 @@ if [ "$do_compile" = "--no-compile" ]; then
     echo "Skipping compilation..."
 else
     echo "Compiling..."
-    if ! g++ --static -std=c++23 -O3 -Wall -Winline -Wextra "$BOOST_INCLUDE" -o "$SRC_DIR/main.exe" "$SRC_DIR/main.cpp"; then
+    if ! g++ --static -std=c++23 -O3 -Wall -Wextra "$BOOST_INCLUDE" -o "$SRC_DIR/main.exe" "$SRC_DIR/main.cpp"; then
         echo "Compilation failed."
         exit 1
     fi

@@ -38,16 +38,29 @@ class Heuristic {
         const bool is_searching_for_path,
         History<cost_t> &history,
         const unsigned int seed = 0U,
-        const int verbose = 0
+        const int verbose = 0,
+        [[ maybe_unused ]] const unsigned long long max_exec = 0ULL,
+        [[ maybe_unused ]] const unsigned long long t_check_freq = 10000ULL
     );
 
     virtual cost_t run(
-        typename vertex_t::traits::node_ptr solution,
+        typename vertex_t::traits::node_ptr path,
         cost_t cur_cost,
         History<cost_t> &history,
         const cost_t * __restrict const flat_weights,
         const int n,
         const int verbose = 0
+    ) const noexcept = 0;
+
+    virtual cost_t run_tlimit(
+        typename vertex_t::traits::node_ptr path,
+        cost_t cur_cost,
+        History<cost_t> &history,
+        const cost_t * __restrict const flat_weights,
+        const int n,
+        const int verbose = 0,
+        [[ maybe_unused ]] const unsigned long long max_exec = 0ULL,
+        [[ maybe_unused ]] const unsigned long long t_check_freq = 10000ULL
     ) const noexcept = 0;
 
  protected:
@@ -91,7 +104,9 @@ cost_t Heuristic<cost_t, vertex_t>::search(
     const bool is_searching_for_path,
     History<cost_t> &history,
     const unsigned int seed,
-    const int verbose
+    const int verbose,
+    [[ maybe_unused ]] const unsigned long long max_exec,
+    [[ maybe_unused ]] const unsigned long long t_check_freq
 ) {
     const int n = weights.size() + is_searching_for_path;
     if (solution.empty()) {  // start from random solution
@@ -116,11 +131,17 @@ cost_t Heuristic<cost_t, vertex_t>::search(
     const cost_t init_cost = this->calcCost(
         path, flat_weights.data(), n
     );
-    const cost_t best_cost = this->run(
-        path, init_cost, history,
-        flat_weights.data(), n,
-        verbose
-    );
+    const cost_t best_cost = max_exec > 0ULL
+        ? this->run_tlimit(
+            path, init_cost, history,
+            flat_weights.data(), n,
+            verbose, max_exec, t_check_freq
+        )
+        : this->run(
+            path, init_cost, history,
+            flat_weights.data(), n,
+            verbose
+        );
     k_opt::path_algos::correct_order<vertex_t>(
         path,
         vertex_t::traits::get_previous(path)

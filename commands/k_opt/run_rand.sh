@@ -9,6 +9,8 @@ else
     iterations=30
 fi
 
+do_compile=${2-}
+
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROOT_DIR="$SCRIPT_DIR/.."
 SRC_DIR="$SCRIPT_DIR/../../src/k_opt"

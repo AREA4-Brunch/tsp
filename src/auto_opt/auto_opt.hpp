@@ -22,16 +22,50 @@ class AutoOpt : public Heuristic<cost_t, vertex_t>
 
     explicit AutoOpt(const std::string &select_name, const int k = -1);
 
- protected:
-
     cost_t run(
-        typename vertex_t::traits::node_ptr solution,
+        typename vertex_t::traits::node_ptr path,
         cost_t cur_cost,
         History<cost_t> &history,
         const cost_t * __restrict const flat_weights,
         const int n,
         const int verbose = 0
-    ) const noexcept override;
+    ) const noexcept override {
+        return this->template run_internal<false>(
+            path, cur_cost, history,
+            flat_weights, n, verbose
+        );
+    }
+
+    cost_t run_tlimit(
+        typename vertex_t::traits::node_ptr path,
+        cost_t cur_cost,
+        History<cost_t> &history,
+        const cost_t * __restrict const flat_weights,
+        const int n,
+        const int verbose = 0,
+        [[ maybe_unused ]] const unsigned long long max_exec = 0ULL,
+        [[ maybe_unused ]] const unsigned long long t_check_freq = 10000ULL
+    ) const noexcept override {
+        return this->template run_internal<true>(
+            path, cur_cost, history,
+            flat_weights, n, verbose,
+            max_exec, t_check_freq
+        );
+    }
+
+ protected:
+
+    template<bool with_time_limit>
+    cost_t run_internal(
+        typename vertex_t::traits::node_ptr path,
+        cost_t cur_cost,
+        History<cost_t> &history,
+        const cost_t * __restrict const weights,
+        const int n,
+        const int verbose,
+        [[ maybe_unused ]] const unsigned long long max_exec = 0ULL,
+        [[ maybe_unused ]] const unsigned long long t_check_freq = 10000ULL
+    ) const noexcept;
 
  private:
 
@@ -51,7 +85,8 @@ AutoOpt<cost_t, v_t, K>::AutoOpt(
 ) : k(k)
 {
     for (int cur_k = k; cur_k >= 2; --cur_k) {
-        std::string cut_name = std::to_string(cur_k) + "_opt_pure";
+        // std::string cut_name = std::to_string(cur_k) + "_opt_pure";
+        std::string cut_name = std::to_string(cur_k) + "_opt";
         auto pure_opt = factories::createAlgo<cost_t, v_t>(
             selection_name, cut_name, 0U
         );
@@ -60,22 +95,36 @@ AutoOpt<cost_t, v_t, K>::AutoOpt(
 }
 
 template<typename cost_t, IntrusiveVertex vertex_t, int K>
-cost_t AutoOpt<cost_t, vertex_t, K>::run(
+template<bool with_time_limit>
+cost_t AutoOpt<cost_t, vertex_t, K>::run_internal(
     typename vertex_t::traits::node_ptr path,
     cost_t cur_cost,
     History<cost_t> &history,
     const cost_t * __restrict const weights,
     const int n,
-    const int verbose
+    const int verbose,
+    [[ maybe_unused ]] unsigned long long max_exec,
+    [[ maybe_unused ]] const unsigned long long t_check_freq
 ) const noexcept {
     for (const auto &desc : this->heuristics) {
         const int k = desc.first;
         const auto &heur = desc.second;
-        std::cout << std::endl << "SWITCHING to heuristic with k = "
-                  << k << std::endl;
-        cur_cost = heur->run(
-            path, cur_cost, history, weights, n, verbose
-        );
+        if (verbose > 0) {
+            std::cout << std::endl
+                      << "SWITCHING to heuristic with k = "
+                      << k << std::endl;
+        }
+        if constexpr (!with_time_limit) {
+            cur_cost = heur->run(
+                path, cur_cost, history, weights, n,
+                verbose
+            );
+        } else {
+            cur_cost = heur->run_tlimit(
+                path, cur_cost, history, weights, n,
+                verbose, max_exec, t_check_freq
+            );
+        }
     }
     return cur_cost;
 }

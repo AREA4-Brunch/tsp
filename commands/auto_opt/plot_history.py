@@ -18,7 +18,6 @@ import gc
 import struct
 import plotly.graph_objects as go
 
-K = 3
 ALGOS = [
     # f'auto_opt_best_cut',  # remove from plot since too long too large cost
     f'auto_opt_classical',

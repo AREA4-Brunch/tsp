@@ -25,6 +25,7 @@ cost_t Solve(
     std::vector<std::vector<cost_t>> &distances,
     const bool is_searching_for_cycle,
     k_opt::History<cost_t> &history,
+    const int timeout_per_k_change_ms,
     const unsigned int seed
 );
 
@@ -72,12 +73,15 @@ int main(const int argc, const char **argv)
     const unsigned long long timeout_ms = argc < 9
                                         ? 1000ULL * 105 * 60  // 105 mins
                                         : 1000ULL * std::atoll(argv[8]);
-    const bool is_searching_for_cycle = argc < 10
+    const unsigned long long timeout_per_k_change_ms = argc < 10
+                                        ? 1000  // 1 second per k
+                                        : std::atoi(argv[9]);
+    const bool is_searching_for_cycle = argc < 11
                                     ? false  // by default solve SHP
-                                    : std::string(argv[9]) == "tsp";
-    const bool is_problem_in_pts_format = argc < 11
+                                    : std::string(argv[10]) == "tsp";
+    const bool is_problem_in_pts_format = argc < 12
                                         ? true  // not TSPLIB format by default
-                                        : std::atoi(argv[10]);
+                                        : std::atoi(argv[11]);
     const bool is_history_off = detail::hasFlag(argc, argv, "--no-history");
 
     std::cout << "Solving "
@@ -117,6 +121,7 @@ int main(const int argc, const char **argv)
                 const cost_t min_cost = Solve<cost_t>(
                     selection_name, k,
                     distances, is_searching_for_cycle, *cur_history,
+                    timeout_per_k_change_ms,
                     seed++  // e.g. good: 3310318500
                 );
                 avg_min_cost_in_n_reruns += min_cost;
@@ -159,6 +164,7 @@ cost_t Solve(
     std::vector<std::vector<cost_t>> &distances,
     const bool is_searching_for_cycle,
     k_opt::History<cost_t> &history,
+    const int timeout_per_k_change_ms,
     const unsigned int seed
 ) {
     using id_t = int;
@@ -178,7 +184,8 @@ cost_t Solve(
         !is_searching_for_cycle,
         history,
         seed,
-        1  // verbose
+        1,  // verbose
+        timing::msToCycles(timeout_per_k_change_ms)
     );
 
     // log found cost and path:

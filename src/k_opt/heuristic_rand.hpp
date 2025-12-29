@@ -4,8 +4,8 @@
 #include <iostream>
 #include <iomanip>
 #include <vector>
+#include <array>
 #include <utility>
-#include <stack>
 #include <boost/random/uniform_int_distribution.hpp>
 #include <boost/random/mersenne_twister.hpp>
 #include "heuristic.hpp"
@@ -45,17 +45,51 @@ class KOptRand : public Heuristic<cost_t, vertex_t>
     }
 
     cost_t run(
-        typename vertex_t::traits::node_ptr solution,
+        typename vertex_t::traits::node_ptr path,
         cost_t cur_cost,
         History<cost_t> &history,
         const cost_t * __restrict const flat_weights,
         const int n,
         const int verbose = 0
-    ) const noexcept override;
+    ) const noexcept override {
+        return this->template run_internal<false>(
+            path, cur_cost, history,
+            flat_weights, n, verbose
+        );
+    }
+
+    cost_t run_tlimit(
+        typename vertex_t::traits::node_ptr path,
+        cost_t cur_cost,
+        History<cost_t> &history,
+        const cost_t * __restrict const flat_weights,
+        const int n,
+        const int verbose = 0,
+        [[ maybe_unused ]] const unsigned long long max_exec = 0ULL,
+        [[ maybe_unused ]] const unsigned long long t_check_freq = 10000ULL
+    ) const noexcept override {
+        return this->template run_internal<true>(
+            path, cur_cost, history,
+            flat_weights, n, verbose,
+            max_exec, t_check_freq
+        );
+    }
 
  protected:
 
     const cut_strategy_t cut;
+
+    template<bool with_time_limit>
+    cost_t run_internal(
+        typename vertex_t::traits::node_ptr path,
+        cost_t cur_cost,
+        History<cost_t> &history,
+        const cost_t * __restrict const weights,
+        const int n,
+        const int verbose,
+        [[ maybe_unused ]] const unsigned long long max_exec = 0ULL,
+        [[ maybe_unused ]] const unsigned long long t_check_freq = 10000ULL
+    ) const noexcept;
 
  private:
 
@@ -153,14 +187,22 @@ bool KOptRand<cost_t, cut_strategy_t, vertex_t, K>::genRandomSegments(
 template<typename cost_t, typename cut_strategy_t,
          IntrusiveVertex vertex_t, int K>
 requires CutStrategy<cut_strategy_t, cost_t, vertex_t, K>
-cost_t KOptRand<cost_t, cut_strategy_t, vertex_t, K>::run(
+template<bool with_time_limit>
+cost_t KOptRand<cost_t, cut_strategy_t, vertex_t, K>::run_internal(
     typename vertex_t::traits::node_ptr path,
     cost_t cur_cost,
     History<cost_t> &history,
     const cost_t * __restrict const weights,
     const int n,
-    const int verbose
+    const int verbose,
+    [[ maybe_unused ]] unsigned long long max_exec,
+    [[ maybe_unused ]] const unsigned long long t_check_freq
 ) const noexcept {
+    unsigned long long t_freq = t_check_freq;
+    if constexpr (with_time_limit) {
+        max_exec += __rdtsc();
+    }
+
     using seg_ptr = typename vertex_t::traits::node_ptr;
     using seg_t = std::pair<seg_ptr, seg_ptr>;
     const int k = this->getK();
@@ -212,6 +254,15 @@ cost_t KOptRand<cost_t, cut_strategy_t, vertex_t, K>::run(
         did_update = false;
 
         const auto process_cut = [&] () [[ gnu::hot ]] {
+            if constexpr (with_time_limit) {
+                if (--t_freq == 0) [[ unlikely ]] {
+                    if (__rdtsc() >= max_exec) [[ unlikely ]] {
+                        did_update = false;  // flag the end
+                        return true;
+                    }
+                    t_freq = t_check_freq;
+                }
+            }
             int perm_idx = -1;
             const int swap_mask = cut->template selectCut<false>(
                 n, segs, cur_cost_change, weights,
